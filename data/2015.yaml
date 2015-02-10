@@ -1,0 +1,29 @@
+year: 2015
+- phase:
+    date: 1/30
+    sport: bike
+    distance: 15km
+    time: 43'22
+    description: do prace
+- phase:
+    date: 1/30
+    sport: Concept2
+    distance: 9.5km
+    description: 5'+4x10'+5'
+- phase:
+    date: 1/30
+    sport: bike
+    distance: 8km
+    time: 41'00
+    description: do prace pres Krejcarek 
+- phase:
+    date: 1/30
+    sport: ski downhill
+    time: 4h
+    description: Mmk Knezicky Vrch
+- phase:
+    date: 1/30
+    relax: sauna
+    time: 1h
+    description: 3x15' sauna Sutka
+...
