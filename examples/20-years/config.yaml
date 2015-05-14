@@ -42,6 +42,18 @@ equipment:
       from: 2012/?/?
       to: -
       price: 37000 CZK
+    - activity: Downhill Ski
+      equipment: Atomic
+      nickname: Atomic
+      from: 2014/12/?
+      to: -
+      price: 2000 CZK
+    - activity: Downhill Ski
+      equipment: Armada El Rey
+      nickname: Armada
+      from: 2015/3/?
+      to: -
+      price: 9000 CZK
 
 output:
     - format: TXT

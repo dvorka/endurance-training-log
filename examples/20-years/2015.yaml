@@ -13,7 +13,7 @@ year: 2015
     temperature: 13
     feeling: 4/5
     weight: 86.5kg
-    equipment: WaveRider18
+    equipment: Rockhopper
     description: |
         OK > HP
 - phase:
@@ -32,6 +32,7 @@ year: 2015
     date: 4/29
     activity: Concept2
     distance: 8km
+    equipment: MyE
     details:
         - warmup: 5'
         - 5km: 19'20.0
@@ -54,9 +55,9 @@ year: 2015
     activity: Downhill ski
     track: Rokytnice
     time: 4h
+    equipment: Atomic
     description: |
         Downhill ski with Miky in Rokytnice.
-
 
 # February
 
@@ -79,7 +80,7 @@ year: 2015
     description: |
         Feeling right knee - regeneration to avoid further problems.
 
-
+# TRASH
 
 - phase:
     date: 5/13

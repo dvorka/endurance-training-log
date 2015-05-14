@@ -36,11 +36,40 @@ class TrainingPhase:
 # drives Python datastructures and code here only performs
 # traversal and analytics of these structures.
 class TrainingLog:
-   def loadAndDump(self):
-       stream = open("config.yaml", 'r')
-       data = yaml.load(stream, Loader=yaml.CLoader)
-       #yaml.dump(data, Dumper=yaml.CDumper)
-       print yaml.dump(data)
+    
+    # Load all data files declared in config.yaml
+    def load(self):
+        print 'TBD'
+
+    def loadAndDump(self):
+        stream = open("config.yaml", 'r')
+        data = yaml.load(stream, Loader=yaml.CLoader)
+        print yaml.dump(data)
+
+class Report:
+
+    # For every piece of equipment evaluate how much 1km cost
+    def equipmentCostPerKm(self):
+        print 'TBD'
+
+    # For every piece of equipment evaluate how much 1day
+    # of ownership cost
+    def equipmentCostPerDay(self):
+        print 'TBD'
+
+    def byTimeTracksPerActivity(self):
+        print 'TBD'
+    def byDistanceTracksPerActivity(self):
+        print 'TBD'
+    def racesPerActivity(self):
+        print 'TBD'
+
+    def meDistancePerDayPerActivity(self):
+        print 'TBD'
+    def meDistancePerDayAllActivities(self):
+        print 'TBD'
+    def meTotalUnitsForEachActivity(self):
+        print 'TBD'
 
 
 # main()
