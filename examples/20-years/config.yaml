@@ -1,0 +1,51 @@
+# Global MySportLife configuration
+
+me:
+    first-name: Martin
+    family-name: Dvorak
+
+born:
+    year: 1976
+    month: 5
+    day: 30
+
+data:
+    - file: ./2015.yaml
+
+configuration:
+    activity-ratio:
+      - activity: Running
+        ratio: 1
+      - activity: Concept2
+        ratio: 1
+      - activity: MTB
+        ratio: 0.3
+
+equipment:
+    - activity: Running
+      equipment: Mizuno Wave Rider 18
+      nickname: WaveRider18
+      size: 44 US
+      from: 2015/5/14
+      to: -
+      price: 3500 CZK
+    - activity: MTB
+      equipment: Specialized Rockhopper Pro 2012
+      nickname: Rockhopper
+      size: L
+      from: 2013/?/?
+      to: -
+      price: 25000 CZK
+    - activity: Concept2
+      equipment: Concept 2 Model E
+      nickname: MyE
+      from: 2012/?/?
+      to: -
+      price: 37000 CZK
+
+output:
+    - format: TXT
+      directory: 20-years-web
+#   - format: HTML
+
+# eof

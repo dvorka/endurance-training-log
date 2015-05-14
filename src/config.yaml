@@ -1,0 +1,14 @@
+# Global MySportLife configuration
+
+me:
+  first-name: Martin
+  family-name: Dvorak
+  born:
+    month: 5
+    day: 30
+    year: 1976
+
+generator:
+  output-format: TXT
+
+# eof
