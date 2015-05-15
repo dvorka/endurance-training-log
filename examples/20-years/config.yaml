@@ -3,11 +3,13 @@
 me:
     first-name: Martin
     family-name: Dvorak
-
-born:
-    year: 1976
-    month: 5
-    day: 30
+    home:
+        town: Praha
+        country: Czech Republic
+    born:
+        year: 1976
+        month: 5
+        day: 30
 
 data:
     - file: ./2015.yaml
@@ -24,7 +26,7 @@ configuration:
 equipment:
     - activity: Running
       equipment: Mizuno Wave Rider 18
-      nickname: WaveRider18
+      nickname: WR18
       size: 44 US
       from: 2015/5/14
       to: -

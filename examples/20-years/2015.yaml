@@ -1,10 +1,29 @@
+# My 2015 training log, Martin Dvorak
+---
 year: 2015
+log:
 
 # May
 
-- phase:
-    date: 5/13
-    order: 1
+  - date: 5/15
+    description: >
+        OK > Bohnice > Palisada
+    phase: 1
+    activity: Running
+    activity-type: tempo run
+    distance: 16.5km
+    track: Friday Palisada
+    time: 1h25'22
+    weather: sunny
+    temperature: 18
+    feeling: 4/5
+    weight: 85kg
+    equipment: WR18
+
+  - date: 5/13
+    description: >
+        OK > HP
+    phase: 1
     activity: MTB
     distance: 18.7km
     track: HP > OK greenfields
@@ -14,22 +33,21 @@ year: 2015
     feeling: 4/5
     weight: 86.5kg
     equipment: Rockhopper
-    description: |
-        OK > HP
-- phase:
-    date: 5/13
-    order: 2
+
+  - date: 5/13
+    description: >
+        HP > OK
+    phase: 2
     activity: MTB
     distance: 18.7km
     time: 55'22
     equipment: Rockhopper
-    description: |
-        HP > OK
 
 # April
 
-- phase:
-    date: 4/29
+  - date: 4/29
+    description: >
+        BBC left model D
     activity: Concept2
     distance: 8km
     equipment: MyE
@@ -37,32 +55,30 @@ year: 2015
         - warmup: 5'
         - 5km: 19'20.0
         - cooldown: 2km
-    description: |
-        BBC left model D
-- phase:
-    date: 4/28
+
+  - date: 4/28
+    description: >
+        Sport evening in Infinit
     activity: sauna
     details:
         - sauna: 15'
         - sauna: 15'
-    description: |
-        Sport evening in Infinit
 
 # March
 
-- phase:
-    date: 3/2
+  - date: 3/2
+    description: >
+        Downhill ski with Miky in Rokytnice.
     activity: Downhill ski
     track: Rokytnice
     time: 4h
     equipment: Atomic
-    description: |
-        Downhill ski with Miky in Rokytnice.
 
 # February
 
-- phase:
-    date: 2/18
+  - date: 2/18
+    description: >
+        Intervals 2x18', BBC left model D,
     activity: Concept2
     distance: 11km
     details:
@@ -70,55 +86,12 @@ year: 2015
         - interval: 18'
         - interval: 18'
         - cooldown: 2x5'
-    description: |
-        Intervals 2x18', BBC left model D,
-- phase:
-    date: 2/17
+
+  - date: 2/17
+    description: >
+        Feeling right knee - regeneration to avoid further problems.
     activity: sick
     details:
         - right-knee: 1/10 pain
-    description: |
-        Feeling right knee - regeneration to avoid further problems.
 
-# TRASH
-
-- phase:
-    date: 5/13
-    order: 1
-    activity: mtb
-    distance: 18.7km
-    time: 55'22
-    weather: sunny
-    temperature: 13
-    feeling: 4/5
-    description: |
-        OK > HP
-
-- phase:
-    date: 1/30
-    sport: bike
-    distance: 15km
-    time: 43'22
-    description: do prace
-- phase:
-    date: 1/30
-    sport: Concept2
-    distance: 9.5km
-    description: 5'+4x10'+5'
-- phase:
-    date: 1/30
-    sport: bike
-    distance: 8km
-    time: 41'00
-    description: do prace pres Krejcarek
-- phase:
-    date: 1/30
-    sport: ski downhill
-    time: 4h
-    description: Mmk Knezicky Vrch
-- phase:
-    date: 1/30
-    relax: sauna
-    time: 1h
-    description: 3x15' sauna Sutka
 ...
