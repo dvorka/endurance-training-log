@@ -1,0 +1,21 @@
+# My 2015 training log
+---
+year: 2015
+log:
+
+  - date: 1/1
+    description: >
+        New year run
+    phase: 1
+    activity: Running
+    activity-type: tempo run
+    distance: 16.5km
+    track: Creek Trail
+    time: 1h25'22
+    weather: sunny
+    temperature: 18
+    feeling: 4/5
+    weight: 85kg
+    equipment: WR18
+
+...

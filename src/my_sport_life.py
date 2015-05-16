@@ -148,7 +148,7 @@ class Report:
 
 #log = TrainingLog("config.yaml")
 log = TrainingLog('../examples/20-years/2015.yaml')
-report = Report(log.load())
+report = Report(log.getLog())
 report.calculate()
 report.printStatistics()
 

@@ -1,0 +1,39 @@
+# Global MySportLife configuration
+
+me:
+    first-name: John
+    family-name: Doe
+    home:
+        town: Prague
+        country: Czech Republic
+    born:
+        year: 1970
+        month: 1
+        day: 1
+
+data:
+    - file: ./2015.yaml
+
+configuration:
+    activity-ratio:
+      - activity: Running
+        ratio: 1
+      - activity: Swimming
+        ratio: 1
+      - activity: Biking
+        ratio: 0.3
+
+equipment:
+    - activity: Running
+      equipment: Mizuno Wave Rider 18
+      nickname: WR18
+      size: 44 US
+      from: 2015/1/1
+      to: -
+      price: 100 USD
+
+output:
+    - format: TXT
+      directory: my-sport-life
+
+# eof
