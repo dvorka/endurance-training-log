@@ -1,0 +1,20 @@
+# My 1990 'young rower' training log, Martin Dvorak
+---
+year: 1990
+
+log:
+
+# September
+
+  - date: 9/3
+    description: >
+        Warm up before main rowing phase
+    phase: 1
+    activity: Running
+    activity-type: warm up
+    distance: 2.5km
+    track: Bohemians - Racek
+
+
+
+# eof

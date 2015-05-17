@@ -59,7 +59,8 @@ log:
   - date: 4/28
     description: >
         Sport evening in Infinit
-    activity: sauna
+    activity: Sauna
+    time: 30'
     details:
         - sauna: 15'
         - sauna: 15'

@@ -11,8 +11,13 @@ me:
         month: 1
         day: 1
 
-data:
-    - file: ./2015.yaml
+equipment:
+    - activity: Running
+      equipment: Mizuno Wave Rider 18
+      nickname: WR18
+      size: 44 US
+      from: 2015/1/1
+      price: 100 USD
 
 configuration:
     activity-ratio:
@@ -23,14 +28,8 @@ configuration:
       - activity: Biking
         ratio: 0.3
 
-equipment:
-    - activity: Running
-      equipment: Mizuno Wave Rider 18
-      nickname: WR18
-      size: 44 US
-      from: 2015/1/1
-      to: -
-      price: 100 USD
+training-logs:
+    - file: ./2015.yaml
 
 output:
     - format: TXT

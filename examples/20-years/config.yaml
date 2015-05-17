@@ -11,10 +11,39 @@ me:
         month: 5
         day: 30
 
-data:
-    - file: ./2015.yaml
+equipment:
+    - activity: Running
+      equipment: Mizuno Wave Rider 18
+      nickname: WR18
+      size: 44 US
+      from: 2015/5/14
+      price: 3500 CZK
+    - activity: MTB
+      equipment: Specialized Rockhopper Pro 2012
+      nickname: Rockhopper
+      size: L
+      from: 2013/?/?
+      price: 25000 CZK
+    - activity: Concept2
+      equipment: Concept 2 Model E
+      nickname: MyE
+      from: 2012/?/?
+      price: 37000 CZK
+    - activity: Downhill Ski
+      equipment: Atomic
+      nickname: Atomic
+      from: 2014/12/?
+      price: 2000 CZK
+    - activity: Downhill Ski
+      equipment: Armada El Rey
+      nickname: Armada
+      from: 2015/3/?
+      price: 9000 CZK
 
 configuration:
+    regeneration-activities:
+      - Sauna
+      - Meditation
     activity-ratio:
       - activity: Running
         ratio: 1
@@ -23,39 +52,27 @@ configuration:
       - activity: MTB
         ratio: 0.3
 
-equipment:
-    - activity: Running
-      equipment: Mizuno Wave Rider 18
-      nickname: WR18
-      size: 44 US
-      from: 2015/5/14
-      to: -
-      price: 3500 CZK
-    - activity: MTB
-      equipment: Specialized Rockhopper Pro 2012
-      nickname: Rockhopper
-      size: L
-      from: 2013/?/?
-      to: -
-      price: 25000 CZK
-    - activity: Concept2
-      equipment: Concept 2 Model E
-      nickname: MyE
-      from: 2012/?/?
-      to: -
-      price: 37000 CZK
-    - activity: Downhill Ski
-      equipment: Atomic
-      nickname: Atomic
-      from: 2014/12/?
-      to: -
-      price: 2000 CZK
-    - activity: Downhill Ski
-      equipment: Armada El Rey
-      nickname: Armada
-      from: 2015/3/?
-      to: -
-      price: 9000 CZK
+training-logs:
+    - file: ./2015.yaml
+#    - file: ./2014.yaml
+#    - file: ./2013.yaml
+#    - file: ./2012.yaml
+#    - file: ./2011.yaml
+#    - file: ./2010.yaml
+#    - file: ./2009.yaml
+#    - file: ./2008.yaml
+#    - file: ./2007.yaml
+#    - file: ./2006.yaml
+#    - file: ./2005.yaml
+#    - file: ./2004.yaml
+#    - file: ./2003.yaml
+#    - file: ./2002.yaml
+#    - file: ./2001.yaml
+#    - file: ./2000.yaml
+#    - file: ./1999.yaml
+#    - file: ./1998.yaml
+#    - file: ./1997.yaml
+    - file: ./1996.yaml
 
 output:
     - format: TXT

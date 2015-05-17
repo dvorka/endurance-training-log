@@ -19,16 +19,20 @@ under the License.
 '''
 
 import yaml
+from datetime import datetime
 
+l18nweekdays = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
 
 class MySportLife:
     '''
     Main class.
     '''
         
-    def __init__(self):
-        self.version = 1.0
+    def __init__(self, configurationFilePath):
+        self.configurationFilePath
 
+    def generate(self):
+        pass
 
 
 class MySportLifeConfiguration:
@@ -43,6 +47,13 @@ class MySportLifeConfiguration:
 
     def getConfiguration(self):
         return self.configuration
+
+
+class MySportLifeException(Exception):
+    def __init__(self, value):
+        self.value = value         
+    def __str__(self):
+        return repr(self.value)
 
 
 class TrainingLog:
@@ -70,9 +81,23 @@ class ActivityTotals:
     Total summary for a particular sport activity - used as dictionary value.
     '''
     days = set([]);
-    phases = set([]);
+    phases = [];
     km = 0;
     seconds = 0;
+    
+    def __init__(self):
+        pass
+    
+    def add(self, phase):
+        self.days.add(phase.get('date'))
+        self.phases.append(phase)
+        if 'distance' in phase:
+            if phase.get('distance').endswith('km'):
+                self.km += float(phase.get('distance').replace('km',''))
+            else:
+                raise MySportLifeException('Unknown unit used in distance {}'.format(phase.get('distance')))
+        if 'time' in phase:
+            print 'TBD'
 
 
 class Report:
@@ -83,19 +108,21 @@ class Report:
     daysWorthIt = set([])
     sickDays = set([])
     activityTypes = set([])
-    # TODO this must be dictionary and activity has dict with 'km' where its evaluated
-    totalConcept2Phases = 0
-    totalRunningPhases = 0
-    totalConcept2Km = 0
-    totalRunningKm = 0
+    activities = {}
 
     def __init__(self, data):
         self.data = data
 
+    def dateToWeekday(self, year, month, day):
+        d = datetime.date(year, month, day)
+        return self.l18nweekdays[d.weekday()]
+
     def calculate(self):
-        print 'Calculating year: {}'.format(self.data.get('year'))
+        print 'Processing...'
         for phase in self.data.get('log'):
-            print '  {}'.format(phase.get('date'))
+            monthAndDay=phase.get('date').split('/');
+            # TODO weekday=self.dateToWeekday(self.data.get('year'),monthAndDay[0],monthAndDay[1])
+            print '  {}/{}/{} {}'.format(self.data.get('year'),monthAndDay[0],monthAndDay[1],'?')
             activity=phase.get('activity')
             if activity == 'sick':
                 self.sickDays.add(phase.get('date'))
@@ -103,10 +130,9 @@ class Report:
                 self.daysWorthIt.add(phase.get('date'))
                 if activity not in self.activityTypes:
                     self.activityTypes.add(activity)
-
-                if activity == 'Concept2':
-                    self.totalConcept2Phases+=1
-                    #self.totalConcept2Km += phase.get('distance')
+                    self.activities[phase.get('activity')] = ActivityTotals()
+                totals=self.activities.get(phase.get('activity'))
+                totals.add(phase)
 
     # For every piece of equipment evaluate how much 1km cost
     def equipmentCostPerKm(self):
@@ -131,18 +157,90 @@ class Report:
     def meTotalUnitsForEachActivity(self):
         print 'TBD'
 
-    def printStatistics(self):
+
+class TxtLogGenerator:
+    
+    def __init__(self, targetDirectoryPath, report):
+        self.targetDirectoryPath = targetDirectoryPath
+        self.report = report
+        
+    def generate(self):
         # TODO make this single string
         print '\nReport:'
-        print '  Active days: {}'.format(len(self.daysWorthIt))
-        print '  Sick days: {}'.format(len(self.sickDays))
-        print '  Phases: {}'.format(len(self.data.get('log'))-len(self.sickDays))
-        print '  Running phases: {}'.format(self.totalRunningPhases)
-        print '  Running km: {}'.format(self.totalRunningKm)
-        print '  Concept2 phases: {}'.format(self.totalConcept2Phases)
-        print '  Concept2 km: {}'.format(self.totalConcept2Km)
+        print '  Active days: {}'.format(len(report.daysWorthIt))
+        print '  Sick days: {}'.format(len(report.sickDays))
+        print '  Phases: {}'.format(len(report.data.get('log'))-len(report.sickDays))
+        print '  Running phases: {}'.format(report.totalRunningPhases)
+        print '  Running km: {}'.format(report.totalRunningKm)
+        print '  Concept2 phases: {}'.format(report.totalConcept2Phases)
+        print '  Concept2 km: {}'.format(report.totalConcept2Km)
         print '\n'
 
+htmlPagePrefix='''\
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{}</title>
+    <link href='./style.css' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <center>
+'''
+
+htmlPageTitle='''      <div class="life-title">{}</div>'''
+
+htmlPageSuffix='''
+    </center>
+  </body>
+</html>
+'''
+
+htmlAllYearsSummaryTablePrefix='''
+    <table>
+    <tr>
+      <td>Total</td>
+      <td>Running</td>
+      <td>Biking</td>
+      <td>Rowing</td>
+      <td>Skiing</td>
+      <td>Swimming</td>
+    </tr>
+'''
+
+htmlAllYearsSummaryTableSuffix='''
+    </table>
+'''
+     
+class HtmlLogGenerator:
+    
+    def __init__(self, targetDirectoryPath, report):
+        self.targetDirectoryPath = targetDirectoryPath
+        self.report = report
+        
+    def generate(self):
+        self.generateIndexFile()
+
+    def generateIndexFile(self):
+        filePath = self.targetDirectoryPath+'/index.html'
+        f = open(filePath, "w")
+        f.write(htmlPagePrefix.format('My Sport Life'))
+        f.write(htmlPageTitle.format('My Sport Life'))
+        self.writeAllYearsSummaryTable(f)
+        f.write(htmlPageSuffix)
+        f.close()
+        
+    def writeAllYearsSummaryTable(self, f):
+        f.write('\n      <table>')
+        f.write('\n        <th>')
+        for activityType in self.report.activityTypes:
+            f.write('\n          <td>{}</td>'.format(activityType))
+        f.write('\n        </th>')
+        f.write('\n        <tr>')
+        for activityType in self.report.activityTypes:
+            f.write('\n          <td>{}</td>'.format(self.report.activities.get(activityType).km))
+        f.write('\n        </tr>')
+        f.write('\n      </table>')
 
 # main()
 
@@ -150,6 +248,9 @@ class Report:
 log = TrainingLog('../examples/20-years/2015.yaml')
 report = Report(log.getLog())
 report.calculate()
-report.printStatistics()
+# txtLog = TxtLogGenerator('/home/dvorka/tmp/20years',report)
+# txtLog.generate()
+htmlLog = HtmlLogGenerator('/home/dvorka/tmp/20years',report)
+htmlLog.generate()
 
 # eof
