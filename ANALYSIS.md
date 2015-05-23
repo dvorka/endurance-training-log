@@ -16,7 +16,7 @@ Technology
 Configuration
 -------------
 * Data are written in/converted from existing sources in YAML.
-* NICE: web interface/desktop tool (console) for data management 
+* NICE: web interface/desktop tool (console) for data management
   (add new training) ensures validity e.g. in Qt/Python.
 * Simple validation tool that performs also YAML to JSon conversion.
 
@@ -37,3 +37,7 @@ Statistics
 HTML Generator
 --------------
 * https://wiki.python.org/moin/Templating
+
+Web Inspiration
+---------------
+* http://www.awwwards.com/web-design-awards/ava-sessions

@@ -1,7 +1,192 @@
-.life-title {
-    font-size: xx-large;
+/* My Sport Life CSS
+
+ Web 2.0 colors:
+  Shiny silver [#EEEEEE]
+  Reddit white [#FFFFFF]
+  Magnolia Mag.nolia [#F9F7ED]
+  Interactive action yellow [#FFFF88]
+  Qoop Mint [#CDEB8B]
+  Gmail blue [#C3D9FF]
+  Shadows Grey [#36393D]
+  Mozilla Red [#FF1A00]
+  Rollyo Red [#CC0000]
+  RSS Orange [#FF7400]
+  Techcrunch green [#008C00]
+  Newsvine Green [#006E2E]
+  Flock Blue [#4096EE]
+  Flickr Pink [#FF0084]
+  Ruby on Rails Red [#B02B2C]
+  Etsy Vermillion [#D15600]
+  43 Things Gold [#C79810]
+  Writely Olive [#73880A]
+  Basecamp Green [#6BBA70]
+  Mozilla Blue [#3F4C6B]
+  Digg Blue [#356AA0]
+  Last.fm Crimson [#D01F3C]
+*/
+
+html {
+    margin: 0px;
+    padding: 0px;
 }
 
-.life-h2 {
-    font-size: x-large;
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 70%;
+    background: #000;
+    color: #fff;
 }
+
+a:link {
+  text-decoration: none;
+  border-bottom: 1px dotted #aaa;
+  color: #fff;
+}
+a:visited {
+  text-decoration: none;
+  color: #fff;
+}
+a:active {
+  text-decoration: none;
+  color: #fff;
+}
+a:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
+.msl-mainContainer {
+	width: 100%;
+}
+
+.msl-lifeTitle {
+    font-size: xx-large;
+    width: 100%;
+    text-align: center;
+}
+
+.msl-footer {
+    width: 100%;
+    text-align: center;
+}
+
+/* activities: colors */
+
+.msl-activityRunning {
+  background-color: #0066ff;
+}
+.msl-activityBiking {
+  background-color: #006600;
+}
+.msl-activityConcept2 {
+  background-color: #fff;
+}
+.msl-activitySwimming {
+  background-color: #0000ff;
+}
+
+/* container: left - menu */
+
+
+/* container: right */
+.msl-rightMainPainContainer {
+  vertical-align: top;
+}
+
+/* year: chart monthly */
+.msl-chartYearPageKmMonthly {
+  background-color: #000;
+  text-align: center;
+}
+.msl-chartYearPageKmMonthlyMonth {
+  vertical-align: top;
+  text-align: center;
+}
+.msl-chartYearPageKmMonthlyMonthSegment {
+  width: 15px;
+}
+
+/* year: chart weekly km */
+.msl-chartYearPageKmWeekly {
+  background-color: #000;
+}
+.msl-chartYearPageKmWeeklyWeekSegment {
+  width: 5px;
+}
+
+/* year: chart weekly weight */
+.msl-chartYearPageWeightWeekly {
+  background-color: #000;
+}
+.msl-chartYearPageWeightWeeklySegment {
+  width: 5px;
+  background-color: #aaa;
+}
+
+/* year: training calendar */
+.msl-yearPageTrainingCalendar {
+  vertical-align: top;
+  border: 1px solid #222;
+  border-collapse: collapse;
+}
+.msl-yearPageTrainingCalendar > tbody > tr > td+td {
+  border-left: 1px solid #222;
+  border-bottom: 1px solid #222;
+}
+
+.msl-calendarSickPhase {
+  background-color: #e00;
+}
+.msl-calendarSauna {
+  background-color: #993300;
+}
+.msl-calendarRacePhase {
+  background-color: #e00;
+}
+.msl-calendarRunningRegenerationPhase {
+  background-color: #aaa;
+}
+.msl-calendarRunningSpeedPhase {
+  background-color: #aaa;
+}
+.msl-calendarRunningTempoPhase {
+  background-color: #aaa;
+}
+.msl-calendarRunningHillsPhase {
+  background-color: #aaa;
+}
+.msl-calendarRunningFartlekPhase {
+  background-color: #aaa;
+}
+.msl-calendarRunningLongPhase {
+  background-color: #aaa;
+}
+.msl-calendarConcept2Phase {
+  background-color: #aaa;
+}
+.msl-calendarConcept2LowSpmPhase {
+  background-color: #aaa;
+}
+.msl-calendarRowingOnWaterPhase {
+  background-color: #aaa;
+}
+.msl-calendarKayakOnWaterPhase {
+  background-color: #aaa;
+}
+.msl-calendarBikingMtbPhase {
+  background-color: #006600;
+}
+.msl-calendarBodyweightExercisePhase {
+  background-color: #990099;
+}
+.msl-calendarWeightliftingPhase {
+  background-color: #000099;
+}
+
+.msl-notThisYearDay {
+  background-color: #222;
+}
+
+/* eof */

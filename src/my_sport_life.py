@@ -14,26 +14,39 @@ distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
 WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 License for the specific language governing permissions and limitations
 under the License.
-
-@author: martin.dvorak@mindforger.com
 '''
 
 import yaml
 from datetime import datetime
+from apt_pkg import Configuration
+
+__version__ = "0.0.1-dev"
+__notes__ = "development version"
+__author__ = "martin.dvorak@mindforger.com"
+__license__ = "Apache2"
+__url__ = "http://github.com/dvorka/my-sport-life"
+
 
 l18nweekdays = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+
 
 class MySportLife:
     '''
     Main class.
     '''
         
-    def __init__(self, configurationFilePath):
-        self.configurationFilePath
+    def __init__(self, trainingLogDirectoryPath, outputDirectoryPath):
+        self.trainingLogDirectoryPath = trainingLogDirectoryPath
+        self.outputDirectoryPath = outputDirectoryPath
 
     def generate(self):
-        pass
-
+        configuration = MySportLifeConfiguration(self.trainingLogDirectoryPath+'/config.yaml')
+        trainingLog = TrainingLog(configuration)
+        report = Report(trainingLog.getLog())
+        report.calculate()
+        htmlLog = HtmlLogGenerator(self.outputDirectoryPath,report)
+        htmlLog.generate()
+        
 
 class MySportLifeConfiguration:
     '''
@@ -65,6 +78,12 @@ class TrainingLog:
     drives Python data structures and code here only performs
     traversal and analytics of these structures.    
     '''
+
+
+    load Configuration
+    iterate files (if no file throw exception)
+    aggregate log files into one data (add year to date - append)
+
 
     def __init__(self, logFileName):
         self.logFileName = logFileName
@@ -133,6 +152,7 @@ class Report:
                     self.activities[phase.get('activity')] = ActivityTotals()
                 totals=self.activities.get(phase.get('activity'))
                 totals.add(phase)
+        # TODO sort activityTypes and activities by km
 
     # For every piece of equipment evaluate how much 1km cost
     def equipmentCostPerKm(self):
@@ -157,24 +177,6 @@ class Report:
     def meTotalUnitsForEachActivity(self):
         print 'TBD'
 
-
-class TxtLogGenerator:
-    
-    def __init__(self, targetDirectoryPath, report):
-        self.targetDirectoryPath = targetDirectoryPath
-        self.report = report
-        
-    def generate(self):
-        # TODO make this single string
-        print '\nReport:'
-        print '  Active days: {}'.format(len(report.daysWorthIt))
-        print '  Sick days: {}'.format(len(report.sickDays))
-        print '  Phases: {}'.format(len(report.data.get('log'))-len(report.sickDays))
-        print '  Running phases: {}'.format(report.totalRunningPhases)
-        print '  Running km: {}'.format(report.totalRunningKm)
-        print '  Concept2 phases: {}'.format(report.totalConcept2Phases)
-        print '  Concept2 km: {}'.format(report.totalConcept2Km)
-        print '\n'
 
 htmlPagePrefix='''\
 <!DOCTYPE html>
@@ -227,30 +229,29 @@ class HtmlLogGenerator:
         f.write(htmlPagePrefix.format('My Sport Life'))
         f.write(htmlPageTitle.format('My Sport Life'))
         self.writeAllYearsSummaryTable(f)
+        # TODO per year additive chart
+        # TODO per year summary table
+        # TODO statistics
+        # TODO list of links to report 
         f.write(htmlPageSuffix)
         f.close()
         
     def writeAllYearsSummaryTable(self, f):
         f.write('\n      <table>')
-        f.write('\n        <th>')
+        f.write('\n        <tr>')
         for activityType in self.report.activityTypes:
-            f.write('\n          <td>{}</td>'.format(activityType))
-        f.write('\n        </th>')
+            f.write('\n          <th>{}</th>'.format(activityType))
+        f.write('\n        </tr>')
         f.write('\n        <tr>')
         for activityType in self.report.activityTypes:
             f.write('\n          <td>{}</td>'.format(self.report.activities.get(activityType).km))
         f.write('\n        </tr>')
         f.write('\n      </table>')
 
+
 # main()
 
-#log = TrainingLog("config.yaml")
-log = TrainingLog('../examples/20-years/2015.yaml')
-report = Report(log.getLog())
-report.calculate()
-# txtLog = TxtLogGenerator('/home/dvorka/tmp/20years',report)
-# txtLog.generate()
-htmlLog = HtmlLogGenerator('/home/dvorka/tmp/20years',report)
-htmlLog.generate()
+mySportLife = MySportLife('../examples/20-years','/home/dvorka/tmp/20years')
+mySportLife.generate()
 
 # eof

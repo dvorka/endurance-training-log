@@ -2,784 +2,357 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>My Sport Life</title>
+    <title>Summary - My Sport Life</title>
+    <meta name="description" content="MySportLife is a training log with advanced reporting and analytics."/>
+    <meta name="keywords" content="training, log, running, rowing, biking, swimming"/>
     <link href='./style.css' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="alternate" type="application/atom+xml" title="MySportLife commits on GitHub" href="https://github.com/dvorka/my-sport-life/commits/master.atom">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
   </head>
 <body>
-<center>
 
-
-<div class="life-title">My Sport Life</div>
-
-<table>
-<tr>
-  <td>Total</td>
-  <td>Running</td>
-  <td>Biking</td>
-  <td>Rowing</td>
-  <td>Skiing</td>
-  <td>Swimming</td>
-</tr>
-<tr>
-  <td>25.123 universal km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-</tr>
-</table>
-
-<!-- styles > CSS -->
-
-<!-- 
-Table based column chart:
- - column per year
- - column assembled from kms, each sport different color
- -->
-<table>
+<table class="msl-mainContainer">
   <tr>
-    <td valign="bottom" align="center">
-      <div title="running" style="height: 10px; width: 15px; background-color: #000;"></div>
-      <div title="rowing" style="height: 20px; width: 15px; background-color: #f00;"></div>
-      <div title="swimming" style="height: 20px; width: 15px; background-color: #00f;"></div>
-      <a href="./year-1997.html">1996</a>
-    </td>
-    <td valign="bottom" align="center">
-      <div title="running" style="height: 10px; width: 15px; background-color: #000;"></div>
-      <div title="rowing" style="height: 20px; width: 15px; background-color: #f00;"></div>
-      <div title="swimming" style="height: 20px; width: 15px; background-color: #00f;"></div>
-      <a href="./year-1997.html">1997</a>
-    </td>
-    <td valign="bottom" align="center">
-      <div title="running" style="height: 10px; width: 15px; background-color: #000;"></div>
-      <div title="rowing" style="height: 20px; width: 15px; background-color: #f00;"></div>
-      <div title="swimming" style="height: 20px; width: 15px; background-color: #00f;"></div>
-      <a href="./year-1997.html">1998</a>
-    </td>
-    <td valign="bottom" align="center">
-      <div title="running" style="height: 10px; width: 15px; background-color: #000;"></div>
-      <div title="rowing" style="height: 20px; width: 15px; background-color: #f00;"></div>
-      <div title="swimming" style="height: 20px; width: 15px; background-color: #00f;"></div>
-      <a href="./year-1997.html">1999</a>
-    </td>
-    <td valign="bottom" align="center">
-      <div title="running" style="height: 10px; width: 15px; background-color: #000;"></div>
-      <div title="rowing" style="height: 20px; width: 15px; background-color: #f00;"></div>
-      <div title="swimming" style="height: 20px; width: 15px; background-color: #00f;"></div>
-      <a href="./year-1997.html">2000</a>
-    </td>
-    <td valign="bottom" align="center">
-      <div title="running" style="height: 10px; width: 15px; background-color: #000;"></div>
-      <div title="rowing" style="height: 20px; width: 15px; background-color: #f00;"></div>
-      <div title="swimming" style="height: 20px; width: 15px; background-color: #00f;"></div>
-      <a href="./year-1997.html">2001</a>
-    </td>
-    <td valign="bottom" align="center">
-      <div title="running" style="height: 10px; width: 15px; background-color: #000;"></div>
-      <div title="rowing" style="height: 20px; width: 15px; background-color: #f00;"></div>
-      <div title="swimming" style="height: 20px; width: 15px; background-color: #00f;"></div>
-      <a href="./year-1997.html">2002</a>
-    </td>
-    <td valign="bottom" align="center">
-      <div title="running" style="height: 10px; width: 15px; background-color: #000;"></div>
-      <div title="rowing" style="height: 20px; width: 15px; background-color: #f00;"></div>
-      <div title="swimming" style="height: 20px; width: 15px; background-color: #00f;"></div>
-      <a href="./year-1997.html">2003</a>
-    </td>
-    <td valign="bottom" align="center">
-      <div title="running" style="height: 10px; width: 15px; background-color: #000;"></div>
-      <div title="rowing" style="height: 20px; width: 15px; background-color: #f00;"></div>
-      <div title="swimming" style="height: 20px; width: 15px; background-color: #00f;"></div>
-      <a href="./year-1997.html">2004</a>
-    </td>
-    <td valign="bottom" align="center">
-      <div title="running" style="height: 10px; width: 15px; background-color: #000;"></div>
-      <div title="rowing" style="height: 20px; width: 15px; background-color: #f00;"></div>
-      <div title="swimming" style="height: 20px; width: 15px; background-color: #00f;"></div>
-      <a href="./year-1997.html">2005</a>
-    </td>
-    <td valign="bottom" align="center">
-      <div title="running" style="height: 10px; width: 15px; background-color: #000;"></div>
-      <div title="rowing" style="height: 20px; width: 15px; background-color: #f00;"></div>
-      <div title="swimming" style="height: 20px; width: 15px; background-color: #00f;"></div>
-      <a href="./year-1997.html">2006</a>
-    </td>
-    <td valign="bottom" align="center">
-      <div title="running" style="height: 10px; width: 15px; background-color: #000;"></div>
-      <div title="rowing" style="height: 20px; width: 15px; background-color: #f00;"></div>
-      <div title="swimming" style="height: 20px; width: 15px; background-color: #00f;"></div>
-      <a href="./year-1997.html">2007</a>
-    </td>
-    <td valign="bottom" align="center">
-      <div title="running" style="height: 10px; width: 15px; background-color: #000;"></div>
-      <div title="rowing" style="height: 20px; width: 15px; background-color: #f00;"></div>
-      <div title="swimming" style="height: 20px; width: 15px; background-color: #00f;"></div>
-      <a href="./year-1997.html">2008</a>
-    </td>
-    <td valign="bottom" align="center">
-      <div title="running" style="height: 10px; width: 15px; background-color: #000;"></div>
-      <div title="rowing" style="height: 20px; width: 15px; background-color: #f00;"></div>
-      <div title="swimming" style="height: 20px; width: 15px; background-color: #00f;"></div>
-      <a href="./year-1997.html">2009</a>
-    </td>
-    <td valign="bottom" align="center">
-      <div title="running" style="height: 10px; width: 15px; background-color: #000;"></div>
-      <div title="rowing" style="height: 20px; width: 15px; background-color: #f00;"></div>
-      <div title="swimming" style="height: 20px; width: 15px; background-color: #00f;"></div>
-      <a href="./year-1997.html">2010</a>
-    </td>
-    <td valign="bottom" align="center">
-      <div title="running" style="height: 10px; width: 15px; background-color: #000;"></div>
-      <div title="rowing" style="height: 20px; width: 15px; background-color: #f00;"></div>
-      <div title="swimming" style="height: 20px; width: 15px; background-color: #00f;"></div>
-      <a href="./year-1997.html">2011</a>
-    </td>
-    <td valign="bottom" align="center">
-      <div title="running" style="height: 10px; width: 15px; background-color: #000;"></div>
-      <div title="rowing" style="height: 20px; width: 15px; background-color: #f00;"></div>
-      <div title="swimming" style="height: 20px; width: 15px; background-color: #00f;"></div>
-      <a href="./year-1997.html">2012</a>
-    </td>
-    <td valign="bottom" align="center">
-      <div title="running" style="height: 10px; width: 15px; background-color: #000;"></div>
-      <div title="rowing" style="height: 20px; width: 15px; background-color: #f00;"></div>
-      <div title="swimming" style="height: 20px; width: 15px; background-color: #00f;"></div>
-      <a href="./year-1997.html">2013</a>
-    </td>
-    <td valign="bottom" align="center">
-      <div title="running" style="height: 10px; width: 15px; background-color: #000;"></div>
-      <div title="rowing" style="height: 20px; width: 15px; background-color: #f00;"></div>
-      <div title="swimming" style="height: 20px; width: 15px; background-color: #00f;"></div>
-      <a href="./year-1997.html">2014</a>
-    </td>
-    <td valign="bottom" align="center">
-      <div title="running" style="height: 10px; width: 15px; background-color: #000;"></div>
-      <div title="rowing" style="height: 20px; width: 15px; background-color: #f00;"></div>
-      <div title="swimming" style="height: 20px; width: 15px; background-color: #00f;"></div>
-      <a href="./year-1997.html">2015</a>
-    </td>
+    <td colspan="2"><div class="msl-lifeTitle">Summary</div></td>
   </tr>
+    <td class="msl-leftMenubarContainer" valign="top">
+      <table class="msl-leftMenuBar">
+        <tr><td title="Name, age, equipment, injuries, per ? statistics, motto, photo, ...">Me</td></tr>
+        <tr><td>Summary</td></tr>
+        <tr><td>Analytics</td></tr>
+        <tr><td>Races</td></tr>
+        <tr><td>Equipment</td></tr>
+        <tr><td>Weight</td></tr>
+        <tr>
+          <td>
+            Years:
+            <ul>
+              <li>2015</li>
+              <li>...</li>
+              <li>...</li>
+              <li>...</li>
+              <li>...</li>
+              <li>...</li>
+              <li>...</li>
+              <li>...</li>
+              <li>...</li>
+              <li>...</li>
+              <li>...</li>
+              <li>...</li>
+              <li>...</li>
+              <li>...</li>
+              <li>...</li>
+              <li>...</li>
+              <li>...</li>
+              <li>...</li>
+              <li>...</li>
+              <li>1996</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td title="Personal Bests">
+            PBs:
+            <ul>
+              <li>Running</li>
+              <li>Concept2</li>
+              <li>Biking</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Phases/distance:
+            <ul>
+              <li>Running</li>
+              <li>Concept2</li>
+              <li>Biking</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Phases/time:
+            <ul>
+              <li>Running</li>
+              <li>Concept2</li>
+              <li>Biking</li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+    </td>
+    <td class="msl-rightMainPainContainer">
+       <table class="msl-chartYearPageKmMonthly">
+         <tr>
+           <td valign="bottom" align="center">
+             <div title="Running: 15km" class="msl-chartYearPageKmMonthlyMonthSegment msl-activityRunning" style="height: 10px;"></div>
+             <div title="Concept2: 44km" class="msl-chartYearPageKmMonthlyMonthSegment msl-activityConcept2" style="height: 5px;"></div>
+             <div title="Biking: 85km" class="msl-chartYearPageKmMonthlyMonthSegment msl-activityBiking" style="height: 5px;"></div>
+           </td>
+           <td valign="bottom" align="center">
+             <div title="Running: 31km" class="msl-chartYearPageKmMonthlyMonthSegment msl-activityRunning" style="height: 20px;"></div>
+             <div title="Concept2: 50" class="msl-chartYearPageKmMonthlyMonthSegment msl-activityConcept2" style="height: 10px;"></div>
+             <div title="Biking: 88km" class="msl-chartYearPageKmMonthlyMonthSegment msl-activityBiking" style="height: 30px;"></div>
+           </td>
+           <td valign="bottom" align="center">
+             <div title="Running" class="msl-chartYearPageKmMonthlyMonthSegment msl-activityRunning" style="height: 40px;"></div>
+             <div title="Concept2" class="msl-chartYearPageKmMonthlyMonthSegment msl-activityConcept2" style="height: 10px;"></div>
+             <div title="Biking" class="msl-chartYearPageKmMonthlyMonthSegment msl-activityBiking" style="height: 30px;"></div>
+           </td>
+           <td>
+           </td>
+           <td>
+           </td>
+           <td>
+           </td>
+           <td>
+           </td>
+           <td>
+           </td>
+           <td>
+           </td>
+           <td>
+           </td>
+           <td>
+           </td>
+           <td>
+           </td>
+         </tr>
+         <tr>
+           <td>5</td>
+           <td>13</td>
+           <td>238</td>
+           <td>5</td>
+           <td>13</td>
+           <td>238</td>
+           <td>5</td>
+           <td>13</td>
+           <td>238</td>
+           <td>5</td>
+           <td>13</td>
+           <td>2</td>
+           <td>2</td>
+           <td>2</td>
+           <td>2</td>
+           <td>2</td>
+           <td>2</td>
+           <td>2</td>
+           <td>2</td>
+           <td>2</td>
+         </tr>
+         <tr>
+           <td><b>1996</b></td>
+           <td>1997</td>
+           <td>1998</td>
+           <td>1999</td>
+           <td>2000</td>
+           <td>2001</td>
+           <td>2002</td>
+           <td>2003</td>
+           <td>2004</td>
+           <td>2005</td>
+           <td>2006</td>
+           <td>2007</td>
+           <td>2008</td>
+           <td>2009</td>
+           <td>2010</td>
+           <td>2011</td>
+           <td>2012</td>
+           <td>2013</td>
+           <td>2014</td>
+           <td>2015</td>
+         </tr>
+         <tr>
+           <td title="Average weight in 1996">80.0</td>
+           <td title="Average weight in 1996">80.0</td>
+           <td title="Average weight in 1996">80.0</td>
+           <td title="Average weight in 1996">80.0</td>
+           <td title="Average weight in 1996">80.0</td>
+           <td title="Average weight in 1996">80.0</td>
+           <td title="Average weight in 1996">80.0</td>
+           <td title="Average weight in 1996">80.0</td>
+           <td title="Average weight in 1996">80.0</td>
+           <td title="Average weight in 1996">80.0</td>
+           <td title="Average weight in 1996">80.0</td>
+           <td title="Average weight in 1996">80.0</td>
+           <td title="Average weight in 1996">80.0</td>
+           <td title="Average weight in 1996">80.0</td>
+           <td title="Average weight in 1996">80.0</td>
+           <td title="Average weight in 1996">80.0</td>
+           <td title="Average weight in 1996">80.0</td>
+           <td title="Average weight in 1996">80.0</td>
+           <td title="Average weight in 1996">80.0</td>
+           <td title="Average weight in 1996">80.0</td>
+         </tr>
+         <tr>
+           <td valign="top" align="center">
+             <!-- 101kg > (101-MINWEIGHT) == 101-84 = 17*2+OFFSET=34+10=44
+                  86kg > 4+10=14
+             -->
+             <div title="101.5kg" class="msl-chartYearPageWeightWeeklySegment" style="height: 44px;"></div>
+           </td>
+           <td valign="top" align="center">
+             <div title="86.5kg" class="msl-chartYearPageWeightWeeklySegment" style="height: 14px;"></div>
+           </td>
+           <td valign="top" align="center">
+             <div title="86.5kg" class="msl-chartYearPageWeightWeeklySegment" style="height: 14px;"></div>
+           </td>
 
-  <tr>
-    <td>
-<!-- year -->
-<div title="1/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="2/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="3/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="4/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="5/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="6/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="7/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="8/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="9/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="10/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="11/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="12/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-    </td>
-    <td>
-<!-- year -->
-<div title="1/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="2/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="3/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="4/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="5/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="6/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="7/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="8/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="9/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="10/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="11/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="12/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-    </td>
-    <td>
-<!-- year -->
-<div title="1/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="2/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="3/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="4/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="5/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="6/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="7/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="8/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="9/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="10/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="11/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="12/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-    </td>
-    <td>
-<!-- year -->
-<div title="1/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="2/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="3/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="4/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="5/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="6/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="7/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="8/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="9/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="10/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="11/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="12/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-    </td>
-    <td>
-<!-- year -->
-<div title="1/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="2/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="3/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="4/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="5/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="6/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="7/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="8/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="9/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="10/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="11/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="12/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-    </td>
-    <td>
-<!-- year -->
-<div title="1/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="2/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="3/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="4/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="5/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="6/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="7/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="8/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="9/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="10/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="11/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="12/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-    </td>
-    <td>
-<!-- year -->
-<div title="1/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="2/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="3/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="4/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="5/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="6/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="7/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="8/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="9/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="10/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="11/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="12/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-    </td>
-    <td>
-<!-- year -->
-<div title="1/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="2/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="3/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="4/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="5/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="6/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="7/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="8/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="9/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="10/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="11/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="12/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-    </td>
-    <td>
-<!-- year -->
-<div title="1/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="2/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="3/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="4/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="5/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="6/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="7/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="8/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="9/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="10/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="11/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="12/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-    </td>
-    <td>
-<!-- year -->
-<div title="1/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="2/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="3/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="4/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="5/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="6/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="7/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="8/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="9/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="10/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="11/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="12/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-    </td>
-    <td>
-<!-- year -->
-<div title="1/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="2/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="3/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="4/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="5/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="6/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="7/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="8/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="9/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="10/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="11/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="12/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-    </td>
-    <td>
-<!-- year -->
-<div title="1/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="2/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="3/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="4/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="5/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="6/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="7/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="8/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="9/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="10/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="11/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="12/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-    </td>
-    <td>
-<!-- year -->
-<div title="1/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="2/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="3/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="4/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="5/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="6/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="7/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="8/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="9/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="10/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="11/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="12/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-    </td>
-    <td>
-<!-- year -->
-<div title="1/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="2/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="3/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="4/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="5/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="6/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="7/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="8/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="9/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="10/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="11/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="12/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-    </td>
-    <td>
-<!-- year -->
-<div title="1/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="2/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="3/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="4/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="5/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="6/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="7/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="8/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="9/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="10/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="11/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="12/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-    </td>
-    <td>
-<!-- year -->
-<div title="1/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="2/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="3/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="4/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="5/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="6/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="7/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="8/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="9/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="10/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="11/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="12/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-    </td>
-    <td>
-<!-- year -->
-<div title="1/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="2/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="3/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="4/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="5/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="6/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="7/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="8/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="9/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="10/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="11/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="12/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-    </td>
-    <td>
-<!-- year -->
-<div title="1/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="2/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="3/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="4/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="5/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="6/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="7/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="8/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="9/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="10/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="11/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="12/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-    </td>
-    <td>
-<!-- year -->
-<div title="1/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="2/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="3/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="4/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="5/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="6/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="7/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="8/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="9/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="10/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="11/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="12/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-    </td>
-    <td>
-<!-- year -->
-<div title="1/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="2/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="3/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="4/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="5/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="6/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="7/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="8/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="9/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-<div title="10/1996" style="margin-top: 90px; float: left; height: 10px; width: 3px; background-color: #f00;"></div>
-<div title="11/1996" style="float: left; height: 100px; width: 3px; background-color: #0f0;"></div>
-<div title="12/1996" style="margin-top: 80px; float: left; height: 20px; width: 3px; background-color: #00f;"></div>
-    </td>
+           UP: all columns
+         </tr>
+       </table>
+
+universal km (yellow universal) + BIG font
+
+       <table>
+         <tr>
+           all time row
+
+           legend row
+
+         all sports + days + units
+
+           <td><span style="color: #555;">2015</span></td>
+           <td>2,127</td>
+           <td>1,112</td>
+           <td>867</td>
+           <td>5,113</td>
+           <td>278</td>
+           <td>49</td>
+         </tr>
+         <tr>
+           <td><span style="color: #555;">2015</span></td>
+           <td>2,127</td>
+           <td>1,112</td>
+           <td>867</td>
+           <td>5,113</td>
+           <td>278</td>
+           <td>49</td>
+         </tr>
+         <tr>
+           <td><span style="color: #555;">2015</span></td>
+           <td>2,127</td>
+           <td>1,112</td>
+           <td>867</td>
+           <td>5,113</td>
+           <td>278</td>
+           <td>49</td>
+         </tr>
+         <tr>
+           <td><span style="color: #555;">2015</span></td>
+           <td>2,127</td>
+           <td>1,112</td>
+           <td>867</td>
+           <td>5,113</td>
+           <td>278</td>
+           <td>49</td>
+         </tr>
+         <tr>
+           <td><span style="color: #555;">2015</span></td>
+           <td>2,127</td>
+           <td>1,112</td>
+           <td>867</td>
+           <td>5,113</td>
+           <td>278</td>
+           <td>49</td>
+         </tr>
+         <tr>
+           <td><span style="color: #555;">2015</span></td>
+           <td>2,127</td>
+           <td>1,112</td>
+           <td>867</td>
+           <td>5,113</td>
+           <td>278</td>
+           <td>49</td>
+         </tr>
+         <tr>
+           <td><span style="color: #555;">2015</span></td>
+           <td>2,127</td>
+           <td>1,112</td>
+           <td>867</td>
+           <td>5,113</td>
+           <td>278</td>
+           <td>49</td>
+         </tr>
+         <tr>
+           <td><span style="color: #555;">2015</span></td>
+           <td>2,127</td>
+           <td>1,112</td>
+           <td>867</td>
+           <td>5,113</td>
+           <td>278</td>
+           <td>49</td>
+         </tr>
+         <tr>
+           <td><span style="color: #555;">2015</span></td>
+           <td>2,127</td>
+           <td>1,112</td>
+           <td>867</td>
+           <td>5,113</td>
+           <td>278</td>
+           <td>49</td>
+         </tr>
+         <tr>
+           <td><span style="color: #555;">2015</span></td>
+           <td>2,127</td>
+           <td>1,112</td>
+           <td>867</td>
+           <td>5,113</td>
+           <td>278</td>
+           <td>49</td>
+         </tr>
+         <tr>
+           <td><span style="color: #555;">1999</span></td>
+           <td>2,127</td>
+           <td>1,112</td>
+           <td>867</td>
+           <td>5,113</td>
+           <td>278</td>
+           <td>49</td>
+         </tr>
+         <tr>
+           <td><span style="color: #555;">1998</span></td>
+           <td>2,127</td>
+           <td>1,112</td>
+           <td>867</td>
+           <td>5,113</td>
+           <td>278</td>
+           <td>49</td>
+         </tr>
+         <tr>
+           <td><span style="color: #555;">1997</span></td>
+           <td>2,127</td>
+           <td>1,112</td>
+           <td>867</td>
+           <td>5,113</td>
+           <td>278</td>
+           <td>49</td>
+         </tr>
+         <tr>
+           <td><span style="color: #555;">1996</span></td>
+           <td>2,127</td>
+           <td>1,112</td>
+           <td>867</td>
+           <td>5,113</td>
+           <td>278</td>
+           <td>49</td>
+         </tr>
+       </table>
+
+    <td/>
   </tr>
-
   <tr>
-   <td><span title="Average weight in 1996">79.6</span></td>   
-   <td><span title="Average weight in 1996">79.6</span></td>   
-   <td><span title="Average weight in 1996">79.6</span></td>   
-   <td><span title="Average weight in 1996">79.6</span></td>   
-   <td><span title="Average weight in 1996">79.6</span></td>   
-   <td><span title="Average weight in 1996">79.6</span></td>   
-   <td><span title="Average weight in 1996">79.6</span></td>   
-   <td><span title="Average weight in 1996">79.6</span></td>   
-   <td><span title="Average weight in 1996">79.6</span></td>   
-   <td><span title="Average weight in 1996">79.6</span></td>   
-   <td><span title="Average weight in 1996">79.6</span></td>   
-   <td><span title="Average weight in 1996">79.6</span></td>   
-   <td><span title="Average weight in 1996">79.6</span></td>   
-   <td><span title="Average weight in 1996">79.6</span></td>   
-   <td><span title="Average weight in 1996">79.6</span></td>   
-   <td><span title="Average weight in 1996">79.6</span></td>   
-   <td><span title="Average weight in 1996">79.6</span></td>   
-   <td><span title="Average weight in 1996">79.6</span></td>   
-   <td><span title="Average weight in 1996">79.6</span></td>   
-   <td><span title="Average weight in 1996">79.6</span></td>   
+    <td colspan="2">
+      <div class="msl-footer">
+        <a href="http://www.mindforger.com">mindforger.com</a>
+        <br>2015
+        <br>Generated:&nbsp;2015/5/23&nbsp;17:57.33
+      </div>
+    <td>
   </tr>
 </table>
 
-
-
-<table>
-<tr>
-  <td>Year</td>
-  <td>Days</td>
-  <td>Phases</td>
-  <td>Running</td>
-  <td>Biking</td>
-  <td>Rowing</td>
-  <td>Skiing</td>
-  <td>Swimming</td>
-</tr>
-<tr>
-  <td><a href="./year-1997.html">1996</a></td>
-  <td>100</td>
-  <td>150</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-</tr>
-<tr>
-  <td><a href="./year-1997.html">1997</a></td>
-  <td>100</td>
-  <td>150</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-</tr>
-<tr>
-  <td><a href="./year-1997.html">1997</a></td>
-  <td>100</td>
-  <td>150</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-</tr>
-<tr>
-  <td><a href="./year-1997.html">1997</a></td>
-  <td>100</td>
-  <td>150</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-</tr>
-<tr>
-  <td><a href="./year-1997.html">1997</a></td>
-  <td>100</td>
-  <td>150</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-</tr>
-<tr>
-  <td><a href="./year-1997.html">1997</a></td>
-  <td>100</td>
-  <td>150</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-</tr>
-<tr>
-  <td><a href="./year-1997.html">1997</a></td>
-  <td>100</td>
-  <td>150</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-</tr>
-<tr>
-  <td><a href="./year-1997.html">1997</a></td>
-  <td>100</td>
-  <td>150</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-</tr>
-<tr>
-  <td><a href="./year-1997.html">1997</a></td>
-  <td>100</td>
-  <td>150</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-</tr>
-<tr>
-  <td><a href="./year-1997.html">1997</a></td>
-  <td>100</td>
-  <td>150</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-</tr>
-<tr>
-  <td><a href="./year-1997.html">1997</a></td>
-  <td>100</td>
-  <td>150</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-</tr>
-<tr>
-  <td><a href="./year-1997.html">1997</a></td>
-  <td>100</td>
-  <td>150</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-</tr>
-<tr>
-  <td><a href="./year-1997.html">1997</a></td>
-  <td>100</td>
-  <td>150</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-</tr>
-<tr>
-  <td><a href="./year-1997.html">1997</a></td>
-  <td>100</td>
-  <td>150</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-</tr>
-<tr>
-  <td><a href="./year-1997.html">1997</a></td>
-  <td>100</td>
-  <td>150</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-</tr>
-<tr>
-  <td><a href="./year-1997.html">1997</a></td>
-  <td>100</td>
-  <td>150</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-</tr>
-<tr>
-  <td><a href="./year-1997.html">1997</a></td>
-  <td>100</td>
-  <td>150</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-</tr>
-<tr>
-  <td><a href="./year-1997.html">1997</a></td>
-  <td>100</td>
-  <td>150</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-</tr>
-<tr>
-  <td><a href="./year-1997.html">1997</a></td>
-  <td>100</td>
-  <td>150</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-</tr>
-<tr>
-  <td><a href="./year-1997.html">1997</a></td>
-  <td>100</td>
-  <td>150</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-  <td>1.234km</td>
-</tr>
-</table>
-
-
-<div class="life-h2">Statistics</div> 
-
-<table>
-<tr>
-<td valign="top">
-
-<table>
-  <tr>
-    <td>Average km/day</td>
-    <td>123.5</td>
-  </tr>
-  <tr>
-    <td>Average km/month</td>
-    <td>123.5</td>
-  </tr>
-  <tr>
-    <td>Average km/month</td>
-    <td>123.5</td>
-  </tr>
-  <tr>
-    <td>Average km/year</td>
-    <td>123.5</td>
-  </tr>
-</table>
-
-</td><td valign="top">
-
-<table>
-  <tr>
-    <td>Total days</td>
-    <td>123</td>
-  </tr>
-  <tr>
-    <td>Total phases</td>
-    <td>123</td>
-  </tr>
-  <tr>
-    <td>Total time</td>
-    <td>50:50</td>
-  </tr>
-  <tr>
-    <td>Total km</td>
-    <td>124</td>
-  </tr>
-</table>
-
-</td><td valign="top">
-
-<table>
-  <tr>
-    <td>Average weight</td>
-    <td>123.5</td>
-  </tr>
-  <tr>
-    <td>Min weight</td>
-    <td>123.5</td>
-  </tr>
-  <tr>
-    <td>Max weight</td>
-    <td>123.5</td>
-  </tr>
-</table>
-
-</td></tr></table>
-
-<div class="life-h2">Reports</div> 
-<!-- consider this to be table: columns time/distance; rows running/biking; cells: link to report 'biking/time' -->
-<table><tr><td>
-<ul>
-  <li><a href="">Running phases by distance</a></li>
-  <li><a href="">Running phases by time</a></li>
-  <li><a href="">Biking phases by distance</a></li>
-  <li><a href="">Biking phases by time</a></li>
-</ul>
-</td></tr></table>
-
-</center>
 </body>
 </html>
