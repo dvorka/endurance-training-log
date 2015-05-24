@@ -34,9 +34,27 @@ Statistics
    * Min time/distance/... for training units in every sport
    * All runs/rows/... by time/distance
 
+
 HTML Generator
 --------------
 * https://wiki.python.org/moin/Templating
+
+
+Integrations
+------------
+* http://strava.com
+* http://www.fleetly.com
+* http://www.fitocracy.com
+* SportTracks
+* http://dailymile.com
+* http://TrainingPeaks.com
+* http://www.weightmania.com
+* http://www.athletesdatabase.com
+* http://www.sdiary.com
+* http://mapmyfitness.com
+* http://www.logsitall.com
+* http://beyondthewhiteboard.com
+
 
 Web Inspiration
 ---------------

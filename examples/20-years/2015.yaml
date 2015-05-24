@@ -19,6 +19,7 @@ log:
     feeling: 4/5
     weight: 85kg
     equipment: WR18
+    url: http://www.strava.com/...
 
   - date: 5/13
     description: >

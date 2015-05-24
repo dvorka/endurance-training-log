@@ -10,6 +10,8 @@ me:
         year: 1976
         month: 5
         day: 30
+    motto:
+        Consistent hard work, day after day, week after week, year after year. No magic bullet. No shortcuts. — @JoshCox
 
 equipment:
     - activity: Running
@@ -39,6 +41,16 @@ equipment:
       nickname: Armada
       from: 2015/3/?
       price: 9000 CZK
+
+injuries:
+    - impacted: right hamstring
+      diagnosis: muscle strain
+      from: 2012/3/20
+      to: 2012/10/1
+    - impacted: left heel
+      dianosis: plantar fascitis
+      from: 2012/3/20
+      to: 2012/10/1
 
 configuration:
     regeneration-activities:
@@ -73,6 +85,7 @@ training-logs:
 #    - file: ./1998.yaml
 #    - file: ./1997.yaml
     - file: ./1996.yaml
+    # file: ./1990.yaml ... just to remember, don't render
 
 output:
     - format: TXT

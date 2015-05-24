@@ -23,7 +23,7 @@ from apt_pkg import Configuration
 __version__ = "0.0.1-dev"
 __notes__ = "development version"
 __author__ = "martin.dvorak@mindforger.com"
-__license__ = "Apache2"
+__license__ = "Apache License 2.0"
 __url__ = "http://github.com/dvorka/my-sport-life"
 
 
@@ -34,7 +34,7 @@ class MySportLife:
     '''
     Main class.
     '''
-        
+
     def __init__(self, trainingLogDirectoryPath, outputDirectoryPath):
         self.trainingLogDirectoryPath = trainingLogDirectoryPath
         self.outputDirectoryPath = outputDirectoryPath
@@ -46,7 +46,7 @@ class MySportLife:
         report.calculate()
         htmlLog = HtmlLogGenerator(self.outputDirectoryPath,report)
         htmlLog.generate()
-        
+
 
 class MySportLifeConfiguration:
     '''
@@ -64,7 +64,7 @@ class MySportLifeConfiguration:
 
 class MySportLifeException(Exception):
     def __init__(self, value):
-        self.value = value         
+        self.value = value
     def __str__(self):
         return repr(self.value)
 
@@ -72,11 +72,11 @@ class MySportLifeException(Exception):
 class TrainingLog:
     '''
     Aggregated training logs across all years.
-    
+
     The beauty of Python+YAML is that YAML files are loaded
     to native Python structures (lists, maps, ...). Thus YAML
     drives Python data structures and code here only performs
-    traversal and analytics of these structures.    
+    traversal and analytics of these structures.
     '''
 
 
@@ -103,10 +103,10 @@ class ActivityTotals:
     phases = [];
     km = 0;
     seconds = 0;
-    
+
     def __init__(self):
         pass
-    
+
     def add(self, phase):
         self.days.add(phase.get('date'))
         self.phases.append(phase)
@@ -123,7 +123,7 @@ class Report:
     '''
     A class that performs analytics calculation on top of aggregated log.
     '''
-    
+
     daysWorthIt = set([])
     sickDays = set([])
     activityTypes = set([])
@@ -177,6 +177,9 @@ class Report:
     def meTotalUnitsForEachActivity(self):
         print 'TBD'
 
+#
+# HTML rendering
+#
 
 htmlPagePrefix='''\
 <!DOCTYPE html>
@@ -213,13 +216,13 @@ htmlAllYearsSummaryTablePrefix='''
 htmlAllYearsSummaryTableSuffix='''
     </table>
 '''
-     
+
 class HtmlLogGenerator:
-    
+
     def __init__(self, targetDirectoryPath, report):
         self.targetDirectoryPath = targetDirectoryPath
         self.report = report
-        
+
     def generate(self):
         self.generateIndexFile()
 
@@ -232,10 +235,10 @@ class HtmlLogGenerator:
         # TODO per year additive chart
         # TODO per year summary table
         # TODO statistics
-        # TODO list of links to report 
+        # TODO list of links to report
         f.write(htmlPageSuffix)
         f.close()
-        
+
     def writeAllYearsSummaryTable(self, f):
         f.write('\n      <table>')
         f.write('\n        <tr>')
@@ -248,8 +251,9 @@ class HtmlLogGenerator:
         f.write('\n        </tr>')
         f.write('\n      </table>')
 
-
+#
 # main()
+#
 
 mySportLife = MySportLife('../examples/20-years','/home/dvorka/tmp/20years')
 mySportLife.generate()
