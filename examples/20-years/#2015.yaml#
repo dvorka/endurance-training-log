@@ -1,0 +1,99 @@
+# My 2015 training log, Martin Dvorak
+---
+year: 2015
+log:
+
+# May
+
+  - date: 5/15
+    description: >
+        OK > Bohnice > Palisada
+    phase: 1
+    activity: Running
+    activity-type: tempo run
+    distance: 16.5km
+    track: Friday Palisada
+    time: 1h25'22
+    weather: sunny
+    temperature: 18
+    feeling: 4/5
+    weight: 85kg
+    equipment: WR18
+    url: http://www.strava.com/...
+
+  - date: 5/13
+    description: >
+        OK > HP
+    phase: 1
+    activity: MTB
+    distance: 18.7km
+    track: HP > OK greenfields
+    time: 55'22
+    weather: sunny
+    temperature: 13
+    feeling: 4/5
+    weight: 86.5kg
+    equipment: Rockhopper
+
+  - date: 5/13
+    description: >
+        HP > OK
+    phase: 2
+    activity: MTB
+    distance: 18.7km
+    time: 55'22
+    equipment: Rockhopper
+
+# April
+
+  - date: 4/29
+    description: >
+        BBC left model D
+    activity: Concept2
+    distance: 8km
+    equipment: MyE
+    details:
+        - warmup: 5'
+        - 5km: 19'20.0
+        - cooldown: 2km
+
+  - date: 4/28
+    description: >
+        Sport evening in Infinit
+    activity: Sauna
+    time: 30'
+    details:
+        - sauna: 15'
+        - sauna: 15'
+
+# March
+
+  - date: 3/2
+    description: >
+        Downhill ski with Miky in Rokytnice.
+    activity: Downhill ski
+    track: Rokytnice
+    time: 4h
+    equipment: Atomic
+
+# February
+
+  - date: 2/18
+    description: >
+        Intervals 2x18', BBC left model D,
+    activity: Concept2
+    distance: 11km
+    details:
+        - warmup: 5'
+        - interval: 18'
+        - interval: 18'
+        - cooldown: 2x5'
+
+  - date: 2/17
+    description: >
+        Feeling right knee - regeneration to avoid further problems.
+    activity: sick
+    details:
+        - right-knee: 1/10 pain
+
+...
