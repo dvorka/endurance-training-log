@@ -64,8 +64,9 @@ configuration:
       - activity: MTB
         ratio: 0.3
 
-training-logs:
-    - file: ./2015.yaml
+inputs:
+    # either file or URL
+    - training-log-file: 2015.yaml
 #    - file: ./2014.yaml
 #    - file: ./2013.yaml
 #    - file: ./2012.yaml
@@ -84,10 +85,11 @@ training-logs:
 #    - file: ./1999.yaml
 #    - file: ./1998.yaml
 #    - file: ./1997.yaml
-    - file: ./1996.yaml
-    # file: ./1990.yaml ... just to remember, don't render
+#    - file: 1996.yaml
+    - training-log-file: 1990.yaml 
+# ... just to remember, don't render
 
-output:
+outputs:
     - format: TXT
       directory: 20-years-web
 #   - format: HTML

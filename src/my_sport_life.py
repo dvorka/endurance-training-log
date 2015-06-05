@@ -17,8 +17,13 @@ under the License.
 '''
 
 import yaml
+'''
+The beauty of Python+YAML is that YAML files are loaded
+to native Python structures (lists, maps, ...). Thus YAML
+drives Python data structures and code here only performs
+traversal and analytics of these structures.
+'''
 from datetime import datetime
-from apt_pkg import Configuration
 
 __version__ = "0.0.1-dev"
 __notes__ = "development version"
@@ -32,7 +37,8 @@ l18nweekdays = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","S
 
 class MySportLife:
     '''
-    Main class.
+    Main class - loads configuration, loads all training log files, aggregates log files
+    and generates HTML and/or MySportLife log with analytics.
     '''
 
     def __init__(self, trainingLogDirectoryPath, outputDirectoryPath):
@@ -41,25 +47,11 @@ class MySportLife:
 
     def generate(self):
         configuration = MySportLifeConfiguration(self.trainingLogDirectoryPath+'/config.yaml')
-        trainingLog = TrainingLog(configuration)
-        report = Report(trainingLog.getLog())
-        report.calculate()
-        htmlLog = HtmlLogGenerator(self.outputDirectoryPath,report)
-        htmlLog.generate()
-
-
-class MySportLifeConfiguration:
-    '''
-    My sport life configuration.
-    '''
-
-    def __init__(self, configurationFileName):
-        self.configurationFileName = configurationFileName
-        stream = open(self.logFileName, 'r')
-        self.configuration = yaml.load(stream, Loader=yaml.CLoader)
-
-    def getConfiguration(self):
-        return self.configuration
+        trainingLog = TrainingLog(configuration, self.trainingLogDirectoryPath)
+#         report = Report(trainingLog.getLog())
+#         report.calculate()
+#         htmlLog = HtmlLogGenerator(self.outputDirectoryPath,report)
+#         htmlLog.generate()
 
 
 class MySportLifeException(Exception):
@@ -69,27 +61,57 @@ class MySportLifeException(Exception):
         return repr(self.value)
 
 
+class MySportLifeConfiguration:
+    '''
+    MySportLife configuration.
+    '''
+
+    yearFileNames = set({})
+
+    def __init__(self, configurationFileName):
+        self.configurationFileName = configurationFileName
+        stream = open(self.configurationFileName, 'r')
+        self.configuration = yaml.load(stream, Loader=yaml.CLoader)
+
+    def getConfiguration(self):
+        return self.configuration
+    
+    def getYearLogFileNames(self):
+        for yearFileName in self.configuration.get("inputs"):
+            self.yearFileNames.add(yearFileName.get("training-log-file"))
+        return self.yearFileNames
+
+
 class TrainingLog:
     '''
     Aggregated training logs across all years.
-
-    The beauty of Python+YAML is that YAML files are loaded
-    to native Python structures (lists, maps, ...). Thus YAML
-    drives Python data structures and code here only performs
-    traversal and analytics of these structures.
     '''
 
+    # all training units (all years) ordered by time
+    units = []
+    # year to list of units ordered by time
+    yearToUnits = {}
 
-    load Configuration
-    iterate files (if no file throw exception)
-    aggregate log files into one data (add year to date - append)
+    def __init__(self, configuration, trainingLogDirectoryPath):
+        for yearFileName in configuration.getYearLogFileNames():
+            yearFilePath = trainingLogDirectoryPath+"/"+yearFileName
+            yearLog = self.loadYearTrainingLogFile(yearFilePath)
+            self.mergeYearTrainingLog(yearLog)
 
-
-    def __init__(self, logFileName):
+    def loadYearTrainingLogFile(self, logFileName):
         self.logFileName = logFileName
-        # TODO load all data files declared in config.yaml and merge them
         stream = open(self.logFileName, 'r')
-        self.log = yaml.load(stream, Loader=yaml.CLoader)
+        return yaml.load(stream, Loader=yaml.CLoader)
+
+    def mergeYearTrainingLog(self, yearLog):
+        print "Processing {} log with {} entries...".format(yearLog["year"], len(yearLog["log"]))
+        self.yearToUnits[yearLog["year"]]=yearLog["log"]
+        for unit in yearLog["log"]:
+            unit["year"] = yearLog.get("year")
+            unit["month"] = unit.get("date").split('/')[0]
+            unit["day"] = unit.get("date").split('/')[1]
+            self.units.append(unit)
+        print "{} log DONE".format(yearLog.get("year"))
 
     def getLog(self):
         return self.log
@@ -255,7 +277,7 @@ class HtmlLogGenerator:
 # main()
 #
 
-mySportLife = MySportLife('../examples/20-years','/home/dvorka/tmp/20years')
+mySportLife = MySportLife('/home/dvorka/p/my-sport-life/github/my-sport-life/examples/20-years','/home/dvorka/tmp/20years')
 mySportLife.generate()
 
 # eof
