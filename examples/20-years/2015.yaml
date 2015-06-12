@@ -21,12 +21,44 @@ log:
     equipment: WR18
     url: http://www.strava.com/...
 
+  - date: 5/16
+    description: >
+        OK > Bohnice > Palisada
+    phase: 1
+    activity: Running
+    activity-type: tempo run
+    distance: 10.5km
+    track: Friday Palisada
+    time: 1h25'22
+    weather: sunny
+    temperature: 18
+    feeling: 4/5
+    weight: 85kg
+    equipment: WR18
+    url: http://www.strava.com/...
+
+  - date: 5/14
+    description: >
+        OK > Bohnice > Palisada
+    phase: 1
+    activity: Running
+    activity-type: tempo run
+    distance: 13.5km
+    track: Friday Palisada
+    time: 1h25'22
+    weather: sunny
+    temperature: 18
+    feeling: 4/5
+    weight: 85kg
+    equipment: WR18
+    url: http://www.strava.com/...
+
   - date: 5/13
     description: >
         OK > HP
     phase: 1
     activity: MTB
-    distance: 18.7km
+    distance: 8.7km
     track: HP > OK greenfields
     time: 55'22
     weather: sunny
@@ -71,7 +103,7 @@ log:
   - date: 3/2
     description: >
         Downhill ski with Miky in Rokytnice.
-    activity: Downhill ski
+    activity: Downhill
     track: Rokytnice
     time: 4h
     equipment: Atomic
