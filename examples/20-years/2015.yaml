@@ -3,6 +3,205 @@
 year: 2015
 log:
 
+#
+# June
+#
+
+  - date: 6/13
+    description: >
+        MMK trip: utulek - privoz Klecany - privoz Uholicky - Rez - zpet k utulku
+    track: MMK privozova Rez
+    activity: MTB
+    distance: 24km
+    weather: sunny
+    temperature: 31
+    feeling: 4/5
+    weight: 86kg
+    equipment: Rockhopper
+
+  - date: 6/12
+    description: >
+        OK > okolo Dablicaku > spodem Cimicak > kolem Bohnicke lecebny > hrbitov
+        > softball hriste > Palisada > Stone Hange > vlasenka > Kobylis strelnice
+        > ustavni sprint rovinka; mega kukacka
+    phase: 1
+    activity: Running
+    activity-type: tempo run
+    distance: 17km
+    track: Friday Palisada
+    time: 1h27'33
+    weather: sunny
+    temperature: 25
+    feeling: 3/5
+    weight: 84.5kg
+    equipment: ADT20
+    url: TODO http://www.strava.com/...
+
+  - date: 6/12
+    description: >
+        Sutka
+    phase: 2
+    activity: Sauna
+    time: 40'
+    details:
+        - sauna: 15'
+        - sauna: 15'
+        - steam: 10'
+
+  - date: 6/10
+    description: >
+        OK > automycka Kobylisy > vlasenka > pod Vinici > zirafy > privoz
+        > podel Vltavy > Libensky zamek > Podvinny mlyn > U cyklostezka
+        > vymolova cesta > panelka > pravy krpal > prejezd Bechovicka
+        > ZOO podnik > udoli dutych hlav > prechod koleji > zleva
+        zahradkarska kolonie > park > tenis > Mecholupsky park > cukrarske uciliste
+        > cyklodrom > rovina > Svobodna Evropa > kostky k Vinohradske nemocnici
+        > kostky k Voticke > HP
+    phase: 1
+    track: OK mycka Bechovicka HP
+    activity: MTB
+    distance: 29km
+    weather: sunny
+    temperature: 23
+    feeling: 5/5
+    weight: 86kg
+    equipment: Rockhopper
+
+  - date: 6/10
+    description: >
+      Standard: HP - prejezd Bechovicka - OK
+    phase: 2
+    track: HP Bechovicka OK
+    activity: MTB
+    distance: 19km
+    weather: sunny
+    temperature: 23
+    feeling: 5/5
+    weight: 86kg
+    equipment: Rockhopper
+
+  - date: 6/9
+    description: >
+        10k TT, BBC left model D, dumper 5.5
+    activity: Concept2
+    distance: 12km
+    details:
+        - warmup: 5'
+        - 10km: 39'21.7
+        - cooldown: 5'
+
+  - date: 6/7
+    description: >
+      OK - Kralupy - Rip a zpet (cervena znacka); skoro jsem to vyjel ~150m pod boudu ;)
+    track: OK - Rip
+    activity: MTB
+    distance: 111km
+    time: 5h44'46
+    weather: sunny rainy cloudy
+    temperature: 23
+    feeling: 4/5
+    weight: 85kg
+    equipment: Rockhopper
+
+  - date: 6/6
+    description: >
+        MK trip: okolo Dablicaku - Cimicak - dopravni hriste Velka Skala a kolem Kobyliske strelnice zpet
+    track: MK dopravni hriste
+    activity: MTB
+    distance: 15km
+    weather: sunny
+    temperature: 28
+    weight: 86kg
+    equipment: Rockhopper
+
+#
+# February
+#
+
+
+#
+# January
+#
+
+  - date: 1/18
+    description: >
+        Downhill ski with Miky and Kuba in Knezicky vrch.
+    activity: Downhill
+    track: Knezicky vrch
+    url: http://www.skiareal-vrchlabi.cz/cz/
+    time: 4h
+    equipment: Atomic
+    weight: 97.5
+
+  - date: 1/17
+    description: >
+        Sutka
+    activity: Sauna
+    time: 10'
+    details:
+        - steam: 10'
+
+  - date: 1/16
+    description: >
+        Sutka
+    activity: Sauna
+    time: 40'
+    details:
+        - sauna: 15'
+        - sauna: 15'
+        - steam: 10'
+
+  - date: 1/11
+    description: >
+        Downhill ski with Miky in Knezicky vrch.
+    activity: Downhill
+    track: Knezicky vrch
+    url: http://www.skiareal-vrchlabi.cz/cz/
+    time: 4h
+    equipment: Atomic
+    weight: 98.5
+
+  - date: 1/7
+    description: >
+        BBC left model D, dumper 5.5, Galloway style
+    activity: Concept2
+    distance: 8km
+    details:
+        - warmup: 5'
+        - 3x2.5km: ...
+
+  - date: 1/5
+    description: >
+        BBC left model D, dumper 5.5, Galloway style
+    activity: Concept2
+    distance: 7km
+    details:
+        - warmup: 5'
+        - 2km: ...
+        - 2km: ...
+        - cooldown: 1km
+
+  - date: 1/3
+    description: >
+        Downhill ski with Mari, Miky a Kuba in Knezicky vrch.
+    activity: Downhill
+    track: Knezicky vrch
+    url: http://www.skiareal-vrchlabi.cz/cz/
+    time: 4h
+    equipment: Atomic
+    weight: 101.0
+
+  - date: 1/1
+    description: >
+        Downhill ski with Mari, Miky a Kuba in Knezicky vrch.
+    activity: Downhill
+    track: Knezicky vrch
+    url: http://www.skiareal-vrchlabi.cz/cz/
+    time: 4h
+    equipment: Atomic
+    weight: 101.0
+
+# examples ###############################################################################################
 # May
 
   - date: 5/15

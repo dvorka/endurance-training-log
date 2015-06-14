@@ -16,9 +16,18 @@ Technology
 Configuration
 -------------
 * Data are written in/converted from existing sources in YAML.
+* Simple validation tool that performs also YAML to JSon conversion.
 * NICE: web interface/desktop tool (console) for data management
   (add new training) ensures validity e.g. in Qt/Python.
-* Simple validation tool that performs also YAML to JSon conversion.
+
+
+Priorities
+----------
+* Web
+  * X year page - I use it daily
+  * page X by time - used when planning a trip
+  * summary - to find out how much I already digitazed
+  * page X by distance
 
 
 Statistics

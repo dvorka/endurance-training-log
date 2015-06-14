@@ -4,7 +4,7 @@ me:
     first-name: Martin
     family-name: Dvorak
     home:
-        city: Praha
+        town: Praha
         country: Czech Republic
     born:
         year: 1976
@@ -14,33 +14,23 @@ me:
         Consistent hard work, day after day, week after week, year after year. No magic bullet. No shortcuts. — @JoshCox
 
 equipment:
-    # Running equipment
     - activity: Running
       equipment: Mizuno Wave Rider 18
       nickname: WR18
       size: 44 US
       from: 2015/5/14
       price: 3500 CZK
-    - activity: Running
-      equipment: Asics DS Trainer 20
-      nickname: ADT20
-      size: 44 US ???
-      from: 2015/5/14 ???
-      price: 3500 CZK ???
-    # Biking equipment
     - activity: MTB
       equipment: Specialized Rockhopper Pro 2012
       nickname: Rockhopper
       size: L
-      from: 2013/8/24
+      from: 2013/?/?
       price: 25000 CZK
-    # Rowining equipment
     - activity: Concept2
       equipment: Concept 2 Model E
       nickname: MyE
       from: 2012/?/?
       price: 37000 CZK
-    # Ski equipment
     - activity: Downhill Ski
       equipment: Atomic
       nickname: Atomic
@@ -65,7 +55,6 @@ injuries:
 configuration:
     regeneration-activities:
       - Sauna
-      - Steam
       - Meditation
     activity-ratio:
       - activity: Running
@@ -76,6 +65,7 @@ configuration:
         ratio: 0.3
 
 inputs:
+    # either file or URL
     - training-log-file: 2015.yaml
 #    - file: ./2014.yaml
 #    - file: ./2013.yaml
@@ -95,11 +85,13 @@ inputs:
 #    - file: ./1999.yaml
 #    - file: ./1998.yaml
 #    - file: ./1997.yaml
-#    - training-log-file: 1996.yaml
-    # file: ./1990.yaml ... just to remember, don't render
+#    - file: 1996.yaml
+    - training-log-file: 1990.yaml 
+# ... just to remember, don't render
 
-output:
-    - format: HTML
+outputs:
+    - format: TXT
       directory: 20-years-web
+#   - format: HTML
 
 # eof

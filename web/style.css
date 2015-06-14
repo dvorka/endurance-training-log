@@ -122,6 +122,8 @@ a:hover {
 /* year: chart weekly km */
 .msl-chartYearPageKmWeekly {
   background-color: #000;
+  margin-left: auto;
+  margin-right: auto;
 }
 .msl-chartYearPageKmWeeklyWeekSegment {
   width: 5px;
@@ -141,6 +143,8 @@ a:hover {
   vertical-align: top;
   border: 1px solid #222;
   border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
 }
 .msl-yearPageTrainingCalendar > tbody > tr > td+td {
   border-left: 1px solid #222;
