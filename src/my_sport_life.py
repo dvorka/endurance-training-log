@@ -24,7 +24,7 @@ drives Python trainingLog structures and code here only performs
 traversal and analytics of these structures.
 '''
 import os
-from datetime import datetime
+from datetime import date, datetime
 
 '''
 Design principles:
@@ -44,6 +44,7 @@ __url__ = "http://github.com/dvorka/my-sport-life"
 l10nweekdays = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
 l10nmonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
+
 class MySportLife:
     '''
     Main class - loads configuration, loads all training log files, aggregates log files
@@ -55,6 +56,7 @@ class MySportLife:
         self.outputDirectoryPath = outputDirectoryPath
 
     def generate(self):
+        print 'My Sport Life:\n  {}\n    >>>\n  {}'.format(self.trainingLogDirectoryPath, self.outputDirectoryPath)
         configuration = MySportLifeConfiguration(self.trainingLogDirectoryPath+'/config.yaml')
         trainingLog = TrainingLog(configuration, self.trainingLogDirectoryPath)
         report = Report(trainingLog)
@@ -77,6 +79,7 @@ class MySportLifeConfiguration:
     yearFileNames = set({})
 
     def __init__(self, configurationFileName):
+        print 'Loading configuration...'
         self.configurationFileName = configurationFileName
         stream = open(self.configurationFileName, 'r')
         self.configuration = yaml.load(stream, Loader=yaml.CLoader)
@@ -88,6 +91,7 @@ class MySportLifeConfiguration:
         for yearFileName in self.configuration.get("inputs"):
             self.yearFileNames.add(yearFileName.get("training-log-file"))
         return self.yearFileNames
+
 
 def rmDirRecursively(directoryToDelete):
     for root, dirs, files in os.walk(directoryToDelete, topdown=False):
@@ -109,8 +113,10 @@ class TrainingLog:
     yearToPhases = {}
 
     def __init__(self, configuration, trainingLogDirectoryPath):
+        print 'Loading training logs...'
         for yearFileName in configuration.getYearLogFileNames():
             yearFilePath = trainingLogDirectoryPath+"/"+yearFileName
+            print '  {}'.format(yearFileName)
             yearLog = self.loadYearTrainingLogFile(yearFilePath)
             self.mergeYearTrainingLog(yearLog)
 
@@ -127,7 +133,7 @@ class TrainingLog:
             unit["month"] = unit.get("date").split('/')[0]
             unit["day"] = unit.get("date").split('/')[1]
             self.phases.append(unit)
-        print "{} log DONE".format(yearLog.get("year"))
+        print "  {} log done".format(yearLog.get("year"))
 
 
 class LifetimeActivityTotal:
@@ -218,8 +224,7 @@ class Report:
     # 2005 > Running > 27    
     yearToActivityToTotalKm={}
     # 2005 > 22 > running > 278km (ALL activity represents sum across activities; WEIGHT represents weight)
-    yearToWeekNumberToActivityToTotalKm={}
-    # TODO datetime.date(2010, 6, 16).isocalendar()[1]
+    yearToWeekNumberToActivityToKmTimeWeight={}
 
     def __init__(self, trainingLog):
         self.trainingLog = trainingLog
@@ -237,7 +242,6 @@ class Report:
             if "distance" in phaseB:
                 a=str(phaseA.get("distance"))
                 b=str(phaseB.get("distance"))
-                print "{} {}".format(a,b)
                 distanceA=float(a.replace("km",""))
                 distanceB=float(b.replace("km",""))    
                 if distanceA-distanceB>0:
@@ -266,12 +270,13 @@ class Report:
     def comparatorUnitsByTemperature(self, unit1, unit2):
         pass
 
-    def dateToWeekday(self, year, month, day):
-        d = datetime.date(year, month, day)
-        return self.l10nweekdays[d.weekday()]
+    def distanceFieldToKm(self, s):
+        return float(s.replace('km',''))
+    def weightFieldToKg(self, s):
+        return float(s.replace('kg',''))
 
     def calculate(self):
-        print 'Processing...'
+        print 'Processing all {} phases...'.format(len(self.trainingLog.phases))
         for phase in self.trainingLog.phases:
             activity=phase['activity']
             print '  {}/{}/{} {}'.format(phase['year'], phase['month'], phase['day'], activity)
@@ -282,9 +287,41 @@ class Report:
                 if activity not in self.activityTypes:
                     self.activityTypes.add(activity)
                     self.activities[activity] = LifetimeActivityTotal()
-                totals=self.activities.get(activity)
-                totals.add(phase)
-        # TODO sort activityTypes and activities by km
+
+                if phase['year'] not in self.yearToActivityToTotalKm:
+                    self.yearToActivityToTotalKm[phase['year']]={}
+                    self.yearToActivityToTotalKm[phase['year']]['weight-min']=1024.0
+                    self.yearToActivityToTotalKm[phase['year']]['weight-max']=0.0
+                if phase['activity'] not in self.yearToActivityToTotalKm[phase['year']]:
+                    self.yearToActivityToTotalKm[phase['year']][phase['activity']]={'distance': 0.0, 'time': 0}
+
+                if phase['year'] not in self.yearToWeekNumberToActivityToKmTimeWeight:
+                    self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']]={}
+                weeknumber=date(int(phase['year']), int(phase['month']), int(phase['day'])).isocalendar()[1]
+                if weeknumber not in self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']]:                        
+                    self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber]={}
+                    self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber]['weight-min']=1024.0
+                    self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber]['weight-max']=0.0
+                if phase['activity'] not in self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber]:
+                    self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber][phase['activity']]={'distance': 0.0, 'time': 0}
+
+                if 'distance' in phase:
+                    # TODO calculate km once
+                    self.yearToActivityToTotalKm[phase['year']][phase['activity']]['distance']+=self.distanceFieldToKm(phase['distance'])                    
+                    self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber][phase['activity']]['distance']+=self.distanceFieldToKm(phase['distance'])                    
+                if 'time' in phase:
+                    # TODO calculate secs once
+                    self.yearToActivityToTotalKm[phase['year']][phase['activity']]['time']+=MslTime(phase['time']).getSeconds()
+                    self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber][phase['activity']]['time']+=MslTime(phase['time']).getSeconds()
+                if 'weight' in phase:
+                    self.yearToActivityToTotalKm[phase['year']]['weight-min']=min(self.weightFieldToKg(phase['weight']),self.yearToActivityToTotalKm[phase['year']]['weight-min'])
+                    self.yearToActivityToTotalKm[phase['year']]['weight-max']=max(self.weightFieldToKg(phase['weight']),self.yearToActivityToTotalKm[phase['year']]['weight-max'])
+                    self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber]['weight-min']=min(self.weightFieldToKg(phase['weight']),self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber]['weight-min'])
+                    self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber]['weight-max']=max(self.weightFieldToKg(phase['weight']),self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber]['weight-max'])
+        print '\nTotals (km) per year per activity:'
+        print self.yearToActivityToTotalKm
+        print '\nTotals (km/time/weight) per year per week per activity:'
+        print self.yearToWeekNumberToActivityToKmTimeWeight
 
     # For every piece of equipment evaluate how much 1km cost
     def equipmentCostPerKm(self):
@@ -663,6 +700,7 @@ class HtmlLogGenerator:
         self.report = report
 
     def generate(self):
+        print '\nBuilding HTML site...'
         self.clean()
         self.generateFileCss()
         self.generateFileIndex()
@@ -682,8 +720,13 @@ class HtmlLogGenerator:
         f.write(css)
         f.close()        
 
+    def writePageEnd(self, f):
+        f.write(htmlMainPaneSuffix)
+        f.write(htmlPageSuffix.format(datetime.today().year, datetime.today().month, datetime.today().day, datetime.today().hour, datetime.today().minute, datetime.today().second))
+
     def generateFileIndex(self):
         filePath = self.targetDirectoryPath+'/index.html'
+        print 'Generating {}...'.format(filePath)
         f = open(filePath, "w")
         f.write(htmlPagePrefix.format('Summary'))
         self.writeLeftMenu(f)
@@ -698,37 +741,62 @@ class HtmlLogGenerator:
         # TODO list of links to report
         
         # end body
-        f.write(htmlMainPaneSuffix)
-        f.write(htmlPageSuffix.format(datetime.today().year, datetime.today().month, datetime.today().day, datetime.today().hour, datetime.today().minute, datetime.today().second))
+        self.writePageEnd(f)
         f.close()
         
     def generateFileForYear(self, year):
         filePath = self.targetDirectoryPath+'/year-'+str(year)+'.html'
+        print 'Generating {}...'.format(filePath)
         f = open(filePath, "w")
         f.write(htmlPagePrefix.format(year))
         self.writeLeftMenu(f)
         f.write(htmlMainPanePrefix)
         f.write(htmlPageTitle.format(year))
         # begin body
-        self.writeByMonthCharteForYear(f)
+        self.writeByMonthChartForYear(f,year)
         # end body
-        f.write(htmlMainPaneSuffix)
-        f.write(htmlPageSuffix.format(datetime.today().year, datetime.today().month, datetime.today().day, datetime.today().hour, datetime.today().minute, datetime.today().second))
+        self.writePageEnd(f)
         f.close()
 
-    def writeByMonthCharteForYear(self, f):
+    def writeActivitiesChartColumnForMonth(self, year, month):
+        return 'TBD'.format(month)
+    
+    def writeWeightChartColumnForMonth(self, year, month):
+        # TODO self.report.getMinWeight(year,m)
+        return 'TBD'.format(month)
+
+    def writeByMonthChartForYear(self, f, year):
         f.write('\n       <table class="msl-chartYearPageKmMonthly">')
-        # TODO column chart how much
+        # activities split columns chart         
+        f.write('\n         <tr>')
+        f.write('\n           ')
+        for month in range(1,12):
+            f.write('\n           <td>{}</td>'.format(self.writeActivitiesChartColumnForMonth(year,month)))
+        f.write('\n         </tr>')
+        # month name
         f.write('\n         <tr>')
         f.write('\n           ')
         for month in l10nmonths:
             f.write('<td>{}</td>'.format(month))
         f.write('\n         </tr>')
-        # TODO column chart minimum weiht/month
+        # month total
+        f.write('\n         <tr>')
+        f.write('\n           ')
+        for month in range(1,12):
+            # TODO f.write('<td>{}</td>'.format(self.report.getTotalForMonth(year,m)))
+            pass            
+        f.write('\n         </tr>')        
+        # weight chart
+        f.write('\n         <tr>')
+        f.write('\n           ')
+        for month in range(1,12):
+            f.write('<td>{}</td>'.format(self.writeWeightChartColumnForMonth(year, month)))
+        f.write('\n         </tr>')
         f.write('\n       </table>')
 
     def generateFileByDistance(self, activity):
         filePath = self.targetDirectoryPath+'/phases-by-distance-'+activity.lower()+'.html'
+        print 'Generating {}...'.format(filePath)
         f = open(filePath, "w")
         f.write(htmlPagePrefix.format(activity+' by Distance'))
         self.writeLeftMenu(f)
@@ -742,23 +810,22 @@ class HtmlLogGenerator:
             if "distance" in phase:
                 f.write('<td>{}</td>'.format(phase["distance"]))
             else:
-                print 'Warning: no distance in phase '+phase["date"]
-                f.write('<td></td>')
+                print '  Warning: no distance in phase {}/{}'.format(phase['year'], phase["date"])
+                f.write('<td>0km</td>')
             if "time" in phase:
                 f.write('<td>{}</td>'.format(phase["time"]))
             else:
-                f.write('<td></td>')
+                f.write("<td>00h00'0</td>")
             if "track" in phase:
                 f.write('<td>{}</td>'.format(phase["track"]))
             else:
-                f.write('<td></td>')
+                f.write('<td>-</td>')
             f.write('<td>{}/{}/{}</td>'.format(phase["year"], phase["month"], phase["day"]))
             f.write('<td>{}</td>'.format(phase["description"]))
             f.write('</tr>')
         f.write("\n      </table>")
-        # end main
-        f.write(htmlMainPaneSuffix)
-        f.write(htmlPageSuffix.format(datetime.today().year, datetime.today().month, datetime.today().day, datetime.today().hour, datetime.today().minute, datetime.today().second))
+        # end main        
+        self.writePageEnd(f)
         f.close()
 
     def writeAllYearsSummaryTable(self, f):

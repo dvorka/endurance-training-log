@@ -131,7 +131,7 @@ log:
     url: http://www.skiareal-vrchlabi.cz/cz/
     time: 4h
     equipment: Atomic
-    weight: 97.5
+    weight: 97.5kg
 
   - date: 1/17
     description: >
@@ -159,7 +159,7 @@ log:
     url: http://www.skiareal-vrchlabi.cz/cz/
     time: 4h
     equipment: Atomic
-    weight: 98.5
+    weight: 98.5kg
 
   - date: 1/7
     description: >
@@ -189,7 +189,7 @@ log:
     url: http://www.skiareal-vrchlabi.cz/cz/
     time: 4h
     equipment: Atomic
-    weight: 101.0
+    weight: 101.0kg
 
   - date: 1/1
     description: >
@@ -199,7 +199,7 @@ log:
     url: http://www.skiareal-vrchlabi.cz/cz/
     time: 4h
     equipment: Atomic
-    weight: 101.0
+    weight: 101.0kg
 
 # examples ###############################################################################################
 # May
