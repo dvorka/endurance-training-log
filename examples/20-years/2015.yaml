@@ -7,6 +7,24 @@ log:
 # June
 #
 
+  - date: 6/12
+    description: >
+        The Color Run 5km w/ MMK
+    phase: 2
+    activity: Running
+    activity-type: race
+    distance: 5km
+    track: The Color Run
+    time: 1h
+    weather: sunny
+    temperature: 25
+    feeling: 3/5
+    equipment: WR OLD
+
+
+
+
+
   - date: 6/13
     description: >
         MMK trip: utulek - privoz Klecany - privoz Uholicky - Rez - zpet k utulku
@@ -285,7 +303,9 @@ log:
     equipment: MyE
     details:
         - warmup: 5'
-        - 5km: 19'20.0
+        - tt:
+            - distance: 5km
+            - time: 19:20.0
         - cooldown: 2km
 
   - date: 4/28

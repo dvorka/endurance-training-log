@@ -18,12 +18,21 @@ equipment:
     - activity: Running
       equipment: Mizuno Wave Rider 18
       nickname: WR18
+      description: black/green
       size: 44 US
       from: 2015/5/14
       price: 3500 CZK
     - activity: Running
+      equipment: Mizuno Wave Rider 12
+      nickname: WR12
+      description: white/orange
+      size: 44 US
+      from: 2012/5/14
+      price: ??? CZK
+    - activity: Running
       equipment: Asics DS Trainer 20
       nickname: ADT20
+      description: orange
       size: 44 US ???
       from: 2015/5/14 ???
       price: 3500 CZK ???

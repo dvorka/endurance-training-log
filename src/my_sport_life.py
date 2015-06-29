@@ -223,7 +223,9 @@ class Report:
 
     # 2005 > Running > 27    
     yearToActivityToTotalKm={}
-    # 2005 > 22 > running > 278km (ALL activity represents sum across activities; WEIGHT represents weight)
+    # 2005 > 3 > Running > 278km (ALL activity represents sum across activities; WEIGHT represents weight)
+    yearToMonthToActivityToKmTimeWeight={}
+    # 2005 > 22 >Running > 278km (ALL activity represents sum across activities; WEIGHT represents weight)
     yearToWeekNumberToActivityToKmTimeWeight={}
 
     def __init__(self, trainingLog):
@@ -295,6 +297,15 @@ class Report:
                 if phase['activity'] not in self.yearToActivityToTotalKm[phase['year']]:
                     self.yearToActivityToTotalKm[phase['year']][phase['activity']]={'distance': 0.0, 'time': 0}
 
+                if phase['year'] not in self.yearToMonthToActivityToKmTimeWeight:
+                    self.yearToMonthToActivityToKmTimeWeight[phase['year']]={}
+                if phase['month'] not in self.yearToMonthToActivityToKmTimeWeight[phase['year']]:
+                    self.yearToMonthToActivityToKmTimeWeight[phase['year']][phase['month']]={}
+                    self.yearToMonthToActivityToKmTimeWeight[phase['year']][phase['month']]['weight-min']=1024.0
+                    self.yearToMonthToActivityToKmTimeWeight[phase['year']][phase['month']]['weight-max']=0.0
+                if phase['activity'] not in self.yearToMonthToActivityToKmTimeWeight[phase['year']][phase['month']]:
+                    self.yearToMonthToActivityToKmTimeWeight[phase['year']][phase['month']][phase['activity']]={'distance': 0.0, 'time': 0}
+
                 if phase['year'] not in self.yearToWeekNumberToActivityToKmTimeWeight:
                     self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']]={}
                 weeknumber=date(int(phase['year']), int(phase['month']), int(phase['day'])).isocalendar()[1]
@@ -308,19 +319,25 @@ class Report:
                 if 'distance' in phase:
                     # TODO calculate km once
                     self.yearToActivityToTotalKm[phase['year']][phase['activity']]['distance']+=self.distanceFieldToKm(phase['distance'])                    
+                    self.yearToMonthToActivityToKmTimeWeight[phase['year']][phase['month']][phase['activity']]['distance']+=self.distanceFieldToKm(phase['distance'])                    
                     self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber][phase['activity']]['distance']+=self.distanceFieldToKm(phase['distance'])                    
                 if 'time' in phase:
                     # TODO calculate secs once
-                    self.yearToActivityToTotalKm[phase['year']][phase['activity']]['time']+=MslTime(phase['time']).getSeconds()
+                    self.yearToActivityToTotalKm[phase['year']][phase['activity']]['time']+=MslTime(phase['time']).getSeconds()                    
+                    self.yearToMonthToActivityToKmTimeWeight[phase['year']][phase['month']][phase['activity']]['time']+=MslTime(phase['time']).getSeconds()
                     self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber][phase['activity']]['time']+=MslTime(phase['time']).getSeconds()
                 if 'weight' in phase:
                     self.yearToActivityToTotalKm[phase['year']]['weight-min']=min(self.weightFieldToKg(phase['weight']),self.yearToActivityToTotalKm[phase['year']]['weight-min'])
                     self.yearToActivityToTotalKm[phase['year']]['weight-max']=max(self.weightFieldToKg(phase['weight']),self.yearToActivityToTotalKm[phase['year']]['weight-max'])
+                    self.yearToMonthToActivityToKmTimeWeight[phase['year']][phase['month']]['weight-min']=min(self.weightFieldToKg(phase['weight']),self.yearToMonthToActivityToKmTimeWeight[phase['year']][phase['month']]['weight-min'])
+                    self.yearToMonthToActivityToKmTimeWeight[phase['year']][phase['month']]['weight-max']=max(self.weightFieldToKg(phase['weight']),self.yearToMonthToActivityToKmTimeWeight[phase['year']][phase['month']]['weight-max'])                    
                     self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber]['weight-min']=min(self.weightFieldToKg(phase['weight']),self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber]['weight-min'])
                     self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber]['weight-max']=max(self.weightFieldToKg(phase['weight']),self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber]['weight-max'])
         print '\nTotals (km) per year per activity:'
         print self.yearToActivityToTotalKm
-        print '\nTotals (km/time/weight) per year per week per activity:'
+        print '\nTotals (km/time/weight) per year per MONTH per activity:'
+        print self.yearToMonthToActivityToKmTimeWeight
+        print '\nTotals (km/time/weight) per year per WEEK per activity:'
         print self.yearToWeekNumberToActivityToKmTimeWeight
 
     # For every piece of equipment evaluate how much 1km cost
@@ -759,7 +776,16 @@ class HtmlLogGenerator:
         f.close()
 
     def writeActivitiesChartColumnForMonth(self, year, month):
-        return 'TBD'.format(month)
+        if year in self.report.yearToMonthToActivityToKmTimeWeight:
+            for activity in self.report.yearToMonthToActivityToKmTimeWeight[year]:
+                if 'distance' in self.report.yearToMonthToActivityToKmTimeWeight[year][activity]:
+                    km=self.report.yearToMonthToActivityToKmTimeWeight[year][activity]['distance']
+                    height=self.report.yearToMonthToActivityToKmTimeWeight[year][activity]['distance']
+                    result='<div title="{}: {}km" class="msl-chartYearPageKmMonthlyMonthSegment msl-activityRunning" style="height: {}px;"></div>'.format(activity,km,height)             
+                    #              <div title="Concept2: 44km" class="msl-chartYearPageKmMonthlyMonthSegment msl-activityConcept2" style="height: 5px;"></div>
+                    #              <div title="Biking: 85km" class="msl-chartYearPageKmMonthlyMonthSegment msl-activityBiking" style="height: 5px;"></div>
+                    return result
+        return '...'
     
     def writeWeightChartColumnForMonth(self, year, month):
         # TODO self.report.getMinWeight(year,m)
@@ -771,19 +797,29 @@ class HtmlLogGenerator:
         f.write('\n         <tr>')
         f.write('\n           ')
         for month in range(1,12):
-            f.write('\n           <td>{}</td>'.format(self.writeActivitiesChartColumnForMonth(year,month)))
-        f.write('\n         </tr>')
-        # month name
-        f.write('\n         <tr>')
-        f.write('\n           ')
-        for month in l10nmonths:
-            f.write('<td>{}</td>'.format(month))
+            f.write('\n           <td valign="bottom" align="center">{}</td>'.format(self.writeActivitiesChartColumnForMonth(year,month)))
         f.write('\n         </tr>')
         # month total
         f.write('\n         <tr>')
         f.write('\n           ')
         for month in range(1,12):
             # TODO f.write('<td>{}</td>'.format(self.report.getTotalForMonth(year,m)))
+            f.write('<td>123</td>')
+            pass            
+        f.write('\n         </tr>')        
+        # month name
+        f.write('\n         <tr>')
+        f.write('\n           ')
+        for month in l10nmonths:
+            f.write('<td>{}</td>'.format(month))
+        f.write('\n         </tr>')
+        # weight min
+        f.write('\n         <tr>')
+        f.write('\n           ')
+        for month in range(1,12):
+            # valign="bottom" align="center"
+            # TODO f.write('<td>{}</td>'.format(self.report.getTotalForMonth(year,m)))
+            f.write('<td>85.4</td>')
             pass            
         f.write('\n         </tr>')        
         # weight chart
