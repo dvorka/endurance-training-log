@@ -789,6 +789,7 @@ class HtmlLogGenerator:
     
     def writeWeightChartColumnForMonth(self, year, month):
         # TODO self.report.getMinWeight(year,m)
+        # min weight, max weight, chart showing min/max delta (green/red if I was getting fat/slimming) 
         return 'TBD'.format(month)
 
     def writeByMonthChartForYear(self, f, year):
