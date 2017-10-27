@@ -57,7 +57,7 @@ if len(sys.argv)>1:
         if '-T' == a:
             enduranceTrainingLog = EnduranceTrainingLog(
                 '/home/dvorka/p/endurance-training-log/github/endurance-training-log/test/test-data',
-                '/home/dvorka/tmp/20years')
+                '/home/dvorka/tmp/etl-test-data')
             enduranceTrainingLog.generate()
             quit()
         if '--color' == a or '-c' == a:
