@@ -16,6 +16,11 @@ License for the specific language governing permissions and limitations
 under the License.
 '''
 
+import os
+from datetime import date, datetime
+
+from etlmodel import l10nweekdays, l10nmonths
+
 #
 # HTML rendering
 #
@@ -358,6 +363,18 @@ htmlAllYearsSummaryTablePrefix='''
 htmlAllYearsSummaryTableSuffix='''
     </table>
 '''
+
+#
+# Functions
+#
+
+def rmDirRecursively(directoryToDelete):
+    for root, dirs, files in os.walk(directoryToDelete, topdown=False):
+        for name in files:
+            os.remove(os.path.join(root, name))
+        for name in dirs:
+            os.rmdir(os.path.join(root, name))
+    os.rmdir(directoryToDelete)
 
 #
 # Page: Activity by distance
