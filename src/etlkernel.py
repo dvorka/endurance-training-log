@@ -16,17 +16,13 @@ License for the specific language governing permissions and limitations
 under the License.
 '''
 
-'''
-The beauty of Python+YAML is that YAML files are loaded
-to native Python structures (lists, maps, ...). Thus YAML
-drives Python trainingLog structures and code here only performs
-traversal and analytics of these structures.
-'''
-import yaml
 import json
 from datetime import date, datetime
 
+from etlfrontend import EtlConfiguration,EtlTrainingLog
 from etlbackend import HtmlLogGenerator
+
+UNKNOWN_WEIGHT = 1024.0
 
 class EnduranceTrainingLog:
     '''
@@ -45,70 +41,12 @@ class EnduranceTrainingLog:
             self.colors['end'],
             self.trainingLogDirectoryPath, 
             self.outputDirectoryPath)
-        configuration = EnduranceTrainingLogConfiguration(self.trainingLogDirectoryPath+'/config.yaml')
-        trainingLog = TrainingLog(configuration, self.trainingLogDirectoryPath)
+        configuration = EtlConfiguration(self.trainingLogDirectoryPath+'/config.yaml', self.colors)
+        trainingLog = EtlTrainingLog(configuration, self.trainingLogDirectoryPath, self.colors)
         report = Report(trainingLog, self.colors)
         report.calculate()        
         htmlLog = HtmlLogGenerator(self.outputDirectoryPath, report, self.colors)
         htmlLog.generate()
-
-
-
-class EnduranceTrainingLogConfiguration:
-    '''
-    Configuration.
-    '''
-
-    yearFileNames = set({})
-
-    def __init__(self, configurationFileName):
-        print 'Loading configuration...'
-        self.configurationFileName = configurationFileName
-        stream = open(self.configurationFileName, 'r')
-        self.configuration = yaml.load(stream, Loader=yaml.CLoader)
-
-    def getConfiguration(self):
-        return self.configuration
-    
-    def getYearLogFileNames(self):
-        for yearFileName in self.configuration.get("inputs"):
-            self.yearFileNames.add(yearFileName.get("training-log-file"))
-        return self.yearFileNames
-
-
-
-class TrainingLog:
-    '''
-    Aggregated training logs across all years.
-    '''
-
-    # all training phases (all years) ordered by time
-    phases = []
-    # year to list of phases ordered by time
-    yearToPhases = {}
-
-    def __init__(self, configuration, trainingLogDirectoryPath):
-        print 'Loading training logs...'
-        for yearFileName in configuration.getYearLogFileNames():
-            yearFilePath = trainingLogDirectoryPath+"/"+yearFileName
-            print '  {}'.format(yearFileName)
-            yearLog = self.loadYearTrainingLogFile(yearFilePath)
-            self.mergeYearTrainingLog(yearLog)
-
-    def loadYearTrainingLogFile(self, logFileName):
-        self.logFileName = logFileName
-        stream = open(self.logFileName, 'r')
-        return yaml.load(stream, Loader=yaml.CLoader)
-
-    def mergeYearTrainingLog(self, yearLog):
-        print "Processing {} log with {} entries...".format(yearLog["year"], len(yearLog["log"]))
-        self.yearToPhases[yearLog["year"]]=yearLog["log"]
-        for unit in yearLog["log"]:
-            unit["year"] = yearLog.get("year")
-            unit["month"] = unit.get("date").split('/')[0]
-            unit["day"] = unit.get("date").split('/')[1]
-            self.phases.append(unit)
-        print "  {} log done".format(yearLog.get("year"))
 
 
 
@@ -201,9 +139,9 @@ class Report:
 
     # 2005 > Running > 27    
     yearToActivityToTotalKm={}
-    # 2005 > 3 > Running > 278km (ALL activity represents sum across activities; WEIGHT represents weight)
+    # 2005 > 3 > Running > 278km (ALL activity represents SUM across activities; WEIGHT represents AVG)
     yearToMonthToActivityToKmTimeWeight={}
-    # 2005 > 22 >Running > 278km (ALL activity represents sum across activities; WEIGHT represents weight)
+    # 2005 > 22 > Running > 278km (ALL activity represents SUM across activities; WEIGHT represents AVG)
     yearToWeekNumberToActivityToKmTimeWeight={}
 
     def __init__(self, trainingLog, colors):
@@ -271,7 +209,7 @@ class Report:
 
                 if phase['year'] not in self.yearToActivityToTotalKm:
                     self.yearToActivityToTotalKm[phase['year']]={}
-                    self.yearToActivityToTotalKm[phase['year']]['weight-min']=1024.0
+                    self.yearToActivityToTotalKm[phase['year']]['weight-min']=UNKNOWN_WEIGHT
                     self.yearToActivityToTotalKm[phase['year']]['weight-max']=0.0
                 if phase['activity'] not in self.yearToActivityToTotalKm[phase['year']]:
                     self.yearToActivityToTotalKm[phase['year']][phase['activity']]={'distance': 0.0, 'time': 0}
@@ -280,38 +218,51 @@ class Report:
                     self.yearToMonthToActivityToKmTimeWeight[phase['year']]={}
                 if phase['month'] not in self.yearToMonthToActivityToKmTimeWeight[phase['year']]:
                     self.yearToMonthToActivityToKmTimeWeight[phase['year']][phase['month']]={}
-                    self.yearToMonthToActivityToKmTimeWeight[phase['year']][phase['month']]['weight-min']=1024.0
+                    self.yearToMonthToActivityToKmTimeWeight[phase['year']][phase['month']]['weight-min']=UNKNOWN_WEIGHT
                     self.yearToMonthToActivityToKmTimeWeight[phase['year']][phase['month']]['weight-max']=0.0
                 if phase['activity'] not in self.yearToMonthToActivityToKmTimeWeight[phase['year']][phase['month']]:
                     self.yearToMonthToActivityToKmTimeWeight[phase['year']][phase['month']][phase['activity']]={'distance': 0.0, 'time': 0}
 
                 if phase['year'] not in self.yearToWeekNumberToActivityToKmTimeWeight:
                     self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']]={}
-                weeknumber=date(int(phase['year']), int(phase['month']), int(phase['day'])).isocalendar()[1]
+
+                weeknumber = date(int(phase['year']), int(phase['month']), int(phase['day'])).isocalendar()[1]
                 if weeknumber not in self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']]:                        
                     self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber]={}
-                    self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber]['weight-min']=1024.0
+                    self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber]['weight-min']=UNKNOWN_WEIGHT
                     self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber]['weight-max']=0.0
                 if phase['activity'] not in self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber]:
                     self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber][phase['activity']]={'distance': 0.0, 'time': 0}
 
                 if 'distance' in phase:
                     # TODO calculate km once
-                    self.yearToActivityToTotalKm[phase['year']][phase['activity']]['distance']+=self.distanceFieldToKm(phase['distance'])                    
-                    self.yearToMonthToActivityToKmTimeWeight[phase['year']][phase['month']][phase['activity']]['distance']+=self.distanceFieldToKm(phase['distance'])                    
-                    self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber][phase['activity']]['distance']+=self.distanceFieldToKm(phase['distance'])                    
+                    self.yearToActivityToTotalKm[phase['year']][phase['activity']]['distance']+=self.distanceFieldToKm(phase['distance'])
+                    self.yearToMonthToActivityToKmTimeWeight[phase['year']][phase['month']][phase['activity']]['distance'] \
+                        += self.distanceFieldToKm(phase['distance'])
+                    self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber][phase['activity']]['distance'] \
+                        += self.distanceFieldToKm(phase['distance'])
                 if 'time' in phase:
                     # TODO calculate secs once
                     self.yearToActivityToTotalKm[phase['year']][phase['activity']]['time']+=MslTime(phase['time']).getSeconds()                    
-                    self.yearToMonthToActivityToKmTimeWeight[phase['year']][phase['month']][phase['activity']]['time']+=MslTime(phase['time']).getSeconds()
-                    self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber][phase['activity']]['time']+=MslTime(phase['time']).getSeconds()
+                    self.yearToMonthToActivityToKmTimeWeight[phase['year']][phase['month']][phase['activity']]['time'] \
+                        += MslTime(phase['time']).getSeconds()
+                    self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber][phase['activity']]['time'] \
+                        += MslTime(phase['time']).getSeconds()
                 if 'weight' in phase:
-                    self.yearToActivityToTotalKm[phase['year']]['weight-min']=min(self.weightFieldToKg(phase['weight']),self.yearToActivityToTotalKm[phase['year']]['weight-min'])
-                    self.yearToActivityToTotalKm[phase['year']]['weight-max']=max(self.weightFieldToKg(phase['weight']),self.yearToActivityToTotalKm[phase['year']]['weight-max'])
-                    self.yearToMonthToActivityToKmTimeWeight[phase['year']][phase['month']]['weight-min']=min(self.weightFieldToKg(phase['weight']),self.yearToMonthToActivityToKmTimeWeight[phase['year']][phase['month']]['weight-min'])
-                    self.yearToMonthToActivityToKmTimeWeight[phase['year']][phase['month']]['weight-max']=max(self.weightFieldToKg(phase['weight']),self.yearToMonthToActivityToKmTimeWeight[phase['year']][phase['month']]['weight-max'])                    
-                    self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber]['weight-min']=min(self.weightFieldToKg(phase['weight']),self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber]['weight-min'])
-                    self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber]['weight-max']=max(self.weightFieldToKg(phase['weight']),self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber]['weight-max'])
+                    phaseWeight = self.weightFieldToKg(phase['weight'])
+                    self.yearToActivityToTotalKm[phase['year']]['weight-min'] \
+                        = min(phaseWeight,self.yearToActivityToTotalKm[phase['year']]['weight-min'])
+                    self.yearToActivityToTotalKm[phase['year']]['weight-max'] \
+                        = max(phaseWeight,self.yearToActivityToTotalKm[phase['year']]['weight-max'])
+                    self.yearToMonthToActivityToKmTimeWeight[phase['year']][phase['month']]['weight-min'] \
+                        = min(phaseWeight,self.yearToMonthToActivityToKmTimeWeight[phase['year']][phase['month']]['weight-min'])
+                    self.yearToMonthToActivityToKmTimeWeight[phase['year']][phase['month']]['weight-max'] \
+                        = max(phaseWeight,self.yearToMonthToActivityToKmTimeWeight[phase['year']][phase['month']]['weight-max'])
+                    self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber]['weight-min'] \
+                        = min(phaseWeight,self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber]['weight-min'])
+                    self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber]['weight-max'] \
+                        = max(phaseWeight,self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber]['weight-max'])
+
         print '\n{}Totals (km) per year per activity:{}'.format(self.colors['yellow'],self.colors['end'])
         print json.dumps(self.yearToActivityToTotalKm, indent=2)
         print '\n{}Totals (km/time/weight) per year per MONTH per activity:{}'.format(self.colors['yellow'],self.colors['end'])
@@ -319,12 +270,11 @@ class Report:
         print '\n{}Totals (km/time/weight) per year per WEEK per activity:{}'.format(self.colors['yellow'],self.colors['end'])
         print json.dumps(self.yearToWeekNumberToActivityToKmTimeWeight, indent=2)
 
-    # For every piece of equipment evaluate how much 1km cost
+    # For every piece of equipment calculate how much 1 km cost
     def equipmentCostPerKm(self):
         print 'TBD'
 
-    # For every piece of equipment evaluate how much 1day
-    # of ownership cost
+    # For every piece of equipment calculate how much 1 day cost
     def equipmentCostPerDay(self):
         print 'TBD'
 

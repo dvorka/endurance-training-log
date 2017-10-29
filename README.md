@@ -1,4 +1,4 @@
 Endurance Training Log
 ======================
 
-Running, rowing, biking, skiing, swimming... day by day.
+Day by day running, rowing, biking, skiing, swimming... log with visualization and analytics.

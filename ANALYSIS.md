@@ -42,6 +42,9 @@ Statistics
    * Max time/distance/... for training units in every sport
    * Min time/distance/... for training units in every sport
    * All runs/rows/... by time/distance
+   * Count of...
+       * all phases/time all years
+
 
 
 HTML Generator
