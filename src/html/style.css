@@ -1,0 +1,222 @@
+/* My Sport Life CSS
+
+ Web 2.0 colors:
+  Shiny silver [#EEEEEE]
+  Reddit white [#FFFFFF]
+  Magnolia Mag.nolia [#F9F7ED]
+  Interactive action yellow [#FFFF88]
+  Qoop Mint [#CDEB8B]
+  Gmail blue [#C3D9FF]
+  Shadows Grey [#36393D]
+  Mozilla Red [#FF1A00]
+  Rollyo Red [#CC0000]
+  RSS Orange [#FF7400]
+  Techcrunch green [#008C00]
+  Newsvine Green [#006E2E]
+  Flock Blue [#4096EE]
+  Flickr Pink [#FF0084]
+  Ruby on Rails Red [#B02B2C]
+  Etsy Vermillion [#D15600]
+  43 Things Gold [#C79810]
+  Writely Olive [#73880A]
+  Basecamp Green [#6BBA70]
+  Mozilla Blue [#3F4C6B]
+  Digg Blue [#356AA0]
+  Last.fm Crimson [#D01F3C]
+*/
+
+html {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 70%;
+    background: #000;
+    color: #fff;
+}
+
+a:link {
+  text-decoration: none;
+  color: #fff;
+}
+a:visited {
+  text-decoration: none;
+  color: #fff;
+}
+a:active {
+  text-decoration: none;
+  color: #fff;
+}
+a:hover {
+  border-bottom: 1px solid #aaa;
+  text-decoration: none;
+  color: #fff;
+}
+
+.etl-mainContainer {
+    width: 100%;
+}
+
+.etl-hamburger {
+    font-size: large;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.etl-lifeTitle {
+    font-size: xx-large;
+    width: 100%;
+    text-align: center;
+}
+
+.etl-footer {
+    width: 100%;
+    text-align: center;
+}
+
+/* activities: colors */
+
+.etl-activityRunning {
+  background-color: #0066ff;
+}
+.etl-activityBiking {
+  background-color: #006600;
+}
+.etl-activityConcept2 {
+  background-color: #fff;
+}
+.etl-activitySwimming {
+  background-color: #0000ff;
+}
+
+/* container: left - menu */
+.etl-leftMenubarContainer {
+    position: absolute;
+    background-color: black;
+    border: 1px solid #222;
+}
+
+.etc-scrollableMenubar {
+    overflow-y: scroll;
+    position: relative;
+    height: 100%;    
+}
+
+/* container: right */
+.etl-rightMainPaneContainer {
+  vertical-align: top;
+  text-align: center;
+}
+
+/* summary */
+
+.etl-tableSummaryLifetime {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* year: chart monthly */
+.etl-chartYearPageKmMonthly {
+  background-color: #000;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.etl-chartYearPageKmMonthlyMonth {
+  vertical-align: top;
+  text-align: center;
+}
+.etl-chartYearPageKmMonthlyMonthSegment {
+  width: 15px;
+}
+
+/* year: chart weekly km */
+.etl-chartYearPageKmWeekly {
+  background-color: #000;
+  margin-left: auto;
+  margin-right: auto;
+}
+.etl-chartYearPageKmWeeklyWeekSegment {
+  width: 5px;
+}
+
+/* year: chart weekly weight */
+.etl-chartYearPageWeightWeekly {
+  background-color: #000;
+}
+.etl-chartYearPageWeightWeeklySegment {
+  width: 5px;
+  background-color: #aaa;
+}
+
+/* year: training calendar */
+.etl-yearPageTrainingCalendar {
+  vertical-align: top;
+  border: 1px solid #222;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+}
+.etl-yearPageTrainingCalendar > tbody > tr > td+td {
+  border-left: 1px solid #222;
+  border-bottom: 1px solid #222;
+}
+
+.etl-calendarSickPhase {
+  background-color: #e00;
+}
+.etl-calendarSauna {
+  background-color: #993300;
+}
+.etl-calendarRacePhase {
+  background-color: #e00;
+}
+.etl-calendarRunningRegenerationPhase {
+  background-color: #aaa;
+}
+.etl-calendarRunningSpeedPhase {
+  background-color: #aaa;
+}
+.etl-calendarRunningTempoPhase {
+  background-color: #aaa;
+}
+.etl-calendarRunningHillsPhase {
+  background-color: #aaa;
+}
+.etl-calendarRunningFartlekPhase {
+  background-color: #aaa;
+}
+.etl-calendarRunningLongPhase {
+  background-color: #aaa;
+}
+.etl-calendarConcept2Phase {
+  background-color: #aaa;
+}
+.etl-calendarConcept2LowSpmPhase {
+  background-color: #aaa;
+}
+.etl-calendarRowingOnWaterPhase {
+  background-color: #aaa;
+}
+.etl-calendarKayakOnWaterPhase {
+  background-color: #aaa;
+}
+.etl-calendarBikingCyclingPhase {
+  background-color: #006600;
+}
+.etl-calendarBodyweightExercisePhase {
+  background-color: #990099;
+}
+.etl-calendarWeightliftingPhase {
+  background-color: #000099;
+}
+
+.etl-notThisYearDay {
+  background-color: #222;
+}
+
+/* eof */

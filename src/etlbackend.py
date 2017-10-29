@@ -218,7 +218,7 @@ a:hover {
 .msl-calendarKayakOnWaterPhase {
   background-color: #aaa;
 }
-.msl-calendarBikingMtbPhase {
+.msl-calendarBikingCyclingPhase {
   background-color: #006600;
 }
 .msl-calendarBodyweightExercisePhase {
@@ -277,7 +277,7 @@ htmlLeftMenuReports='''
             <table style="margin-left: 7px">
               <tr><td><a href="./pb-running.html">Running</a></td></tr>
               <tr><td><a href="./pb-concept2.html">Concept2</a></td></tr>
-              <tr><td><a href="./pb-mtb.html">MTB</a></td></tr>
+              <tr><td><a href="./pb-cycling.html">Cycling</a></td></tr>
             </table>
           </td>
         </tr>
@@ -382,12 +382,13 @@ def rmDirRecursively(directoryToDelete):
 
 class HtmlLogGenerator:
 
-    def __init__(self, targetDirectoryPath, report):
+    def __init__(self, targetDirectoryPath, report, colors):
         self.targetDirectoryPath = targetDirectoryPath
         self.report = report
+        self.colors = colors
 
     def generate(self):
-        print '\nBuilding HTML site...'
+        print '\n{}Building HTML site...{}'.format(self.colors['yellow'],self.colors['end'])
         self.clean()
         self.generateFileCss()
         self.generateFileIndex()
@@ -395,6 +396,7 @@ class HtmlLogGenerator:
             self.generateFileForYear(year)        
         for activity in self.report.activityTypes:            
             self.generateFileByDistance(activity)
+        print '{}HTML successfully generated.{}'.format(self.colors['green'],self.colors['end'])
 
     def clean(self):
         if os.path.isdir(self.targetDirectoryPath) and os.path.exists(self.targetDirectoryPath):
@@ -413,7 +415,7 @@ class HtmlLogGenerator:
 
     def generateFileIndex(self):
         filePath = self.targetDirectoryPath+'/index.html'
-        print 'Generating {}...'.format(filePath)
+        print '  Generating {}...'.format(filePath)
         f = open(filePath, "w")
         f.write(htmlPagePrefix.format('Summary'))
         self.writeLeftMenu(f)
@@ -433,7 +435,7 @@ class HtmlLogGenerator:
         
     def generateFileForYear(self, year):
         filePath = self.targetDirectoryPath+'/year-'+str(year)+'.html'
-        print 'Generating {}...'.format(filePath)
+        print '  Generating {}...'.format(filePath)
         f = open(filePath, "w")
         f.write(htmlPagePrefix.format(year))
         self.writeLeftMenu(f)
@@ -503,7 +505,7 @@ class HtmlLogGenerator:
 
     def generateFileByDistance(self, activity):
         filePath = self.targetDirectoryPath+'/phases-by-distance-'+activity.lower()+'.html'
-        print 'Generating {}...'.format(filePath)
+        print '  Generating {}...'.format(filePath)
         f = open(filePath, "w")
         f.write(htmlPagePrefix.format(activity+' by Distance'))
         self.writeLeftMenu(f)
@@ -517,7 +519,11 @@ class HtmlLogGenerator:
             if "distance" in phase:
                 f.write('<td>{}</td>'.format(phase["distance"]))
             else:
-                print '  Warning: no distance in phase {}/{}'.format(phase['year'], phase["date"])
+                print '    {}Warning: no distance in phase {}/{}{}'.format(
+                    self.colors['red'],
+                    phase['year'], 
+                    phase["date"],
+                    self.colors['end'])
                 f.write('<td>0km</td>')
             if "time" in phase:
                 f.write('<td>{}</td>'.format(phase["time"]))

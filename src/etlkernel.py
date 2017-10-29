@@ -23,6 +23,7 @@ drives Python trainingLog structures and code here only performs
 traversal and analytics of these structures.
 '''
 import yaml
+import json
 from datetime import date, datetime
 
 from etlbackend import HtmlLogGenerator
@@ -33,17 +34,22 @@ class EnduranceTrainingLog:
     and generates HTML and/or log with analytics.
     '''
 
-    def __init__(self, trainingLogDirectoryPath, outputDirectoryPath):
+    def __init__(self, trainingLogDirectoryPath, outputDirectoryPath, colors):
         self.trainingLogDirectoryPath = trainingLogDirectoryPath
         self.outputDirectoryPath = outputDirectoryPath
+        self.colors = colors
 
     def generate(self):
-        print 'Processing YAML to HTML:\n  {}\n    >\n  {}'.format(self.trainingLogDirectoryPath, self.outputDirectoryPath)
+        print '{}Processing YAML to HTML:{}\n  {}\n    >\n  {}'.format(
+            self.colors['green'],
+            self.colors['end'],
+            self.trainingLogDirectoryPath, 
+            self.outputDirectoryPath)
         configuration = EnduranceTrainingLogConfiguration(self.trainingLogDirectoryPath+'/config.yaml')
         trainingLog = TrainingLog(configuration, self.trainingLogDirectoryPath)
-        report = Report(trainingLog)
+        report = Report(trainingLog, self.colors)
         report.calculate()        
-        htmlLog = HtmlLogGenerator(self.outputDirectoryPath, report)
+        htmlLog = HtmlLogGenerator(self.outputDirectoryPath, report, self.colors)
         htmlLog.generate()
 
 
@@ -200,8 +206,9 @@ class Report:
     # 2005 > 22 >Running > 278km (ALL activity represents sum across activities; WEIGHT represents weight)
     yearToWeekNumberToActivityToKmTimeWeight={}
 
-    def __init__(self, trainingLog):
+    def __init__(self, trainingLog, colors):
         self.trainingLog = trainingLog
+        self.colors = colors
 
     def getPhasesByDistanceForActivity(self, activity):
         result = []
@@ -305,12 +312,12 @@ class Report:
                     self.yearToMonthToActivityToKmTimeWeight[phase['year']][phase['month']]['weight-max']=max(self.weightFieldToKg(phase['weight']),self.yearToMonthToActivityToKmTimeWeight[phase['year']][phase['month']]['weight-max'])                    
                     self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber]['weight-min']=min(self.weightFieldToKg(phase['weight']),self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber]['weight-min'])
                     self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber]['weight-max']=max(self.weightFieldToKg(phase['weight']),self.yearToWeekNumberToActivityToKmTimeWeight[phase['year']][weeknumber]['weight-max'])
-        print '\nTotals (km) per year per activity:'
-        print self.yearToActivityToTotalKm
-        print '\nTotals (km/time/weight) per year per MONTH per activity:'
-        print self.yearToMonthToActivityToKmTimeWeight
-        print '\nTotals (km/time/weight) per year per WEEK per activity:'
-        print self.yearToWeekNumberToActivityToKmTimeWeight
+        print '\n{}Totals (km) per year per activity:{}'.format(self.colors['yellow'],self.colors['end'])
+        print json.dumps(self.yearToActivityToTotalKm, indent=2)
+        print '\n{}Totals (km/time/weight) per year per MONTH per activity:{}'.format(self.colors['yellow'],self.colors['end'])
+        print json.dumps(self.yearToMonthToActivityToKmTimeWeight, indent=2)
+        print '\n{}Totals (km/time/weight) per year per WEEK per activity:{}'.format(self.colors['yellow'],self.colors['end'])
+        print json.dumps(self.yearToWeekNumberToActivityToKmTimeWeight, indent=2)
 
     # For every piece of equipment evaluate how much 1km cost
     def equipmentCostPerKm(self):

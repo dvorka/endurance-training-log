@@ -42,8 +42,11 @@ __license__ = "Apache License 2.0"
 __url__ = "http://github.com/dvorka/endurance-training-log"
 
 # constants
-ESC_LIGHT_RED = ''
-ESC_LIGHT_GREEN = ''
+
+# http://ascii-table.com/ansi-escape-sequences.php 
+ESC_RED = ''
+ESC_GREEN = ''
+ESC_BLUE = ''
 ESC_YELLOW = ''
 ESC_WHITE = ''
 ESC_NO_COLOR = ''
@@ -52,33 +55,50 @@ ESC_NO_COLOR = ''
 # main()
 #
 
-if len(sys.argv)>1: 
-    for a in sys.argv:
-        if '-T' == a:
+if __name__ == "__main__":
+    sourceDirectory = None
+    targetDirectory = None
+    nonOptions = 0
+    if len(sys.argv)>1: 
+        for a in sys.argv:
+            if '-T' == a:
+                sourceDirectory='/home/dvorka/p/endurance-training-log/github/endurance-training-log/test/test-data'
+                targetDirectory='/home/dvorka/tmp/etl-test-data'
+            elif '--color' == a or '-c' == a:
+                ESC_RED="[1;31m"
+                ESC_GREEN="[1;32m"
+                ESC_BLUE="[1;34m"
+                ESC_YELLOW="[1;33m"
+                ESC_WHITE="[1;37m"
+                ESC_NO_COLOR="[0m"
+            elif '--help' == a or '-h' == a:
+                print helpString.format()
+                quit()
+            elif '--version' == a or '-v' == a:
+                print "{}".format(__version__)
+                quit()
+            else:
+                nonOptions += 1
+
+        if nonOptions == 2: 
+            sourceDirectory=sys.argv[1]
+            targetDirectory=sys.argv[2]
+
+        if sourceDirectory is not None and targetDirectory is not None:
             enduranceTrainingLog = EnduranceTrainingLog(
-                '/home/dvorka/p/endurance-training-log/github/endurance-training-log/test/test-data',
-                '/home/dvorka/tmp/etl-test-data')
+                sourceDirectory,
+                targetDirectory,
+                {
+                    'red': ESC_RED,
+                    'green': ESC_GREEN,
+                    'blue': ESC_BLUE,
+                    'yellow': ESC_YELLOW,
+                    'white': ESC_WHITE,
+                    'end': ESC_NO_COLOR
+                })
             enduranceTrainingLog.generate()
             quit()
-        if '--color' == a or '-c' == a:
-            ESC_LIGHT_RED="[1;31m"
-            ESC_LIGHT_GREEN="[1;32m"
-            ESC_YELLOW="[1;33m"
-            ESC_WHITE="[1;37m"
-            ESC_NO_COLOR="[0m"
+        
+    print helpString.format()
 
-            if len(sys.argv)==3: 
-                enduranceTrainingLog = EnduranceTrainingLog(sys.argv[1],sys.argv[2])
-                enduranceTrainingLog.generate()
-                quit()
-        if '--help' == a or '-h' == a:
-            print helpString.format()
-            quit()
-        if '--version' == a or '-v' == a:
-            print "{}".format(__version__)
-            quit()
-
-print helpString.format()
-    
-
-
+# eof
