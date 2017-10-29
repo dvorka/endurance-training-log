@@ -19,7 +19,7 @@ under the License.
 import json
 from datetime import date, datetime
 
-from etlfrontend import EtlConfiguration,EtlTrainingLog
+from etlfrontend import Configuration,TrainingLog
 from etlbackend import HtmlLogGenerator
 
 UNKNOWN_WEIGHT = 1024.0
@@ -41,8 +41,8 @@ class EnduranceTrainingLog:
             self.colors['end'],
             self.trainingLogDirectoryPath, 
             self.outputDirectoryPath)
-        configuration = EtlConfiguration(self.trainingLogDirectoryPath+'/config.yaml', self.colors)
-        trainingLog = EtlTrainingLog(configuration, self.trainingLogDirectoryPath, self.colors)
+        configuration = Configuration(self.trainingLogDirectoryPath+'/config.yaml', self.colors)
+        trainingLog = TrainingLog(configuration, self.trainingLogDirectoryPath, self.colors)
         report = Report(trainingLog, self.colors)
         report.calculate()        
         htmlLog = HtmlLogGenerator(self.outputDirectoryPath, report, self.colors)

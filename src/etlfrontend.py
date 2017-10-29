@@ -24,7 +24,7 @@ traversal and analytics of these structures.
 '''
 import yaml
 
-class EtlConfiguration:
+class Configuration:
     '''
     Configuration.
     '''
@@ -48,7 +48,7 @@ class EtlConfiguration:
 
 
 
-class EtlTrainingLog:
+class TrainingLog:
     '''
     Aggregated YAML training logs across all years.
     '''
