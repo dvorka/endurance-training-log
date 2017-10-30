@@ -17,9 +17,112 @@ under the License.
 '''
 
 import os
+import sys
 from datetime import date, datetime
 
 from etlmodel import l10nweekdays, l10nmonths
+
+#
+# Functions
+#
+
+def rmDirRecursively(directoryToDelete):
+    for root, dirs, files in os.walk(directoryToDelete, topdown=False):
+        for name in files:
+            os.remove(os.path.join(root, name))
+        for name in dirs:
+            os.rmdir(os.path.join(root, name))
+    os.rmdir(directoryToDelete)
+
+
+
+def copyFile(sourceFile, targetFile):
+    if not os.path.isfile(sourceFile):
+        print("Source file '{}' to copy does not exist!".format(sourceFile))
+        sys.exit()
+    with open(sourceFile, 'r') as src, open(targetFile, 'w') as dst: dst.write(src.read())
+
+
+
+def generateHtmlTemplate(templateFile, targetFile, metaTitleHtml, leftmenuHtml, mainTitleHtml, contentHtml, footerHtml):
+    if not os.path.isfile(templateFile):
+        print("Template file '{}' does not exist!".format(templateFile))
+        sys.exit()
+    with open(templateFile) as source, open(targetFile) as target:
+        for line in source:
+            if 'etl.meta.title.begin' in line:
+                target.write('<!-- etl.meta.title.begin -->\n')
+                target.write(metaTitleHtml)
+            elif 'etl.meta.title.end' in line:
+                target.write('<!-- etl.meta.title.end -->\n')
+            elif 'etl.leftmenu.content.begin' in line:
+                target.write('<!-- etl.leftmenu.content.begin -->\n')
+                target.write(leftmenuHtml)
+            elif 'etl.leftmenu.content.end' in line:
+                target.write('<!-- etl.leftmenu.content.end -->\n')
+            elif 'etl.main.title.begin' in line:
+                target.write('<!-- etl.main.title.begin -->\n')
+                target.write(mainTitleHtml)
+            elif 'etl.main.title.end' in line:
+                target.write('<!-- etl.main.title.end -->\n')
+            elif 'etl.main.content.begin' in line:
+                target.write('<!-- etl.main.content.begin -->\n')
+                target.write(contentHtml)
+            elif 'etl.main.content.end' in line:
+                target.write('<!-- etl.main.content.end -->\n')
+            elif 'etl.main.footer.begin' in line:
+                target.write('<!-- etl.main.footer.begin -->\n')
+                target.write(footerHtml)
+            elif 'etl.main.footer.end' in line:
+                target.write('<!-- etl.main.footer.end -->\n')
+            else:
+                # ... otherwise simply copy the line
+                target.write(str(line))
+
+
+
+class NEWHtmlLogGenerator:
+
+    def __init__(self, targetDirectory, report, colors):
+        self.targetDirectory = targetDirectory
+        self.report = report
+        self.colors = colors
+
+    def generate(self):
+        print '\n{}Building HTML site...{}'.format(self.colors['yellow'],self.colors['end'])
+        self.clean()
+        self.generateFileCss()
+        self.generateFileIndex()
+        for year in self.report.trainingLog.yearToPhases.keys():
+            self.generateFileForYear(year)        
+        for activity in self.report.activityTypes:            
+            self.generateFileByDistance(activity)
+        print '{}HTML successfully generated.{}'.format(self.colors['green'],self.colors['end'])
+
+    def clean(self):
+        if os.path.isdir(self.targetDirectoryPath) and os.path.exists(self.targetDirectoryPath):
+            rmDirRecursively(self.targetDirectoryPath)
+        os.mkdir(self.targetDirectoryPath)
+
+    def generateFileCss(self):
+        print '  {}Generating CSS file...{}'.format(self.colors['green'],self.colors['end'])
+        cssTemplateFile = os.getcwd()+'html/css/style.css'
+        targetFile = self.targetDirectoryPath+'/style.css'
+        copyFile(cssTemplateFile, targetFile)
+
+    def generateFileIndex(self):
+        print 'TBD'
+    def generateFileForYear(self, year):
+        print 'TBD'
+
+
+######################################################################################################################
+######################################################################################################################
+######################################################################################################################
+# OLD CODE
+######################################################################################################################
+######################################################################################################################
+######################################################################################################################
 
 #
 # HTML rendering
@@ -365,18 +468,6 @@ htmlAllYearsSummaryTableSuffix='''
 '''
 
 #
-# Functions
-#
-
-def rmDirRecursively(directoryToDelete):
-    for root, dirs, files in os.walk(directoryToDelete, topdown=False):
-        for name in files:
-            os.remove(os.path.join(root, name))
-        for name in dirs:
-            os.rmdir(os.path.join(root, name))
-    os.rmdir(directoryToDelete)
-
-#
 # Page: Activity by distance
 #
 
@@ -411,7 +502,13 @@ class HtmlLogGenerator:
 
     def writePageEnd(self, f):
         f.write(htmlMainPaneSuffix)
-        f.write(htmlPageSuffix.format(datetime.today().year, datetime.today().month, datetime.today().day, datetime.today().hour, datetime.today().minute, datetime.today().second))
+        f.write(htmlPageSuffix.format(
+            datetime.today().year, 
+            datetime.today().month, 
+            datetime.today().day, 
+            datetime.today().hour, 
+            datetime.today().minute, 
+            datetime.today().second))
 
     def generateFileIndex(self):
         filePath = self.targetDirectoryPath+'/index.html'
