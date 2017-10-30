@@ -19,9 +19,18 @@ Code conventions:
   - \""" is used for COMMENTS as it is used PythonDoc generators
   - ''' is used in the CODE, \""" is used only when string needs 
     to contain ''' (''' and \""" are interchangeable as ' and " are)
+
+Documenation generator:
+
+  - http://www.sphinx-doc.org
+
 """
 
-
+# Plan:
+# - page for year with details i.e. YAML visualization (days, months, ...)
+# - left menu generator
+# - home page with summaries
+# - importers: Strava trainings, XSL (CSV) to YAML convertor, GSheets to YAML, ...
 
 # help
 helpString = '''Endurance training log visualizer and analyzer.
