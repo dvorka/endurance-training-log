@@ -1,6 +1,5 @@
 #!/usr/bin/env python
-
-'''
+"""
 EnduranceTrainingLog, Martin Dvorak, 2017
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -14,7 +13,7 @@ distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
 WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 License for the specific language governing permissions and limitations
 under the License.
-'''
+"""
 
 import os
 import sys
@@ -82,7 +81,8 @@ def generateHtmlTemplate(templateFile, targetFile, metaTitleHtml, leftmenuHtml, 
 
 
 class NEWHtmlLogGenerator:
-
+    """Generates HTML files from training report."""
+    
     def __init__(self, targetDirectory, report, colors):
         self.targetDirectory = targetDirectory
         self.report = report
@@ -92,7 +92,7 @@ class NEWHtmlLogGenerator:
         print '\n{}Building HTML site...{}'.format(self.colors['yellow'],self.colors['end'])
         self.clean()
         self.generateFileCss()
-        self.generateFileIndex()
+        self.generateFileHome()
         for year in self.report.trainingLog.yearToPhases.keys():
             self.generateFileForYear(year)        
         for activity in self.report.activityTypes:            
@@ -100,20 +100,33 @@ class NEWHtmlLogGenerator:
         print '{}HTML successfully generated.{}'.format(self.colors['green'],self.colors['end'])
 
     def clean(self):
-        if os.path.isdir(self.targetDirectoryPath) and os.path.exists(self.targetDirectoryPath):
-            rmDirRecursively(self.targetDirectoryPath)
-        os.mkdir(self.targetDirectoryPath)
+        if os.path.isdir(self.targetDirectory) and os.path.exists(self.targetDirectory):
+            rmDirRecursively(self.targetDirectory)
+        os.mkdir(self.targetDirectory)
 
     def generateFileCss(self):
-        print '  {}Generating CSS file...{}'.format(self.colors['green'],self.colors['end'])
-        cssTemplateFile = os.getcwd()+'html/css/style.css'
-        targetFile = self.targetDirectoryPath+'/style.css'
+        print '  {}Generating CSS file...{}'.format(self.colors['yellow'],self.colors['end'])
+        cssTemplateFile = os.getcwd()+'/html/style.css'
+        targetFile = self.targetDirectory+'/style.css'
         copyFile(cssTemplateFile, targetFile)
+        print '  Done'
 
-    def generateFileIndex(self):
-        print 'TBD'
+    def generateFileHome(self):
+        """Generates index.html"""
+        # TODO
+        pass
     def generateFileForYear(self, year):
-        print 'TBD'
+        """Generates year-*.html"""
+        # TODO
+        pass
+    def generateFileByDistance(self, activity):
+        """Generates *-by-distance.html"""
+        # TODO
+        pass
+    def generateFileByTime(self, activity):
+        """Generates *-by-time.html"""
+        # TODO
+        pass
 
 
 ######################################################################################################################

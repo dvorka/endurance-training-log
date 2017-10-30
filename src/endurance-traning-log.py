@@ -1,6 +1,5 @@
 #!/usr/bin/env python
-
-'''
+"""
 EnduranceTrainingLog, Martin Dvorak, 2017
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -14,10 +13,18 @@ distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
 WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 License for the specific language governing permissions and limitations
 under the License.
-'''
+
+Code conventions:
+
+  - \""" is used for COMMENTS as it is used PythonDoc generators
+  - ''' is used in the CODE, \""" is used only when string needs 
+    to contain ''' (''' and \""" are interchangeable as ' and " are)
+"""
+
+
 
 # help
-helpString = """Endurance training log visualizer and analyzer.
+helpString = '''Endurance training log visualizer and analyzer.
 
 Usage: endurance-training-log.py [OPTION] input-yaml-file output-directory
 
@@ -27,7 +34,7 @@ Startup:
 
 Output:
   -c  --color       use color to highlight output
-"""
+'''
 
 import sys
 
@@ -63,6 +70,9 @@ if __name__ == "__main__":
         for a in sys.argv:
             if '-T' == a:
                 sourceDirectory='/home/dvorka/p/endurance-training-log/github/endurance-training-log/test/test-data'
+                targetDirectory='/home/dvorka/tmp/etl-test-data'
+            if '-TT' == a:
+                sourceDirectory='/home/dvorka/Desktop/My/endurance-training-log/test/test-data'
                 targetDirectory='/home/dvorka/tmp/etl-test-data'
             elif '--color' == a or '-c' == a:
                 ESC_RED="[1;31m"

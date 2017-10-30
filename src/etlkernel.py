@@ -1,6 +1,5 @@
 #!/usr/bin/env python
-
-'''
+"""
 EnduranceTrainingLog, Martin Dvorak, 2017
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -14,21 +13,21 @@ distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
 WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 License for the specific language governing permissions and limitations
 under the License.
-'''
+"""
 
 import json
 from datetime import date, datetime
 
 from etlfrontend import Configuration,TrainingLog
-from etlbackend import HtmlLogGenerator
+from etlbackend import NEWHtmlLogGenerator
 
 UNKNOWN_WEIGHT = 1024.0
 
 class EnduranceTrainingLog:
-    '''
+    """
     Main class - loads configuration, loads all training log files, aggregates log files
     and generates HTML and/or log with analytics.
-    '''
+    """
 
     def __init__(self, trainingLogDirectoryPath, outputDirectoryPath, colors):
         self.trainingLogDirectoryPath = trainingLogDirectoryPath
@@ -45,15 +44,15 @@ class EnduranceTrainingLog:
         trainingLog = TrainingLog(configuration, self.trainingLogDirectoryPath, self.colors)
         report = Report(trainingLog, self.colors)
         report.calculate()        
-        htmlLog = HtmlLogGenerator(self.outputDirectoryPath, report, self.colors)
+        htmlLog = NEWHtmlLogGenerator(self.outputDirectoryPath, report, self.colors)
         htmlLog.generate()
 
 
 
 class LifetimeActivityTotal:
-    '''
+    """
     Lifetime summary for a particular sport activity - used as dictionary value.
-    '''
+    """
     days = set([]);
     phases = [];
     km = 0;
@@ -76,7 +75,7 @@ class LifetimeActivityTotal:
 
 
 class MslTime:
-    '''
+    """
     Parse any of the following strings to fields:
       1h3'10.7
       1h4'
@@ -87,7 +86,7 @@ class MslTime:
       3'10
       1h3'
       1h
-    '''
+    """
     
     hours=0
     minutes=0
@@ -124,9 +123,13 @@ class MslTime:
 
 
 class Report:
-    '''
+    """
     A class that performs analytics calculation on top of aggregated log.
-    '''
+
+    Training log w/ units is kept RAW i.e. YAML format is just converted to Python dicts/arrays.
+    Summary and analytics is stored in classes and their field values are calculated 
+    by traversing raw training log.   
+    """
 
     # set of days I was exercising
     daysWorthIt = set([])

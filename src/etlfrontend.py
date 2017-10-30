@@ -1,6 +1,5 @@
 #!/usr/bin/env python
-
-'''
+"""
 EnduranceTrainingLog, Martin Dvorak, 2017
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -14,20 +13,20 @@ distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
 WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 License for the specific language governing permissions and limitations
 under the License.
-'''
+"""
 
-'''
+"""
 The beauty of Python+YAML is that YAML files are loaded
 to native Python structures (lists, maps, ...). Thus YAML
 drives Python trainingLog structures and code here only performs
 traversal and analytics of these structures.
-'''
+"""
 import yaml
 
 class Configuration:
-    '''
+    """
     Configuration.
-    '''
+    """
 
     yearFileNames = set({})
 
@@ -49,9 +48,9 @@ class Configuration:
 
 
 class TrainingLog:
-    '''
+    """
     Aggregated YAML training logs across all years.
-    '''
+    """
 
     # all training phases (all years) ordered by time
     phases = []
