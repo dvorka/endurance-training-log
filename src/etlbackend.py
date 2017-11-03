@@ -47,36 +47,48 @@ def generateHtmlTemplate(templateFile, targetFile, metaTitleHtml, leftmenuHtml, 
     if not os.path.isfile(templateFile):
         print("Template file '{}' does not exist!".format(templateFile))
         sys.exit()
-    with open(templateFile) as source, open(targetFile) as target:
+    with open(templateFile,'r') as source, open(targetFile,'w') as target:
+        on = True
         for line in source:
             if 'etl.meta.title.begin' in line:
                 target.write('<!-- etl.meta.title.begin -->\n')
                 target.write(metaTitleHtml)
+                on = False
             elif 'etl.meta.title.end' in line:
-                target.write('<!-- etl.meta.title.end -->\n')
+                target.write('\n<!-- etl.meta.title.end -->\n')
+                on = True
             elif 'etl.leftmenu.content.begin' in line:
                 target.write('<!-- etl.leftmenu.content.begin -->\n')
                 target.write(leftmenuHtml)
+                on = False
             elif 'etl.leftmenu.content.end' in line:
-                target.write('<!-- etl.leftmenu.content.end -->\n')
+                target.write('\n<!-- etl.leftmenu.content.end -->\n')
+                on = True
             elif 'etl.main.title.begin' in line:
                 target.write('<!-- etl.main.title.begin -->\n')
                 target.write(mainTitleHtml)
+                on = False
             elif 'etl.main.title.end' in line:
-                target.write('<!-- etl.main.title.end -->\n')
+                target.write('\n<!-- etl.main.title.end -->\n')
+                on = True
             elif 'etl.main.content.begin' in line:
                 target.write('<!-- etl.main.content.begin -->\n')
                 target.write(contentHtml)
+                on = False
             elif 'etl.main.content.end' in line:
-                target.write('<!-- etl.main.content.end -->\n')
+                target.write('\n<!-- etl.main.content.end -->\n')
+                on = True
             elif 'etl.main.footer.begin' in line:
                 target.write('<!-- etl.main.footer.begin -->\n')
                 target.write(footerHtml)
+                on = False
             elif 'etl.main.footer.end' in line:
-                target.write('<!-- etl.main.footer.end -->\n')
+                target.write('\n<!-- etl.main.footer.end -->\n')
+                on = True
             else:
                 # ... otherwise simply copy the line
-                target.write(str(line))
+                if on:
+                    target.write(str(line))
 
 
 
@@ -91,7 +103,9 @@ class NEWHtmlLogGenerator:
     def generate(self):
         print '\n{}Building HTML site...{}'.format(self.colors['yellow'],self.colors['end'])
         self.clean()
+        self.generateFileFavicon()
         self.generateFileCss()
+        self.generateFileJavascript()
         self.generateFileHome()
         for year in self.report.trainingLog.yearToPhases.keys():
             self.generateFileForYear(year)        
@@ -104,17 +118,99 @@ class NEWHtmlLogGenerator:
             rmDirRecursively(self.targetDirectory)
         os.mkdir(self.targetDirectory)
 
+    def generateFileFavicon(self):
+        faviconTemplateFile = os.getcwd()+'/html/favicon.ico'
+        targetFile = self.targetDirectory+'/favicon.ico'
+        print '  Generating {}...'.format(targetFile)
+        copyFile(faviconTemplateFile, targetFile)
+        print '  Done'
+
     def generateFileCss(self):
-        print '  {}Generating CSS file...{}'.format(self.colors['yellow'],self.colors['end'])
         cssTemplateFile = os.getcwd()+'/html/style.css'
         targetFile = self.targetDirectory+'/style.css'
+        print '  Generating {}...'.format(targetFile)
         copyFile(cssTemplateFile, targetFile)
+        print '  Done'
+
+    def generateFileJavascript(self):
+        jsTemplateFile = os.getcwd()+'/html/scripts.js'
+        targetFile = self.targetDirectory+'/scripts.js'
+        print '  Generating {}...'.format(targetFile)
+        copyFile(jsTemplateFile, targetFile)
         print '  Done'
 
     def generateFileHome(self):
         """Generates index.html"""
-        # TODO
-        pass
+        templateFile = os.getcwd()+'/html/template.html'
+        targetFile = self.targetDirectory+'/index.html'
+        print '  Generating {}...'.format(targetFile)
+        # footer
+        footerTemplate = '''        <br>Generated:&nbsp;{}/{}/{}&nbsp;{}:{}.{}
+        <br><a href="http://www.mindforger.com">EnduranceTrainingLog</a>
+        <br>2015,2017
+        <br>(cc)'''
+        footerHtml = footerTemplate.format(
+            datetime.today().year,
+            datetime.today().month,
+            datetime.today().day,
+            datetime.today().hour,
+            datetime.today().minute,
+            datetime.today().second)
+        # left menu
+        leftMenuTemplate = '''
+        <a href="./profile.html" title="Name, age, equipment, injuries, per sport/km/time statistics, motto, photo, ...">Me</a><br/>
+        <a href="./index.html">Summary</a><br/>
+        <a href="./statistics.html">Statistics</a><br/>
+        <a href="./equipment.html">Equipment</a><br/>
+        <a href="./weight.html">Weight</a><br/>
+        Years:<br/>
+        <div name="leftMenuYears" style="margin-left: 7px">
+          <a href="./year-2015.html">2015</a><br/>
+          <a href="./year-*.html">...</a><br/>
+        </div>
+        PBs:<br/>
+        <div name="leftMenuPBs" style="margin-left: 7px">
+          <a href="./pb-running.html">Running</a><br/>
+          <a href="./pb-*.html">...</a><br/>
+        </div>
+        Races:<br/>
+        <div name="leftMenuRaces" style="margin-left: 7px">
+          <a href="./race-running.html">Running</a><br/>
+          <a href="./race-*.html">...</a><br/>
+        </div>
+        Phases/km:<br/>
+        <div name="leftMenuPhasesKm" style="margin-left: 7px">
+          <a href="./phases-km-running.html" title="Running phases ordered by km">Running</a><br/>
+          <a href="./phases-km-*.html">...</a><br/>
+        </div>
+        Phases/time:<br/>
+        <div name="leftMenuPhasesTime" style="margin-left: 7px">
+          <a href="./phases-time-running.html" title="Running phases ordered by time">Running</a><br/>
+          <a href="./phases-time-*.html">...</a><br/>
+        </div>
+        Paths:<br/>
+        <div name="leftMenuPhasesTime" style="margin-left: 7px">
+          <a href="./paths-running.html" title="Ideas for running paths">Running</a><br/>
+          <a href="./paths-*.html">...</a><br/>
+        </div>
+        '''
+        leftMenuHtml = leftMenuTemplate
+        # content
+        #self.writeAllYearsSummaryTable(f)
+        # TODO per year additive chart
+        # TODO per year summary table
+        # TODO statistics
+        # TODO list of links to report
+        generateHtmlTemplate(
+            templateFile,
+            targetFile,
+            '    <title>Home - Endurance Training Log</title>',
+            leftMenuHtml,
+            '    <h1>Summary</h1>',
+            '', # TODO to be implemented
+            footerHtml)
+        print '  Done'
+
     def generateFileForYear(self, year):
         """Generates year-*.html"""
         # TODO

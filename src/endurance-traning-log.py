@@ -16,7 +16,7 @@ under the License.
 
 Code conventions:
 
-  - \""" is used for COMMENTS as it is used PythonDoc generators
+  - \""" is used for COMMENTS as it is used by PythonDoc generators
   - ''' is used in the CODE, \""" is used only when string needs 
     to contain ''' (''' and \""" are interchangeable as ' and " are)
 
