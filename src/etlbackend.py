@@ -17,6 +17,7 @@ under the License.
 
 import os
 import sys
+import calendar
 from datetime import date, datetime
 
 from etlmodel import l10nweekdays, l10nmonths
@@ -99,6 +100,9 @@ class NEWHtmlLogGenerator:
         self.targetDirectory = targetDirectory
         self.report = report
         self.colors = colors
+        if self.report.yearToActivityToTotalKm is not None:
+            self.reportYears = self.report.yearToActivityToTotalKm.keys()
+            self.reportYears.sort(reverse=True)
 
     def generate(self):
         print '\n{}Building HTML site...{}'.format(self.colors['yellow'],self.colors['end'])
@@ -107,10 +111,11 @@ class NEWHtmlLogGenerator:
         self.generateFileCss()
         self.generateFileJavascript()
         self.generateFileHome()
-        for year in self.report.trainingLog.yearToPhases.keys():
-            self.generateFileForYear(year)        
-        for activity in self.report.activityTypes:            
-            self.generateFileByDistance(activity)
+        if self.reportYears is not None:
+            for year in self.reportYears:
+                self.generateFileForYear(year)        
+            for activity in self.report.activityTypes:            
+                self.generateFileByDistance(activity)
         print '{}HTML successfully generated.{}'.format(self.colors['green'],self.colors['end'])
 
     def clean(self):
@@ -139,12 +144,7 @@ class NEWHtmlLogGenerator:
         copyFile(jsTemplateFile, targetFile)
         print '  Done'
 
-    def generateFileHome(self):
-        """Generates index.html"""
-        templateFile = os.getcwd()+'/html/template.html'
-        targetFile = self.targetDirectory+'/index.html'
-        print '  Generating {}...'.format(targetFile)
-        # footer
+    def generateFooterHtml(self):
         footerTemplate = '''        <br>Generated:&nbsp;{}/{}/{}&nbsp;{}:{}.{}
         <br><a href="http://www.mindforger.com">EnduranceTrainingLog</a>
         <br>2015,2017
@@ -156,6 +156,9 @@ class NEWHtmlLogGenerator:
             datetime.today().hour,
             datetime.today().minute,
             datetime.today().second)
+        return footerHtml
+
+    def generateLeftMenuHtml(self):
         # left menu
         leftMenuTemplate = '''
         <a href="./profile.html" title="Name, age, equipment, injuries, per sport/km/time statistics, motto, photo, ...">Me</a><br/>
@@ -164,10 +167,7 @@ class NEWHtmlLogGenerator:
         <a href="./equipment.html">Equipment</a><br/>
         <a href="./weight.html">Weight</a><br/>
         Years:<br/>
-        <div name="leftMenuYears" style="margin-left: 7px">
-          <a href="./year-2015.html">2015</a><br/>
-          <a href="./year-*.html">...</a><br/>
-        </div>
+        <div name="leftMenuYears" style="margin-left: 7px">{}</div>
         PBs:<br/>
         <div name="leftMenuPBs" style="margin-left: 7px">
           <a href="./pb-running.html">Running</a><br/>
@@ -194,9 +194,18 @@ class NEWHtmlLogGenerator:
           <a href="./paths-*.html">...</a><br/>
         </div>
         '''
-        leftMenuHtml = leftMenuTemplate
+        yearsHtml = '\n'
+        for y in self.reportYears:
+            yearsHtml += '          <a href="./year-{}.html">{}</a><br/>\n'.format(y,y)
+        leftMenuHtml = leftMenuTemplate.format(yearsHtml)
+        return leftMenuHtml
+
+    def generateFileHome(self):
+        """Generates index.html"""
+        templateFile = os.getcwd()+'/html/template.html'
+        targetFile = self.targetDirectory+'/index.html'
+        print '  Generating {}...'.format(targetFile)
         # content
-        #self.writeAllYearsSummaryTable(f)
         # TODO per year additive chart
         # TODO per year summary table
         # TODO statistics
@@ -205,16 +214,33 @@ class NEWHtmlLogGenerator:
             templateFile,
             targetFile,
             '    <title>Home - Endurance Training Log</title>',
-            leftMenuHtml,
+            self.generateLeftMenuHtml(),
             '    <h1>Summary</h1>',
             '', # TODO to be implemented
-            footerHtml)
+            self.generateFooterHtml())
         print '  Done'
 
     def generateFileForYear(self, year):
         """Generates year-*.html"""
-        # TODO
-        pass
+        templateFile = os.getcwd()+'/html/template.html'
+        targetFile = '{}/year-{}.html'.format(self.targetDirectory,year)
+        print '  Generating {}...'.format(targetFile)
+
+        for m in xrange(1,12):
+            for w in calendar.monthcalendar(year,m):
+                for d in w:
+                    print d
+
+        generateHtmlTemplate(
+            templateFile,
+            targetFile,
+            '    <title>{} - Endurance Training Log</title>'.format(year),
+            self.generateLeftMenuHtml(),
+            '    <h1>{}</h1>'.format(year),
+            '', # TODO to be implemented
+            self.generateFooterHtml())
+        print '  Done'
+
     def generateFileByDistance(self, activity):
         """Generates *-by-distance.html"""
         # TODO

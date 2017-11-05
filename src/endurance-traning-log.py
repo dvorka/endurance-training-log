@@ -80,7 +80,7 @@ if __name__ == "__main__":
             if '-T' == a:
                 sourceDirectory='/home/dvorka/p/endurance-training-log/github/endurance-training-log/test/test-data'
                 targetDirectory='/home/dvorka/tmp/etl-test-data'
-            if '-TT' == a:
+            elif '-TT' == a:
                 sourceDirectory='/home/dvorka/Desktop/My/endurance-training-log/test/test-data'
                 targetDirectory='/home/dvorka/tmp/etl-test-data'
             elif '--color' == a or '-c' == a:
