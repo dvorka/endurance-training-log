@@ -21,7 +21,62 @@
 
 namespace etl76 {
 
-DatasetInstance::DatasetInstance()
+DatasetInstance::DatasetInstance(
+        unsigned year,
+        unsigned month,
+        unsigned day,
+        unsigned phase,
+        CategoricalValue activityType,
+        bool commute,
+        unsigned totalTimeSeconds,
+        unsigned totalDistanceMeters,
+        unsigned warmUpSeconds,
+        unsigned warmUpDistanceMeters,
+        unsigned durationSeconds,
+        unsigned distanceMeters,
+        CategoricalValue intensity,
+        unsigned repetitions,
+        unsigned avgWatts,
+        unsigned maxWatts,
+        CategoricalValue equipment,
+        CategoricalValue route,
+        QString gpxUrl,
+        unsigned calories,
+        unsigned coolDownSeconds,
+        unsigned coolDownDistanceMeters,
+        float weight,
+        CategoricalValue weather,
+        float weatherTemperature,
+        QString where,
+        unsigned gramsOfFatBurn
+):
+    year(year),
+    month(month),
+    day(day),
+    phase(phase),
+    activityType(activityType),
+    commute(commute),
+    totalTimeSeconds(totalTimeSeconds),
+    totalDistanceMeters(totalDistanceMeters),
+    warmUpSeconds(warmUpSeconds),
+    warmUpDistanceMeters(warmUpDistanceMeters),
+    durationSeconds(durationSeconds),
+    distanceMeters(distanceMeters),
+    intensity(intensity),
+    repetitions(repetitions),
+    avgWatts(avgWatts),
+    maxWatts(maxWatts),
+    equipment(equipment),
+    route(route),
+    gpxUrl(gpxUrl),
+    calories(calories),
+    coolDownSeconds(coolDownSeconds),
+    coolDownDistanceMeters(coolDownDistanceMeters),
+    weight(weight),
+    weather(weather),
+    weatherTemperature(weatherTemperature),
+    where(where),
+    gramsOfFatBurn(gramsOfFatBurn)
 {}
 
 } // etl76 namespace

@@ -21,35 +21,33 @@
 
 #include <QtWidgets>
 
-#include "../../lib/src/representations/html/html_outline_representation.h"
-
+#include "dataset_instance.h"
 #include "dataset_table_view.h"
 #include "dataset_table_model.h"
-#include "html_delegate.h"
 
 namespace etl76 {
 
-class OutlinesTablePresenter : public QObject
+class DatasetTablePresenter : public QObject
 {
     Q_OBJECT
 
-    OutlinesTableView* view;
-    OutlinesTableModel* model;
+    DatasetTableView* view;
+    DatasetTableModel* model;
 
 public:
     static const int NO_ROW = -1;
 
 public:
-    OutlinesTablePresenter(OutlinesTableView* view, HtmlOutlineRepresentation* htmlRepresentation);
-    OutlinesTablePresenter(const OutlinesTablePresenter&) = delete;
-    OutlinesTablePresenter(const OutlinesTablePresenter&&) = delete;
-    OutlinesTablePresenter &operator=(const OutlinesTablePresenter&) = delete;
-    OutlinesTablePresenter &operator=(const OutlinesTablePresenter&&) = delete;
+    DatasetTablePresenter(DatasetTableView* view);
+    DatasetTablePresenter(const DatasetTablePresenter&) = delete;
+    DatasetTablePresenter(const DatasetTablePresenter&&) = delete;
+    DatasetTablePresenter &operator=(const DatasetTablePresenter&) = delete;
+    DatasetTablePresenter &operator=(const DatasetTablePresenter&&) = delete;
 
-    OutlinesTableModel* getModel() const { return model; }
-    OutlinesTableView* getView() const { return view; }
+    DatasetTableModel* getModel() const { return model; }
+    DatasetTableView* getView() const { return view; }
 
-    void refresh(const std::vector<Outline*>& outlines);
+    void refresh(const std::vector<DatasetInstance*>& instances);
     int getCurrentRow() const;
 };
 

@@ -22,11 +22,9 @@ namespace etl76 {
 
 using namespace std;
 
-OutlinesTableView::OutlinesTableView(QWidget *parent, bool isDashboardlet)
+DatasetTableView::DatasetTableView(QWidget* parent)
   : QTableView(parent)
 {
-    this->isDashboardlet = isDashboardlet;
-
     verticalHeader()->setVisible(false);
 
     // BEFARE ::ResizeToContents this kills performance - use ::Fixed instead:
@@ -40,7 +38,7 @@ OutlinesTableView::OutlinesTableView(QWidget *parent, bool isDashboardlet)
     setSelectionMode(QAbstractItemView::SingleSelection);
 }
 
-void OutlinesTableView::keyPressEvent(QKeyEvent* event)
+void DatasetTableView::keyPressEvent(QKeyEvent* event)
 {
     if(!(event->modifiers() & Qt::AltModifier)
          &&
@@ -69,7 +67,7 @@ void OutlinesTableView::keyPressEvent(QKeyEvent* event)
     QTableView::keyPressEvent(event);
 }
 
-void OutlinesTableView::mouseDoubleClickEvent(QMouseEvent* event)
+void DatasetTableView::mouseDoubleClickEvent(QMouseEvent* event)
 {
     Q_UNUSED(event);
 
@@ -77,46 +75,26 @@ void OutlinesTableView::mouseDoubleClickEvent(QMouseEvent* event)
     emit signalShowSelectedOutline();
 }
 
-void OutlinesTableView::resizeEvent(QResizeEvent* event)
+void DatasetTableView::resizeEvent(QResizeEvent* event)
 {
-    MF_DEBUG("OutlinesTableView::resizeEvent " << event << std::endl);
+    cout << "OutlinesTableView::resizeEvent " << event << std::endl;
 
+    // y/m/d
     if(horizontalHeader()->length() > 0) {
         // ensure that 1st column gets the remaining space from others
         horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
     }
     verticalHeader()->setDefaultSectionSize(fontMetrics().height()*1.5);
-
-    if(isDashboardlet) {
-        this->setColumnHidden(1, true);
-        this->setColumnHidden(2, true);
-        this->setColumnHidden(3, true);
-    } else {
-        // importance/urgency
-        this->setColumnWidth(1, this->fontMetrics().averageCharWidth()*12);
-        this->setColumnWidth(2, this->fontMetrics().averageCharWidth()*12);
-        // progress
-        this->setColumnWidth(3, this->fontMetrics().averageCharWidth()*6);
-    }
-
-    int normalizedWidth = width()/fontMetrics().averageCharWidth();
-    if(normalizedWidth < SIMPLIFIED_VIEW_THRESHOLD_WIDTH || isDashboardlet) {
-        this->setColumnHidden(4, true);
-        this->setColumnHidden(5, true);
-        this->setColumnHidden(6, true);
-    } else {
-        if(this->isColumnHidden(4)) {
-            this->setColumnHidden(4, false);
-            this->setColumnHidden(5, false);
-            this->setColumnHidden(6, false);
-        }
-        // notes
-        this->setColumnWidth(4, this->fontMetrics().averageCharWidth()*5);
-        // rd/wr
-        this->setColumnWidth(5, this->fontMetrics().averageCharWidth()*5);
-        this->setColumnWidth(6, this->fontMetrics().averageCharWidth()*5);
-    }
-
+    // importance/urgency
+    this->setColumnWidth(1, this->fontMetrics().averageCharWidth()*12);
+    this->setColumnWidth(2, this->fontMetrics().averageCharWidth()*12);
+    // progress
+    this->setColumnWidth(3, this->fontMetrics().averageCharWidth()*6);
+    // notes
+    this->setColumnWidth(4, this->fontMetrics().averageCharWidth()*5);
+    // rd/wr
+    this->setColumnWidth(5, this->fontMetrics().averageCharWidth()*5);
+    this->setColumnWidth(6, this->fontMetrics().averageCharWidth()*5);
     // pretty
     this->setColumnWidth(7, this->fontMetrics().averageCharWidth()*12);
 

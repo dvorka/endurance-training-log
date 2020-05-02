@@ -19,24 +19,28 @@
 #ifndef ETL76_OUTLINES_TABLE_MODEL_H
 #define ETL76_OUTLINES_TABLE_MODEL_H
 
-#include <string>
+#include <iostream>
 
 #include <QtWidgets>
+
+#include "dataset.h"
+
+
+Q_DECLARE_METATYPE(etl76::DatasetInstance*)
 
 
 namespace etl76 {
 
-Q_DECLARE_METATYPE(DatasetInstance*)
-
-class OutlinesTableModel : public QStandardItemModel
+class DatasetTableModel : public QStandardItemModel
 {
     Q_OBJECT
 
 public:
-    OutlinesTableModel(QObject* parent);
+    DatasetTableModel(QObject* parent);
 
     void removeAllRows();
-    void addRow(Outline* outline);
+    void addRows(Dataset* dataset);
+    void addRow(DatasetInstance* instance);
 };
 
 }

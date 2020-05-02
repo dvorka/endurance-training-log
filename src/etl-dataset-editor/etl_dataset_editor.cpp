@@ -16,14 +16,15 @@
  You should have received a copy of the GNU General Public License
  along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
-#include "mainwindow.h"
+#include "main_window.h"
 
 #include <QApplication>
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
-    return a.exec();
+    QApplication application(argc, argv);
+    application.setApplicationName(QString{"Endurance Training Log Dataset Editor"});
+    etl76::MainWindow mainWindow;
+    mainWindow.show();
+    return application.exec();
 }

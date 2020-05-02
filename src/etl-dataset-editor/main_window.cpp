@@ -18,12 +18,60 @@
 */
 #include "main_window.h"
 
-MainWindow::MainWindow(QWidget *parent)
+namespace etl76 {
+
+MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)
 {
+    // TODO app
+    setWindowTitle(QString{"Endurance Training Log Dataset Editor"});
+    QMenu* fileMenu = menuBar()->addMenu("&File");
+    QAction* quitAction = fileMenu->addAction("&Quit");
+    statusBar()->clearMessage();
+
+    QObject::connect(
+        quitAction, SIGNAL(triggered()),
+        this, SLOT(close())
+    );
+
+    dataset.addInstance(
+        new DatasetInstance(
+        2020, 05, 02,
+        1,
+        CategoricalValue("bike"),
+        false,
+        3600, 25000,
+        0, 0, 0, 0,
+        CategoricalValue("easy"),
+        0, 0, 0,
+        CategoricalValue("Rockhopper"),
+        CategoricalValue(""),
+        QString(""),
+        0, 0, 0,
+        92.5,
+        CategoricalValue("sunny"), 15,
+        QString("Skupice"),
+        0
+        )
+    );
+
+    view = new DatasetTableView{this};
+    model = new DatasetTableModel{this};
+    model->addRows(&dataset);
+    view->setModel(model);
+    presenter = new DatasetTablePresenter{view};
+
+    QSplitter* splitter = new QSplitter;
+    splitter->addWidget(view);
+
+    setCentralWidget(view);
 }
 
 MainWindow::~MainWindow()
 {
+    delete view;
+    delete model;
+    delete presenter;
 }
 
+} // namespace etl76

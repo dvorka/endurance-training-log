@@ -22,38 +22,27 @@ using namespace std;
 
 namespace etl76 {
 
-OutlinesTablePresenter::OutlinesTablePresenter(OutlinesTableView* view, HtmlOutlineRepresentation* htmlRepresentation)
+DatasetTablePresenter::DatasetTablePresenter(DatasetTableView* view)
 {
     this->view = view;
-    this->model = new OutlinesTableModel(this, htmlRepresentation);
+    this->model = new DatasetTableModel(this);
     this->view->setModel(this->model);
-
-    // ensure HTML cells rendering
-    HtmlDelegate* delegate = new HtmlDelegate();
-    // IMPROVE implement delegates by type e.g. timestamp an reuse them across views
-    //this->view->setItemDelegateForColumn(delegate);
-    this->view->setItemDelegate(delegate);
 }
 
-void OutlinesTablePresenter::refresh(const vector<Outline*>& outlines)
+void DatasetTablePresenter::refresh(const vector<DatasetInstance*>& instances)
 {
     model->removeAllRows();
-    if(outlines.size()) {
-        for(Outline* outline:outlines) {
-            model->addRow(outline);
+    if(instances.size()) {
+        for(DatasetInstance* instance:instances) {
+            model->addRow(instance);
         }
-
-        view->sortByColumn(
-            Configuration::getInstance().getUiOsTableSortColumn(),
-            Configuration::getInstance().isUiOsTableSortOrder()?Qt::SortOrder::AscendingOrder:Qt::SortOrder::DescendingOrder
-        );
 
         this->view->setCurrentIndex(this->model->index(0, 0));
         this->view->setFocus();
     }
 }
 
-int OutlinesTablePresenter::getCurrentRow() const
+int DatasetTablePresenter::getCurrentRow() const
 {
     QModelIndexList indexes = view->selectionModel()->selection().indexes();
     for(int i=0; i<indexes.count(); i++) {
