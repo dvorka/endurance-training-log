@@ -36,10 +36,10 @@ class MainWindow : public QMainWindow
 private:
     Dataset dataset;
 
-    DatasetTableView* view;
-    DatasetTablePresenter* presenter;
+    DatasetTableView* datasetTableView;
+    DatasetTablePresenter* datasetTablePresenter;
 
-    DatasetInstanceDialog* newDialog;
+    DatasetInstanceDialog* newInstanceDialog;
 
 public:
     MainWindow(QWidget* parent = nullptr);
@@ -47,8 +47,10 @@ public:
 
 private slots:
     void showNewInstanceDialog() {
-        newDialog->show();
+        newInstanceDialog->refreshOnNew();
+        newInstanceDialog->show();
     }
+    void handleNewInstance();
 
 };
 

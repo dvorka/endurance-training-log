@@ -41,14 +41,16 @@ void DatasetTableModel::removeAllRows()
         << tr("Distance")   // 1,250m
         << tr("Time")       // 1h30m12s
         << tr("Intensity")  // fatlek
+        // TODO Description
         << tr("Weight")     // 92.5kg
         << tr("Fat");       // 12g        (grams of fat burn)
     // IMPROVE set tooltips: items w/ tooltips instead of just strings
     setHorizontalHeaderLabels(tableHeader);
 }
 
-void DatasetTableModel::addRows(Dataset* dataset)
+void DatasetTableModel::setRows(Dataset* dataset)
 {
+    removeAllRows();
     for(DatasetInstance* instance: dataset->getInstances()) {
         addRow(instance);
     }

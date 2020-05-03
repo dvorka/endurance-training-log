@@ -73,7 +73,7 @@ private:
     unsigned warmUpDistanceMeters;
 
     // phase
-    unsigned durationSeconds;
+    unsigned timeSeconds;
     unsigned distanceMeters;
     CategoricalValue intensity; // easy, regen, LSD, fartlek, tempo, race
     unsigned repetitions;
@@ -94,7 +94,7 @@ private:
     QString where;
 
     // calculated
-    unsigned gramsOfFatBurn;
+    unsigned gramsOfFatBurnt;
 
 public:
     DatasetInstance(
@@ -103,12 +103,13 @@ public:
             unsigned day,
             unsigned phase,
             CategoricalValue activityType,
+            QString description,
             bool commute,
             unsigned totalTimeSeconds,
             unsigned totalDistanceMeters,
             unsigned warmUpSeconds,
             unsigned warmUpDistanceMeters,
-            unsigned durationSeconds,
+            unsigned timeSeconds,
             unsigned distanceMeters,
             CategoricalValue intensity,
             unsigned repetitions,
@@ -122,9 +123,9 @@ public:
             unsigned coolDownDistanceMeters,
             float weight,
             CategoricalValue weather,
-            float weatherTemperature,
+            unsigned weatherTemperature,
             QString where,
-            unsigned gramsOfFatBurn
+            unsigned gramsOfFatBurnt
     );
     DatasetInstance(const DatasetInstance&) = delete;
     DatasetInstance(const DatasetInstance&&) = delete;
@@ -143,6 +144,7 @@ public:
     }
     unsigned getPhase() const { return phase; }
     CategoricalValue getActivityType() const { return activityType; }
+    QString getDescription() const { return description; }
     bool getCommute() const { return commute; }
     unsigned getTotalTimeSeconds() const { return totalTimeSeconds; }
     QString getTotalTimeStr() const {
@@ -156,8 +158,8 @@ public:
     unsigned getWarmUpDistanceMeters() const { return warmUpDistanceMeters; }
     QString getWarmUpDistanceStr() const;
     // phase
-    unsigned getDurationSeconds() const { return durationSeconds; }
-    QString getDurationStr() const { return QString::number(durationSeconds).append("''"); }
+    unsigned getDurationSeconds() const { return timeSeconds; }
+    QString getDurationStr() const { return QString::number(timeSeconds).append("''"); }
     unsigned getDistanceMeters() { return distanceMeters; }
     QString getDistanceStr() const { return QString::number(distanceMeters).append("m"); }
     CategoricalValue getIntensity() const { return intensity; }
@@ -178,12 +180,12 @@ public:
     float getWeight() const { return weight; }
     QString getWeightStr() const { return QString::number(weight).append("kg"); }
     CategoricalValue getWeather() const { return weather; }
-    float getWeatherTemperature() const { return weatherTemperature; }
+    unsigned getWeatherTemperature() const { return weatherTemperature; }
     QString getWhere() const { return where; }
 
     // calculated
-    unsigned getGramsOfFatBurnt() const { return gramsOfFatBurn; }
-    QString getGramsOfFatBurntStr() const { return QString::number(gramsOfFatBurn).append("g"); }
+    unsigned getGramsOfFatBurnt() const { return gramsOfFatBurnt; }
+    QString getGramsOfFatBurntStr() const { return QString::number(gramsOfFatBurnt).append("g"); }
 };
 
 } // namespace etl76

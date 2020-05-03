@@ -38,7 +38,7 @@ public:
     DatasetTableModel(QObject* parent);
 
     void removeAllRows();
-    void addRows(Dataset* dataset);
+    void setRows(Dataset* dataset);
     void addRow(DatasetInstance* instance);
 };
 

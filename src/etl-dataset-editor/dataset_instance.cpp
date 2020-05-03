@@ -27,6 +27,7 @@ DatasetInstance::DatasetInstance(
         unsigned day,
         unsigned phase,
         CategoricalValue activityType,
+        QString description,
         bool commute,
         unsigned totalTimeSeconds,
         unsigned totalDistanceMeters,
@@ -46,7 +47,7 @@ DatasetInstance::DatasetInstance(
         unsigned coolDownDistanceMeters,
         float weight,
         CategoricalValue weather,
-        float weatherTemperature,
+        unsigned weatherTemperature,
         QString where,
         unsigned gramsOfFatBurn
 ):
@@ -55,12 +56,13 @@ DatasetInstance::DatasetInstance(
     day(day),
     phase(phase),
     activityType(activityType),
+    description(description),
     commute(commute),
     totalTimeSeconds(totalTimeSeconds),
     totalDistanceMeters(totalDistanceMeters),
     warmUpSeconds(warmUpSeconds),
     warmUpDistanceMeters(warmUpDistanceMeters),
-    durationSeconds(durationSeconds),
+    timeSeconds(durationSeconds),
     distanceMeters(distanceMeters),
     intensity(intensity),
     repetitions(repetitions),
@@ -76,7 +78,7 @@ DatasetInstance::DatasetInstance(
     weather(weather),
     weatherTemperature(weatherTemperature),
     where(where),
-    gramsOfFatBurn(gramsOfFatBurn)
+    gramsOfFatBurnt(gramsOfFatBurn)
 {}
 
 } // etl76 namespace

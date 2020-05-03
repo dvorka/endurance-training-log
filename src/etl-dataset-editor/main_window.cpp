@@ -26,28 +26,24 @@ MainWindow::MainWindow(QWidget* parent)
     // TODO app
     setWindowTitle(QString{"Endurance Training Log Dataset Editor"});
     QMenu* fileMenu = menuBar()->addMenu("&File");
-    QAction* newInstanceAction = fileMenu->addAction("&New Instance");
+    QAction* openCsvAction = fileMenu->addAction("&Open");
+    QAction* saveCsvAction = fileMenu->addAction("&Save");
+    QAction* saveAsCsvAction = fileMenu->addAction("Save &as");
     QAction* quitAction = fileMenu->addAction("&Quit");
+    QMenu* datasetMenu = menuBar()->addMenu("&Dataset");
+    QAction* newInstanceAction = datasetMenu->addAction("&New instance");
 
-    newDialog = new DatasetInstanceDialog{this};
+    newInstanceDialog = new DatasetInstanceDialog{this};
 
     statusBar()->clearMessage();
     setWindowState(Qt::WindowMaximized);
-
-    QObject::connect(
-        quitAction, SIGNAL(triggered()),
-        this, SLOT(close())
-    );
-    QObject::connect(
-        newInstanceAction, SIGNAL(triggered()),
-        this, SLOT(showNewInstanceDialog())
-    );
 
     dataset.addInstance(
         new DatasetInstance(
         2020, 05, 02,
         1,
         CategoricalValue("bike"),
+        QString("Easy Okor in windy weather"),
         false,
         3600, 25000,
         0, 0, 0, 0,
@@ -64,21 +60,42 @@ MainWindow::MainWindow(QWidget* parent)
         )
     );
 
-    view = new DatasetTableView{this};
-    presenter = new DatasetTablePresenter{view};
-    presenter->getModel()->removeAllRows();
-    presenter->getModel()->addRows(&dataset);
+    datasetTableView = new DatasetTableView{this};
+    datasetTablePresenter = new DatasetTablePresenter{datasetTableView};
+    datasetTablePresenter->getModel()->setRows(&dataset);
 
+    // TODO expendable splitter
     QSplitter* splitter = new QSplitter;
-    splitter->addWidget(view);
+    splitter->addWidget(datasetTableView);
 
-    setCentralWidget(view);
+    setCentralWidget(datasetTableView);
+
+    // signals
+    QObject::connect(
+        newInstanceDialog, SIGNAL(accepted()),
+        this, SLOT(handleNewInstance())
+    );
+    QObject::connect(
+        quitAction, SIGNAL(triggered()),
+        this, SLOT(close())
+    );
+    QObject::connect(
+        newInstanceAction, SIGNAL(triggered()),
+        this, SLOT(showNewInstanceDialog())
+    );
 }
 
 MainWindow::~MainWindow()
 {
-    delete view;
-    delete presenter;
+    delete datasetTableView;
+    delete datasetTablePresenter;
+}
+
+void MainWindow::handleNewInstance()
+{
+    DatasetInstance* newInstance = newInstanceDialog->toDatasetInstance();
+    dataset.addInstance(newInstance);
+    datasetTablePresenter->getModel()->setRows(&dataset);
 }
 
 } // namespace etl76

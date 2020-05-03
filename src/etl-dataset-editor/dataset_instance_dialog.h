@@ -21,6 +21,9 @@
 
 #include <QtWidgets>
 
+#include "dataset_instance.h"
+
+
 namespace etl76 {
 
 class DatasetInstanceDialog : public QDialog
@@ -28,12 +31,14 @@ class DatasetInstanceDialog : public QDialog
     Q_OBJECT
 
 public:
-    QLabel* yearLabel;
-    QLineEdit* yearEdit;
-    QLabel* monthLabel;
-    QLineEdit* monthEdit;
-    QLabel* dayLabel;
-    QLineEdit* dayEdit;
+    QLabel* yearMonthDayLabel;
+    QLineEdit* yearMonthDayEdit;
+
+    QLabel* activityLabel;
+    QLineEdit* activityEdit;
+
+    QLabel* descriptionLabel;
+    QLineEdit* descriptionEdit;
 
     QLabel* phaseLabel;
     QLineEdit* phaseEdit;
@@ -41,12 +46,75 @@ public:
     QLabel* commuteLabel;
     QCheckBox* commuteCheck;
 
+    QLabel* totalTimeLabel;
+    QLineEdit* totalTimeEdit;
+    QLabel* totalDistanceLabel;
+    QLineEdit* totalDistanceEdit;
+
+    QLabel* warmUpTimeLabel;
+    QLineEdit* warmUpTimeEdit;
+    QLabel* warmUpDistanceLabel;
+    QLineEdit* warmUpDistanceEdit;
+
+    QLabel* timeLabel;
+    QLineEdit* timeEdit;
+    QLabel* distanceLabel;
+    QLineEdit* distanceEdit;
+
+    QLabel* intensityLabel;
+    QLineEdit* intensityEdit;
+    QLabel* repetitionsLabel;
+    QLineEdit* repetitionsEdit;
+    QLabel* avgWattsLabel;
+    QLineEdit* avgWattsEdit;
+    QLabel* maxWattsLabel;
+    QLineEdit* maxWattsEdit;
+
+    QLabel* equipmentLabel;
+    QLineEdit* equipmentEdit;
+    QLabel* routeLabel;
+    QLineEdit* routeEdit;
+    QLabel* gpxUrlLabel;
+    QLineEdit* gpxUrlEdit;
+
+    QLabel* caloriesLabel;
+    QLineEdit* caloriesEdit;
+
+    QLabel* coolDownTimeLabel;
+    QLineEdit* coolDownTimeEdit;
+    QLabel* coolDownDistanceLabel;
+    QLineEdit* coolDownDistanceEdit;
+
+    QLabel* weightLabel;
+    QLineEdit* weightEdit;
+
+    QLabel* weatherLabel;
+    QLineEdit* weatherEdit;
+    QLabel* weatherTemperatureLabel;
+    QLineEdit* weatherTemperatureEdit;
+
+    QLabel* whereLabel;
+    QLineEdit* whereEdit;
+
+    QLabel* gramsOfFatBurntLabel;
+    QLineEdit* gramsOfFatBurntEdit;
+
+    QDialogButtonBox* buttonBox;
+
 public:
     explicit DatasetInstanceDialog(QWidget* parent = 0);
+
+    void refreshOnNew() { clearAllItems(); }
+
+    void fromInstance(DatasetInstance* instance);
+    DatasetInstance* toDatasetInstance();
 
 signals:
 
 public slots:
+
+private:
+    void clearAllItems();
 
 };
 
