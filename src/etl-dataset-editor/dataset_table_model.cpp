@@ -25,7 +25,7 @@ using namespace std;
 DatasetTableModel::DatasetTableModel(QObject* parent)
     : QStandardItemModel(parent)
 {
-    setColumnCount(5);
+    setColumnCount(8);
     setRowCount(0);
 }
 
@@ -73,7 +73,7 @@ void DatasetTableModel::addRow(DatasetInstance* instance)
     items += item;
 
     // phase
-    item = new QStandardItem(instance->getPhase());
+    item = new QStandardItem(QString::number(instance->getPhase()));
     item->setData(QVariant::fromValue((unsigned)(instance->getPhase())), Qt::UserRole);
     items += item;
 

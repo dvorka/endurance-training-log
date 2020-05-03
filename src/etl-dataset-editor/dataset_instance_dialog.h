@@ -1,5 +1,5 @@
 /*
- main_window.h     Endurance Training Log dataset editor
+ dataset_instance_dialog.h     Endurance Training Log dataset editor
 
  Copyright (C) 2020 Martin Dvorak <martin.dvorak@mindforger.com>
 
@@ -16,42 +16,40 @@
  You should have received a copy of the GNU General Public License
  along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
-#ifndef ETL76_MAIN_WINDOW_H
-#define ETL76_MAINWINDOW_H
+#ifndef ETL76_DATASET_INSTANCE_DIALOG_H
+#define ETL76_DATASET_INSTANCE_DIALOG_H
 
-#include <QMainWindow>
-
-#include "dataset.h"
-#include "dataset_table_view.h"
-#include "dataset_table_model.h"
-#include "dataset_table_presenter.h"
-#include "dataset_instance_dialog.h"
+#include <QtWidgets>
 
 namespace etl76 {
 
-class MainWindow : public QMainWindow
+class DatasetInstanceDialog : public QDialog
 {
     Q_OBJECT
 
-private:
-    Dataset dataset;
+public:
+    QLabel* yearLabel;
+    QLineEdit* yearEdit;
+    QLabel* monthLabel;
+    QLineEdit* monthEdit;
+    QLabel* dayLabel;
+    QLineEdit* dayEdit;
 
-    DatasetTableView* view;
-    DatasetTablePresenter* presenter;
+    QLabel* phaseLabel;
+    QLineEdit* phaseEdit;
 
-    DatasetInstanceDialog* newDialog;
+    QLabel* commuteLabel;
+    QCheckBox* commuteCheck;
 
 public:
-    MainWindow(QWidget* parent = nullptr);
-    ~MainWindow();
+    explicit DatasetInstanceDialog(QWidget* parent = 0);
 
-private slots:
-    void showNewInstanceDialog() {
-        newDialog->show();
-    }
+signals:
+
+public slots:
 
 };
 
-}
+} // namespace etl76
 
-#endif // MAIN_WINDOW_H
+#endif // DATASET_INSTANCE_DIALOG_H

@@ -31,7 +31,8 @@ SOURCES += \
     dataset_table_presenter.cpp \
     dataset_table_view.cpp \
     etl_dataset_editor.cpp \
-    main_window.cpp
+    main_window.cpp \
+    dataset_instance_dialog.cpp
 
 HEADERS += \
     dataset.h \
@@ -39,7 +40,8 @@ HEADERS += \
     dataset_table_model.h \
     dataset_table_presenter.h \
     dataset_table_view.h \
-    main_window.h
+    main_window.h \
+    dataset_instance_dialog.h
 
 TRANSLATIONS += \
     etl-dataset-editor_en_US.ts

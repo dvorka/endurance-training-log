@@ -26,12 +26,21 @@ MainWindow::MainWindow(QWidget* parent)
     // TODO app
     setWindowTitle(QString{"Endurance Training Log Dataset Editor"});
     QMenu* fileMenu = menuBar()->addMenu("&File");
+    QAction* newInstanceAction = fileMenu->addAction("&New Instance");
     QAction* quitAction = fileMenu->addAction("&Quit");
+
+    newDialog = new DatasetInstanceDialog{this};
+
     statusBar()->clearMessage();
+    setWindowState(Qt::WindowMaximized);
 
     QObject::connect(
         quitAction, SIGNAL(triggered()),
         this, SLOT(close())
+    );
+    QObject::connect(
+        newInstanceAction, SIGNAL(triggered()),
+        this, SLOT(showNewInstanceDialog())
     );
 
     dataset.addInstance(
@@ -56,10 +65,9 @@ MainWindow::MainWindow(QWidget* parent)
     );
 
     view = new DatasetTableView{this};
-    model = new DatasetTableModel{this};
-    model->addRows(&dataset);
-    view->setModel(model);
     presenter = new DatasetTablePresenter{view};
+    presenter->getModel()->removeAllRows();
+    presenter->getModel()->addRows(&dataset);
 
     QSplitter* splitter = new QSplitter;
     splitter->addWidget(view);
@@ -70,7 +78,6 @@ MainWindow::MainWindow(QWidget* parent)
 MainWindow::~MainWindow()
 {
     delete view;
-    delete model;
     delete presenter;
 }
 

@@ -21,6 +21,7 @@
 
 #include <vector>
 
+#include <QDateTime>
 #include <QString>
 
 
@@ -133,15 +134,21 @@ public:
     unsigned getMonth() const {return month; }
     unsigned getDay() const { return day; }
     QString getYearMonthDay() const {
-        return QString(year).append("/").append(QString(month)).append("/").append(QString(day));
+        return QString::number(year)
+                .append("/")
+                .append(QString::number(month))
+                .append("/")
+                .append(QString::number(day));
     }
     unsigned getPhase() const { return phase; }
     CategoricalValue getActivityType() const { return activityType; }
     bool getCommute() const { return commute; }
     unsigned getTotalTimeSeconds() const { return totalTimeSeconds; }
-    QString getTotalTimeStr() const { return QString(totalTimeSeconds).append("''"); }
+    QString getTotalTimeStr() const {
+        return QDateTime::fromTime_t(totalTimeSeconds).toUTC().toString("hh:mm:ss");
+    }
     unsigned getTotalDistanceMeters() const { return totalDistanceMeters; }
-    QString getTotalDistanceStr() const { return QString(totalDistanceMeters).append("m"); }
+    QString getTotalDistanceStr() const { return QString::number(totalDistanceMeters).append("m"); }
     // warm-up
     unsigned getWarmUpSeconds() const { return warmUpSeconds; }
     QString getWarmUpSecondsStr() const;
@@ -149,9 +156,9 @@ public:
     QString getWarmUpDistanceStr() const;
     // phase
     unsigned getDurationSeconds() const { return durationSeconds; }
-    QString getDurationStr() const { return QString(durationSeconds).append("''"); }
+    QString getDurationStr() const { return QString::number(durationSeconds).append("''"); }
     unsigned getDistanceMeters() { return distanceMeters; }
-    QString getDistanceStr() const { return QString(distanceMeters).append("m"); }
+    QString getDistanceStr() const { return QString::number(distanceMeters).append("m"); }
     CategoricalValue getIntensity() const { return intensity; }
     unsigned getRepetitions() const { return repetitions; }
     unsigned getAvgWatts() const { return avgWatts; }
@@ -175,9 +182,9 @@ public:
 
     // calculated
     unsigned getGramsOfFatBurnt() const { return gramsOfFatBurn; }
-    QString getGramsOfFatBurntStr() const { return QString(gramsOfFatBurn).append("g"); }
+    QString getGramsOfFatBurntStr() const { return QString::number(gramsOfFatBurn).append("g"); }
 };
 
-}
+} // namespace etl76
 
 #endif // ETL76_DATASET_INSTANCE_H
