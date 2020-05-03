@@ -23,7 +23,7 @@ namespace etl76 {
 using namespace std;
 
 OutlinesTableModel::OutlinesTableModel(QObject* parent)
-    : QStandardItemModel(parent), htmlRepresentation(htmlRepresentation)
+    : QStandardItemModel(parent)
 {
     setColumnCount(5);
     setRowCount(0);
@@ -35,19 +35,19 @@ void OutlinesTableModel::removeAllRows()
 
     QStringList tableHeader;
     tableHeader
-        << tr("Notebooks")
-        << tr("Importance")
-        << tr("Urgency")
-        << tr("Done")
-        << tr("Ns")
-        << tr("Rs")
-        << tr("Ws")
-        << tr("Modified");
-    // IMPROVE set tooltips: items w/ tooltips instead of just strings
+        << tr("Year")
+        << tr("Month")
+        << tr("Day")
+        << tr("Phase")
+        << tr("Activity")
+        << tr("Distance")
+        << tr("Duration")
+        << tr("Weight")
+        << tr("Fat");
     setHorizontalHeaderLabels(tableHeader);
 }
 
-void OutlinesTableModel::addRow(Outline* outline)
+void OutlinesTableModel::addRow(Dataset* outline)
 {
     QList<QStandardItem*> items;
     QStandardItem* item;

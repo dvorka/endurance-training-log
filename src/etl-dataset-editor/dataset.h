@@ -37,6 +37,8 @@ public:
     Dataset&operator=(const Dataset&) = delete;
     Dataset&operator=(const Dataset&&) = delete;
 
+    void from_csv(const std::string file_path);
+    void to_csv(const std::string file_path) const;
 };
 
 }

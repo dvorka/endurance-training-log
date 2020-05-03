@@ -1,5 +1,5 @@
 /*
- main_window.h     Endurance Training Log dataset editor
+ statistics.cpp     Endurance Training Log dataset editor
 
  Copyright (C) 2020 Martin Dvorak <martin.dvorak@mindforger.com>
 
@@ -16,24 +16,12 @@
  You should have received a copy of the GNU General Public License
  along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
-#ifndef ETL76_MAIN_WINDOW_H
-#define ETL76_MAIN_WINDOW_H
-
-#include <QMainWindow>
-
+#include "statistics.h"
 
 namespace etl76 {
 
-class MainWindow : public QMainWindow
+Statistics::Statistics()
 {
-    Q_OBJECT
-
-public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
-};
+}
 
 } // namespace etl76
-
-#endif // ETL76_MAIN_WINDOW_H
-

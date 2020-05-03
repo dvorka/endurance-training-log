@@ -53,9 +53,11 @@ private:
     int phase;
 
     CategoricalValue activityType;
+    std::string description;
     bool commute;
     bool race;
 
+    // total = warm + phase + cool
     int totalTimeSeconds;
     int totalDistanceMeters;
 
@@ -64,7 +66,7 @@ private:
     int warmUpDistanceMeters;
 
     // phase
-    int durationSeconds;
+    int timeSeconds;
     int distanceMeters;
     CategoricalValue intensity;
     int repetitions;

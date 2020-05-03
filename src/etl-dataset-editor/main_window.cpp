@@ -18,7 +18,9 @@
 */
 #include "main_window.h"
 
-MainWindow::MainWindow(QWidget *parent)
+namespace etl76 {
+
+MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)
 {
 }
@@ -27,3 +29,4 @@ MainWindow::~MainWindow()
 {
 }
 
+} // namespace etl76

@@ -23,10 +23,13 @@
 
 #include <QtWidgets>
 
+#include "dataset.h"
+#include "dataset_instance.h"
+
+Q_DECLARE_METATYPE(etl76::Dataset*)
+
 
 namespace etl76 {
-
-Q_DECLARE_METATYPE(DatasetInstance*)
 
 class OutlinesTableModel : public QStandardItemModel
 {
@@ -36,7 +39,7 @@ public:
     OutlinesTableModel(QObject* parent);
 
     void removeAllRows();
-    void addRow(Outline* outline);
+    void addRow(Dataset* outline);
 };
 
 }

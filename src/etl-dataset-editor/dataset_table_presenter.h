@@ -21,11 +21,10 @@
 
 #include <QtWidgets>
 
-#include "../../lib/src/representations/html/html_outline_representation.h"
-
 #include "dataset_table_view.h"
 #include "dataset_table_model.h"
-#include "html_delegate.h"
+#include "dataset.h"
+#include "dataset_instance.h"
 
 namespace etl76 {
 
@@ -40,7 +39,7 @@ public:
     static const int NO_ROW = -1;
 
 public:
-    OutlinesTablePresenter(OutlinesTableView* view, HtmlOutlineRepresentation* htmlRepresentation);
+    OutlinesTablePresenter(OutlinesTableView* view);
     OutlinesTablePresenter(const OutlinesTablePresenter&) = delete;
     OutlinesTablePresenter(const OutlinesTablePresenter&&) = delete;
     OutlinesTablePresenter &operator=(const OutlinesTablePresenter&) = delete;
@@ -49,7 +48,7 @@ public:
     OutlinesTableModel* getModel() const { return model; }
     OutlinesTableView* getView() const { return view; }
 
-    void refresh(const std::vector<Outline*>& outlines);
+    void refresh(const std::vector<DatasetInstance*>& outlines);
     int getCurrentRow() const;
 };
 

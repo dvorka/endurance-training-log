@@ -1,5 +1,5 @@
 /*
- main_window.h     Endurance Training Log dataset editor
+ statistics.h     Endurance Training Log dataset editor
 
  Copyright (C) 2020 Martin Dvorak <martin.dvorak@mindforger.com>
 
@@ -16,24 +16,43 @@
  You should have received a copy of the GNU General Public License
  along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
-#ifndef ETL76_MAIN_WINDOW_H
-#define ETL76_MAIN_WINDOW_H
-
-#include <QMainWindow>
-
+#ifndef ETL76_STATISTICS_H
+#define ETL76_STATISTICS_H
 
 namespace etl76 {
 
-class MainWindow : public QMainWindow
+/**
+ * @brief Statistics.
+ *
+ * Calculates and saves weekly, monthly and yearly statistics for given
+ * (day by day) dataset (3 files).
+ *
+ * Weekly:
+ * - total universal km
+ * - total universal time
+ * - cyclink km
+ * - C2 km
+ * - running km
+ * - total workout repetitions
+ * - avg weight
+ * - min weight
+ * - max weight
+ * - weight delta
+ * - sauna rounds + meditations
+ *
+ * Monthly:
+ * - ... same as weekly
+ *
+ * Yearly:
+ * - ... same as weekly
+ * - avg weekly km
+ * - avg montly km
+ *
+ */
+class Statistics
 {
-    Q_OBJECT
-
 public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    Statistics();
 };
 
-} // namespace etl76
-
-#endif // ETL76_MAIN_WINDOW_H
-
+#endif // ETL76_STATISTICS_H
