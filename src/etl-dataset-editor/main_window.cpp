@@ -23,10 +23,62 @@ namespace etl76 {
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)
 {
+    // TODO app
+    setWindowTitle(QString{"Endurance Training Log Dataset Editor"});
+    QMenu* fileMenu = menuBar()->addMenu("&File");
+    QAction* newInstanceAction = fileMenu->addAction("&New Instance");
+    QAction* quitAction = fileMenu->addAction("&Quit");
+
+    newDialog = new DatasetInstanceDialog{this};
+
+    statusBar()->clearMessage();
+    setWindowState(Qt::WindowMaximized);
+
+    QObject::connect(
+        quitAction, SIGNAL(triggered()),
+        this, SLOT(close())
+    );
+    QObject::connect(
+        newInstanceAction, SIGNAL(triggered()),
+        this, SLOT(showNewInstanceDialog())
+    );
+
+    dataset.addInstance(
+        new DatasetInstance(
+        2020, 05, 02,
+        1,
+        CategoricalValue("bike"),
+        false,
+        3600, 25000,
+        0, 0, 0, 0,
+        CategoricalValue("easy"),
+        0, 0, 0,
+        CategoricalValue("Rockhopper"),
+        CategoricalValue(""),
+        QString(""),
+        0, 0, 0,
+        92.5,
+        CategoricalValue("sunny"), 15,
+        QString("Skupice"),
+        0
+        )
+    );
+
+    view = new DatasetTableView{this};
+    presenter = new DatasetTablePresenter{view};
+    presenter->getModel()->removeAllRows();
+    presenter->getModel()->addRows(&dataset);
+
+    QSplitter* splitter = new QSplitter;
+    splitter->addWidget(view);
+
+    setCentralWidget(view);
 }
 
 MainWindow::~MainWindow()
 {
+    delete view;
+    delete presenter;
 }
 
 } // namespace etl76

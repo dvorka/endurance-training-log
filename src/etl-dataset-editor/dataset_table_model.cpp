@@ -22,119 +22,88 @@ namespace etl76 {
 
 using namespace std;
 
-OutlinesTableModel::OutlinesTableModel(QObject* parent)
+DatasetTableModel::DatasetTableModel(QObject* parent)
     : QStandardItemModel(parent)
 {
-    setColumnCount(5);
+    setColumnCount(8);
     setRowCount(0);
 }
 
-void OutlinesTableModel::removeAllRows()
+void DatasetTableModel::removeAllRows()
 {
     QStandardItemModel::clear();
 
     QStringList tableHeader;
     tableHeader
-        << tr("Year")
-        << tr("Month")
-        << tr("Day")
-        << tr("Phase")
-        << tr("Activity")
-        << tr("Distance")
-        << tr("Duration")
-        << tr("Weight")
-        << tr("Fat");
+        << tr("Date")       // 2020/05/21 (use modified:1)
+        << tr("Phase")      // 1
+        << tr("Activity")   // running    (use Notebook:8 ~ non-fixed width)
+        << tr("Distance")   // 1,250m
+        << tr("Time")       // 1h30m12s
+        << tr("Intensity")  // fatlek
+        << tr("Weight")     // 92.5kg
+        << tr("Fat");       // 12g        (grams of fat burn)
+    // IMPROVE set tooltips: items w/ tooltips instead of just strings
     setHorizontalHeaderLabels(tableHeader);
 }
 
-void OutlinesTableModel::addRow(Dataset* outline)
+void DatasetTableModel::addRows(Dataset* dataset)
+{
+    for(DatasetInstance* instance: dataset->getInstances()) {
+        addRow(instance);
+    }
+}
+
+void DatasetTableModel::addRow(DatasetInstance* instance)
 {
     QList<QStandardItem*> items;
     QStandardItem* item;
 
-    string html{}, tooltip{};
-    html.reserve(500);
-    tooltip.reserve(500);
+    cout << "Adding: " << instance->getYear() << endl;
 
-    if(outline->getName().size()) {
-        tooltip = outline->getName();
-        html = tooltip;
-    } else {
-        tooltip = outline->getKey();
-        // IMPROVE parse out file name
-        string dir{};
-        pathToDirectoryAndFile(tooltip, dir, html);
-    }
-    htmlRepresentation->tagsToHtml(outline->getTags(), html);
-    // IMPROVE make showing of type  configurable
-    htmlRepresentation->outlineTypeToHtml(outline->getType(), html);
-    // item
-    item = new QStandardItem(QString::fromStdString(html));
-    item->setToolTip(QString::fromStdString(tooltip));
-    // TODO under which ROLE this is > I should declare CUSTOM role (user+1 as constant)
-    item->setData(QVariant::fromValue(outline));
+    // year/month/day
+    item = new QStandardItem(instance->getYearMonthDay());
+    // sort
+    item->setData(QVariant::fromValue((unsigned)(
+        instance->getYear()*10000+
+        instance->getMonth()*100+
+        instance->getDay())),
+        Qt::UserRole
+    );
     items += item;
 
-    // IMPROVE refactor to methods
-    QString s;
-
-    s.clear();
-    // stupid and ugly: correct sorting is ensured by making appropriate HTML (alpha sort), don't know how to sort using data role
-    s += "<div title='";
-    s += outline->getImportance();
-    s += "'>";
-    if(outline->getImportance() > 0) {
-        for(int i=0; i<=4; i++) {
-            if(outline->getImportance()>i) {
-                s += QChar(9733);
-            } else {
-                s += QChar(9734);
-            }
-        }
-    }
-    s += "</div>";
-    item = new QStandardItem(s);
-    item->setData(QVariant::fromValue((int8_t)(outline->getImportance())), Qt::UserRole);
+    // phase
+    item = new QStandardItem(QString::number(instance->getPhase()));
+    item->setData(QVariant::fromValue((unsigned)(instance->getPhase())), Qt::UserRole);
     items += item;
 
-    s.clear();
-    if(outline->getUrgency()>0) {
-        for(int i=0; i<=4; i++) {
-            if(outline->getUrgency()>i) {
-                s += QChar(0x25D5); // timer clock
-                //s += QChar(0x29D7); // sand clocks - not in fonts on macOS and Fedora
-            } else {
-                s += QChar(0x25F4); // timer clocks
-                //s += QChar(0x29D6); // sand clocks
-            }
-        }
-    }
-    item = new QStandardItem(s);
-    item->setData(QVariant::fromValue((int8_t)(outline->getUrgency())), Qt::UserRole);
+    // activity
+    item = new QStandardItem(instance->getActivityType().toString());
     items += item;
 
-    s.clear();
-    if(outline->getProgress() > 0) {
-        s += QString::number(outline->getProgress());
-        s += "%";
-    }
-    items += new QStandardItem(s);
-
-    item = new QStandardItem();
-    item->setData(QVariant::fromValue((unsigned)(outline->getNotesCount())), Qt::DisplayRole);
+    // distance
+    item = new QStandardItem(instance->getDistanceStr());
+    item->setData(QVariant::fromValue((unsigned)(instance->getDistanceMeters())), Qt::UserRole);
     items += item;
 
-    item = new QStandardItem();
-    item->setData(QVariant(outline->getReads()), Qt::DisplayRole);
+    // time
+    item = new QStandardItem(instance->getTotalTimeStr());
+    item->setData(QVariant::fromValue((unsigned)(instance->getTotalTimeSeconds())), Qt::UserRole);
     items += item;
 
-    item = new QStandardItem();
-    item->setData(QVariant(outline->getRevision()), Qt::DisplayRole);
+    // intesity
+    item = new QStandardItem(instance->getIntensity().toString());
     items += item;
 
-    s.clear();
-    s += outline->getModifiedPretty().c_str();
-    items += new QStandardItem(s);
+    // weight
+    item = new QStandardItem(instance->getWeightStr());
+    item->setData(QVariant::fromValue((unsigned)(instance->getWeight())), Qt::UserRole);
+    items += item;
+
+    // fat
+    item = new QStandardItem(instance->getGramsOfFatBurntStr());
+    item->setData(QVariant::fromValue((unsigned)(instance->getGramsOfFatBurnt())), Qt::UserRole);
+    items += item;
 
     appendRow(items);
 }

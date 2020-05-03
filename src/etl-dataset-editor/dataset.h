@@ -28,7 +28,7 @@ namespace etl76 {
 class Dataset
 {
 private:
-    std::vector<DatasetInstance> dataset;
+    std::vector<DatasetInstance*> dataset;
 
 public:
     Dataset();
@@ -36,12 +36,18 @@ public:
     Dataset(const Dataset&&) = delete;
     Dataset&operator=(const Dataset&) = delete;
     Dataset&operator=(const Dataset&&) = delete;
+    ~Dataset();
+
+    void addInstance(DatasetInstance* instance) {
+        dataset.push_back(instance);
+    }
+
+    std::vector<DatasetInstance*>& getInstances() { return dataset; }
 
     void from_csv(const std::string file_path);
     void to_csv(const std::string file_path) const;
 };
 
-}
+} // namespace etl76
 
 #endif // ETL76_DATASET_H
-

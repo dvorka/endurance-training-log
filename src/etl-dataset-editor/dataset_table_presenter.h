@@ -21,36 +21,37 @@
 
 #include <QtWidgets>
 
+#include "dataset_instance.h"
 #include "dataset_table_view.h"
 #include "dataset_table_model.h"
-#include "dataset.h"
-#include "dataset_instance.h"
+
 
 namespace etl76 {
 
-class OutlinesTablePresenter : public QObject
+class DatasetTablePresenter : public QObject
 {
     Q_OBJECT
 
-    OutlinesTableView* view;
-    OutlinesTableModel* model;
+    DatasetTableView* view;
+    DatasetTableModel* model;
 
 public:
     static const int NO_ROW = -1;
 
 public:
-    OutlinesTablePresenter(OutlinesTableView* view);
-    OutlinesTablePresenter(const OutlinesTablePresenter&) = delete;
-    OutlinesTablePresenter(const OutlinesTablePresenter&&) = delete;
-    OutlinesTablePresenter &operator=(const OutlinesTablePresenter&) = delete;
-    OutlinesTablePresenter &operator=(const OutlinesTablePresenter&&) = delete;
+    DatasetTablePresenter(DatasetTableView* view);
+    DatasetTablePresenter(const DatasetTablePresenter&) = delete;
+    DatasetTablePresenter(const DatasetTablePresenter&&) = delete;
+    DatasetTablePresenter &operator=(const DatasetTablePresenter&) = delete;
+    DatasetTablePresenter &operator=(const DatasetTablePresenter&&) = delete;
 
-    OutlinesTableModel* getModel() const { return model; }
-    OutlinesTableView* getView() const { return view; }
+    DatasetTableModel* getModel() const { return model; }
+    DatasetTableView* getView() const { return view; }
 
-    void refresh(const std::vector<DatasetInstance*>& outlines);
+    void refresh(const std::vector<DatasetInstance*>& instances);
     int getCurrentRow() const;
 };
 
-}
+} // namespace etl76
+
 #endif // ETL76_OUTLINE_TABLE_PRESENTER_H

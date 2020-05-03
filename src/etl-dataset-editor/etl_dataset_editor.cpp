@@ -20,16 +20,15 @@
 
 #include <QApplication>
 
-using namespace std;
 
 /**
  * @brief Endurance Training Log CLI.
  */
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-
-    etl76::MainWindow w;
-    w.show();
-    return a.exec();
+    QApplication application(argc, argv);
+    application.setApplicationName(QString{"Endurance Training Log Dataset Editor"});
+    etl76::MainWindow mainWindow;
+    mainWindow.show();
+    return application.exec();
 }

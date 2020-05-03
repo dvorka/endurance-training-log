@@ -19,6 +19,7 @@
 #ifndef ETL76_STATISTICS_H
 #define ETL76_STATISTICS_H
 
+
 namespace etl76 {
 
 /**
@@ -30,7 +31,7 @@ namespace etl76 {
  * Weekly:
  * - total universal km
  * - total universal time
- * - cyclink km
+ * - cycling km
  * - C2 km
  * - running km
  * - total workout repetitions
@@ -54,5 +55,7 @@ class Statistics
 public:
     Statistics();
 };
+
+} // namespace etl76
 
 #endif // ETL76_STATISTICS_H

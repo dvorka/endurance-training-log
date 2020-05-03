@@ -22,6 +22,14 @@
 namespace etl76 {
 
 Dataset::Dataset()
-{}
+{
+}
+
+Dataset::~Dataset()
+{
+    for(DatasetInstance* i:dataset) {
+        delete i;
+    }
+}
 
 } // etl76 namespace

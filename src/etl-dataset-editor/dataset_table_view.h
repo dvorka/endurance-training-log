@@ -19,15 +19,14 @@
 #ifndef ETL76_OUTLINES_TABLE_H_
 #define ETL76_OUTLINES_TABLE_H_
 
+#include <iostream>
 #include <vector>
-
-#include "../../lib/src/mind/mind.h"
 
 #include <QtWidgets>
 
 namespace etl76 {
 
-class OutlinesTableView : public QTableView
+class DatasetTableView : public QTableView
 {
     Q_OBJECT
 
@@ -35,17 +34,15 @@ private:
     // if view is width < threshold columns, then shows simplified view w/o Mind-related columns
     static constexpr int SIMPLIFIED_VIEW_THRESHOLD_WIDTH = 75*2;
 
-    bool isDashboardlet;
-
 public:
     static const int COLUMN_COUNT = 7;
 public:
-    explicit OutlinesTableView(QWidget* parent, bool isDashboardlet=false);
-    OutlinesTableView(const OutlinesTableView&) = delete;
-    OutlinesTableView(const OutlinesTableView&&) = delete;
-    OutlinesTableView &operator=(const OutlinesTableView&) = delete;
-    OutlinesTableView &operator=(const OutlinesTableView&&) = delete;
-    virtual ~OutlinesTableView() override {}
+    explicit DatasetTableView(QWidget* parent);
+    DatasetTableView(const DatasetTableView&) = delete;
+    DatasetTableView(const DatasetTableView&&) = delete;
+    DatasetTableView &operator=(const DatasetTableView&) = delete;
+    DatasetTableView &operator=(const DatasetTableView&&) = delete;
+    virtual ~DatasetTableView() override {}
 
     int getColumnCount() { return COLUMN_COUNT; }
 
