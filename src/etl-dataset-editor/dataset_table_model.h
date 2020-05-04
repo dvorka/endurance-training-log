@@ -26,6 +26,7 @@
 #include "dataset.h"
 
 Q_DECLARE_METATYPE(etl76::Dataset*)
+Q_DECLARE_METATYPE(etl76::DatasetInstance*)
 
 
 namespace etl76 {

@@ -21,6 +21,11 @@
 
 namespace etl76 {
 
+const char* DatasetInstance::DEFAULT_STR_TIME = "00h00m00s";
+const char* DatasetInstance::DEFAULT_STR_WEIGHT= "90kg";
+const char* DatasetInstance::DEFAULT_STR_METERS= "0m";
+const char* DatasetInstance::DEFAULT_STR_GRAMS= "0g";
+
 DatasetInstance::DatasetInstance(
         unsigned year,
         unsigned month,

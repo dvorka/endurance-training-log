@@ -20,11 +20,15 @@
 
 namespace etl76 {
 
+using namespace std;
+
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)
 {
     // TODO app
     setWindowTitle(QString{"Endurance Training Log Dataset Editor"});
+
+    // menu
     QMenu* fileMenu = menuBar()->addMenu("&File");
     QAction* openCsvAction = fileMenu->addAction("&Open");
     QAction* saveCsvAction = fileMenu->addAction("&Save");
@@ -33,17 +37,82 @@ MainWindow::MainWindow(QWidget* parent)
     QMenu* datasetMenu = menuBar()->addMenu("&Dataset");
     QAction* newInstanceAction = datasetMenu->addAction("&New instance");
 
-    newInstanceDialog = new DatasetInstanceDialog{this};
+    // window
+    datasetTableView = new DatasetTableView{this};
+    datasetTablePresenter = new DatasetTablePresenter{datasetTableView};
+    datasetTablePresenter->getModel()->setRows(&dataset);
 
+    setCentralWidget(datasetTableView);
     statusBar()->clearMessage();
     setWindowState(Qt::WindowMaximized);
 
+    // dialogs
+    newInstanceDialog = new DatasetInstanceDialog{this};
+
+    // signals
+    QObject::connect(
+        datasetTableView, SIGNAL(signalShowSelectedInstance()),
+        this, SLOT(slotShowSelectedInstanceInDialog())
+    );
+    QObject::connect(
+        newInstanceAction, SIGNAL(triggered()),
+        this, SLOT(slotNewInstanceDialog())
+    );
+    QObject::connect(
+        newInstanceDialog, SIGNAL(accepted()),
+        this, SLOT(slotHandleNewInstance())
+    );
+    QObject::connect(
+        quitAction, SIGNAL(triggered()),
+        this, SLOT(close())
+    );
+}
+
+MainWindow::~MainWindow()
+{
+    delete datasetTableView;
+    delete datasetTablePresenter;
+}
+
+void MainWindow::slotNewInstanceDialog() {
+    newInstanceDialog->refreshOnNew();
+    newInstanceDialog->show();
+}
+
+void MainWindow::slotShowSelectedInstanceInDialog()
+{
+    int row = datasetTablePresenter->getCurrentRow();
+
+    cout << "Show selected instance: " << row << endl;
+
+    if(row != DatasetTablePresenter::NO_ROW) {
+        QStandardItem* item = datasetTablePresenter->getModel()->item(row);
+        if(item) {
+            DatasetInstance* instance = item->data(Qt::UserRole + 1).value<DatasetInstance*>();
+            newInstanceDialog->fromInstance(instance);
+            newInstanceDialog->show();
+            return;
+        } else {
+            statusBar()->showMessage(QString(tr("Error: selected dataset instance not found in the model")));
+        }
+    }
+}
+
+void MainWindow::slotHandleNewInstance()
+{
+    DatasetInstance* newInstance = newInstanceDialog->toDatasetInstance();
+    dataset.addInstance(newInstance);
+    datasetTablePresenter->getModel()->setRows(&dataset);
+}
+
+void MainWindow::addFooDatasetRow()
+{
     dataset.addInstance(
         new DatasetInstance(
         2020, 05, 02,
         1,
         CategoricalValue("bike"),
-        QString("Easy Okor in windy weather"),
+        QString("Easy in windy weather"),
         false,
         3600, 25000,
         0, 0, 0, 0,
@@ -55,47 +124,10 @@ MainWindow::MainWindow(QWidget* parent)
         0, 0, 0,
         92.5,
         CategoricalValue("sunny"), 15,
-        QString("Skupice"),
+        QString("TV"),
         0
         )
     );
-
-    datasetTableView = new DatasetTableView{this};
-    datasetTablePresenter = new DatasetTablePresenter{datasetTableView};
-    datasetTablePresenter->getModel()->setRows(&dataset);
-
-    // TODO expendable splitter
-    QSplitter* splitter = new QSplitter;
-    splitter->addWidget(datasetTableView);
-
-    setCentralWidget(datasetTableView);
-
-    // signals
-    QObject::connect(
-        newInstanceDialog, SIGNAL(accepted()),
-        this, SLOT(handleNewInstance())
-    );
-    QObject::connect(
-        quitAction, SIGNAL(triggered()),
-        this, SLOT(close())
-    );
-    QObject::connect(
-        newInstanceAction, SIGNAL(triggered()),
-        this, SLOT(showNewInstanceDialog())
-    );
-}
-
-MainWindow::~MainWindow()
-{
-    delete datasetTableView;
-    delete datasetTablePresenter;
-}
-
-void MainWindow::handleNewInstance()
-{
-    DatasetInstance* newInstance = newInstanceDialog->toDatasetInstance();
-    dataset.addInstance(newInstance);
-    datasetTablePresenter->getModel()->setRows(&dataset);
 }
 
 } // namespace etl76

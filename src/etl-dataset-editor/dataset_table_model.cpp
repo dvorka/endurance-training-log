@@ -61,17 +61,19 @@ void DatasetTableModel::addRow(DatasetInstance* instance)
     QList<QStandardItem*> items;
     QStandardItem* item;
 
-    cout << "Adding: " << instance->getYear() << endl;
+    cout << "DatasetTable.model.add.year=" << instance->getYear() << endl;
 
     // year/month/day
     item = new QStandardItem(instance->getYearMonthDay());
+    // instance as row data
+    item->setData(QVariant::fromValue(instance));
     // sort
-    item->setData(QVariant::fromValue((unsigned)(
-        instance->getYear()*10000+
-        instance->getMonth()*100+
-        instance->getDay())),
-        Qt::UserRole
-    );
+    //item->setData(QVariant::fromValue((unsigned)(
+    //    instance->getYear()*10000+
+    //    instance->getMonth()*100+
+    //    instance->getDay())),
+    //    Qt::UserRole
+    //);
     items += item;
 
     // phase

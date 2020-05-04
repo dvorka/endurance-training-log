@@ -208,12 +208,12 @@ void DatasetInstanceDialog::clearAllItems()
     descriptionEdit->clear();
     phaseEdit->setText("1");
     commuteCheck->setChecked(false);
-    totalTimeEdit->setText("0h00m0s");
-    totalDistanceEdit->setText("0m");
-    warmUpTimeEdit->setText("0h00m0s");
-    warmUpDistanceEdit->setText("0m");
-    timeEdit->setText("0h00m0s");
-    distanceEdit->setText("0m");
+    totalTimeEdit->setText(DatasetInstance::DEFAULT_STR_TIME);
+    totalDistanceEdit->setText(DatasetInstance::DEFAULT_STR_METERS);
+    warmUpTimeEdit->setText(DatasetInstance::DEFAULT_STR_TIME);
+    warmUpDistanceEdit->setText(DatasetInstance::DEFAULT_STR_METERS);
+    timeEdit->setText(DatasetInstance::DEFAULT_STR_TIME);
+    distanceEdit->setText(DatasetInstance::DEFAULT_STR_METERS);
     intensityEdit->setText("easy");
     repetitionsEdit->setText("0");
     avgWattsEdit->setText("0");
@@ -222,13 +222,13 @@ void DatasetInstanceDialog::clearAllItems()
     routeEdit->clear();
     gpxUrlEdit->clear();
     caloriesEdit->setText("0");
-    coolDownTimeEdit->setText("0h00m0s");
-    coolDownDistanceEdit->setText("0m");
-    weightEdit->setText("90.0kg");
+    coolDownTimeEdit->setText(DatasetInstance::DEFAULT_STR_TIME);
+    coolDownDistanceEdit->setText(DatasetInstance::DEFAULT_STR_METERS);
+    weightEdit->setText(DatasetInstance::DEFAULT_STR_WEIGHT);
     weatherEdit->clear();
     weatherTemperatureEdit->setText("0");
     whereEdit->setText("TV");
-    gramsOfFatBurntEdit->setText("0g");
+    gramsOfFatBurntEdit->setText(DatasetInstance::DEFAULT_STR_GRAMS);
 }
 
 void DatasetInstanceDialog::fromInstance(DatasetInstance* instance)
@@ -238,12 +238,12 @@ void DatasetInstanceDialog::fromInstance(DatasetInstance* instance)
     activityEdit->setText(instance->getActivityType().toString());
     descriptionEdit->setText(instance->getDescription());
     commuteCheck->setChecked(false);
-    totalTimeEdit->setText("0h00m0s");
-    totalDistanceEdit->setText("0m");
-    warmUpTimeEdit->setText("0h00m0s");
-    warmUpDistanceEdit->setText("0m");
-    timeEdit->setText("0h00m0s");
-    distanceEdit->setText("0m");
+    totalTimeEdit->setText(DatasetInstance::DEFAULT_STR_TIME);
+    totalDistanceEdit->setText(DatasetInstance::DEFAULT_STR_METERS);
+    warmUpTimeEdit->setText(DatasetInstance::DEFAULT_STR_TIME);
+    warmUpDistanceEdit->setText(DatasetInstance::DEFAULT_STR_METERS);
+    timeEdit->setText(DatasetInstance::DEFAULT_STR_TIME);
+    distanceEdit->setText(DatasetInstance::DEFAULT_STR_METERS);
     intensityEdit->setText("easy");
     repetitionsEdit->setText("0");
     avgWattsEdit->setText(QString::number(instance->getAvgWatts()));
@@ -252,11 +252,11 @@ void DatasetInstanceDialog::fromInstance(DatasetInstance* instance)
     routeEdit->setText(instance->getRoute().toString());
     gpxUrlEdit->setText(instance->getGpxUrl());
     caloriesEdit->setText(QString::number(instance->getCalories()));
-    coolDownTimeEdit->setText("0h00m0s");
+    coolDownTimeEdit->setText(DatasetInstance::DEFAULT_STR_TIME);
     coolDownDistanceEdit->setText(QString::number(instance->getCoolDownDistanceMeters()).append("m"));
-    weightEdit->setText("90.0kg");
+    weightEdit->setText(DatasetInstance::DEFAULT_STR_WEIGHT);
     weatherEdit->clear();
-    weatherTemperatureEdit->setText(QString::number(instance->getWeatherTemperature()).append("C"));
+    weatherTemperatureEdit->setText(QString::number(instance->getWeatherTemperature()));
     whereEdit->setText(instance->getWhere());
     gramsOfFatBurntEdit->setText(QString::number(instance->getGramsOfFatBurnt()).append("g"));
 }
@@ -266,23 +266,31 @@ DatasetInstance* DatasetInstanceDialog::toDatasetInstance()
     // TODO validate all fields before instance creation
 
     DatasetInstance* instance = new DatasetInstance{
-        2020,
-        05,
-        02,
-        1,
-        CategoricalValue("bike"),
-        "description",
-        false,
-        3600, 25000,
-        0, 0, 0, 0,
-        CategoricalValue("easy"),
-        0, 0, 0,
-        CategoricalValue("Rockhopper"),
-        CategoricalValue(""),
-        QString(""),
-        0, 0, 0,
+        DatasetInstance::ymdToYear(yearMonthDayEdit->text()),
+        DatasetInstance::ymdToMonth(yearMonthDayEdit->text()),
+        DatasetInstance::ymdToDay(yearMonthDayEdit->text()),
+        phaseEdit->text().toUInt(),
+        CategoricalValue(activityEdit->text()),
+        descriptionEdit->text(),
+        commuteCheck->isChecked(),
+        DatasetInstance::strTimeToSeconds(totalTimeEdit->text()),
+        DatasetInstance::strMetersToMeters(totalDistanceEdit->text()),
+        DatasetInstance::strTimeToSeconds(warmUpTimeEdit->text()),
+        DatasetInstance::strMetersToMeters(warmUpDistanceEdit->text()),
+        DatasetInstance::strTimeToSeconds(timeEdit->text()),
+        DatasetInstance::strMetersToMeters(distanceEdit->text()),
+        CategoricalValue(intensityEdit->text()),
+        repetitionsEdit->text().toUInt(),
+        avgWattsEdit->text().toUInt(),
+        maxWattsEdit->text().toUInt(),
+        CategoricalValue(equipmentEdit->text()),
+        CategoricalValue(routeEdit->text()),
+        QString(gpxUrlEdit->text()),
+        caloriesEdit->text().toUInt(),
+        DatasetInstance::strTimeToSeconds(coolDownTimeEdit->text()),
+        DatasetInstance::strMetersToMeters(coolDownDistanceEdit->text()),
         weightEdit->text().toFloat(),
-        CategoricalValue("sunny"),
+        CategoricalValue(weatherEdit->text()),
         weatherTemperatureEdit->text().toUInt(),
         whereEdit->text(),
         gramsOfFatBurntEdit->text().toUInt()

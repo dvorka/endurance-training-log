@@ -53,6 +53,12 @@ private:
 
 class DatasetInstance
 {
+public:
+    static const char* DEFAULT_STR_TIME;
+    static const char* DEFAULT_STR_WEIGHT;
+    static const char* DEFAULT_STR_METERS;
+    static const char* DEFAULT_STR_GRAMS;
+
 private:
     unsigned year;
     unsigned month;
@@ -132,6 +138,10 @@ public:
     DatasetInstance &operator=(const DatasetInstance&) = delete;
     DatasetInstance &operator=(const DatasetInstance&&) = delete;
 
+    /*
+     * getters and setters
+     */
+
     unsigned getYear() const { return year; }
     unsigned getMonth() const {return month; }
     unsigned getDay() const { return day; }
@@ -186,6 +196,19 @@ public:
     // calculated
     unsigned getGramsOfFatBurnt() const { return gramsOfFatBurnt; }
     QString getGramsOfFatBurntStr() const { return QString::number(gramsOfFatBurnt).append("g"); }
+
+    /*
+     * parsers
+     */
+
+    static unsigned ymdToYear(QString yearMonthDay);
+    static unsigned ymdToMonth(QString yearMonthDay);
+    static unsigned ymdToDay(QString yearMonthDay);
+
+    static unsigned strTimeToSeconds(QString time);
+    static unsigned strMetersToMeters(QString time);
+    static float strKgToKg(QString time);
+    static unsigned strGToG(QString time);
 };
 
 } // namespace etl76

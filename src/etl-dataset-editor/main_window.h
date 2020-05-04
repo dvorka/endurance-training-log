@@ -18,6 +18,8 @@
 */
 #ifndef ETL76_MAIN_WINDOW_H
 
+#include <iostream>
+
 #include <QMainWindow>
 
 #include "dataset.h"
@@ -45,12 +47,13 @@ public:
     MainWindow(QWidget* parent = nullptr);
     ~MainWindow();
 
+private:
+    void addFooDatasetRow();
+
 private slots:
-    void showNewInstanceDialog() {
-        newInstanceDialog->refreshOnNew();
-        newInstanceDialog->show();
-    }
-    void handleNewInstance();
+    void slotShowSelectedInstanceInDialog();
+    void slotNewInstanceDialog();
+    void slotHandleNewInstance();
 
 };
 

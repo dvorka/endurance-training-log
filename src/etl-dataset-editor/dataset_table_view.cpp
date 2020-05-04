@@ -49,13 +49,10 @@ void DatasetTableView::keyPressEvent(QKeyEvent* event)
         switch(event->key()) {
         case Qt::Key_Return:
         case Qt::Key_Right:
-            emit signalShowSelectedOutline();
+            emit signalShowSelectedInstance();
             return;
         case Qt::Key_Down:
-            QTableView::keyPressEvent(event);
-            return;
         case Qt::Key_Up:
-        // IMPROVE left to cancel selection
         case Qt::Key_Left:
             QTableView::keyPressEvent(event);
             return;
@@ -63,6 +60,8 @@ void DatasetTableView::keyPressEvent(QKeyEvent* event)
 
         return;
     }
+
+    // TODO move line up/down w/ control
 
     QTableView::keyPressEvent(event);
 }
@@ -72,7 +71,7 @@ void DatasetTableView::mouseDoubleClickEvent(QMouseEvent* event)
     Q_UNUSED(event);
 
     // double click to O opens it
-    emit signalShowSelectedOutline();
+    emit signalShowSelectedInstance();
 }
 
 void DatasetTableView::resizeEvent(QResizeEvent* event)
