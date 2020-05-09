@@ -112,7 +112,7 @@ private:
 
 private:
 
-    static unsigned ymdToItem(QString yearMonthDay, int index);
+    static unsigned ymdToItem(QString yearMonthDay, int index, const std::string& field);
 
 public:
 
@@ -120,14 +120,14 @@ public:
      * parsers
      */
 
-    static unsigned ymdToYear(QString yearMonthDay);
-    static unsigned ymdToMonth(QString yearMonthDay);
-    static unsigned ymdToDay(QString yearMonthDay);
+    static unsigned ymdToYear(QString yearMonthDay, const std::string& field);
+    static unsigned ymdToMonth(QString yearMonthDay, const std::string& field);
+    static unsigned ymdToDay(QString yearMonthDay, const std::string& field);
 
-    static unsigned strTimeToSeconds(QString time);
-    static unsigned strMetersToMeters(QString strMeters);
-    static float strKgToKg(QString strKg);
-    static unsigned strGToG(QString strG);
+    static unsigned strTimeToSeconds(QString time, const std::string& field);
+    static unsigned strMetersToMeters(QString strMeters, const std::string& field);
+    static float strKgToKg(QString strKg, const std::string& field);
+    static unsigned strGToG(QString strG, const std::string& field);
 
 public:
     DatasetInstance(
@@ -176,11 +176,11 @@ public:
     unsigned getMonth() const {return month; }
     unsigned getDay() const { return day; }
     QString getYearMonthDay() const {
-        return QString::number(year)
+        return QString("%1").arg(year, 2, 10, QChar('0'))
                 .append("/")
-                .append(QString::number(month))
+                .append(QString("%1").arg(month, 2, 10, QChar('0')))
                 .append("/")
-                .append(QString::number(day));
+                .append(QString("%1").arg(day, 2, 10, QChar('0')));
     }
     unsigned getPhase() const { return phase; }
     CategoricalValue getActivityType() const { return activityType; }

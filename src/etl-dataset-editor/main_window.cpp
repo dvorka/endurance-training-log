@@ -35,9 +35,9 @@ MainWindow::MainWindow(QWidget* parent)
 
     // menu
     QMenu* fileMenu = menuBar()->addMenu("&File");
-    QAction* openCsvAction = fileMenu->addAction("&Open");
-    QAction* saveCsvAction = fileMenu->addAction("&Save");
-    QAction* saveAsCsvAction = fileMenu->addAction("Save &as");
+    // QAction* openCsvAction = fileMenu->addAction("&Open");
+    // QAction* saveCsvAction = fileMenu->addAction("&Save");
+    // QAction* saveAsCsvAction = fileMenu->addAction("Save &as");
     QAction* quitAction = fileMenu->addAction("&Quit");
     QMenu* datasetMenu = menuBar()->addMenu("&Dataset");
     QAction* newInstanceAction = datasetMenu->addAction("&New instance");
@@ -53,7 +53,6 @@ MainWindow::MainWindow(QWidget* parent)
 
     // dialogs
     newInstanceDialog = new DatasetInstanceDialog{this};
-    checkInstanceDialog = new DatasetInstanceCheckDialog{this};
 
     // signals
     QObject::connect(
@@ -116,46 +115,32 @@ void MainWindow::slotShowSelectedInstanceInDialog()
             newInstanceDialog->show();
             return;
         } else {
-            statusBar()->showMessage(QString(tr("Error: selected dataset instance not found in the model")));
+            QMessageBox::warning(
+                this,
+                tr("Error"),
+                tr("Selected dataset instance was not found in the  dataset model"),
+                QMessageBox::Ok
+            );
         }
     }
 }
 
 void MainWindow::slotHandleNewInstance()
 {
-    DatasetInstance* newInstance = newInstanceDialog->toDatasetInstance();
-    checkInstanceDialog->refreshOnCheck(newInstance->toString());
-    checkInstanceDialog->show();
-
-    dataset.addInstance(newInstance);
-    datasetTablePresenter->getModel()->setRows(&dataset);
-
-    dataset.to_csv(datasetPath);
-}
-
-void MainWindow::addFooDatasetRow()
-{
-    dataset.addInstance(
-        new DatasetInstance(
-        2020, 05, 02,
-        1,
-        CategoricalValue{QString{"bike"}},
-        QString("Easy in windy weather"),
-        false,
-        3600, 25000,
-        0, 0, 0, 0,
-        CategoricalValue{QString{"easy"}},
-        0, 0, 0,
-        CategoricalValue{QString{"Rockhopper"}},
-        CategoricalValue{QString{}},
-        QString(""),
-        0, 0, 0,
-        92.5,
-        CategoricalValue{QString{"sunny"}}, 15,
-        QString("TV"),
-        0
-        )
-    );
+    try {
+        DatasetInstance* newInstance = newInstanceDialog->toDatasetInstance();
+        dataset.addInstance(newInstance);
+        datasetTablePresenter->getModel()->setRows(&dataset);
+        dataset.to_csv(datasetPath);
+    } catch(EtlUserException e) {
+        QMessageBox::warning(
+            this,
+            tr("Dataset Instance Validation Error"),
+            e.what(),
+            QMessageBox::Ok
+        );
+        newInstanceDialog->show();
+    }
 }
 
 } // namespace etl76

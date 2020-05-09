@@ -32,7 +32,7 @@ const char* DatasetInstance::DEFAULT_STR_GRAMS= "0g";
  * parsers
  */
 
-unsigned DatasetInstance::ymdToItem(QString yearMonthDay, int idx)
+unsigned DatasetInstance::ymdToItem(QString yearMonthDay, int idx, const string& field)
 {
     // yyyy/mm/dd
     if(yearMonthDay.length()) {
@@ -47,29 +47,29 @@ unsigned DatasetInstance::ymdToItem(QString yearMonthDay, int idx)
         {
             return ymdList[idx].toUInt();
         } else {
-            throw EtlUserException{"Invalid year/month/day format - it must be: yyyy/mm/dd"};
+            throw EtlUserException{""+field+": Invalid year/month/day format - it must be: yyyy/mm/dd"};
         }
     } else {
-        throw EtlUserException{"Empty year/month/day string - it must be: yyyy/mm/dd"};
+        throw EtlUserException{""+field+": Empty year/month/day string - it must be: yyyy/mm/dd"};
     }
 }
 
-unsigned DatasetInstance::ymdToYear(QString yearMonthDay)
+unsigned DatasetInstance::ymdToYear(QString yearMonthDay, const string& field)
 {
-    return ymdToItem(yearMonthDay, 0);
+    return ymdToItem(yearMonthDay, 0, field);
 }
 
-unsigned DatasetInstance::ymdToMonth(QString yearMonthDay)
+unsigned DatasetInstance::ymdToMonth(QString yearMonthDay, const string& field)
 {
-    return ymdToItem(yearMonthDay, 1);
+    return ymdToItem(yearMonthDay, 1, field);
 }
 
-unsigned DatasetInstance::ymdToDay(QString yearMonthDay)
+unsigned DatasetInstance::ymdToDay(QString yearMonthDay, const string& field)
 {
-    return ymdToItem(yearMonthDay, 2);
+    return ymdToItem(yearMonthDay, 2, field);
 }
 
-unsigned DatasetInstance::strTimeToSeconds(QString time)
+unsigned DatasetInstance::strTimeToSeconds(QString time, const string& field)
 {
     // 00h00m00s
     if(time.length()==9) {
@@ -82,26 +82,33 @@ unsigned DatasetInstance::strTimeToSeconds(QString time)
                     unsigned mins = minSplit[0].toUInt();
                     unsigned seconds = minSplit[1].toUInt();
                     return hours*3600+mins*60+seconds;
+                } else {
+                    throw EtlUserException{""+field+": Invalid minutes/seconds format - it must be: 00h00m00s"};
                 }
+            } else {
+                throw EtlUserException{""+field+": Invalid hour format - it must be: 00h00m00s"};
             }
+        } else {
+            throw EtlUserException{""+field+": Invalid time format - it must be: 00h00m00s"};
         }
+    } else {
+        throw EtlUserException{""+field+": Invalid time length - it must be: 00h00m00s"};
     }
-    return 0;
 }
 
-unsigned DatasetInstance::strMetersToMeters(QString strMeters)
+unsigned DatasetInstance::strMetersToMeters(QString strMeters, const string& field)
 {
     // 28.000m
-    if(strMeters.length()>2 && strMeters.at(strMeters.length()-1) == 'm') {
+    if(strMeters.length()>=2 && strMeters.at(strMeters.length()-1) == 'm') {
         strMeters.replace(".", "");
         strMeters.chop(1);
         return strMeters.toUInt();
     } else {
-        throw EtlUserException{"Invalid meters format - it must be like: 10.000m"};
+        throw EtlUserException{""+field+": Invalid meters format - it must be like: 10.000m (was "+strMeters.toStdString()+")"};
     }
 }
 
-float DatasetInstance::strKgToKg(QString strKg)
+float DatasetInstance::strKgToKg(QString strKg, const string& field)
 {
     // 91.2kg
     if(strKg.length()>2
@@ -112,18 +119,18 @@ float DatasetInstance::strKgToKg(QString strKg)
         strKg.chop(2);
         return strKg.toFloat();
     } else {
-        throw EtlUserException{"Invalid kilograms format - it must be like: 91.9kg"};
+        throw EtlUserException{""+field+": Invalid kilograms format - it must be like: 91.9kg"};
     }
 }
 
-unsigned DatasetInstance::strGToG(QString strG)
+unsigned DatasetInstance::strGToG(QString strG, const string& field)
 {
     // 23g
     if(strG.length()>2 && strG.at(strG.length()-1) == 'g') {
         strG.chop(1);
         return strG.toUInt();
     } else {
-        throw EtlUserException{"Invalid grams format - it must be like: 129g"};
+        throw EtlUserException{""+field+": Invalid grams format - it must be like: 129g"};
     }
 }
 

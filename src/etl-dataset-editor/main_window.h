@@ -44,16 +44,12 @@ private:
     DatasetTablePresenter* datasetTablePresenter;
 
     DatasetInstanceDialog* newInstanceDialog;
-    DatasetInstanceCheckDialog* checkInstanceDialog;
 
 public:
     MainWindow(QWidget* parent = nullptr);
     ~MainWindow();
 
     void onStart();
-
-private:
-    void addFooDatasetRow();
 
 private slots:
     void slotShowSelectedInstanceInDialog();

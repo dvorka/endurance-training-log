@@ -29,7 +29,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     dataset.cpp \
     dataset_instance.cpp \
-    dataset_instance_check_dialog.cpp \
     dataset_table_model.cpp \
     dataset_table_presenter.cpp \
     dataset_table_view.cpp \
@@ -42,7 +41,6 @@ HEADERS += \
     csv.h \
     dataset.h \
     dataset_instance.h \
-    dataset_instance_check_dialog.h \
     dataset_table_model.h \
     dataset_table_presenter.h \
     dataset_table_view.h \
