@@ -207,6 +207,7 @@ void DatasetInstanceDialog::clearAllItems()
     yearMonthDayEdit->setText("2020/05/03");
     descriptionEdit->clear();
     phaseEdit->setText("1");
+    activityEdit->setText("ride");
     commuteCheck->setChecked(false);
     totalTimeEdit->setText(DatasetInstance::DEFAULT_STR_TIME);
     totalDistanceEdit->setText(DatasetInstance::DEFAULT_STR_METERS);
@@ -225,7 +226,7 @@ void DatasetInstanceDialog::clearAllItems()
     coolDownTimeEdit->setText(DatasetInstance::DEFAULT_STR_TIME);
     coolDownDistanceEdit->setText(DatasetInstance::DEFAULT_STR_METERS);
     weightEdit->setText(DatasetInstance::DEFAULT_STR_WEIGHT);
-    weatherEdit->clear();
+    weatherEdit->setText("sunny");
     weatherTemperatureEdit->setText("0");
     whereEdit->setText("TV");
     gramsOfFatBurntEdit->setText(DatasetInstance::DEFAULT_STR_GRAMS);
@@ -263,8 +264,6 @@ void DatasetInstanceDialog::fromInstance(DatasetInstance* instance)
 
 DatasetInstance* DatasetInstanceDialog::toDatasetInstance()
 {
-    // TODO validate all fields before instance creation
-
     DatasetInstance* instance = new DatasetInstance{
         DatasetInstance::ymdToYear(yearMonthDayEdit->text()),
         DatasetInstance::ymdToMonth(yearMonthDayEdit->text()),
@@ -295,6 +294,12 @@ DatasetInstance* DatasetInstanceDialog::toDatasetInstance()
         whereEdit->text(),
         gramsOfFatBurntEdit->text().toUInt()
     };
+
+    // TODO show.toString() and let user confirm that it's OK (just text area)
+
+    // TODO
+    // instance->validate();
+    // instance->calculate(); // calories, grams of fat, BMI, total time, either time/distance/both, ...
 
     return instance;
 }

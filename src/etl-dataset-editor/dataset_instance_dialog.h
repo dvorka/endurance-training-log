@@ -31,16 +31,20 @@ class DatasetInstanceDialog : public QDialog
     Q_OBJECT
 
 public:
+    // widgets to avoid wrong inputs: number spinners, drop-downs, ...
+
     QLabel* yearMonthDayLabel;
     QLineEdit* yearMonthDayEdit;
 
     QLabel* activityLabel;
+    // drop-down w/ completion
     QLineEdit* activityEdit;
 
     QLabel* descriptionLabel;
     QLineEdit* descriptionEdit;
 
     QLabel* phaseLabel;
+    // number spinner
     QLineEdit* phaseEdit;
 
     QLabel* commuteLabel;
@@ -108,10 +112,6 @@ public:
 
     void fromInstance(DatasetInstance* instance);
     DatasetInstance* toDatasetInstance();
-
-signals:
-
-public slots:
 
 private:
     void clearAllItems();

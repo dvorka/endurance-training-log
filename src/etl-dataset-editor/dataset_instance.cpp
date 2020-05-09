@@ -21,10 +21,109 @@
 
 namespace etl76 {
 
+using namespace std;
+
 const char* DatasetInstance::DEFAULT_STR_TIME = "00h00m00s";
 const char* DatasetInstance::DEFAULT_STR_WEIGHT= "90kg";
 const char* DatasetInstance::DEFAULT_STR_METERS= "0m";
 const char* DatasetInstance::DEFAULT_STR_GRAMS= "0g";
+
+/*
+ * parsers
+ */
+
+unsigned DatasetInstance::ymdToItem(QString yearMonthDay, int idx)
+{
+    // yyyy/mm/dd
+    if(yearMonthDay.length()) {
+        QStringList ymdList = yearMonthDay.split("/");
+        cout << "Y " << ymdList[0].toStdString() << endl;
+        cout << "M " << ymdList[1].toStdString() << endl;
+        cout << "D " << ymdList[2].toStdString() << endl;
+        if(ymdList.length()==3 &&
+             ((idx==0 && ymdList[idx].length()==4)
+               ||
+              (idx>0 && ymdList[idx].length()==2)))
+        {
+            return ymdList[idx].toUInt();
+        }
+    }
+    return 0;
+}
+
+unsigned DatasetInstance::ymdToYear(QString yearMonthDay)
+{
+    return ymdToItem(yearMonthDay, 0);
+}
+
+unsigned DatasetInstance::ymdToMonth(QString yearMonthDay)
+{
+    return ymdToItem(yearMonthDay, 1);
+}
+
+unsigned DatasetInstance::ymdToDay(QString yearMonthDay)
+{
+    return ymdToItem(yearMonthDay, 2);
+}
+
+unsigned DatasetInstance::strTimeToSeconds(QString time)
+{
+    // 00h00m00s
+    if(time.length()==9) {
+        if(time.at(2) == 'h' && time.at(5) == 'm' &&time.at(8) == 's') {
+            QStringList hourSplit = time.split('h');
+            if(hourSplit.length() == 2) {
+                unsigned hours = hourSplit[0].toUInt();
+                QStringList minSplit = hourSplit[1].split('m');
+                if(minSplit.length() == 2) {
+                    unsigned mins = minSplit[0].toUInt();
+                    unsigned seconds = minSplit[1].toUInt();
+                    return hours*3600+mins*60+seconds;
+                }
+            }
+        }
+    }
+    return 0;
+}
+
+unsigned DatasetInstance::strMetersToMeters(QString strMeters)
+{
+    // 28.000m
+    if(strMeters.length()>2 && strMeters.at(strMeters.length()-1) == 'm') {
+        strMeters.replace(".", "");
+        strMeters.chop(1);
+        return strMeters.toUInt();
+    }
+    return 0;
+}
+
+float DatasetInstance::strKgToKg(QString strKg)
+{
+    // 91.2kg
+    if(strKg.length()>2
+            && strKg.at(strKg.length()-2) == 'k'
+            && strKg.at(strKg.length()-1) == 'g'
+            && strKg.contains("."))
+    {
+        strKg.chop(2);
+        return strKg.toFloat();
+    }
+    return 0;
+}
+
+unsigned DatasetInstance::strGToG(QString strG)
+{
+    // 23g
+    if(strG.length()>2 && strG.at(strG.length()-1) == 'g') {
+        strG.chop(1);
+        return strG.toUInt();
+    }
+    return 0;
+}
+
+/*
+ * methods
+ */
 
 DatasetInstance::DatasetInstance(
         unsigned year,
@@ -36,9 +135,9 @@ DatasetInstance::DatasetInstance(
         bool commute,
         unsigned totalTimeSeconds,
         unsigned totalDistanceMeters,
-        unsigned warmUpSeconds,
+        unsigned warmUpTimeSeconds,
         unsigned warmUpDistanceMeters,
-        unsigned durationSeconds,
+        unsigned timeSeconds,
         unsigned distanceMeters,
         CategoricalValue intensity,
         unsigned repetitions,
@@ -48,7 +147,7 @@ DatasetInstance::DatasetInstance(
         CategoricalValue route,
         QString gpxUrl,
         unsigned calories,
-        unsigned coolDownSeconds,
+        unsigned coolDownTimeSeconds,
         unsigned coolDownDistanceMeters,
         float weight,
         CategoricalValue weather,
@@ -65,9 +164,9 @@ DatasetInstance::DatasetInstance(
     commute(commute),
     totalTimeSeconds(totalTimeSeconds),
     totalDistanceMeters(totalDistanceMeters),
-    warmUpSeconds(warmUpSeconds),
+    warmUpTimeSeconds(warmUpTimeSeconds),
     warmUpDistanceMeters(warmUpDistanceMeters),
-    timeSeconds(durationSeconds),
+    timeSeconds(timeSeconds),
     distanceMeters(distanceMeters),
     intensity(intensity),
     repetitions(repetitions),
@@ -77,13 +176,47 @@ DatasetInstance::DatasetInstance(
     route(route),
     gpxUrl(gpxUrl),
     calories(calories),
-    coolDownSeconds(coolDownSeconds),
+    coolDownTimeSeconds(coolDownTimeSeconds),
     coolDownDistanceMeters(coolDownDistanceMeters),
     weight(weight),
     weather(weather),
     weatherTemperature(weatherTemperature),
     where(where),
     gramsOfFatBurnt(gramsOfFatBurn)
-{}
+{
+    toString();
+}
+
+void DatasetInstance::toString()
+{
+    cout << "New dataset instance:" << endl
+    << "  Year: " << year << endl
+    << "  Month: " << month << endl
+    << "  Day: " << day << endl
+    << "  Phase: " << phase << endl
+    << "  Activity: " << activityType.toString().toStdString() << endl
+    << "  Description: " << description.toStdString() << endl
+    << "  Commute: " << commute << endl
+    << "  Total time: " << totalTimeSeconds << endl
+    << "  Total meters: " << totalDistanceMeters << endl
+    << "  Warm time: " << warmUpTimeSeconds << endl
+    << "  Warm meters: " << warmUpDistanceMeters << endl
+    << "  Time: " << timeSeconds << endl
+    << "  Meters: " << distanceMeters << endl
+    << "  Intensity: " << intensity.toString().toStdString() << endl
+    << "  Repetitions: " << repetitions << endl
+    << "  Avg watts: " << avgWatts << endl
+    << "  Max watts: " << maxWatts << endl
+    << "  Equipment: " << equipment.toString().toStdString() << endl
+    << "  Route: " << route.toString().toStdString() << endl
+    << "  GPX: " << gpxUrl.toStdString() << endl
+    << "  Calories: " << calories << endl
+    << "  Cool time: " << coolDownTimeSeconds << endl
+    << "  Cool meters: " << coolDownDistanceMeters << endl
+    << "  Weight: " << weight << endl
+    << "  Weather: " << weather.toString().toStdString() << endl
+    << "  Where: " << where.toStdString() << endl
+    << "  Fat: " << gramsOfFatBurnt << endl;
+}
 
 } // etl76 namespace

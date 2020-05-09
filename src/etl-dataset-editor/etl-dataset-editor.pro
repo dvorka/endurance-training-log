@@ -20,6 +20,8 @@ QT       += core gui
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
+QMAKE_CXXFLAGS += -std=c++0x -pthread
+LIBS += -pthread
 
 DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
@@ -27,6 +29,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     dataset.cpp \
     dataset_instance.cpp \
+    dataset_instance_check_dialog.cpp \
     dataset_table_model.cpp \
     dataset_table_presenter.cpp \
     dataset_table_view.cpp \
@@ -36,8 +39,10 @@ SOURCES += \
     dataset_instance_dialog.cpp
 
 HEADERS += \
+    csv.h \
     dataset.h \
     dataset_instance.h \
+    dataset_instance_check_dialog.h \
     dataset_table_model.h \
     dataset_table_presenter.h \
     dataset_table_view.h \

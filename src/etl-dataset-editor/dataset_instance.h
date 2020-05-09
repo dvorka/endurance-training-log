@@ -19,6 +19,7 @@
 #ifndef ETL76_DATASET_INSTANCE_H
 #define ETL76_DATASET_INSTANCE_H
 
+#include <iostream>
 #include <vector>
 
 #include <QDateTime>
@@ -66,7 +67,7 @@ private:
 
     unsigned phase;
 
-    CategoricalValue activityType;
+    CategoricalValue activityType; // Strava compliant activity identifiers: ride, run, ...
     QString description;
     bool commute;
 
@@ -75,13 +76,13 @@ private:
     unsigned totalDistanceMeters;
 
     // warm-up
-    unsigned warmUpSeconds;
+    unsigned warmUpTimeSeconds;
     unsigned warmUpDistanceMeters;
 
     // phase
     unsigned timeSeconds;
     unsigned distanceMeters;
-    CategoricalValue intensity; // easy, regen, LSD, fartlek, tempo, race
+    CategoricalValue intensity; // easy, regen, LSD, fartlek, tempo, race, ...
     unsigned repetitions;
     unsigned avgWatts;
     unsigned maxWatts;
@@ -91,7 +92,7 @@ private:
     unsigned calories;
 
     // cool-down
-    unsigned coolDownSeconds;
+    unsigned coolDownTimeSeconds;
     unsigned coolDownDistanceMeters;
 
     float weight;
@@ -101,6 +102,25 @@ private:
 
     // calculated
     unsigned gramsOfFatBurnt;
+
+private:
+
+    static unsigned ymdToItem(QString yearMonthDay, int index);
+
+public:
+
+    /*
+     * parsers
+     */
+
+    static unsigned ymdToYear(QString yearMonthDay);
+    static unsigned ymdToMonth(QString yearMonthDay);
+    static unsigned ymdToDay(QString yearMonthDay);
+
+    static unsigned strTimeToSeconds(QString time);
+    static unsigned strMetersToMeters(QString strMeters);
+    static float strKgToKg(QString strKg);
+    static unsigned strGToG(QString strG);
 
 public:
     DatasetInstance(
@@ -113,7 +133,7 @@ public:
             bool commute,
             unsigned totalTimeSeconds,
             unsigned totalDistanceMeters,
-            unsigned warmUpSeconds,
+            unsigned warmUpTimeSeconds,
             unsigned warmUpDistanceMeters,
             unsigned timeSeconds,
             unsigned distanceMeters,
@@ -125,7 +145,7 @@ public:
             CategoricalValue route,
             QString gpxUrl,
             unsigned calories,
-            unsigned coolDownSeconds,
+            unsigned coolDownTimeSeconds,
             unsigned coolDownDistanceMeters,
             float weight,
             CategoricalValue weather,
@@ -137,6 +157,8 @@ public:
     DatasetInstance(const DatasetInstance&&) = delete;
     DatasetInstance &operator=(const DatasetInstance&) = delete;
     DatasetInstance &operator=(const DatasetInstance&&) = delete;
+
+    void toString();
 
     /*
      * getters and setters
@@ -163,7 +185,7 @@ public:
     unsigned getTotalDistanceMeters() const { return totalDistanceMeters; }
     QString getTotalDistanceStr() const { return QString::number(totalDistanceMeters).append("m"); }
     // warm-up
-    unsigned getWarmUpSeconds() const { return warmUpSeconds; }
+    unsigned getWarmUpSeconds() const { return warmUpTimeSeconds; }
     QString getWarmUpSecondsStr() const;
     unsigned getWarmUpDistanceMeters() const { return warmUpDistanceMeters; }
     QString getWarmUpDistanceStr() const;
@@ -182,7 +204,7 @@ public:
     int getCalories() const { return calories; }
 
     // cool-down
-    unsigned getCoolDownSeconds() const { return coolDownSeconds; }
+    unsigned getCoolDownSeconds() const { return coolDownTimeSeconds; }
     QString getCoolDownStr() const;
     unsigned getCoolDownDistanceMeters() const { return coolDownDistanceMeters; }
     QString getCoolDownDistanceStr() const;
@@ -196,19 +218,6 @@ public:
     // calculated
     unsigned getGramsOfFatBurnt() const { return gramsOfFatBurnt; }
     QString getGramsOfFatBurntStr() const { return QString::number(gramsOfFatBurnt).append("g"); }
-
-    /*
-     * parsers
-     */
-
-    static unsigned ymdToYear(QString yearMonthDay);
-    static unsigned ymdToMonth(QString yearMonthDay);
-    static unsigned ymdToDay(QString yearMonthDay);
-
-    static unsigned strTimeToSeconds(QString time);
-    static unsigned strMetersToMeters(QString time);
-    static float strKgToKg(QString time);
-    static unsigned strGToG(QString time);
 };
 
 } // namespace etl76

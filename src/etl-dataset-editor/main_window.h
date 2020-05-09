@@ -27,6 +27,7 @@
 #include "dataset_table_model.h"
 #include "dataset_table_presenter.h"
 #include "dataset_instance_dialog.h"
+#include "dataset_instance_check_dialog.h"
 
 
 namespace etl76 {
@@ -42,10 +43,13 @@ private:
     DatasetTablePresenter* datasetTablePresenter;
 
     DatasetInstanceDialog* newInstanceDialog;
+    DatasetInstanceCheckDialog* checkInstanceDialog;
 
 public:
     MainWindow(QWidget* parent = nullptr);
     ~MainWindow();
+
+    void onStart();
 
 private:
     void addFooDatasetRow();

@@ -1,5 +1,5 @@
 /*
- dataset.h     Endurance Training Log dataset editor
+ dataset_instance_check_dialog.h     Endurance Training Log dataset editor
 
  Copyright (C) 2020 Martin Dvorak <martin.dvorak@mindforger.com>
 
@@ -16,41 +16,36 @@
  You should have received a copy of the GNU General Public License
  along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
-#ifndef ETL76_DATASET_H
-#define ETL76_DATASET_H
+#ifndef ETL76_DATASET_INSTANCE_CHECK_DIALOG_H
+#define ETL76_DATASET_INSTANCE_CHECK_DIALOG_H
 
-#include <vector>
+#include <QtWidgets>
 
-#include "csv.h"
 #include "dataset_instance.h"
+
 
 namespace etl76 {
 
-class Dataset
+class DatasetInstanceCheckDialog : public QDialog
 {
-private:
-    std::vector<DatasetInstance*> dataset;
+    Q_OBJECT
 
 public:
-    Dataset();
-    Dataset(const Dataset&) = delete;
-    Dataset(const Dataset&&) = delete;
-    Dataset&operator=(const Dataset&) = delete;
-    Dataset&operator=(const Dataset&&) = delete;
-    ~Dataset();
+    // widgets to avoid wrong inputs: number spinners, drop-downs, ...
 
-    void clear();
+    QLabel* checkLabel;
+    QPlainTextEdit* checkTextEdit;
 
-    void addInstance(DatasetInstance* instance) {
-        dataset.push_back(instance);
-    }
+    QDialogButtonBox* buttonBox;
 
-    std::vector<DatasetInstance*>& getInstances() { return dataset; }
+public:
+    explicit DatasetInstanceCheckDialog(QWidget* parent = 0);
 
-    void from_csv(const std::string file_path);
-    void to_csv(const std::string file_path) const;
+    void refreshOnCheck(std::string checkText) {
+        checkTextEdit->insertPlainText(QString::fromStdString(checkText));
+    };
 };
 
 } // namespace etl76
 
-#endif // ETL76_DATASET_H
+#endif // DATASET_INSTANCE_DIALOG_H

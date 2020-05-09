@@ -28,7 +28,8 @@ int main(int argc, char *argv[])
 {
     QApplication application(argc, argv);
     application.setApplicationName(QString{"Endurance Training Log Dataset Editor"});
-    etl76::MainWindow mainWindow;
+    etl76::MainWindow mainWindow{};
     mainWindow.show();
+    mainWindow.onStart();
     return application.exec();
 }

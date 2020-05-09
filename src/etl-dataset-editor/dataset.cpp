@@ -21,14 +21,36 @@
 
 namespace etl76 {
 
+using namespace std;
+
 Dataset::Dataset()
 {
 }
 
 Dataset::~Dataset()
 {
+    clear();
+}
+
+void Dataset::clear()
+{
     for(DatasetInstance* i:dataset) {
         delete i;
+    }
+}
+
+void from_csv(const std::string file_path)
+{
+    io::CSVReader<3> in(file_path);
+    in.read_header(
+        io::ignore_extra_column,
+        "vendor",
+        "size",
+        "speed"
+    );
+    std::string vendor; int size; double speed;
+    while(in.read_row(vendor, size, speed)){
+        // do stuff with the data
     }
 }
 

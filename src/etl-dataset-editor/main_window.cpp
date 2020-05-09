@@ -48,6 +48,7 @@ MainWindow::MainWindow(QWidget* parent)
 
     // dialogs
     newInstanceDialog = new DatasetInstanceDialog{this};
+    checkInstanceDialog = new DatasetInstanceCheckDialog{this};
 
     // signals
     QObject::connect(
@@ -72,6 +73,12 @@ MainWindow::~MainWindow()
 {
     delete datasetTableView;
     delete datasetTablePresenter;
+}
+
+void MainWindow::onStart()
+{
+    dataset.clear();
+    dataset.from_csv("/home/dvorka/endurance-training-log/training-log-days.csv");
 }
 
 void MainWindow::slotNewInstanceDialog() {
@@ -101,6 +108,10 @@ void MainWindow::slotShowSelectedInstanceInDialog()
 void MainWindow::slotHandleNewInstance()
 {
     DatasetInstance* newInstance = newInstanceDialog->toDatasetInstance();
+    // TODO newInstance.toString();
+    checkInstanceDialog->refreshOnCheck("ABC");
+    checkInstanceDialog->show();
+
     dataset.addInstance(newInstance);
     datasetTablePresenter->getModel()->setRows(&dataset);
 }
