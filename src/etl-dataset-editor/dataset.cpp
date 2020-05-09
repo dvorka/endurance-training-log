@@ -39,18 +39,136 @@ void Dataset::clear()
     }
 }
 
-void from_csv(const std::string file_path)
+void Dataset::from_csv(const std::string file_path)
 {
-    io::CSVReader<3> in(file_path);
+    clear();
+
+    io::CSVReader<28> in(file_path);
     in.read_header(
         io::ignore_extra_column,
-        "vendor",
-        "size",
-        "speed"
+        "year",
+        "month",
+        "day",
+        "phase",
+        "activity_type",
+        "description",
+        "commute",
+        "total_time_seconds",
+        "total_distance_meters",
+        "warm_up_time_seconds",
+        "warm_up_distance_meters",
+        "time_seconds",
+        "distance_meters",
+        "intensity",
+        "repetitions",
+        "avg_watts",
+        "max_watts",
+        "equipment",
+        "route",
+        "gpx_url",
+        "calories",
+        "cool_down_time_seconds",
+        "cool_down_distance_meters",
+        "weight",
+        "weather",
+        "weather_temperature",
+        "where",
+        "grams_of_fat_burnt"
+        // TODO BMI
     );
-    std::string vendor; int size; double speed;
-    while(in.read_row(vendor, size, speed)){
-        // do stuff with the data
+
+    unsigned year;
+    unsigned month;
+    unsigned day;
+    unsigned phase;
+    string activityType;
+    string description;
+    unsigned commute;
+    unsigned totalTimeSeconds;
+    unsigned totalDistanceMeters;
+    unsigned warmUpTimeSeconds;
+    unsigned warmUpDistanceMeters;
+    unsigned timeSeconds;
+    unsigned distanceMeters;
+    string intensity;
+    unsigned repetitions;
+    unsigned avgWatts;
+    unsigned maxWatts;
+    string equipment;
+    string route;
+    string gpxUrl;
+    unsigned calories;
+    unsigned coolDownTimeSeconds;
+    unsigned coolDownDistanceMeters;
+    float weight;
+    string weather;
+    unsigned weatherTemperature;
+    string where;
+    unsigned gramsOfFatBurnt;
+
+    DatasetInstance* instance;
+
+    while(in.read_row(
+      year,
+      month,
+      day,
+      phase,
+      activityType,
+      description,
+      commute,
+      totalTimeSeconds,
+      totalDistanceMeters,
+      warmUpTimeSeconds,
+      warmUpDistanceMeters,
+      timeSeconds,
+      distanceMeters,
+      intensity,
+      repetitions,
+      avgWatts,
+      maxWatts,
+      equipment,
+      route,
+      gpxUrl,
+      calories,
+      coolDownTimeSeconds,
+      coolDownDistanceMeters,
+      weight,
+      weather,
+      weatherTemperature,
+      where,
+      gramsOfFatBurnt)
+    ) {
+        instance = new DatasetInstance{
+            year,
+            month,
+            day,
+            phase,
+            CategoricalValue{activityType},
+            QString::fromStdString(description),
+            commute!=0,
+            totalTimeSeconds,
+            totalDistanceMeters,
+            warmUpTimeSeconds,
+            warmUpDistanceMeters,
+            timeSeconds,
+            distanceMeters,
+            CategoricalValue{intensity},
+            repetitions,
+            avgWatts,
+            maxWatts,
+            CategoricalValue{equipment},
+            CategoricalValue{route},
+            QString::fromStdString(gpxUrl),
+            calories,
+            coolDownTimeSeconds,
+            coolDownDistanceMeters,
+            weight,
+            CategoricalValue{weather},
+            weatherTemperature,
+            QString::fromStdString(where),
+            gramsOfFatBurnt
+         };
+        addInstance(instance);
     }
 }
 

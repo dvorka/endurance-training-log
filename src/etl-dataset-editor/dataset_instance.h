@@ -37,8 +37,11 @@ private:
 
     CategoricalFeature* feature;
 public:
-    CategoricalValue(QString value) {
+    explicit CategoricalValue(QString value) {
         this->value = value;
+    }
+    explicit CategoricalValue(std::string value) {
+        this->value = QString::fromStdString(value);
     }
 
     QString toString() const { return value; }
@@ -97,11 +100,13 @@ private:
 
     float weight;
     CategoricalValue weather;
-    float weatherTemperature;
+    unsigned weatherTemperature;
     QString where;
 
     // calculated
     unsigned gramsOfFatBurnt;
+
+    // TODO: BMI
 
 private:
 

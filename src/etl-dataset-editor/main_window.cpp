@@ -77,8 +77,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::onStart()
 {
-    dataset.clear();
     dataset.from_csv("/home/dvorka/endurance-training-log/training-log-days.csv");
+    datasetTablePresenter->getModel()->setRows(&dataset);
 }
 
 void MainWindow::slotNewInstanceDialog() {
@@ -122,19 +122,19 @@ void MainWindow::addFooDatasetRow()
         new DatasetInstance(
         2020, 05, 02,
         1,
-        CategoricalValue("bike"),
+        CategoricalValue{QString{"bike"}},
         QString("Easy in windy weather"),
         false,
         3600, 25000,
         0, 0, 0, 0,
-        CategoricalValue("easy"),
+        CategoricalValue{QString{"easy"}},
         0, 0, 0,
-        CategoricalValue("Rockhopper"),
-        CategoricalValue(""),
+        CategoricalValue{QString{"Rockhopper"}},
+        CategoricalValue{QString{}},
         QString(""),
         0, 0, 0,
         92.5,
-        CategoricalValue("sunny"), 15,
+        CategoricalValue{QString{"sunny"}}, 15,
         QString("TV"),
         0
         )
