@@ -106,7 +106,7 @@ void DatasetTableView::resizeEvent(QResizeEvent* event)
     // phase
     this->setColumnWidth(1, this->fontMetrics().averageCharWidth()*6);
     // activity
-    this->setColumnWidth(2, this->fontMetrics().averageCharWidth()*6);
+    this->setColumnWidth(2, this->fontMetrics().averageCharWidth()*7);
     // time
     this->setColumnWidth(4, this->fontMetrics().averageCharWidth()*8);
     // distance

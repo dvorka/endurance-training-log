@@ -39,9 +39,11 @@ void Dataset::clear()
     }
 }
 
-void Dataset::removeInstance(int index) {
+int Dataset::removeInstance(int index) {
     if(index >=0 && static_cast<size_t>(index) < dataset.size()) {
         delete dataset[index];
+        dataset.erase(dataset.begin()+index);
+        return min(static_cast<size_t>(index), dataset.size());
     } else {
         throw EtlRuntimeException(
             "Dataset index of instance to remove out of range: "+std::to_string(index)
@@ -56,28 +58,28 @@ void Dataset::switchInstances(int a, int b)
     dataset[b] = x;
 }
 
-bool Dataset::upInstance(int index)
+int Dataset::upInstance(int index)
 {
     if(dataset.size() >= 2
            && index>=1
            && static_cast<size_t>(index) < dataset.size())
     {
         switchInstances(index-1, index);
-        return true;
+        return index-1;
     }
-    return false;
+    return -1;
 }
 
-bool Dataset::downInstance(int index)
+int Dataset::downInstance(int index)
 {
     if(dataset.size() >= 2
            && index>=0
            && static_cast<size_t>(index+1) < dataset.size())
     {
         switchInstances(index, index+1);
-        return true;
+        return index+1;
     }
-    return false;
+    return -1;
 }
 
 void Dataset::from_csv(const string& file_path)

@@ -110,6 +110,12 @@ private:
 
     // TODO: BMI
 
+    /*
+     * dataset
+     */
+
+    int datasetIndex;
+
 private:
 
     static unsigned ymdToItem(QString yearMonthDay, int index, const std::string& field);
@@ -128,6 +134,17 @@ public:
     static unsigned strMetersToMeters(QString strMeters, const std::string& field);
     static float strKgToKg(QString strKg, const std::string& field);
     static unsigned strGToG(QString strG, const std::string& field);
+
+    /*
+     * dataset
+     */
+
+    int getDatasetIndex() {
+        return this->datasetIndex;
+    }
+    void setDatasetIndex(int index) {
+        this->datasetIndex = index;
+    }
 
 public:
     DatasetInstance(

@@ -56,16 +56,28 @@ MainWindow::MainWindow(QWidget* parent)
 
     // signals
     QObject::connect(
-        datasetTableView, SIGNAL(signalShowSelectedInstance()),
-        this, SLOT(slotEditSelectedInstanceInDialog())
-    );
-    QObject::connect(
         newInstanceAction, SIGNAL(triggered()),
         this, SLOT(slotNewInstanceDialog())
     );
     QObject::connect(
         editInstanceDialog, SIGNAL(accepted()),
         this, SLOT(slotHandleEditInstance())
+    );
+    QObject::connect(
+        datasetTableView, SIGNAL(signalShowSelectedInstance()),
+        this, SLOT(slotEditSelectedInstanceInDialog())
+    );
+    QObject::connect(
+        datasetTableView, SIGNAL(signalRemoveSelectedInstance()),
+        this, SLOT(slotRemoveSelectedInstance())
+    );
+    QObject::connect(
+        datasetTableView, SIGNAL(signalMoveSelectedInstanceUp()),
+        this, SLOT(slotMoveSelectedInstanceUp())
+    );
+    QObject::connect(
+        datasetTableView, SIGNAL(signalMoveSelectedInstanceDown()),
+        this, SLOT(slotMoveSelectedInstanceDown())
     );
     QObject::connect(
         quitAction, SIGNAL(triggered()),
@@ -101,7 +113,7 @@ void MainWindow::slotNewInstanceDialog() {
     editInstanceDialog->show();
 }
 
-void MainWindow::slotEditSelectedInstanceInDialog()
+DatasetInstance* MainWindow::getDatasetTableInstanceForSelectedRow()
 {
     int row = datasetTablePresenter->getCurrentRow();
 
@@ -110,18 +122,73 @@ void MainWindow::slotEditSelectedInstanceInDialog()
     if(row != DatasetTablePresenter::NO_ROW) {
         QStandardItem* item = datasetTablePresenter->getModel()->item(row);
         if(item) {
-            DatasetInstance* instance = item->data(Qt::UserRole + 1).value<DatasetInstance*>();
-            editInstanceDialog->refreshOnEdit(instance, row);
-            editInstanceDialog->show();
-            return;
+            DatasetInstance* instance=item->data(Qt::UserRole + 1).value<DatasetInstance*>();
+            instance->setDatasetIndex(row);
+            return instance;
         } else {
             QMessageBox::warning(
                 this,
                 tr("Error"),
-                tr("Selected dataset instance was not found in the  dataset model"),
+                tr("Selected dataset instance was not found in the dataset model"),
                 QMessageBox::Ok
             );
+            return nullptr;
         }
+    } else {
+        QMessageBox::warning(
+            this,
+            tr("Error"),
+            tr("No dataset instance selected"),
+            QMessageBox::Ok
+        );
+        return nullptr;
+    }
+}
+
+void MainWindow::slotEditSelectedInstanceInDialog()
+{
+    DatasetInstance* instance = getDatasetTableInstanceForSelectedRow();
+    if(instance) {
+        editInstanceDialog->refreshOnEdit(instance, instance->getDatasetIndex());
+        editInstanceDialog->show();
+    }
+}
+
+void MainWindow::slotRemoveSelectedInstance()
+{
+    DatasetInstance* instance = getDatasetTableInstanceForSelectedRow();
+    if(instance) {
+        QMessageBox::StandardButton decision = QMessageBox::question(
+            this,
+            tr("Remove Dataset Instance"),
+            tr("Do you really want to remove selected dataset instance?"),
+            QMessageBox::Yes | QMessageBox::No
+        );
+        if(decision == QMessageBox::Yes) {
+            int index = dataset.removeInstance(instance->getDatasetIndex());
+            dataset.to_csv(datasetPath);
+            datasetTablePresenter->refresh(dataset.getInstances(), index);
+        }
+    }
+}
+
+void MainWindow::slotMoveSelectedInstanceUp()
+{
+    DatasetInstance* instance = getDatasetTableInstanceForSelectedRow();
+    if(instance) {
+        int index = dataset.upInstance(instance->getDatasetIndex());
+        dataset.to_csv(datasetPath);
+        datasetTablePresenter->refresh(dataset.getInstances(), index);
+    }
+}
+
+void MainWindow::slotMoveSelectedInstanceDown()
+{
+    DatasetInstance* instance = getDatasetTableInstanceForSelectedRow();
+    if(instance) {
+        int index = dataset.downInstance(instance->getDatasetIndex());
+        dataset.to_csv(datasetPath);
+        datasetTablePresenter->refresh(dataset.getInstances(), index);
     }
 }
 
@@ -130,7 +197,13 @@ void MainWindow::slotHandleEditInstance()
     try {
         DatasetInstance* instance = editInstanceDialog->toDatasetInstance();
         if(editInstanceDialog->isCreateMode()) {
-            dataset.addInstance(instance);
+            int row = datasetTablePresenter->getCurrentRow();
+            if(row == DatasetTablePresenter::NO_ROW) {
+                instance->setDatasetIndex(0);
+            } else {
+                instance->setDatasetIndex(row);
+            }
+            dataset.insertInstance(instance);
         } else {
             dataset.setInstance(editInstanceDialog->getDatasetIndex(), instance);
         }

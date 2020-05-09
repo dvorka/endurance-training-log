@@ -48,15 +48,18 @@ public:
     void addInstance(DatasetInstance* instance) {
         dataset.push_back(instance);
     }
+    void insertInstance(DatasetInstance* instance) {
+        dataset.insert(dataset.begin()+instance->getDatasetIndex(), instance);
+    }
     void setInstance(int index, DatasetInstance* instance) {
         removeInstance(index);
         dataset[index]=instance;
     }
 
-    void removeInstance(int index);
+    int removeInstance(int index);
     void switchInstances(int a, int b);
-    bool upInstance(int index);
-    bool downInstance(int index);
+    int upInstance(int index);
+    int downInstance(int index);
 
     std::vector<DatasetInstance*>& getInstances() { return dataset; }
 

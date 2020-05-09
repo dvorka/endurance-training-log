@@ -48,7 +48,7 @@ public:
     DatasetTableModel* getModel() const { return model; }
     DatasetTableView* getView() const { return view; }
 
-    void refresh(const std::vector<DatasetInstance*>& instances);
+    void refresh(const std::vector<DatasetInstance*>& instances, int row=0);
     int getCurrentRow() const;
 };
 

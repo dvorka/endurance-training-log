@@ -52,7 +52,12 @@ public:
     void onStart();
 
 private slots:
+    DatasetInstance* getDatasetTableInstanceForSelectedRow();
+
     void slotEditSelectedInstanceInDialog();
+    void slotRemoveSelectedInstance();
+    void slotMoveSelectedInstanceUp();
+    void slotMoveSelectedInstanceDown();
     void slotNewInstanceDialog();
     void slotHandleEditInstance();
 

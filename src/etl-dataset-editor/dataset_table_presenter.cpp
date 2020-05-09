@@ -29,7 +29,7 @@ DatasetTablePresenter::DatasetTablePresenter(DatasetTableView* view)
     this->view->setModel(this->model);
 }
 
-void DatasetTablePresenter::refresh(const vector<DatasetInstance*>& instances)
+void DatasetTablePresenter::refresh(const vector<DatasetInstance*>& instances, int row)
 {
     model->removeAllRows();
     if(instances.size()) {
@@ -37,7 +37,7 @@ void DatasetTablePresenter::refresh(const vector<DatasetInstance*>& instances)
             model->addRow(instance);
         }
 
-        this->view->setCurrentIndex(this->model->index(0, 0));
+        this->view->setCurrentIndex(this->model->index(row, 0));
         this->view->setFocus();
     }
 }
