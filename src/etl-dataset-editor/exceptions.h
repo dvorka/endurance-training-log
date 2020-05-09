@@ -57,6 +57,7 @@ public:
  */
 class EtlRuntimeException : public EtlException
 {
+public:
     explicit EtlRuntimeException(const std::string& message) throw()
         : EtlException(message) {}
 };

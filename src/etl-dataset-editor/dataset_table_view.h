@@ -52,6 +52,9 @@ public:
 
 signals:
     void signalShowSelectedInstance();
+    void signalMoveSelectedInstanceUp();
+    void signalMoveSelectedInstanceDown();
+    void signalRemoveSelectedInstance();
 };
 
 }

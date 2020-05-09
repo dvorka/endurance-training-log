@@ -40,26 +40,42 @@ DatasetTableView::DatasetTableView(QWidget* parent)
 
 void DatasetTableView::keyPressEvent(QKeyEvent* event)
 {
-    if(!(event->modifiers() & Qt::AltModifier)
-         &&
-       !(event->modifiers() & Qt::ControlModifier)
-         &&
-       !(event->modifiers() & Qt::ShiftModifier))
-    {
+    if(event->modifiers() & Qt::ControlModifier) {
         switch(event->key()) {
-        case Qt::Key_Return:
-        case Qt::Key_Right:
-            emit signalShowSelectedInstance();
-            return;
         case Qt::Key_Down:
+            emit signalMoveSelectedInstanceDown();
+            return;
         case Qt::Key_Up:
-        case Qt::Key_Left:
-            QTableView::keyPressEvent(event);
+            emit signalMoveSelectedInstanceUp();
             return;
         }
+    } else {
+        if(!(event->modifiers() & Qt::AltModifier)
+             &&
+           !(event->modifiers() & Qt::ControlModifier)
+             &&
+           !(event->modifiers() & Qt::ShiftModifier))
+        {
+            switch(event->key()) {
+            case Qt::Key_Return:
+            case Qt::Key_Right:
+                emit signalShowSelectedInstance();
+                return;
+            case Qt::Key_Down:
+            case Qt::Key_Up:
+            case Qt::Key_Left:
+                QTableView::keyPressEvent(event);
+                return;
+            case Qt::Key_Delete:
+            case Qt::Key_D:
+                emit signalRemoveSelectedInstance();
+                return;
+            }
 
-        return;
+            return;
+        }
     }
+
 
     // TODO move line up/down w/ control
 

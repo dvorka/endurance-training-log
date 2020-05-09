@@ -26,6 +26,7 @@
 
 #include "csv.h"
 #include "dataset_instance.h"
+#include "exceptions.h"
 
 namespace etl76 {
 
@@ -48,9 +49,14 @@ public:
         dataset.push_back(instance);
     }
     void setInstance(int index, DatasetInstance* instance) {
-        delete dataset[index];
+        removeInstance(index);
         dataset[index]=instance;
     }
+
+    void removeInstance(int index);
+    void switchInstances(int a, int b);
+    bool upInstance(int index);
+    bool downInstance(int index);
 
     std::vector<DatasetInstance*>& getInstances() { return dataset; }
 
