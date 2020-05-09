@@ -21,7 +21,8 @@
 namespace etl76 {
 
 DatasetInstanceDialog::DatasetInstanceDialog(QWidget *parent) :
-    QDialog(parent)
+    QDialog(parent),
+    createMode{true}
 {
     setWindowTitle("New Instance");
 

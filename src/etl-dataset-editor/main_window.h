@@ -43,7 +43,7 @@ private:
     DatasetTableView* datasetTableView;
     DatasetTablePresenter* datasetTablePresenter;
 
-    DatasetInstanceDialog* newInstanceDialog;
+    DatasetInstanceDialog* editInstanceDialog;
 
 public:
     MainWindow(QWidget* parent = nullptr);
@@ -52,9 +52,9 @@ public:
     void onStart();
 
 private slots:
-    void slotShowSelectedInstanceInDialog();
+    void slotEditSelectedInstanceInDialog();
     void slotNewInstanceDialog();
-    void slotHandleNewInstance();
+    void slotHandleEditInstance();
 
 };
 

@@ -31,6 +31,10 @@ class DatasetInstanceDialog : public QDialog
     Q_OBJECT
 
 public:
+    // create new instance (true), edit existing instance (false)
+    bool createMode;
+    int datasetIndex;
+
     // widgets to avoid wrong inputs: number spinners, drop-downs, ...
 
     QLabel* yearMonthDayLabel;
@@ -108,14 +112,35 @@ public:
 public:
     explicit DatasetInstanceDialog(QWidget* parent = 0);
 
-    void refreshOnNew() { clearAllItems(); }
+    bool isCreateMode() const {
+        return this->createMode;
+    }
+    int getDatasetIndex() {
+        return this->datasetIndex;
+    }
+
+    void refreshOnCreate() {
+        setCreateMode(true);
+        clearAllItems();
+    }
+    void refreshOnEdit(DatasetInstance* instance, int datasetIndex) {
+        setCreateMode(false);
+        fromInstance(instance);
+        setDatasetIndex(datasetIndex);
+    }
 
     void fromInstance(DatasetInstance* instance);
     DatasetInstance* toDatasetInstance();
 
 private:
-    void clearAllItems();
+    void setCreateMode(bool createMode) {
+        this->createMode = createMode;
+    }
+    void setDatasetIndex(int index) {
+        this->datasetIndex= index;
+    }
 
+    void clearAllItems();
 };
 
 } // namespace etl76

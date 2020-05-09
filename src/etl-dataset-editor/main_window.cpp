@@ -52,20 +52,20 @@ MainWindow::MainWindow(QWidget* parent)
     setWindowState(Qt::WindowMaximized);
 
     // dialogs
-    newInstanceDialog = new DatasetInstanceDialog{this};
+    editInstanceDialog = new DatasetInstanceDialog{this};
 
     // signals
     QObject::connect(
         datasetTableView, SIGNAL(signalShowSelectedInstance()),
-        this, SLOT(slotShowSelectedInstanceInDialog())
+        this, SLOT(slotEditSelectedInstanceInDialog())
     );
     QObject::connect(
         newInstanceAction, SIGNAL(triggered()),
         this, SLOT(slotNewInstanceDialog())
     );
     QObject::connect(
-        newInstanceDialog, SIGNAL(accepted()),
-        this, SLOT(slotHandleNewInstance())
+        editInstanceDialog, SIGNAL(accepted()),
+        this, SLOT(slotHandleEditInstance())
     );
     QObject::connect(
         quitAction, SIGNAL(triggered()),
@@ -97,22 +97,22 @@ void MainWindow::onStart()
 }
 
 void MainWindow::slotNewInstanceDialog() {
-    newInstanceDialog->refreshOnNew();
-    newInstanceDialog->show();
+    editInstanceDialog->refreshOnCreate();
+    editInstanceDialog->show();
 }
 
-void MainWindow::slotShowSelectedInstanceInDialog()
+void MainWindow::slotEditSelectedInstanceInDialog()
 {
     int row = datasetTablePresenter->getCurrentRow();
 
-    cout << "Show selected instance: " << row << endl;
+    cout << "Edit selected instance: " << row << endl;
 
     if(row != DatasetTablePresenter::NO_ROW) {
         QStandardItem* item = datasetTablePresenter->getModel()->item(row);
         if(item) {
             DatasetInstance* instance = item->data(Qt::UserRole + 1).value<DatasetInstance*>();
-            newInstanceDialog->fromInstance(instance);
-            newInstanceDialog->show();
+            editInstanceDialog->refreshOnEdit(instance, row);
+            editInstanceDialog->show();
             return;
         } else {
             QMessageBox::warning(
@@ -125,11 +125,15 @@ void MainWindow::slotShowSelectedInstanceInDialog()
     }
 }
 
-void MainWindow::slotHandleNewInstance()
+void MainWindow::slotHandleEditInstance()
 {
     try {
-        DatasetInstance* newInstance = newInstanceDialog->toDatasetInstance();
-        dataset.addInstance(newInstance);
+        DatasetInstance* instance = editInstanceDialog->toDatasetInstance();
+        if(editInstanceDialog->isCreateMode()) {
+            dataset.addInstance(instance);
+        } else {
+            dataset.setInstance(editInstanceDialog->getDatasetIndex(), instance);
+        }
         datasetTablePresenter->getModel()->setRows(&dataset);
         dataset.to_csv(datasetPath);
     } catch(EtlUserException e) {
@@ -139,7 +143,7 @@ void MainWindow::slotHandleNewInstance()
             e.what(),
             QMessageBox::Ok
         );
-        newInstanceDialog->show();
+        editInstanceDialog->show();
     }
 }
 
