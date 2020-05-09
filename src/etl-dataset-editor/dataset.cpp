@@ -64,7 +64,7 @@ void Dataset::from_csv(const string& file_path)
         "repetitions",
         "avg_watts",
         "max_watts",
-        "equipment",
+        "gear",
         "route",
         "gpx_url",
         "calories",
@@ -95,7 +95,7 @@ void Dataset::from_csv(const string& file_path)
     unsigned repetitions;
     unsigned avgWatts;
     unsigned maxWatts;
-    string equipment;
+    string gear;
     string route;
     string gpxUrl;
     unsigned calories;
@@ -127,7 +127,7 @@ void Dataset::from_csv(const string& file_path)
       repetitions,
       avgWatts,
       maxWatts,
-      equipment,
+      gear,
       route,
       gpxUrl,
       calories,
@@ -157,7 +157,7 @@ void Dataset::from_csv(const string& file_path)
             repetitions,
             avgWatts,
             maxWatts,
-            CategoricalValue{equipment},
+            CategoricalValue{gear},
             CategoricalValue{route},
             QString::fromStdString(gpxUrl),
             calories,
@@ -213,7 +213,7 @@ void Dataset::to_csv(const std::string& file_path) const
        "repetitions, "
        "avg_watts, "
        "max_watts, "
-       "equipment, "
+       "gear, "
        "route, "
        "gpx_url, "
        "calories, "

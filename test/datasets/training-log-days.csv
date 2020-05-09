@@ -1,3 +1,5 @@
-year, month, day, phase, activity_type, description, commute, total_time_seconds, total_distance_meters, warm_up_time_seconds, warm_up_distance_meters, time_seconds, distance_meters, intensity, repetitions, avg_watts, max_watts, equipment, route, gpx_url, calories, cool_down_time_seconds, cool_down_distance_meters, weight, weather, weather_temperature, where, grams_of_fat_burnt
+year, month, day, phase, activity_type, description, commute, total_time_seconds, total_distance_meters, warm_up_time_seconds, warm_up_distance_meters, time_seconds, distance_meters, intensity, repetitions, avg_watts, max_watts, gear, route, gpx_url, calories, cool_down_time_seconds, cool_down_distance_meters, weight, weather, weather_temperature, where, grams_of_fat_burnt
 2020, 5, 3, 1, ride, ok, 0, 0, 0, 0, 0, 0, 0, easy, 0, 0, 0, , , , 0, 0, 0, 0, sunny, 0, TV, 0
 2020, 5, 3, 1, ride, ",", 0, 0, 0, 0, 0, 0, 0, easy, 0, 0, 0, , , , 0, 0, 0, 0, sunny, 0, TV, 0
+2020, 5, 3, 1, ride, ",,,", 0, 0, 0, 0, 0, 0, 0, easy, 0, 0, 0, , , , 0, 0, 0, 0, sunny, 0, TV, 0
+2020, 0, 0, 1, ride, ", fix", 0, 0, 0, 0, 0, 0, 0, easy, 0, 0, 0, , , , 0, 0, 0, 0, , 0, TV, 0

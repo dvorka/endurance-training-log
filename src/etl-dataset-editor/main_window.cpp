@@ -83,7 +83,16 @@ MainWindow::~MainWindow()
 void MainWindow::onStart()
 {
     if(Dataset::file_exists(datasetPath)) {
-        dataset.from_csv(datasetPath);
+        try {
+            dataset.from_csv(datasetPath);
+        } catch(io::error::missing_column_in_header e) {
+            QMessageBox::critical(
+                this,
+                tr("CSV Dataset Load Error"),
+                e.what(),
+                QMessageBox::Ok
+            );
+        }
     }
     datasetTablePresenter->getModel()->setRows(&dataset);
 }

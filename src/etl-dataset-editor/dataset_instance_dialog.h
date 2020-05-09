@@ -74,8 +74,8 @@ public:
     QLabel* maxWattsLabel;
     QLineEdit* maxWattsEdit;
 
-    QLabel* equipmentLabel;
-    QLineEdit* equipmentEdit;
+    QLabel* gearLabel;
+    QLineEdit* gearEdit;
     QLabel* routeLabel;
     QLineEdit* routeEdit;
     QLabel* gpxUrlLabel;

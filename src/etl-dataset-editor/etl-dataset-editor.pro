@@ -46,6 +46,7 @@ HEADERS += \
     dataset_table_model.h \
     dataset_table_presenter.h \
     dataset_table_view.h \
+    exceptions.h \
     main_window.h \
     statistics.h \
     dataset_instance_dialog.h

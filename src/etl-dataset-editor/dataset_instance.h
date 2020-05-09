@@ -26,6 +26,7 @@
 #include <QDateTime>
 #include <QString>
 
+#include "exceptions.h"
 
 namespace etl76 {
 
@@ -90,7 +91,7 @@ private:
     unsigned repetitions;
     unsigned avgWatts;
     unsigned maxWatts;
-    CategoricalValue equipment;
+    CategoricalValue gear;
     CategoricalValue route;
     QString gpxUrl;
     unsigned calories;
@@ -147,7 +148,7 @@ public:
             unsigned repetitions,
             unsigned avgWatts,
             unsigned maxWatts,
-            CategoricalValue equipment,
+            CategoricalValue gear,
             CategoricalValue route,
             QString gpxUrl,
             unsigned calories,
@@ -205,7 +206,7 @@ public:
     unsigned getRepetitions() const { return repetitions; }
     unsigned getAvgWatts() const { return avgWatts; }
     unsigned getMaxWatts() const { return maxWatts; }
-    CategoricalValue getEquipment() const { return equipment; }
+    CategoricalValue getGear() const { return gear; }
     CategoricalValue getRoute() const { return route; }
     QString getGpxUrl() const { return gpxUrl; }
     int getCalories() const { return calories; }

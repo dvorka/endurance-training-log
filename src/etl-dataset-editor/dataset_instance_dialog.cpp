@@ -76,9 +76,9 @@ DatasetInstanceDialog::DatasetInstanceDialog(QWidget *parent) :
     // spinner w/ present
     maxWattsEdit = new QLineEdit{this};
 
-    equipmentLabel = new QLabel{"Equipment:", this};
+    gearLabel = new QLabel{"Gear:", this};
     // dropdown
-    equipmentEdit = new QLineEdit{this};
+    gearEdit = new QLineEdit{this};
     routeLabel = new QLabel{"Route:", this};
     routeEdit = new QLineEdit{this};
     gpxUrlLabel = new QLabel{"GPX URL:", this};
@@ -160,8 +160,8 @@ DatasetInstanceDialog::DatasetInstanceDialog(QWidget *parent) :
     rightLayout->addWidget(maxWattsLabel);
     rightLayout->addWidget(maxWattsEdit);
 
-    rightLayout->addWidget(equipmentLabel);
-    rightLayout->addWidget(equipmentEdit);
+    rightLayout->addWidget(gearLabel);
+    rightLayout->addWidget(gearEdit);
     rightLayout->addWidget(routeLabel);
     rightLayout->addWidget(routeEdit);
     rightLayout->addWidget(gpxUrlLabel);
@@ -219,7 +219,7 @@ void DatasetInstanceDialog::clearAllItems()
     repetitionsEdit->setText("0");
     avgWattsEdit->setText("0");
     maxWattsEdit->setText("0");
-    equipmentEdit->clear();
+    gearEdit->clear();
     routeEdit->clear();
     gpxUrlEdit->clear();
     caloriesEdit->setText("0");
@@ -249,7 +249,7 @@ void DatasetInstanceDialog::fromInstance(DatasetInstance* instance)
     repetitionsEdit->setText("0");
     avgWattsEdit->setText(QString::number(instance->getAvgWatts()));
     maxWattsEdit->setText(QString::number(instance->getMaxWatts()));
-    equipmentEdit->setText(instance->getEquipment().toString());
+    gearEdit->setText(instance->getGear().toString());
     routeEdit->setText(instance->getRoute().toString());
     gpxUrlEdit->setText(instance->getGpxUrl());
     caloriesEdit->setText(QString::number(instance->getCalories()));
@@ -282,7 +282,7 @@ DatasetInstance* DatasetInstanceDialog::toDatasetInstance()
         repetitionsEdit->text().toUInt(),
         avgWattsEdit->text().toUInt(),
         maxWattsEdit->text().toUInt(),
-        CategoricalValue(equipmentEdit->text()),
+        CategoricalValue(gearEdit->text()),
         CategoricalValue(routeEdit->text()),
         QString(gpxUrlEdit->text()),
         caloriesEdit->text().toUInt(),

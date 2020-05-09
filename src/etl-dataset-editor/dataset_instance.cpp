@@ -46,9 +46,12 @@ unsigned DatasetInstance::ymdToItem(QString yearMonthDay, int idx)
               (idx>0 && ymdList[idx].length()==2)))
         {
             return ymdList[idx].toUInt();
+        } else {
+            throw EtlUserException{"Invalid year/month/day format - it must be: yyyy/mm/dd"};
         }
+    } else {
+        throw EtlUserException{"Empty year/month/day string - it must be: yyyy/mm/dd"};
     }
-    return 0;
 }
 
 unsigned DatasetInstance::ymdToYear(QString yearMonthDay)
@@ -93,8 +96,9 @@ unsigned DatasetInstance::strMetersToMeters(QString strMeters)
         strMeters.replace(".", "");
         strMeters.chop(1);
         return strMeters.toUInt();
+    } else {
+        throw EtlUserException{"Invalid meters format - it must be like: 10.000m"};
     }
-    return 0;
 }
 
 float DatasetInstance::strKgToKg(QString strKg)
@@ -107,8 +111,9 @@ float DatasetInstance::strKgToKg(QString strKg)
     {
         strKg.chop(2);
         return strKg.toFloat();
+    } else {
+        throw EtlUserException{"Invalid kilograms format - it must be like: 91.9kg"};
     }
-    return 0;
 }
 
 unsigned DatasetInstance::strGToG(QString strG)
@@ -117,8 +122,9 @@ unsigned DatasetInstance::strGToG(QString strG)
     if(strG.length()>2 && strG.at(strG.length()-1) == 'g') {
         strG.chop(1);
         return strG.toUInt();
+    } else {
+        throw EtlUserException{"Invalid grams format - it must be like: 129g"};
     }
-    return 0;
 }
 
 /*
@@ -143,7 +149,7 @@ DatasetInstance::DatasetInstance(
         unsigned repetitions,
         unsigned avgWatts,
         unsigned maxWatts,
-        CategoricalValue equipment,
+        CategoricalValue gear,
         CategoricalValue route,
         QString gpxUrl,
         unsigned calories,
@@ -172,7 +178,7 @@ DatasetInstance::DatasetInstance(
     repetitions(repetitions),
     avgWatts(avgWatts),
     maxWatts(maxWatts),
-    equipment(equipment),
+    gear(gear),
     route(route),
     gpxUrl(gpxUrl),
     calories(calories),
@@ -208,7 +214,7 @@ string DatasetInstance::toString()
     << "  Repetitions: " << repetitions << endl
     << "  Avg watts: " << avgWatts << endl
     << "  Max watts: " << maxWatts << endl
-    << "  Equipment: " << equipment.toString().toStdString() << endl
+    << "  Gear: " << gear.toString().toStdString() << endl
     << "  Route: " << route.toString().toStdString() << endl
     << "  GPX: " << gpxUrl.toStdString() << endl
     << "  Calories: " << calories << endl
@@ -259,7 +265,7 @@ string DatasetInstance::toCsv()
     << repetitions << ", "
     << avgWatts << ", "
     << maxWatts << ", "
-    << quoteCsvString(equipment.toString().toStdString()) << ", "
+    << quoteCsvString(gear.toString().toStdString()) << ", "
     << quoteCsvString(route.toString().toStdString()) << ", "
     << quoteCsvString(gpxUrl.toStdString()) << ", "
     << calories << ", "
