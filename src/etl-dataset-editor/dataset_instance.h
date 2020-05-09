@@ -20,6 +20,7 @@
 #define ETL76_DATASET_INSTANCE_H
 
 #include <iostream>
+#include <sstream>
 #include <vector>
 
 #include <QDateTime>
@@ -163,7 +164,8 @@ public:
     DatasetInstance &operator=(const DatasetInstance&) = delete;
     DatasetInstance &operator=(const DatasetInstance&&) = delete;
 
-    void toString();
+    std::string toString();
+    std::string toCsv();
 
     /*
      * getters and setters

@@ -39,7 +39,7 @@ void Dataset::clear()
     }
 }
 
-void Dataset::from_csv(const std::string file_path)
+void Dataset::from_csv(const string& file_path)
 {
     clear();
 
@@ -170,6 +170,65 @@ void Dataset::from_csv(const std::string file_path)
          };
         addInstance(instance);
     }
+}
+
+bool Dataset::file_exists(const std::string& file_path)
+{
+  struct stat buffer;
+  return (stat(file_path.c_str(), &buffer) == 0);
+}
+
+void Dataset::to_csv(const std::string& file_path) const
+{
+    if(file_exists(file_path)) {
+        // clean up
+        string tmp_file_path{file_path+".tmp"};
+        if(file_exists(tmp_file_path)) {
+            remove(tmp_file_path.c_str());
+        }
+        // if save fails, return back to this file: avoid loosing both old and new
+        rename(file_path.c_str(), (file_path+".tmp").c_str());
+    }
+
+    // save
+    std::ofstream csvFile;
+    csvFile.open (file_path);
+
+    csvFile <<
+       "year, "
+       "month, "
+       "day, "
+       "phase, "
+       "activity_type, "
+       "description, "
+       "commute, "
+       "total_time_seconds, "
+       "total_distance_meters, "
+       "warm_up_time_seconds, "
+       "warm_up_distance_meters, "
+       "time_seconds, "
+       "distance_meters, "
+       "intensity, "
+       "repetitions, "
+       "avg_watts, "
+       "max_watts, "
+       "equipment, "
+       "route, "
+       "gpx_url, "
+       "calories, "
+       "cool_down_time_seconds, "
+       "cool_down_distance_meters, "
+       "weight, "
+       "weather, "
+       "weather_temperature, "
+       "where, "
+       "grams_of_fat_burnt" << endl;
+
+    for(DatasetInstance* instance:dataset) {
+        csvFile << instance->toCsv();
+    }
+
+    csvFile.close();
 }
 
 } // etl76 namespace

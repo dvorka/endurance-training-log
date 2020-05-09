@@ -37,6 +37,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 private:
+    std::string datasetPath;
     Dataset dataset;
 
     DatasetTableView* datasetTableView;

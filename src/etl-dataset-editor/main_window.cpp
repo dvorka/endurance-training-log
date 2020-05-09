@@ -28,6 +28,11 @@ MainWindow::MainWindow(QWidget* parent)
     // TODO app
     setWindowTitle(QString{"Endurance Training Log Dataset Editor"});
 
+    // production dataset
+    //datasetPath.assign("/home/dvorka/p/endurance-training-log/github/endurance-training-log/datasets/training-log-days.csv");
+    // test dataset
+    datasetPath.assign("/home/dvorka/p/endurance-training-log/github/endurance-training-log/test/datasets/training-log-days.csv");
+
     // menu
     QMenu* fileMenu = menuBar()->addMenu("&File");
     QAction* openCsvAction = fileMenu->addAction("&Open");
@@ -77,7 +82,9 @@ MainWindow::~MainWindow()
 
 void MainWindow::onStart()
 {
-    dataset.from_csv("/home/dvorka/endurance-training-log/training-log-days.csv");
+    if(Dataset::file_exists(datasetPath)) {
+        dataset.from_csv(datasetPath);
+    }
     datasetTablePresenter->getModel()->setRows(&dataset);
 }
 
@@ -108,12 +115,13 @@ void MainWindow::slotShowSelectedInstanceInDialog()
 void MainWindow::slotHandleNewInstance()
 {
     DatasetInstance* newInstance = newInstanceDialog->toDatasetInstance();
-    // TODO newInstance.toString();
-    checkInstanceDialog->refreshOnCheck("ABC");
+    checkInstanceDialog->refreshOnCheck(newInstance->toString());
     checkInstanceDialog->show();
 
     dataset.addInstance(newInstance);
     datasetTablePresenter->getModel()->setRows(&dataset);
+
+    dataset.to_csv(datasetPath);
 }
 
 void MainWindow::addFooDatasetRow()

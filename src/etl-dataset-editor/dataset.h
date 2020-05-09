@@ -19,6 +19,9 @@
 #ifndef ETL76_DATASET_H
 #define ETL76_DATASET_H
 
+#include <fstream>
+#include <stdio.h>
+#include <sys/stat.h>
 #include <vector>
 
 #include "csv.h"
@@ -47,8 +50,10 @@ public:
 
     std::vector<DatasetInstance*>& getInstances() { return dataset; }
 
-    void from_csv(const std::string file_path);
-    void to_csv(const std::string file_path) const;
+    void from_csv(const std::string& file_path);
+    void to_csv(const std::string& file_path) const;
+
+    static bool file_exists(const std::string& file_path);
 };
 
 } // namespace etl76

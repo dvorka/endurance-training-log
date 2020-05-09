@@ -1,2 +1,0 @@
-year,month,day,phase,activity_type,description,commute,total_time_seconds,total_distance_meters,warm_up_time_seconds,warm_up_distance_meters,time_seconds,distance_meters,intensity,repetitions,avg_watts,max_watts,equipment,route,gpx_url,calories,cool_down_time_seconds,cool_down_distance_meters,weight,weather,weather_temperature,where,grams_of_fat_burnt
-2020,5,7,1,ride,From TV,0,1000,2000,3000,4000,5000,6000,fartlek,123,456,789,kato,okor,http://www.acme.com,111,222,333,92,sunny,15,TV,321

@@ -184,12 +184,13 @@ DatasetInstance::DatasetInstance(
     where(where),
     gramsOfFatBurnt(gramsOfFatBurn)
 {
-    toString();
+    cout << toString();
 }
 
-void DatasetInstance::toString()
+string DatasetInstance::toString()
 {
-    cout << "New dataset instance:" << endl
+    stringstream os{};
+    os << "New dataset instance:" << endl
     << "  Year: " << year << endl
     << "  Month: " << month << endl
     << "  Day: " << day << endl
@@ -215,8 +216,47 @@ void DatasetInstance::toString()
     << "  Cool meters: " << coolDownDistanceMeters << endl
     << "  Weight: " << weight << endl
     << "  Weather: " << weather.toString().toStdString() << endl
+    << "  Temperature: " << weatherTemperature << endl
     << "  Where: " << where.toStdString() << endl
     << "  Fat: " << gramsOfFatBurnt << endl;
+
+    return os.str();
+}
+
+string DatasetInstance::toCsv()
+{
+    stringstream os{};
+    os
+    << year << ", "
+    << month << ", "
+    << day << ", "
+    << phase << ", "
+    << "\"" << activityType.toString().toStdString() << "\", "
+    << "\"" << description.toStdString() << "\", "
+    << commute << ", "
+    << totalTimeSeconds << ", "
+    << totalDistanceMeters << ", "
+    << warmUpTimeSeconds << ", "
+    << warmUpDistanceMeters << ", "
+    << timeSeconds << ", "
+    << distanceMeters << ", "
+    << intensity.toString().toStdString() << ", "
+    << repetitions << ", "
+    << avgWatts << ", "
+    << maxWatts << ", "
+    << equipment.toString().toStdString() << ", "
+    << route.toString().toStdString() << ", "
+    << gpxUrl.toStdString() << ", "
+    << calories << ", "
+    << coolDownTimeSeconds << ", "
+    << coolDownDistanceMeters << ", "
+    << weight << ", "
+    << weather.toString().toStdString() << ", "
+    << weatherTemperature << ", "
+    << where.toStdString() << ", "
+    << gramsOfFatBurnt << endl;
+
+    return os.str();
 }
 
 } // etl76 namespace
