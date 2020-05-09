@@ -223,6 +223,21 @@ string DatasetInstance::toString()
     return os.str();
 }
 
+string quoteCsvString(const string& s)
+{
+    string quoted{s}, quote{"\""};
+    if(s.length()) {
+        if(s[0] != quote[0]) {
+            size_t found = quoted.find(',');
+            if (found != string::npos) {
+                quoted.insert(0, quote);
+                quoted.append(quote);
+            }
+        }
+    }
+    return quoted;
+}
+
 string DatasetInstance::toCsv()
 {
     stringstream os{};
@@ -231,8 +246,8 @@ string DatasetInstance::toCsv()
     << month << ", "
     << day << ", "
     << phase << ", "
-    << "\"" << activityType.toString().toStdString() << "\", "
-    << "\"" << description.toStdString() << "\", "
+    << quoteCsvString(activityType.toString().toStdString()) << ", "
+    << quoteCsvString(description.toStdString()) << ", "
     << commute << ", "
     << totalTimeSeconds << ", "
     << totalDistanceMeters << ", "
@@ -240,20 +255,20 @@ string DatasetInstance::toCsv()
     << warmUpDistanceMeters << ", "
     << timeSeconds << ", "
     << distanceMeters << ", "
-    << intensity.toString().toStdString() << ", "
+    << quoteCsvString(intensity.toString().toStdString()) << ", "
     << repetitions << ", "
     << avgWatts << ", "
     << maxWatts << ", "
-    << equipment.toString().toStdString() << ", "
-    << route.toString().toStdString() << ", "
-    << gpxUrl.toStdString() << ", "
+    << quoteCsvString(equipment.toString().toStdString()) << ", "
+    << quoteCsvString(route.toString().toStdString()) << ", "
+    << quoteCsvString(gpxUrl.toStdString()) << ", "
     << calories << ", "
     << coolDownTimeSeconds << ", "
     << coolDownDistanceMeters << ", "
     << weight << ", "
-    << weather.toString().toStdString() << ", "
+    << quoteCsvString(weather.toString().toStdString()) << ", "
     << weatherTemperature << ", "
-    << where.toStdString() << ", "
+    << quoteCsvString(where.toStdString()) << ", "
     << gramsOfFatBurnt << endl;
 
     return os.str();

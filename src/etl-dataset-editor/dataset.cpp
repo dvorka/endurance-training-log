@@ -43,7 +43,8 @@ void Dataset::from_csv(const string& file_path)
 {
     clear();
 
-    io::CSVReader<28> in(file_path);
+    //io::CSVReader<28, io::trim_chars<>, io::double_quote_escape<',','\"'>> in(file_path);
+    io::CSVReader<28, io::trim_chars<' '>, io::double_quote_escape<',','\"'>> in(file_path);
     in.read_header(
         io::ignore_extra_column,
         "year",

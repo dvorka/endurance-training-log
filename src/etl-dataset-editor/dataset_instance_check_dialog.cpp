@@ -40,7 +40,10 @@ DatasetInstanceCheckDialog::DatasetInstanceCheckDialog(QWidget *parent) :
     QObject::connect(buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
     QObject::connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
 
-    resize(fontMetrics().averageCharWidth()*70, height());
+    resize(
+        fontMetrics().averageCharWidth()*40,
+        fontMetrics().capHeight()*60
+    );
     setLayout(centralLayout);
     setModal(true);
 }

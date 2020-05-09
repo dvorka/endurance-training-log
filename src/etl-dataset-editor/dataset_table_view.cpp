@@ -78,10 +78,10 @@ void DatasetTableView::resizeEvent(QResizeEvent* event)
 {
     cout << "OutlinesTableView::resizeEvent " << event << std::endl;
 
-    // activity
+    // description
     if(horizontalHeader()->length() > 0) {
         // ensure that the column gets the remaining space from others
-        horizontalHeader()->setSectionResizeMode(2, QHeaderView::Stretch);
+        horizontalHeader()->setSectionResizeMode(3, QHeaderView::Stretch);
     }
     verticalHeader()->setDefaultSectionSize(fontMetrics().height()*1.5);
 
@@ -89,16 +89,18 @@ void DatasetTableView::resizeEvent(QResizeEvent* event)
     this->setColumnWidth(0, this->fontMetrics().averageCharWidth()*10);
     // phase
     this->setColumnWidth(1, this->fontMetrics().averageCharWidth()*6);
+    // activity
+    this->setColumnWidth(2, this->fontMetrics().averageCharWidth()*6);
     // time
-    this->setColumnWidth(3, this->fontMetrics().averageCharWidth()*8);
-    // distance
     this->setColumnWidth(4, this->fontMetrics().averageCharWidth()*8);
+    // distance
+    this->setColumnWidth(5, this->fontMetrics().averageCharWidth()*8);
     // intensity
-    this->setColumnWidth(5, this->fontMetrics().averageCharWidth()*12);
+    this->setColumnWidth(6, this->fontMetrics().averageCharWidth()*12);
     // weight
-    this->setColumnWidth(6, this->fontMetrics().averageCharWidth()*8);
+    this->setColumnWidth(7, this->fontMetrics().averageCharWidth()*8);
     // fat
-    this->setColumnWidth(7, this->fontMetrics().averageCharWidth()*7);
+    this->setColumnWidth(8, this->fontMetrics().averageCharWidth()*7);
 
     QTableView::resizeEvent(event);
 }

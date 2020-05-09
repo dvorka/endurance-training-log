@@ -25,7 +25,7 @@ using namespace std;
 DatasetTableModel::DatasetTableModel(QObject* parent)
     : QStandardItemModel(parent)
 {
-    setColumnCount(8);
+    setColumnCount(9);
     setRowCount(0);
 }
 
@@ -38,6 +38,7 @@ void DatasetTableModel::removeAllRows()
         << tr("Date")       // 2020/05/21 (use modified:1)
         << tr("Phase")      // 1
         << tr("Activity")   // running    (use Notebook:8 ~ non-fixed width)
+        << tr("Description")// Enjoyed w/ 3x300m hard included
         << tr("Distance")   // 1,250m
         << tr("Time")       // 1h30m12s
         << tr("Intensity")  // fatlek
@@ -83,6 +84,10 @@ void DatasetTableModel::addRow(DatasetInstance* instance)
 
     // activity
     item = new QStandardItem(instance->getActivityType().toString());
+    items += item;
+
+    // description
+    item = new QStandardItem(instance->getDescription());
     items += item;
 
     // distance
