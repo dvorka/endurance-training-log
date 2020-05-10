@@ -118,8 +118,10 @@ DatasetInstanceDialog::DatasetInstanceDialog(QWidget *parent) :
 
     QHBoxLayout* columnsLayout = new QHBoxLayout{this};
     QVBoxLayout* leftLayout = new QVBoxLayout{this};
+    QVBoxLayout* middleLayout = new QVBoxLayout{this};
     QVBoxLayout* rightLayout = new QVBoxLayout{this};
     columnsLayout->addLayout(leftLayout);
+    columnsLayout->addLayout(middleLayout);
     columnsLayout->addLayout(rightLayout);
 
     leftLayout->addWidget(yearMonthDayLabel);
@@ -152,14 +154,14 @@ DatasetInstanceDialog::DatasetInstanceDialog(QWidget *parent) :
     leftLayout->addWidget(distanceLabel);
     leftLayout->addWidget(distanceEdit);
 
-    leftLayout->addWidget(intensityLabel);
-    leftLayout->addWidget(intensityEdit);
-    leftLayout->addWidget(repetitionsLabel);
-    leftLayout->addWidget(repetitionsEdit);
-    leftLayout->addWidget(avgWattsLabel);
-    leftLayout->addWidget(avgWattsEdit);
-    rightLayout->addWidget(maxWattsLabel);
-    rightLayout->addWidget(maxWattsEdit);
+    middleLayout->addWidget(intensityLabel);
+    middleLayout->addWidget(intensityEdit);
+    middleLayout->addWidget(repetitionsLabel);
+    middleLayout->addWidget(repetitionsEdit);
+    middleLayout->addWidget(avgWattsLabel);
+    middleLayout->addWidget(avgWattsEdit);
+    middleLayout->addWidget(maxWattsLabel);
+    middleLayout->addWidget(maxWattsEdit);
 
     rightLayout->addWidget(gearLabel);
     rightLayout->addWidget(gearEdit);

@@ -35,6 +35,13 @@ MainWindow::MainWindow(QWidget* parent)
 
     // menu
     QMenu* fileMenu = menuBar()->addMenu("&File");
+
+    // TODO "Import Strava data (Torben CSV)"
+    // - create CSV loader using the library
+    // - Torben 2 dataset conversion
+    // - open in table
+    // - save as
+
     // QAction* openCsvAction = fileMenu->addAction("&Open");
     // QAction* saveCsvAction = fileMenu->addAction("&Save");
     // QAction* saveAsCsvAction = fileMenu->addAction("Save &as");

@@ -57,6 +57,15 @@ private:
 };
 
 
+/**
+ * @brief Dataset instance.
+ *
+ * Tips and tricks:
+ *
+ * - activity 'servis', gear 'kato', description 'chain', phase 0, ...
+ *   - resets chain km on bike and enables tracking
+ *
+ */
 class DatasetInstance
 {
 public:
@@ -66,6 +75,10 @@ public:
     static const char* DEFAULT_STR_GRAMS;
 
 private:
+    // TODO source (strava, paper, gdocs), max speed, avg speed, elevation (gain)
+    // TODO lehsedy, zelvy, drepy, vypony, kliky ~ section in description which can be parsed
+    // TODO BMI
+
     unsigned year;
     unsigned month;
     unsigned day;
@@ -87,7 +100,7 @@ private:
     // phase
     unsigned timeSeconds;
     unsigned distanceMeters;
-    CategoricalValue intensity; // easy, regen, LSD, fartlek, tempo, race, ...
+    CategoricalValue intensity; // rank, easy, regen, LSD, fartlek, tempo, race, ...
     unsigned repetitions;
     unsigned avgWatts;
     unsigned maxWatts;
@@ -106,9 +119,8 @@ private:
     QString where;
 
     // calculated
+    unsigned bmi;
     unsigned gramsOfFatBurnt;
-
-    // TODO: BMI
 
     /*
      * dataset
