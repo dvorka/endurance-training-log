@@ -88,6 +88,9 @@ public:
     static const char* DEFAULT_STR_METERS;
     static const char* DEFAULT_STR_GRAMS;
 
+    static const char* FORMAT_STR_YMD;
+    static const char* FORMAT_STR_TIME;
+
 private:
     // TODO source (strava, paper, gdocs), max speed, avg speed, elevation (gain)
     // TODO lehsedy, zelvy, drepy, vypony, kliky ~ section in description which can be parsed
@@ -251,18 +254,18 @@ public:
     bool getCommute() const { return commute; }
     unsigned getTotalTimeSeconds() const { return totalTimeSeconds; }
     QString getTotalTimeStr() const {
-        return QDateTime::fromTime_t(totalTimeSeconds).toUTC().toString("hh:mm:ss");
+        return QDateTime::fromTime_t(totalTimeSeconds).toUTC().toString(FORMAT_STR_TIME);
     }
     unsigned getTotalDistanceMeters() const { return totalDistanceMeters; }
     QString getTotalDistanceMetersStr() const { return QString::number(totalDistanceMeters).append("m"); }
     // warm-up
     unsigned getWarmUpSeconds() const { return warmUpTimeSeconds; }
-    QString getWarmUpTimeStr() const { return QDateTime::fromTime_t(warmUpTimeSeconds).toUTC().toString("hh:mm:ss"); }
+    QString getWarmUpTimeStr() const { return QDateTime::fromTime_t(warmUpTimeSeconds).toUTC().toString(FORMAT_STR_TIME); }
     unsigned getWarmUpDistanceMeters() const { return warmUpDistanceMeters; }
     QString getWarmUpDistanceMetersStr() const { return QString::number(warmUpDistanceMeters).append("m"); }
     // phase
     unsigned getTimeSeconds() const { return timeSeconds; }
-    QString getTimeStr() const { return QDateTime::fromTime_t(timeSeconds).toUTC().toString("hh:mm:ss"); }
+    QString getTimeStr() const { return QDateTime::fromTime_t(timeSeconds).toUTC().toString(FORMAT_STR_TIME); }
     unsigned getDistanceMeters() { return distanceMeters; }
     QString getDistanceMetersStr() const { return QString::number(distanceMeters).append("m"); }
     CategoricalValue getIntensity() const { return intensity; }
@@ -284,7 +287,7 @@ public:
 
     // cool-down
     unsigned getCoolDownTimeSeconds() const { return coolDownTimeSeconds; }
-    QString getCoolDownTimeStr() const { return QDateTime::fromTime_t(coolDownTimeSeconds).toUTC().toString("hh:mm:ss"); }
+    QString getCoolDownTimeStr() const { return QDateTime::fromTime_t(coolDownTimeSeconds).toUTC().toString(FORMAT_STR_TIME); }
     unsigned getCoolDownDistanceMeters() const { return coolDownDistanceMeters; }
     QString getCoolDownDistanceStr() const { return QString::number(coolDownDistanceMeters).append("m"); }
 

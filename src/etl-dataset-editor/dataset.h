@@ -52,7 +52,7 @@ public:
         dataset.insert(dataset.begin()+instance->getDatasetIndex(), instance);
     }
     void setInstance(int index, DatasetInstance* instance) {
-        removeInstance(index);
+        delete dataset[index];
         dataset[index]=instance;
     }
 

@@ -145,8 +145,9 @@ DatasetInstanceDialog::DatasetInstanceDialog(QWidget *parent) :
     // dropdown
     sourceEdit = new QLineEdit{this};
 
+    buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
 
-
+    // 39/3 = 13
     QHBoxLayout* columnsLayout = new QHBoxLayout{this};
     QVBoxLayout* leftLayout = new QVBoxLayout{this};
     QVBoxLayout* middleLayout = new QVBoxLayout{this};
@@ -185,8 +186,11 @@ DatasetInstanceDialog::DatasetInstanceDialog(QWidget *parent) :
     leftLayout->addWidget(distanceLabel);
     leftLayout->addWidget(distanceEdit);
 
-    middleLayout->addWidget(intensityLabel);
-    middleLayout->addWidget(intensityEdit);
+    leftLayout->addWidget(intensityLabel);
+    leftLayout->addWidget(intensityEdit);
+
+    // padding
+    leftLayout->addWidget(new QLabel("", this));
 
     middleLayout->addWidget(squatsLabel);
     middleLayout->addWidget(squatsEdit);
@@ -213,8 +217,12 @@ DatasetInstanceDialog::DatasetInstanceDialog(QWidget *parent) :
     middleLayout->addWidget(maxWattsLabel);
     middleLayout->addWidget(maxWattsEdit);
 
-    rightLayout->addWidget(gearLabel);
-    rightLayout->addWidget(gearEdit);
+    middleLayout->addWidget(gearLabel);
+    middleLayout->addWidget(gearEdit);
+
+    // padding + buttons
+    middleLayout->addWidget(new QLabel("", this));
+
     rightLayout->addWidget(routeLabel);
     rightLayout->addWidget(routeEdit);
     rightLayout->addWidget(gpxUrlLabel);
@@ -248,7 +256,7 @@ DatasetInstanceDialog::DatasetInstanceDialog(QWidget *parent) :
     rightLayout->addWidget(sourceLabel);
     rightLayout->addWidget(sourceEdit);
 
-    buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+    // padding
     rightLayout->addWidget(buttonBox);
 
     // signals
@@ -312,7 +320,7 @@ void DatasetInstanceDialog::fromInstance(DatasetInstance* instance)
     totalDistanceEdit->setText(instance->getTotalDistanceMetersStr());
     warmUpTimeEdit->setText(instance->getWarmUpTimeStr());
     warmUpDistanceEdit->setText(instance->getWarmUpDistanceMetersStr());
-    timeEdit->setText(instance->getTotalTimeStr());
+    timeEdit->setText(instance->getTimeStr());
     distanceEdit->setText(instance->getDistanceMetersStr());
     intensityEdit->setText(instance->getIntensity().toString());
     squatsEdit->setText(QString::number(instance->getSquats()));

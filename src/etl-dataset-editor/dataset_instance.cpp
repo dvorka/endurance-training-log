@@ -24,9 +24,12 @@ namespace etl76 {
 using namespace std;
 
 const char* DatasetInstance::DEFAULT_STR_TIME = "00h00m00s";
-const char* DatasetInstance::DEFAULT_STR_WEIGHT= "91.9kg";
-const char* DatasetInstance::DEFAULT_STR_METERS= "0m";
-const char* DatasetInstance::DEFAULT_STR_GRAMS= "0g";
+const char* DatasetInstance::DEFAULT_STR_WEIGHT = "91.9kg";
+const char* DatasetInstance::DEFAULT_STR_METERS = "0m";
+const char* DatasetInstance::DEFAULT_STR_GRAMS = "0g";
+
+const char* DatasetInstance::FORMAT_STR_YMD = "yyyy/mm/dd";
+const char* DatasetInstance::FORMAT_STR_TIME = "hh'h'mm'm'ss's'";
 
 /*
  * parsers
@@ -37,9 +40,6 @@ unsigned DatasetInstance::ymdToItem(QString yearMonthDay, int idx, const string&
     // yyyy/mm/dd
     if(yearMonthDay.length()) {
         QStringList ymdList = yearMonthDay.split("/");
-        cout << "Y " << ymdList[0].toStdString() << endl;
-        cout << "M " << ymdList[1].toStdString() << endl;
-        cout << "D " << ymdList[2].toStdString() << endl;
         if(ymdList.length()==3 &&
              ((idx==0 && ymdList[idx].length()==4)
                ||
@@ -47,10 +47,10 @@ unsigned DatasetInstance::ymdToItem(QString yearMonthDay, int idx, const string&
         {
             return ymdList[idx].toUInt();
         } else {
-            throw EtlUserException{""+field+": Invalid year/month/day format - it must be: yyyy/mm/dd"};
+            throw EtlUserException{""+field+": Invalid year/month/day format - it must be: "+FORMAT_STR_YMD};
         }
     } else {
-        throw EtlUserException{""+field+": Empty year/month/day string - it must be: yyyy/mm/dd"};
+        throw EtlUserException{""+field+": Empty year/month/day string - it must be: "+FORMAT_STR_YMD};
     }
 }
 
@@ -83,16 +83,16 @@ unsigned DatasetInstance::strTimeToSeconds(QString time, const string& field)
                     unsigned seconds = minSplit[1].toUInt();
                     return hours*3600+mins*60+seconds;
                 } else {
-                    throw EtlUserException{""+field+": Invalid minutes/seconds format - it must be: 00h00m00s"};
+                    throw EtlUserException{""+field+" ("+time.toStdString()+"): Invalid minutes/seconds format - it must be: "+FORMAT_STR_TIME};
                 }
             } else {
-                throw EtlUserException{""+field+": Invalid hour format - it must be: 00h00m00s"};
+                throw EtlUserException{""+field+" ("+time.toStdString()+"): Invalid hour format - it must be: "+FORMAT_STR_TIME};
             }
         } else {
-            throw EtlUserException{""+field+": Invalid time format - it must be: 00h00m00s"};
+            throw EtlUserException{""+field+" ("+time.toStdString()+"): Invalid time format - it must be: "+FORMAT_STR_TIME};
         }
     } else {
-        throw EtlUserException{""+field+": Invalid time length - it must be: 00h00m00s"};
+        throw EtlUserException{""+field+" ("+time.toStdString()+"): Invalid time length - it must be: "+FORMAT_STR_TIME};
     }
 }
 
@@ -126,7 +126,7 @@ float DatasetInstance::strKgToKg(QString strKg, const string& field)
 unsigned DatasetInstance::strGToG(QString strG, const string& field)
 {
     // 23g
-    if(strG.length()>2 && strG.at(strG.length()-1) == 'g') {
+    if(strG.length()>=2 && strG.at(strG.length()-1) == 'g') {
         strG.chop(1);
         return strG.toUInt();
     } else {
@@ -322,8 +322,8 @@ string DatasetInstance::toCsv()
     << weatherTemperature << ", "
     << quoteCsvString(where.toStdString()) << ", "
     << bmi << ", "
-    << gramsOfFatBurnt << endl
-    << quoteCsvString(source.toString().toStdString()) << ", ";
+    << gramsOfFatBurnt << ", "
+    << quoteCsvString(source.toString().toStdString()) << endl;
 
     return os.str();
 }

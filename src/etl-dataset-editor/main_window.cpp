@@ -28,6 +28,7 @@ MainWindow::MainWindow(QWidget* parent)
     // TODO app
     setWindowTitle(QString{"Endurance Training Log Dataset Editor"});
 
+    // TODO make file mandatory CLI parameter
     // production dataset
     //datasetPath.assign("/home/dvorka/p/endurance-training-log/github/endurance-training-log/datasets/training-log-days.csv");
     // test dataset
@@ -46,8 +47,10 @@ MainWindow::MainWindow(QWidget* parent)
     // QAction* saveCsvAction = fileMenu->addAction("&Save");
     // QAction* saveAsCsvAction = fileMenu->addAction("Save &as");
     QAction* quitAction = fileMenu->addAction("&Quit");
+    quitAction->setShortcut(QKeySequence(Qt::CTRL+Qt::Key_Q));
     QMenu* datasetMenu = menuBar()->addMenu("&Dataset");
     QAction* newInstanceAction = datasetMenu->addAction("&New instance");
+    newInstanceAction->setShortcut(QKeySequence(Qt::CTRL+Qt::SHIFT+Qt::Key_N));
 
     // window
     datasetTableView = new DatasetTableView{this};
@@ -110,6 +113,13 @@ void MainWindow::onStart()
                 e.what(),
                 QMessageBox::Ok
             );
+        } catch(io::error::too_few_columns e) {
+            QMessageBox::critical(
+                this,
+                tr("CSV Dataset Load Error"),
+                e.what(),
+                QMessageBox::Ok
+            );
         }
     }
     datasetTablePresenter->getModel()->setRows(&dataset);
@@ -158,6 +168,8 @@ void MainWindow::slotEditSelectedInstanceInDialog()
     if(instance) {
         editInstanceDialog->refreshOnEdit(instance, instance->getDatasetIndex());
         editInstanceDialog->show();
+    } else {
+        throw EtlRuntimeException("No instance to create or edit found");
     }
 }
 
@@ -203,6 +215,7 @@ void MainWindow::slotHandleEditInstance()
 {
     try {
         DatasetInstance* instance = editInstanceDialog->toDatasetInstance();
+        cout << "Create (or edit) instance: " << editInstanceDialog->isCreateMode() << endl;
         if(editInstanceDialog->isCreateMode()) {
             int row = datasetTablePresenter->getCurrentRow();
             if(row == DatasetTablePresenter::NO_ROW) {

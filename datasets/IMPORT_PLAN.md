@@ -1,4 +1,4 @@
-# Import Progress
+# Import Plan and Progress
 
 This document tracks creation of ETL dataset from paper and various digital sources:
 

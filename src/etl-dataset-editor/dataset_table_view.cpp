@@ -92,8 +92,6 @@ void DatasetTableView::mouseDoubleClickEvent(QMouseEvent* event)
 
 void DatasetTableView::resizeEvent(QResizeEvent* event)
 {
-    cout << "OutlinesTableView::resizeEvent " << event << std::endl;
-
     // description
     if(horizontalHeader()->length() > 0) {
         // ensure that the column gets the remaining space from others
@@ -107,10 +105,10 @@ void DatasetTableView::resizeEvent(QResizeEvent* event)
     this->setColumnWidth(1, this->fontMetrics().averageCharWidth()*6);
     // activity
     this->setColumnWidth(2, this->fontMetrics().averageCharWidth()*7);
-    // time
-    this->setColumnWidth(4, this->fontMetrics().averageCharWidth()*8);
     // distance
-    this->setColumnWidth(5, this->fontMetrics().averageCharWidth()*8);
+    this->setColumnWidth(4, this->fontMetrics().averageCharWidth()*8);
+    // time
+    this->setColumnWidth(5, this->fontMetrics().averageCharWidth()*10);
     // intensity
     this->setColumnWidth(6, this->fontMetrics().averageCharWidth()*12);
     // weight

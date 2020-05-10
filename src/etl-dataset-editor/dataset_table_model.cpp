@@ -62,7 +62,12 @@ void DatasetTableModel::addRow(DatasetInstance* instance)
     QList<QStandardItem*> items;
     QStandardItem* item;
 
-    cout << "DatasetTable.model.add.year=" << instance->getYear() << endl;
+    cout
+    << "DatasetTable.model: adding year="
+    << instance->getYear() << "/"
+    << instance->getMonth() << "/"
+    << instance->getDay()
+    << endl;
 
     // year/month/day
     item = new QStandardItem(instance->getYearMonthDay());
