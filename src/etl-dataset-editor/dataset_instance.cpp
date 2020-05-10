@@ -79,6 +79,7 @@ unsigned DatasetInstance::strTimeToSeconds(QString time, const string& field)
                 unsigned hours = hourSplit[0].toUInt();
                 QStringList minSplit = hourSplit[1].split('m');
                 if(minSplit.length() == 2) {
+                    minSplit[1].chop(1);
                     unsigned mins = minSplit[0].toUInt();
                     unsigned seconds = minSplit[1].toUInt();
                     return hours*3600+mins*60+seconds;
@@ -113,8 +114,7 @@ float DatasetInstance::strKgToKg(QString strKg, const string& field)
     // 91.2kg
     if(strKg.length()>2
             && strKg.at(strKg.length()-2) == 'k'
-            && strKg.at(strKg.length()-1) == 'g'
-            && strKg.contains("."))
+            && strKg.at(strKg.length()-1) == 'g')
     {
         strKg.chop(2);
         return strKg.toFloat();

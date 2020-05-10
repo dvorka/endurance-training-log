@@ -383,7 +383,7 @@ DatasetInstance* DatasetInstanceDialog::toDatasetInstance()
         caloriesEdit->text().toUInt(),
         DatasetInstance::strTimeToSeconds(coolDownTimeEdit->text(), "Cool-down time"),
         DatasetInstance::strMetersToMeters(coolDownDistanceEdit->text(), "Cool-down distance"),
-        weightEdit->text().toFloat(),
+        DatasetInstance::strKgToKg(weightEdit->text(), "Weight"),
         CategoricalValue(weatherEdit->text()),
         weatherTemperatureEdit->text().toUInt(),
         whereEdit->text(),
