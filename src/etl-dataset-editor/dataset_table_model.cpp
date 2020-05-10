@@ -91,7 +91,7 @@ void DatasetTableModel::addRow(DatasetInstance* instance)
     items += item;
 
     // distance
-    item = new QStandardItem(instance->getDistanceStr());
+    item = new QStandardItem(instance->getDistanceMetersStr());
     item->setData(QVariant::fromValue((unsigned)(instance->getDistanceMeters())), Qt::UserRole);
     items += item;
 

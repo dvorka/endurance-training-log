@@ -60,11 +60,25 @@ private:
 /**
  * @brief Dataset instance.
  *
- * Tips and tricks:
+ * Guidelines, tips and tricks:
  *
  * - activity 'servis', gear 'kato', description 'chain', phase 0, ...
  *   - resets chain km on bike and enables tracking
+ * - activity 'sauna', repetitions 3
+ * - activity 'meditation'
+ * - activity 'row', intensity 'rank'
  *
+ * Adding new dataset column checklist:
+ *
+ * - DatasetInstance:
+ *   - field, constructor, getter/setter
+ *   - toString()
+ *   - toCsv()
+ * - Dataset
+ *   - CSV parser
+ * - Dialog:
+ *   - widgets,
+ *   - from/to
  */
 class DatasetInstance
 {
@@ -101,7 +115,15 @@ private:
     unsigned timeSeconds;
     unsigned distanceMeters;
     CategoricalValue intensity; // rank, easy, regen, LSD, fartlek, tempo, race, ...
+    unsigned squats; // drepy
+    unsigned pushUps; // kliky
+    unsigned crunches; // lehsedy
+    unsigned turtles; // zelvy
+    unsigned calfs; // vypony
     unsigned repetitions;
+    float avgSpeed;
+    float maxSpeed;
+    unsigned elevationGain; // elevation gain
     unsigned avgWatts;
     unsigned maxWatts;
     CategoricalValue gear;
@@ -119,8 +141,10 @@ private:
     QString where;
 
     // calculated
-    unsigned bmi;
+    float bmi;
     unsigned gramsOfFatBurnt;
+
+    CategoricalValue source; // strava, concept2, paper_2003, xls_training_log
 
     /*
      * dataset
@@ -174,7 +198,15 @@ public:
             unsigned timeSeconds,
             unsigned distanceMeters,
             CategoricalValue intensity,
+            unsigned squats,
+            unsigned pushUps,
+            unsigned crunches,
+            unsigned turtles,
+            unsigned calfs,
             unsigned repetitions,
+            float avgSpeed,
+            float maxSpeed,
+            unsigned elevationGain,
             unsigned avgWatts,
             unsigned maxWatts,
             CategoricalValue gear,
@@ -187,7 +219,9 @@ public:
             CategoricalValue weather,
             unsigned weatherTemperature,
             QString where,
-            unsigned gramsOfFatBurnt
+            float bmi,
+            unsigned gramsOfFatBurnt,
+            CategoricalValue source
     );
     DatasetInstance(const DatasetInstance&) = delete;
     DatasetInstance(const DatasetInstance&&) = delete;
@@ -220,19 +254,27 @@ public:
         return QDateTime::fromTime_t(totalTimeSeconds).toUTC().toString("hh:mm:ss");
     }
     unsigned getTotalDistanceMeters() const { return totalDistanceMeters; }
-    QString getTotalDistanceStr() const { return QString::number(totalDistanceMeters).append("m"); }
+    QString getTotalDistanceMetersStr() const { return QString::number(totalDistanceMeters).append("m"); }
     // warm-up
     unsigned getWarmUpSeconds() const { return warmUpTimeSeconds; }
-    QString getWarmUpSecondsStr() const;
+    QString getWarmUpTimeStr() const { return QDateTime::fromTime_t(warmUpTimeSeconds).toUTC().toString("hh:mm:ss"); }
     unsigned getWarmUpDistanceMeters() const { return warmUpDistanceMeters; }
-    QString getWarmUpDistanceStr() const;
+    QString getWarmUpDistanceMetersStr() const { return QString::number(warmUpDistanceMeters).append("m"); }
     // phase
-    unsigned getDurationSeconds() const { return timeSeconds; }
-    QString getDurationStr() const { return QString::number(timeSeconds).append("''"); }
+    unsigned getTimeSeconds() const { return timeSeconds; }
+    QString getTimeStr() const { return QDateTime::fromTime_t(timeSeconds).toUTC().toString("hh:mm:ss"); }
     unsigned getDistanceMeters() { return distanceMeters; }
-    QString getDistanceStr() const { return QString::number(distanceMeters).append("m"); }
+    QString getDistanceMetersStr() const { return QString::number(distanceMeters).append("m"); }
     CategoricalValue getIntensity() const { return intensity; }
+    unsigned getSquats() const { return squats; }
+    unsigned getPushUps() const { return pushUps; }
+    unsigned getCrunches() const { return crunches; }
+    unsigned getTurles() const { return turtles; }
+    unsigned getCalfs() const { return calfs; }
     unsigned getRepetitions() const { return repetitions; }
+    unsigned getAvgSpeed() const { return avgSpeed; }
+    unsigned getMaxSpeed() const { return maxSpeed; }
+    unsigned getElevationGain() const { return elevationGain; }
     unsigned getAvgWatts() const { return avgWatts; }
     unsigned getMaxWatts() const { return maxWatts; }
     CategoricalValue getGear() const { return gear; }
@@ -241,10 +283,10 @@ public:
     int getCalories() const { return calories; }
 
     // cool-down
-    unsigned getCoolDownSeconds() const { return coolDownTimeSeconds; }
-    QString getCoolDownStr() const;
+    unsigned getCoolDownTimeSeconds() const { return coolDownTimeSeconds; }
+    QString getCoolDownTimeStr() const { return QDateTime::fromTime_t(coolDownTimeSeconds).toUTC().toString("hh:mm:ss"); }
     unsigned getCoolDownDistanceMeters() const { return coolDownDistanceMeters; }
-    QString getCoolDownDistanceStr() const;
+    QString getCoolDownDistanceStr() const { return QString::number(coolDownDistanceMeters).append("m"); }
 
     float getWeight() const { return weight; }
     QString getWeightStr() const { return QString::number(weight).append("kg"); }
@@ -253,8 +295,11 @@ public:
     QString getWhere() const { return where; }
 
     // calculated
+    float getBmi() const { return bmi; }
     unsigned getGramsOfFatBurnt() const { return gramsOfFatBurnt; }
     QString getGramsOfFatBurntStr() const { return QString::number(gramsOfFatBurnt).append("g"); }
+
+    CategoricalValue getSource() const { return source; }
 };
 
 } // namespace etl76

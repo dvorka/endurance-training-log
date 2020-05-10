@@ -71,8 +71,27 @@ public:
 
     QLabel* intensityLabel;
     QLineEdit* intensityEdit;
+
+    QLabel* squatsLabel;
+    QLineEdit* squatsEdit;
+    QLabel* pushUpsLabel;
+    QLineEdit* pushUpsEdit;
+    QLabel* crunchesLabel;
+    QLineEdit* crunchesEdit;
+    QLabel* turtlesLabel;
+    QLineEdit* turtlesEdit;
+    QLabel* calfsLabel;
+    QLineEdit* calfsEdit;
     QLabel* repetitionsLabel;
     QLineEdit* repetitionsEdit;
+
+    QLabel* avgSpeedLabel;
+    QLineEdit* avgSpeedEdit;
+    QLabel* maxSpeedLabel;
+    QLineEdit* maxSpeedEdit;
+    QLabel* elevationGainLabel;
+    QLineEdit* elevationGainEdit;
+
     QLabel* avgWattsLabel;
     QLineEdit* avgWattsEdit;
     QLabel* maxWattsLabel;
@@ -104,8 +123,12 @@ public:
     QLabel* whereLabel;
     QLineEdit* whereEdit;
 
+    QLabel* bmiLabel;
+    QLineEdit* bmiEdit;
     QLabel* gramsOfFatBurntLabel;
     QLineEdit* gramsOfFatBurntEdit;
+    QLabel* sourceLabel;
+    QLineEdit* sourceEdit;
 
     QDialogButtonBox* buttonBox;
 

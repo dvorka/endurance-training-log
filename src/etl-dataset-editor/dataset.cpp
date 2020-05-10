@@ -86,8 +86,7 @@ void Dataset::from_csv(const string& file_path)
 {
     clear();
 
-    //io::CSVReader<28, io::trim_chars<>, io::double_quote_escape<',','\"'>> in(file_path);
-    io::CSVReader<28, io::trim_chars<' '>, io::double_quote_escape<',','\"'>> in(file_path);
+    io::CSVReader<38, io::trim_chars<' '>, io::double_quote_escape<',','\"'>> in(file_path);
     in.read_header(
         io::ignore_extra_column,
         "year",
@@ -104,7 +103,15 @@ void Dataset::from_csv(const string& file_path)
         "time_seconds",
         "distance_meters",
         "intensity",
+        "squats",
+        "push_ups",
+        "crunches",
+        "turtles",
+        "calfs",
         "repetitions",
+        "avg_speed",
+        "max_speed",
+        "elevation_gain",
         "avg_watts",
         "max_watts",
         "gear",
@@ -117,8 +124,9 @@ void Dataset::from_csv(const string& file_path)
         "weather",
         "weather_temperature",
         "where",
-        "grams_of_fat_burnt"
-        // TODO BMI
+        "bmi",
+        "grams_of_fat_burnt",
+        "source"
     );
 
     unsigned year;
@@ -135,7 +143,15 @@ void Dataset::from_csv(const string& file_path)
     unsigned timeSeconds;
     unsigned distanceMeters;
     string intensity;
+    unsigned squats;
+    unsigned pushUps;
+    unsigned crunches;
+    unsigned turtles;
+    unsigned calfs;
     unsigned repetitions;
+    float avgSpeed;
+    float maxSpeed;
+    unsigned elevationGain;
     unsigned avgWatts;
     unsigned maxWatts;
     string gear;
@@ -148,7 +164,9 @@ void Dataset::from_csv(const string& file_path)
     string weather;
     unsigned weatherTemperature;
     string where;
+    float bmi;
     unsigned gramsOfFatBurnt;
+    string source;
 
     DatasetInstance* instance;
 
@@ -167,7 +185,15 @@ void Dataset::from_csv(const string& file_path)
       timeSeconds,
       distanceMeters,
       intensity,
+      squats,
+      pushUps,
+      crunches,
+      turtles,
+      calfs,
       repetitions,
+      avgSpeed,
+      maxSpeed,
+      elevationGain,
       avgWatts,
       maxWatts,
       gear,
@@ -180,7 +206,9 @@ void Dataset::from_csv(const string& file_path)
       weather,
       weatherTemperature,
       where,
-      gramsOfFatBurnt)
+      bmi,
+      gramsOfFatBurnt,
+      source)
     ) {
         instance = new DatasetInstance{
             year,
@@ -197,7 +225,15 @@ void Dataset::from_csv(const string& file_path)
             timeSeconds,
             distanceMeters,
             CategoricalValue{intensity},
+            squats,
+            pushUps,
+            crunches,
+            turtles,
+            calfs,
             repetitions,
+            avgSpeed,
+            maxSpeed,
+            elevationGain,
             avgWatts,
             maxWatts,
             CategoricalValue{gear},
@@ -210,7 +246,9 @@ void Dataset::from_csv(const string& file_path)
             CategoricalValue{weather},
             weatherTemperature,
             QString::fromStdString(where),
-            gramsOfFatBurnt
+            bmi,
+            gramsOfFatBurnt,
+            CategoricalValue{source}
          };
         addInstance(instance);
     }
@@ -253,7 +291,15 @@ void Dataset::to_csv(const std::string& file_path) const
        "time_seconds, "
        "distance_meters, "
        "intensity, "
+       "squats, "
+       "push_ups, "
+       "crunches, "
+       "turtles, "
+       "calfs, "
        "repetitions, "
+       "avg_speed, "
+       "max_speed, "
+       "elevation_gain, "
        "avg_watts, "
        "max_watts, "
        "gear, "
@@ -266,7 +312,10 @@ void Dataset::to_csv(const std::string& file_path) const
        "weather, "
        "weather_temperature, "
        "where, "
-       "grams_of_fat_burnt" << endl;
+       "bmi, "
+       "grams_of_fat_burnt, "
+       "source"
+       << endl;
 
     for(DatasetInstance* instance:dataset) {
         csvFile << instance->toCsv();

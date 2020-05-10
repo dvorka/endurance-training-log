@@ -67,9 +67,30 @@ DatasetInstanceDialog::DatasetInstanceDialog(QWidget *parent) :
 
     intensityLabel = new QLabel{"Intensity:", this};
     intensityEdit = new QLineEdit{this};
+
+    squatsLabel = new QLabel{"Squats:", this};
+    squatsEdit = new QLineEdit{this};
+    pushUpsLabel = new QLabel{"Push ups:", this};
+    pushUpsEdit = new QLineEdit{this};
+    crunchesLabel = new QLabel{"Cruches:", this};
+    crunchesEdit = new QLineEdit{this};
+    turtlesLabel = new QLabel{"Turtles:", this};
+    turtlesEdit = new QLineEdit{this};
+    calfsLabel = new QLabel{"Calfs:", this};
+    calfsEdit = new QLineEdit{this};
     repetitionsLabel = new QLabel{"Repetitions:", this};
     // spinner w/ present
     repetitionsEdit = new QLineEdit{this};
+
+    avgSpeedLabel = new QLabel{"Avg speed (km/h):", this};
+    // spinner w/ present
+    avgSpeedEdit = new QLineEdit{this};
+    maxSpeedLabel = new QLabel{"Max speed (km/h):", this};
+    // spinner w/ present
+    maxSpeedEdit = new QLineEdit{this};
+    elevationGainLabel = new QLabel{"Elevation gain:", this};
+    elevationGainEdit = new QLineEdit{this};
+
     avgWattsLabel = new QLabel{"Avg watts:", this};
     // spinner w/ present
     avgWattsEdit = new QLineEdit{this};
@@ -111,10 +132,20 @@ DatasetInstanceDialog::DatasetInstanceDialog(QWidget *parent) :
     // dropdown
     whereEdit = new QLineEdit{this};
 
+    bmiLabel = new QLabel{"BMI:", this};
+    bmiEdit = new QLineEdit{this};
+    bmiEdit->setDisabled(true);
+
     gramsOfFatBurntLabel = new QLabel{"Burnt fat:", this};
     // spinner w/ present
     gramsOfFatBurntEdit = new QLineEdit{this};
     gramsOfFatBurntEdit->setDisabled(true);
+
+    sourceLabel = new QLabel{"Source:", this};
+    // dropdown
+    sourceEdit = new QLineEdit{this};
+
+
 
     QHBoxLayout* columnsLayout = new QHBoxLayout{this};
     QVBoxLayout* leftLayout = new QVBoxLayout{this};
@@ -156,8 +187,27 @@ DatasetInstanceDialog::DatasetInstanceDialog(QWidget *parent) :
 
     middleLayout->addWidget(intensityLabel);
     middleLayout->addWidget(intensityEdit);
+
+    middleLayout->addWidget(squatsLabel);
+    middleLayout->addWidget(squatsEdit);
+    middleLayout->addWidget(pushUpsLabel);
+    middleLayout->addWidget(pushUpsEdit);
+    middleLayout->addWidget(crunchesLabel);
+    middleLayout->addWidget(crunchesEdit);
+    middleLayout->addWidget(turtlesLabel);
+    middleLayout->addWidget(turtlesEdit);
+    middleLayout->addWidget(calfsLabel);
+    middleLayout->addWidget(calfsEdit);
     middleLayout->addWidget(repetitionsLabel);
     middleLayout->addWidget(repetitionsEdit);
+
+    middleLayout->addWidget(avgSpeedLabel);
+    middleLayout->addWidget(avgSpeedEdit);
+    middleLayout->addWidget(maxSpeedLabel);
+    middleLayout->addWidget(maxSpeedEdit);
+    middleLayout->addWidget(elevationGainLabel);
+    middleLayout->addWidget(elevationGainEdit);
+
     middleLayout->addWidget(avgWattsLabel);
     middleLayout->addWidget(avgWattsEdit);
     middleLayout->addWidget(maxWattsLabel);
@@ -189,8 +239,14 @@ DatasetInstanceDialog::DatasetInstanceDialog(QWidget *parent) :
     rightLayout->addWidget(whereLabel);
     rightLayout->addWidget(whereEdit);
 
+    rightLayout->addWidget(bmiLabel);
+    rightLayout->addWidget(bmiEdit);
+
     rightLayout->addWidget(gramsOfFatBurntLabel);
     rightLayout->addWidget(gramsOfFatBurntEdit);
+
+    rightLayout->addWidget(sourceLabel);
+    rightLayout->addWidget(sourceEdit);
 
     buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
     rightLayout->addWidget(buttonBox);
@@ -219,7 +275,15 @@ void DatasetInstanceDialog::clearAllItems()
     timeEdit->setText(DatasetInstance::DEFAULT_STR_TIME);
     distanceEdit->setText(DatasetInstance::DEFAULT_STR_METERS);
     intensityEdit->setText("easy");
+    squatsEdit->setText("0");
+    pushUpsEdit->setText("0");
+    crunchesEdit->setText("0");
+    turtlesEdit->setText("0");
+    calfsEdit->setText("0");
     repetitionsEdit->setText("0");
+    avgSpeedEdit->setText("0");
+    maxSpeedEdit->setText("0");
+    elevationGainEdit->setText(DatasetInstance::DEFAULT_STR_METERS);
     avgWattsEdit->setText("0");
     maxWattsEdit->setText("0");
     gearEdit->clear();
@@ -232,7 +296,9 @@ void DatasetInstanceDialog::clearAllItems()
     weatherEdit->setText("sunny");
     weatherTemperatureEdit->setText("0");
     whereEdit->setText("TV");
+    bmiEdit->setText("0");
     gramsOfFatBurntEdit->setText(DatasetInstance::DEFAULT_STR_GRAMS);
+    sourceEdit->setText("manual");
 }
 
 void DatasetInstanceDialog::fromInstance(DatasetInstance* instance)
@@ -241,28 +307,38 @@ void DatasetInstanceDialog::fromInstance(DatasetInstance* instance)
     phaseEdit->setText(QString::number(instance->getPhase()));
     activityEdit->setText(instance->getActivityType().toString());
     descriptionEdit->setText(instance->getDescription());
-    commuteCheck->setChecked(false);
-    totalTimeEdit->setText(DatasetInstance::DEFAULT_STR_TIME);
-    totalDistanceEdit->setText(DatasetInstance::DEFAULT_STR_METERS);
-    warmUpTimeEdit->setText(DatasetInstance::DEFAULT_STR_TIME);
-    warmUpDistanceEdit->setText(DatasetInstance::DEFAULT_STR_METERS);
-    timeEdit->setText(DatasetInstance::DEFAULT_STR_TIME);
-    distanceEdit->setText(DatasetInstance::DEFAULT_STR_METERS);
-    intensityEdit->setText("easy");
-    repetitionsEdit->setText("0");
+    commuteCheck->setChecked(instance->getCommute());
+    totalTimeEdit->setText(instance->getTotalTimeStr());
+    totalDistanceEdit->setText(instance->getTotalDistanceMetersStr());
+    warmUpTimeEdit->setText(instance->getWarmUpTimeStr());
+    warmUpDistanceEdit->setText(instance->getWarmUpDistanceMetersStr());
+    timeEdit->setText(instance->getTotalTimeStr());
+    distanceEdit->setText(instance->getDistanceMetersStr());
+    intensityEdit->setText(instance->getIntensity().toString());
+    squatsEdit->setText(QString::number(instance->getSquats()));
+    pushUpsEdit->setText(QString::number(instance->getPushUps()));
+    crunchesEdit->setText(QString::number(instance->getCrunches()));
+    turtlesEdit->setText(QString::number(instance->getTurles()));
+    calfsEdit->setText(QString::number(instance->getCalfs()));
+    repetitionsEdit->setText(QString::number(instance->getRepetitions()));
+    avgSpeedEdit->setText(QString::number(instance->getAvgSpeed()));
+    maxSpeedEdit->setText(QString::number(instance->getMaxSpeed()));
+    elevationGainEdit->setText(QString::number(instance->getElevationGain()));
     avgWattsEdit->setText(QString::number(instance->getAvgWatts()));
     maxWattsEdit->setText(QString::number(instance->getMaxWatts()));
     gearEdit->setText(instance->getGear().toString());
     routeEdit->setText(instance->getRoute().toString());
     gpxUrlEdit->setText(instance->getGpxUrl());
     caloriesEdit->setText(QString::number(instance->getCalories()));
-    coolDownTimeEdit->setText(DatasetInstance::DEFAULT_STR_TIME);
-    coolDownDistanceEdit->setText(QString::number(instance->getCoolDownDistanceMeters()).append("m"));
-    weightEdit->setText(DatasetInstance::DEFAULT_STR_WEIGHT);
-    weatherEdit->clear();
+    coolDownTimeEdit->setText(instance->getCoolDownTimeStr());
+    coolDownDistanceEdit->setText(instance->getCoolDownDistanceStr());
+    weightEdit->setText(instance->getWeightStr());
+    weatherEdit->setText(instance->getWeather().toString());
     weatherTemperatureEdit->setText(QString::number(instance->getWeatherTemperature()));
     whereEdit->setText(instance->getWhere());
-    gramsOfFatBurntEdit->setText(QString::number(instance->getGramsOfFatBurnt()).append("g"));
+    bmiEdit->setText(QString::number(instance->getBmi()));
+    gramsOfFatBurntEdit->setText(instance->getGramsOfFatBurntStr());
+    sourceEdit->setText(instance->getSource().toString());
 }
 
 DatasetInstance* DatasetInstanceDialog::toDatasetInstance()
@@ -282,7 +358,15 @@ DatasetInstance* DatasetInstanceDialog::toDatasetInstance()
         DatasetInstance::strTimeToSeconds(timeEdit->text(), "Time"),
         DatasetInstance::strMetersToMeters(distanceEdit->text(), "Distance"),
         CategoricalValue(intensityEdit->text()),
+        squatsEdit->text().toUInt(),
+        pushUpsEdit->text().toUInt(),
+        crunchesEdit->text().toUInt(),
+        turtlesEdit->text().toUInt(),
+        calfsEdit->text().toUInt(),
         repetitionsEdit->text().toUInt(),
+        avgSpeedEdit->text().toFloat(),
+        maxSpeedEdit->text().toFloat(),
+        elevationGainEdit->text().toUInt(),
         avgWattsEdit->text().toUInt(),
         maxWattsEdit->text().toUInt(),
         CategoricalValue(gearEdit->text()),
@@ -295,19 +379,18 @@ DatasetInstance* DatasetInstanceDialog::toDatasetInstance()
         CategoricalValue(weatherEdit->text()),
         weatherTemperatureEdit->text().toUInt(),
         whereEdit->text(),
-        gramsOfFatBurntEdit->text().toUInt()
+        bmiEdit->text().toFloat(),
+        DatasetInstance::strGToG(gramsOfFatBurntEdit->text(), "Grams of fat burnt"),
+        CategoricalValue(sourceEdit->text())
     };
 
-    // TODO show.toString() and let user confirm that it's OK (just text area)
-
-    // TODO
-    // instance->validate();
-    // instance->calculate(); // calories, grams of fat, BMI, total time, either time/distance/both, ...
+    // TODO instance->validate();
+    // TODO instance->eval(); // calories, grams of fat, BMI, total time, either time/distance/both, ...
 
     return instance;
 }
 
 // TODO validate
-// TODO recalculation rules on particular fields editation
+// TODO eval rules on particular fields editation
 
 } // etl76 namespace

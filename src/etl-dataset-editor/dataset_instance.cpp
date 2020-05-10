@@ -153,7 +153,15 @@ DatasetInstance::DatasetInstance(
         unsigned timeSeconds,
         unsigned distanceMeters,
         CategoricalValue intensity,
+        unsigned squats,
+        unsigned pushUps,
+        unsigned crunches,
+        unsigned turtles,
+        unsigned calfs,
         unsigned repetitions,
+        float avgSpeed,
+        float maxSpeed,
+        unsigned elevationGain,
         unsigned avgWatts,
         unsigned maxWatts,
         CategoricalValue gear,
@@ -166,7 +174,9 @@ DatasetInstance::DatasetInstance(
         CategoricalValue weather,
         unsigned weatherTemperature,
         QString where,
-        unsigned gramsOfFatBurn
+        float bmi,
+        unsigned gramsOfFatBurn,
+        CategoricalValue source
 ):
     year(year),
     month(month),
@@ -182,7 +192,15 @@ DatasetInstance::DatasetInstance(
     timeSeconds(timeSeconds),
     distanceMeters(distanceMeters),
     intensity(intensity),
+    squats(squats),
+    pushUps(pushUps),
+    crunches(crunches),
+    turtles(turtles),
+    calfs(calfs),
     repetitions(repetitions),
+    avgSpeed(avgSpeed),
+    maxSpeed(maxSpeed),
+    elevationGain(elevationGain),
     avgWatts(avgWatts),
     maxWatts(maxWatts),
     gear(gear),
@@ -195,7 +213,9 @@ DatasetInstance::DatasetInstance(
     weather(weather),
     weatherTemperature(weatherTemperature),
     where(where),
-    gramsOfFatBurnt(gramsOfFatBurn)
+    bmi(bmi),
+    gramsOfFatBurnt(gramsOfFatBurn),
+    source(source)
 {
     cout << toString();
 }
@@ -218,7 +238,15 @@ string DatasetInstance::toString()
     << "  Time: " << timeSeconds << endl
     << "  Meters: " << distanceMeters << endl
     << "  Intensity: " << intensity.toString().toStdString() << endl
+    << "  Squats: " << squats << endl
+    << "  Push ups: " << pushUps << endl
+    << "  Crunches: " << crunches << endl
+    << "  Turtles: " << turtles << endl
+    << "  Calfs: " << calfs << endl
     << "  Repetitions: " << repetitions << endl
+    << "  Avg speed: " << avgSpeed << endl
+    << "  Max speed: " << maxSpeed << endl
+    << "  Elevation gain: " << elevationGain << endl
     << "  Avg watts: " << avgWatts << endl
     << "  Max watts: " << maxWatts << endl
     << "  Gear: " << gear.toString().toStdString() << endl
@@ -231,7 +259,10 @@ string DatasetInstance::toString()
     << "  Weather: " << weather.toString().toStdString() << endl
     << "  Temperature: " << weatherTemperature << endl
     << "  Where: " << where.toStdString() << endl
-    << "  Fat: " << gramsOfFatBurnt << endl;
+    << "  BMI: " << bmi << endl
+    << "  Fat: " << gramsOfFatBurnt << endl
+    << "  Source: " << source.toString().toStdString() << endl;
+
 
     return os.str();
 }
@@ -269,7 +300,15 @@ string DatasetInstance::toCsv()
     << timeSeconds << ", "
     << distanceMeters << ", "
     << quoteCsvString(intensity.toString().toStdString()) << ", "
+    << squats << ", "
+    << pushUps << ", "
+    << crunches << ", "
+    << turtles << ", "
+    << calfs << ", "
     << repetitions << ", "
+    << avgSpeed << ", "
+    << maxSpeed << ", "
+    << elevationGain << ", "
     << avgWatts << ", "
     << maxWatts << ", "
     << quoteCsvString(gear.toString().toStdString()) << ", "
@@ -282,7 +321,9 @@ string DatasetInstance::toCsv()
     << quoteCsvString(weather.toString().toStdString()) << ", "
     << weatherTemperature << ", "
     << quoteCsvString(where.toStdString()) << ", "
-    << gramsOfFatBurnt << endl;
+    << bmi << ", "
+    << gramsOfFatBurnt << endl
+    << quoteCsvString(source.toString().toStdString()) << ", ";
 
     return os.str();
 }
