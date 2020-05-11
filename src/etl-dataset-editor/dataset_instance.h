@@ -92,13 +92,16 @@ public:
     static const char* FORMAT_STR_TIME;
 
 private:
-    // TODO source (strava, paper, gdocs), max speed, avg speed, elevation (gain)
-    // TODO lehsedy, zelvy, drepy, vypony, kliky ~ section in description which can be parsed
-    // TODO BMI
+    // TODO add: when
+    // TODO rename: calories > kcal
+    // TODO rename: gpx_url > url
+    // TODO rename: activity_type > activity
 
     unsigned year;
     unsigned month;
     unsigned day;
+
+    unsigned when; // when time 00h00m00s
 
     unsigned phase;
 
@@ -131,7 +134,7 @@ private:
     unsigned maxWatts;
     CategoricalValue gear;
     CategoricalValue route;
-    QString gpxUrl;
+    QString gpxUrl; // strava.com, mapy.cz GPX, ... URL
     unsigned calories;
 
     // cool-down
@@ -147,7 +150,7 @@ private:
     float bmi;
     unsigned gramsOfFatBurnt;
 
-    CategoricalValue source; // strava, concept2, paper_2003, xls_training_log
+    CategoricalValue source; // strava:<id>, concept2, paper:2003, xls_training_log:1996
 
     /*
      * dataset
