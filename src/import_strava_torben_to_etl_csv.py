@@ -27,7 +27,7 @@ SRC_CSV_FILE = (
 )
 DST_CSV_FILE = (
     "/home/dvorka/p/endurance-training-log/github/endurance-training-log/test/datasets/"
-    "training-log-import.csv"
+    "training-log-strava-import.csv"
 )
 
 
@@ -77,7 +77,7 @@ class EtlDataset:
     ]
 
     @staticmethod
-    def get_empty_frame_dict() -> dt.Frame:
+    def get_empty_frame_dict() -> dict:
         new_row: dict = EtlDataset.get_empty_row()
         for key in new_row:
             new_row[key] = [new_row[key]]
@@ -263,43 +263,51 @@ class StravaDataset:
 
             # "09.05.2020 12:20:00"
             date_time_obj = datetime.datetime.strptime(
-                self.frame[row, 'start_date_local'],
-                '%d.%m.%Y %H:%M:%S'
+                self.frame[row, "start_date_local"], "%d.%m.%Y %H:%M:%S"
             )
             new_row["year"] = [date_time_obj.year]
             new_row["month"] = [date_time_obj.month]
             new_row["day"] = [date_time_obj.day]
             new_row["when"] = [
-                f"{date_time_obj.hour:02}h{date_time_obj.minute:02}"
-                f"m{date_time_obj.second:02}s"
+                f"{date_time_obj.hour:02}:{date_time_obj.minute:02}"
+                f":{date_time_obj.second:02}"
             ]
 
-            new_row["activity"] = [
-                f"{self.frame[row, 'type']}".lower()
-            ]
+            new_row["activity"] = [f"{self.frame[row, 'type']}".lower()]
 
-            new_row["description"] = [
-                f"{self.frame[row, 'name']}".replace(";", ":")
-            ]
+            new_row["description"] = [f"{self.frame[row, 'name']}".replace(";", ":")]
 
-            new_row["avg_speed"] = [self.frame[row, 'km/h']]
-            new_row["max_speed"] = [self.frame[row, 'x_max_km/h']]
-            new_row["elevation_gain"] = [int(self.frame[row, 'total_elevation_gain'])]
+            new_row["distance_meters"] = [int(self.frame[row, "distance"])]
+            new_row["time_seconds"] = [int(self.frame[row, "elapsed_time"])]
+            new_row["total_distance_meters"] = new_row["distance_meters"]
+            new_row["total_time_seconds"] = new_row["time_seconds"]
 
-            avg_watts = self.frame[row, 'average_watts']
+            new_row["avg_speed"] = [self.frame[row, "km/h"]]
+            new_row["max_speed"] = [self.frame[row, "x_max_km/h"]]
+            new_row["elevation_gain"] = [int(self.frame[row, "total_elevation_gain"])]
+
+            avg_watts = self.frame[row, "average_watts"]
             new_row["avg_watts"] = [int(avg_watts) if avg_watts else 0]
 
+            kcal = (
+                int(self.frame[row, "kilojoules"] / 4.184)
+                if self.frame[row, "kilojoules"]
+                else 0
+            )
+            new_row["kcal"] = [kcal]
+            new_row["commute"] = [bool(self.frame[row, "commute"])]
+
+            # TODO new_row["intensity"] = [bool(self.frame[row, 'workout_type'])]
+
             new_row["gear"] = [
-                f"{self.frame[row, 'x_gear_name']}".lower().replace(' ', '_')
+                f"{self.frame[row, 'x_gear_name']}".lower().replace(" ", "_")
             ]
 
             new_row["url"] = [
                 f"{StravaDataset.URL_STRAVA_ACTIVITY}{self.frame[row, 'id']}"
             ]
 
-            new_row["source"] = [
-                f"strava:{self.frame[row, 'id']}"
-            ]
+            new_row["source"] = [f"strava:{self.frame[row, 'id']}"]
 
             etl_frame.rbind(dt.Frame(new_row))
 
