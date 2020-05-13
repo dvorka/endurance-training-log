@@ -40,6 +40,9 @@ public:
     QLabel* yearMonthDayLabel;
     QLineEdit* yearMonthDayEdit;
 
+    QLabel* whenLabel;
+    QLineEdit* whenEdit;
+
     QLabel* activityLabel;
     // drop-down w/ completion
     QLineEdit* activityEdit;
@@ -101,11 +104,11 @@ public:
     QLineEdit* gearEdit;
     QLabel* routeLabel;
     QLineEdit* routeEdit;
-    QLabel* gpxUrlLabel;
-    QLineEdit* gpxUrlEdit;
+    QLabel* urlLabel;
+    QLineEdit* urlEdit;
 
-    QLabel* caloriesLabel;
-    QLineEdit* caloriesEdit;
+    QLabel* kcalLabel;
+    QLineEdit* kcalEdit;
 
     QLabel* coolDownTimeLabel;
     QLineEdit* coolDownTimeEdit;

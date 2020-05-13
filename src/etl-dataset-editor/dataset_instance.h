@@ -92,20 +92,15 @@ public:
     static const char* FORMAT_STR_TIME;
 
 private:
-    // TODO add: when
-    // TODO rename: calories > kcal
-    // TODO rename: gpx_url > url
-    // TODO rename: activity_type > activity
-
     unsigned year;
     unsigned month;
     unsigned day;
 
-    unsigned when; // when time 00h00m00s
+    QString when;
 
     unsigned phase;
 
-    CategoricalValue activityType; // Strava compliant activity identifiers: ride, run, ...
+    CategoricalValue activity; // Strava compliant activity identifiers: ride, run, ...
     QString description;
     bool commute;
 
@@ -134,8 +129,8 @@ private:
     unsigned maxWatts;
     CategoricalValue gear;
     CategoricalValue route;
-    QString gpxUrl; // strava.com, mapy.cz GPX, ... URL
-    unsigned calories;
+    QString url; // strava.com, mapy.cz GPX, ... URL
+    unsigned kcal;
 
     // cool-down
     unsigned coolDownTimeSeconds;
@@ -172,6 +167,8 @@ public:
     static unsigned ymdToMonth(QString yearMonthDay, const std::string& field);
     static unsigned ymdToDay(QString yearMonthDay, const std::string& field);
 
+    static unsigned whenToSeconds(QString when, const std::string = "when");
+
     static unsigned strTimeToSeconds(QString time, const std::string& field);
     static unsigned strMetersToMeters(QString strMeters, const std::string& field);
     static float strKgToKg(QString strKg, const std::string& field);
@@ -193,8 +190,9 @@ public:
             unsigned year,
             unsigned month,
             unsigned day,
+            QString when,
             unsigned phase,
-            CategoricalValue activityType,
+            CategoricalValue activity,
             QString description,
             bool commute,
             unsigned totalTimeSeconds,
@@ -217,8 +215,8 @@ public:
             unsigned maxWatts,
             CategoricalValue gear,
             CategoricalValue route,
-            QString gpxUrl,
-            unsigned calories,
+            QString url,
+            unsigned kcal,
             unsigned coolDownTimeSeconds,
             unsigned coolDownDistanceMeters,
             float weight,
@@ -251,8 +249,9 @@ public:
                 .append("/")
                 .append(QString("%1").arg(day, 2, 10, QChar('0')));
     }
+    QString getWhen() const { return when; }
     unsigned getPhase() const { return phase; }
-    CategoricalValue getActivityType() const { return activityType; }
+    CategoricalValue getActivity() const { return activity; }
     QString getDescription() const { return description; }
     bool getCommute() const { return commute; }
     unsigned getTotalTimeSeconds() const { return totalTimeSeconds; }
@@ -285,8 +284,8 @@ public:
     unsigned getMaxWatts() const { return maxWatts; }
     CategoricalValue getGear() const { return gear; }
     CategoricalValue getRoute() const { return route; }
-    QString getGpxUrl() const { return gpxUrl; }
-    int getCalories() const { return calories; }
+    QString getUrl() const { return url; }
+    int getKcal() const { return kcal; }
 
     // cool-down
     unsigned getCoolDownTimeSeconds() const { return coolDownTimeSeconds; }

@@ -88,7 +88,7 @@ void DatasetTableModel::addRow(DatasetInstance* instance)
     items += item;
 
     // activity
-    item = new QStandardItem(instance->getActivityType().toString());
+    item = new QStandardItem(instance->getActivity().toString());
     items += item;
 
     // description

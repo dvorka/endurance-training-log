@@ -86,14 +86,15 @@ void Dataset::from_csv(const string& file_path)
 {
     clear();
 
-    io::CSVReader<38, io::trim_chars<' '>, io::double_quote_escape<',','\"'>> in(file_path);
+    io::CSVReader<39, io::trim_chars<' '>, io::double_quote_escape<',','\"'>> in(file_path);
     in.read_header(
         io::ignore_extra_column,
         "year",
         "month",
         "day",
+        "when",
         "phase",
-        "activity_type",
+        "activity",
         "description",
         "commute",
         "total_time_seconds",
@@ -116,8 +117,8 @@ void Dataset::from_csv(const string& file_path)
         "max_watts",
         "gear",
         "route",
-        "gpx_url",
-        "calories",
+        "url",
+        "kcal",
         "cool_down_time_seconds",
         "cool_down_distance_meters",
         "weight",
@@ -132,8 +133,9 @@ void Dataset::from_csv(const string& file_path)
     unsigned year;
     unsigned month;
     unsigned day;
+    string when;
     unsigned phase;
-    string activityType;
+    string activity;
     string description;
     unsigned commute;
     unsigned totalTimeSeconds;
@@ -156,8 +158,8 @@ void Dataset::from_csv(const string& file_path)
     unsigned maxWatts;
     string gear;
     string route;
-    string gpxUrl;
-    unsigned calories;
+    string url;
+    unsigned kcal;
     unsigned coolDownTimeSeconds;
     unsigned coolDownDistanceMeters;
     float weight;
@@ -174,8 +176,9 @@ void Dataset::from_csv(const string& file_path)
       year,
       month,
       day,
+      when,
       phase,
-      activityType,
+      activity,
       description,
       commute,
       totalTimeSeconds,
@@ -198,8 +201,8 @@ void Dataset::from_csv(const string& file_path)
       maxWatts,
       gear,
       route,
-      gpxUrl,
-      calories,
+      url,
+      kcal,
       coolDownTimeSeconds,
       coolDownDistanceMeters,
       weight,
@@ -214,8 +217,9 @@ void Dataset::from_csv(const string& file_path)
             year,
             month,
             day,
+            QString::fromStdString(when),
             phase,
-            CategoricalValue{activityType},
+            CategoricalValue{activity},
             QString::fromStdString(description),
             commute!=0,
             totalTimeSeconds,
@@ -238,8 +242,8 @@ void Dataset::from_csv(const string& file_path)
             maxWatts,
             CategoricalValue{gear},
             CategoricalValue{route},
-            QString::fromStdString(gpxUrl),
-            calories,
+            QString::fromStdString(url),
+            kcal,
             coolDownTimeSeconds,
             coolDownDistanceMeters,
             weight,
@@ -280,8 +284,9 @@ void Dataset::to_csv(const std::string& file_path) const
        "year, "
        "month, "
        "day, "
+       "when, "
        "phase, "
-       "activity_type, "
+       "activity, "
        "description, "
        "commute, "
        "total_time_seconds, "
@@ -304,8 +309,8 @@ void Dataset::to_csv(const std::string& file_path) const
        "max_watts, "
        "gear, "
        "route, "
-       "gpx_url, "
-       "calories, "
+       "url, "
+       "kcal, "
        "cool_down_time_seconds, "
        "cool_down_distance_meters, "
        "weight, "

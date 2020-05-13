@@ -73,7 +73,7 @@ unsigned DatasetInstance::strTimeToSeconds(QString time, const string& field)
 {
     // 00h00m00s
     if(time.length()==9) {
-        if(time.at(2) == 'h' && time.at(5) == 'm' &&time.at(8) == 's') {
+        if(time.at(2) == 'h' && time.at(5) == 'm' && time.at(8) == 's') {
             QStringList hourSplit = time.split('h');
             if(hourSplit.length() == 2) {
                 unsigned hours = hourSplit[0].toUInt();
@@ -94,6 +94,28 @@ unsigned DatasetInstance::strTimeToSeconds(QString time, const string& field)
         }
     } else {
         throw EtlUserException{""+field+" ("+time.toStdString()+"): Invalid time length - it must be: "+FORMAT_STR_TIME};
+    }
+}
+
+unsigned DatasetInstance::whenToSeconds(QString when, string field)
+{
+    // 00:00:00
+    if(when.length()==8) {
+        if(when.at(2) == ':' && when.at(5) == ':') {
+            QStringList hourSplit = when.split(':');
+            if(hourSplit.length() == 3) {
+                unsigned hours = hourSplit[0].toUInt();
+                unsigned mins = hourSplit[1].toUInt();
+                unsigned seconds = hourSplit[2].toUInt();
+                return hours*3600+mins*60+seconds;
+            } else {
+                throw EtlUserException{""+field+" ("+when.toStdString()+"): Invalid hour format - it must be: "+FORMAT_STR_TIME};
+            }
+        } else {
+            throw EtlUserException{""+field+" ("+when.toStdString()+"): Invalid time format - it must be: "+FORMAT_STR_TIME};
+        }
+    } else {
+        throw EtlUserException{""+field+" ("+when.toStdString()+"): Invalid time length - it must be: "+FORMAT_STR_TIME};
     }
 }
 
@@ -142,8 +164,9 @@ DatasetInstance::DatasetInstance(
         unsigned year,
         unsigned month,
         unsigned day,
+        QString when,
         unsigned phase,
-        CategoricalValue activityType,
+        CategoricalValue activity,
         QString description,
         bool commute,
         unsigned totalTimeSeconds,
@@ -166,8 +189,8 @@ DatasetInstance::DatasetInstance(
         unsigned maxWatts,
         CategoricalValue gear,
         CategoricalValue route,
-        QString gpxUrl,
-        unsigned calories,
+        QString url,
+        unsigned kcal,
         unsigned coolDownTimeSeconds,
         unsigned coolDownDistanceMeters,
         float weight,
@@ -181,8 +204,9 @@ DatasetInstance::DatasetInstance(
     year(year),
     month(month),
     day(day),
+    when(when),
     phase(phase),
-    activityType(activityType),
+    activity(activity),
     description(description),
     commute(commute),
     totalTimeSeconds(totalTimeSeconds),
@@ -205,8 +229,8 @@ DatasetInstance::DatasetInstance(
     maxWatts(maxWatts),
     gear(gear),
     route(route),
-    gpxUrl(gpxUrl),
-    calories(calories),
+    url(url),
+    kcal(kcal),
     coolDownTimeSeconds(coolDownTimeSeconds),
     coolDownDistanceMeters(coolDownDistanceMeters),
     weight(weight),
@@ -227,8 +251,9 @@ string DatasetInstance::toString()
     << "  Year: " << year << endl
     << "  Month: " << month << endl
     << "  Day: " << day << endl
+    << "  When: " << when.toStdString() << endl
     << "  Phase: " << phase << endl
-    << "  Activity: " << activityType.toString().toStdString() << endl
+    << "  Activity: " << activity.toString().toStdString() << endl
     << "  Description: " << description.toStdString() << endl
     << "  Commute: " << commute << endl
     << "  Total time: " << totalTimeSeconds << endl
@@ -251,8 +276,8 @@ string DatasetInstance::toString()
     << "  Max watts: " << maxWatts << endl
     << "  Gear: " << gear.toString().toStdString() << endl
     << "  Route: " << route.toString().toStdString() << endl
-    << "  GPX: " << gpxUrl.toStdString() << endl
-    << "  Calories: " << calories << endl
+    << "  URL: " << url.toStdString() << endl
+    << "  kcal: " << kcal << endl
     << "  Cool time: " << coolDownTimeSeconds << endl
     << "  Cool meters: " << coolDownDistanceMeters << endl
     << "  Weight: " << weight << endl
@@ -289,8 +314,9 @@ string DatasetInstance::toCsv()
     << year << ", "
     << month << ", "
     << day << ", "
+    << quoteCsvString(when.toStdString()) << ", "
     << phase << ", "
-    << quoteCsvString(activityType.toString().toStdString()) << ", "
+    << quoteCsvString(activity.toString().toStdString()) << ", "
     << quoteCsvString(description.toStdString()) << ", "
     << commute << ", "
     << totalTimeSeconds << ", "
@@ -313,8 +339,8 @@ string DatasetInstance::toCsv()
     << maxWatts << ", "
     << quoteCsvString(gear.toString().toStdString()) << ", "
     << quoteCsvString(route.toString().toStdString()) << ", "
-    << quoteCsvString(gpxUrl.toStdString()) << ", "
-    << calories << ", "
+    << quoteCsvString(url.toStdString()) << ", "
+    << kcal << ", "
     << coolDownTimeSeconds << ", "
     << coolDownDistanceMeters << ", "
     << weight << ", "

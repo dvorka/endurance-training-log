@@ -29,6 +29,9 @@ DatasetInstanceDialog::DatasetInstanceDialog(QWidget *parent) :
     yearMonthDayLabel = new QLabel{"Year/month/day:", this};
     yearMonthDayEdit = new QLineEdit{this};
 
+    whenLabel = new QLabel{"When:", this};
+    whenEdit = new QLineEdit{this};
+
     activityLabel = new QLabel{"Activity:", this};
     activityEdit = new QLineEdit{this};
 
@@ -103,12 +106,12 @@ DatasetInstanceDialog::DatasetInstanceDialog(QWidget *parent) :
     gearEdit = new QLineEdit{this};
     routeLabel = new QLabel{"Route:", this};
     routeEdit = new QLineEdit{this};
-    gpxUrlLabel = new QLabel{"GPX URL:", this};
-    gpxUrlEdit = new QLineEdit{this};
+    urlLabel = new QLabel{"URL:", this};
+    urlEdit = new QLineEdit{this};
 
-    caloriesLabel = new QLabel{"Calories:", this};
+    kcalLabel = new QLabel{"kcal:", this};
     // spinner w/ preset (typically calculated)
-    caloriesEdit = new QLineEdit{this};
+    kcalEdit = new QLineEdit{this};
 
     coolDownTimeLabel = new QLabel{"Cool-down time:", this};
     coolDownTimeEdit = new QLineEdit{this};
@@ -162,19 +165,11 @@ DatasetInstanceDialog::DatasetInstanceDialog(QWidget *parent) :
     leftLayout->addWidget(activityLabel);
     leftLayout->addWidget(activityEdit);
 
-    leftLayout->addWidget(descriptionLabel);
-    leftLayout->addWidget(descriptionEdit);
+    leftLayout->addWidget(intensityLabel);
+    leftLayout->addWidget(intensityEdit);
 
-    leftLayout->addWidget(phaseLabel);
-    leftLayout->addWidget(phaseEdit);
-
-    leftLayout->addWidget(commuteLabel);
-    leftLayout->addWidget(commuteCheck);
-
-    leftLayout->addWidget(totalTimeLabel);
-    leftLayout->addWidget(totalTimeEdit);
-    leftLayout->addWidget(totalDistanceLabel);
-    leftLayout->addWidget(totalDistanceEdit);
+    leftLayout->addWidget(gearLabel);
+    leftLayout->addWidget(gearEdit);
 
     leftLayout->addWidget(warmUpTimeLabel);
     leftLayout->addWidget(warmUpTimeEdit);
@@ -186,11 +181,24 @@ DatasetInstanceDialog::DatasetInstanceDialog(QWidget *parent) :
     leftLayout->addWidget(distanceLabel);
     leftLayout->addWidget(distanceEdit);
 
-    leftLayout->addWidget(intensityLabel);
-    leftLayout->addWidget(intensityEdit);
+    leftLayout->addWidget(coolDownTimeLabel);
+    leftLayout->addWidget(coolDownTimeEdit);
+    leftLayout->addWidget(coolDownDistanceLabel);
+    leftLayout->addWidget(coolDownDistanceEdit);
+
+    leftLayout->addWidget(totalTimeLabel);
+    leftLayout->addWidget(totalTimeEdit);
+    leftLayout->addWidget(totalDistanceLabel);
+    leftLayout->addWidget(totalDistanceEdit);
 
     // padding
     leftLayout->addWidget(new QLabel("", this));
+
+    middleLayout->addWidget(descriptionLabel);
+    middleLayout->addWidget(descriptionEdit);
+
+    middleLayout->addWidget(whenLabel);
+    middleLayout->addWidget(whenEdit);
 
     middleLayout->addWidget(squatsLabel);
     middleLayout->addWidget(squatsEdit);
@@ -209,35 +217,28 @@ DatasetInstanceDialog::DatasetInstanceDialog(QWidget *parent) :
     middleLayout->addWidget(avgSpeedEdit);
     middleLayout->addWidget(maxSpeedLabel);
     middleLayout->addWidget(maxSpeedEdit);
-    middleLayout->addWidget(elevationGainLabel);
-    middleLayout->addWidget(elevationGainEdit);
 
     middleLayout->addWidget(avgWattsLabel);
     middleLayout->addWidget(avgWattsEdit);
     middleLayout->addWidget(maxWattsLabel);
     middleLayout->addWidget(maxWattsEdit);
 
-    middleLayout->addWidget(gearLabel);
-    middleLayout->addWidget(gearEdit);
-
     // padding + buttons
     middleLayout->addWidget(new QLabel("", this));
 
+    rightLayout->addWidget(elevationGainLabel);
+    rightLayout->addWidget(elevationGainEdit);
+
+    rightLayout->addWidget(phaseLabel);
+    rightLayout->addWidget(phaseEdit);
+
+    rightLayout->addWidget(commuteLabel);
+    rightLayout->addWidget(commuteCheck);
+
     rightLayout->addWidget(routeLabel);
     rightLayout->addWidget(routeEdit);
-    rightLayout->addWidget(gpxUrlLabel);
-    rightLayout->addWidget(gpxUrlEdit);
-
-    rightLayout->addWidget(caloriesLabel);
-    rightLayout->addWidget(caloriesEdit);
-
-    rightLayout->addWidget(coolDownTimeLabel);
-    rightLayout->addWidget(coolDownTimeEdit);
-    rightLayout->addWidget(coolDownDistanceLabel);
-    rightLayout->addWidget(coolDownDistanceEdit);
-
-    rightLayout->addWidget(weightLabel);
-    rightLayout->addWidget(weightEdit);
+    rightLayout->addWidget(urlLabel);
+    rightLayout->addWidget(urlEdit);
 
     rightLayout->addWidget(weatherLabel);
     rightLayout->addWidget(weatherEdit);
@@ -247,8 +248,14 @@ DatasetInstanceDialog::DatasetInstanceDialog(QWidget *parent) :
     rightLayout->addWidget(whereLabel);
     rightLayout->addWidget(whereEdit);
 
+    rightLayout->addWidget(weightLabel);
+    rightLayout->addWidget(weightEdit);
+
     rightLayout->addWidget(bmiLabel);
     rightLayout->addWidget(bmiEdit);
+
+    rightLayout->addWidget(kcalLabel);
+    rightLayout->addWidget(kcalEdit);
 
     rightLayout->addWidget(gramsOfFatBurntLabel);
     rightLayout->addWidget(gramsOfFatBurntEdit);
@@ -272,6 +279,8 @@ void DatasetInstanceDialog::clearAllItems()
 {
     // TODO set current
     yearMonthDayEdit->setText("2020/05/03");
+    // TODO set current
+    whenEdit->setText("12:00:00");
     descriptionEdit->clear();
     phaseEdit->setText("1");
     activityEdit->setText("ride");
@@ -296,8 +305,8 @@ void DatasetInstanceDialog::clearAllItems()
     maxWattsEdit->setText("0");
     gearEdit->clear();
     routeEdit->clear();
-    gpxUrlEdit->clear();
-    caloriesEdit->setText("0");
+    urlEdit->clear();
+    kcalEdit->setText("0");
     coolDownTimeEdit->setText(DatasetInstance::DEFAULT_STR_TIME);
     coolDownDistanceEdit->setText(DatasetInstance::DEFAULT_STR_METERS);
     weightEdit->setText(DatasetInstance::DEFAULT_STR_WEIGHT);
@@ -312,8 +321,9 @@ void DatasetInstanceDialog::clearAllItems()
 void DatasetInstanceDialog::fromInstance(DatasetInstance* instance)
 {
     yearMonthDayEdit->setText(instance->getYearMonthDay());
+    whenEdit->setText(instance->getWhen());
     phaseEdit->setText(QString::number(instance->getPhase()));
-    activityEdit->setText(instance->getActivityType().toString());
+    activityEdit->setText(instance->getActivity().toString());
     descriptionEdit->setText(instance->getDescription());
     commuteCheck->setChecked(instance->getCommute());
     totalTimeEdit->setText(instance->getTotalTimeStr());
@@ -336,8 +346,8 @@ void DatasetInstanceDialog::fromInstance(DatasetInstance* instance)
     maxWattsEdit->setText(QString::number(instance->getMaxWatts()));
     gearEdit->setText(instance->getGear().toString());
     routeEdit->setText(instance->getRoute().toString());
-    gpxUrlEdit->setText(instance->getGpxUrl());
-    caloriesEdit->setText(QString::number(instance->getCalories()));
+    urlEdit->setText(instance->getUrl());
+    kcalEdit->setText(QString::number(instance->getKcal()));
     coolDownTimeEdit->setText(instance->getCoolDownTimeStr());
     coolDownDistanceEdit->setText(instance->getCoolDownDistanceStr());
     weightEdit->setText(instance->getWeightStr());
@@ -351,10 +361,14 @@ void DatasetInstanceDialog::fromInstance(DatasetInstance* instance)
 
 DatasetInstance* DatasetInstanceDialog::toDatasetInstance()
 {
+    // validation
+    DatasetInstance::whenToSeconds(whenEdit->text());
+
     DatasetInstance* instance = new DatasetInstance{
         DatasetInstance::ymdToYear(yearMonthDayEdit->text(), "Year"),
         DatasetInstance::ymdToMonth(yearMonthDayEdit->text(), "Month"),
         DatasetInstance::ymdToDay(yearMonthDayEdit->text(), "Day"),
+        whenEdit->text(),
         phaseEdit->text().toUInt(),
         CategoricalValue(activityEdit->text()),
         descriptionEdit->text(),
@@ -379,8 +393,8 @@ DatasetInstance* DatasetInstanceDialog::toDatasetInstance()
         maxWattsEdit->text().toUInt(),
         CategoricalValue(gearEdit->text()),
         CategoricalValue(routeEdit->text()),
-        QString(gpxUrlEdit->text()),
-        caloriesEdit->text().toUInt(),
+        QString(urlEdit->text()),
+        kcalEdit->text().toUInt(),
         DatasetInstance::strTimeToSeconds(coolDownTimeEdit->text(), "Cool-down time"),
         DatasetInstance::strMetersToMeters(coolDownDistanceEdit->text(), "Cool-down distance"),
         DatasetInstance::strKgToKg(weightEdit->text(), "Weight"),
