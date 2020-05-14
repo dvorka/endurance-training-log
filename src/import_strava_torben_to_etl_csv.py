@@ -27,7 +27,7 @@ SRC_CSV_FILE = (
 )
 DST_CSV_FILE = (
     "/home/dvorka/p/endurance-training-log/github/endurance-training-log/test/datasets/"
-    "training-log-strava-import.csv"
+    "strava-training-log-import.csv"
 )
 
 
@@ -246,7 +246,7 @@ class StravaDataset:
 
     def __init__(self, dataset_path: str):
         self.dataset_path = dataset_path
-        self.frame: dt.Frame = dt.fread(SRC_CSV_FILE)
+        self.frame: dt.Frame = dt.fread(dataset_path)
 
     def __str__(self) -> str:
         result: str = f"Dataset path: {self.dataset_path}\n"
@@ -321,6 +321,7 @@ class StravaDataset:
 #
 
 
-strava_dataset = StravaDataset(SRC_CSV_FILE)
-etl_frame = strava_dataset.to_etl_dataset()
-etl_frame.to_csv(DST_CSV_FILE)
+if __name__ == "__main__":
+    strava_dataset = StravaDataset(SRC_CSV_FILE)
+    etl_frame = strava_dataset.to_etl_dataset()
+    etl_frame.to_csv(DST_CSV_FILE)

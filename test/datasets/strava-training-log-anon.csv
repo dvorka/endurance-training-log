@@ -1,0 +1,950 @@
+year,month,day,activity,description,commute,time_seconds,distance_meters,avg_speed,max_speed,elevation_gain,avg_watts,gear,kcal
+2013,8,31,ride,LSD check,0,7981,39195,18.01,50.76,574,132,spešl_29er,247
+2013,9,1,ride,Office & back - forgot to lock GPS :-Z,0,4174,19668,17.39,43.2,219,104,spešl_29er,102
+2013,9,4,ride,Learning new trail 2 office,0,3707,14107,15.44,46.44,201,153,spešl_29er,120
+2013,9,4,ride,S kytkou v ruce :-),0,4896,17707,16.11,32.04,220,160,spešl_29er,151
+2013,9,5,ride,Morning Ride,0,7103,39073,20.88,51.84,399,212,spešl_29er,341
+2013,9,7,ride,Okoř,0,11502,52740,18.24,61.92,648,112,,279
+2013,9,8,ride,9am deadline 1/2,0,3725,21043,20.45,51.48,209,119,,105
+2013,9,13,ride,Lunch Ride,0,8367,18427,17.47,48.96,249,111,,101
+2013,9,14,ride,OK - Šárka - Únětice,0,7417,39985,20.38,61.92,455,123,,209
+2013,9,15,ride,"Kráťoučkej, ale výživnej - tma, déšť a bahno",0,5910,28542,17.64,65.88,453,194,spešl_29er,270
+2013,9,21,ride,Máslo zpátky na starých tratích :-),0,15926,57081,15.65,59.76,1769,153,,482
+2013,9,23,ride,> office ,0,2790,12574,17.57,46.08,163,120,,73
+2013,10,4,ride,OK - Roztoky ,0,8758,38159,16.61,63.36,582,117,,233
+2013,10,9,ride,> office (okolo Palmovky),0,3823,15917,16.1,49.32,190,100,,85
+2013,10,11,ride,Mokrej Okoř ,0,11136,53243,18.01,58.68,691,111,,283
+2013,10,12,ride,Deep s...wamp & vracečka,0,7128,25918,13.79,55.44,299,86,,140
+2013,10,13,ride,Řež =,0,8550,41344,18.41,61.92,527,124,,240
+2013,10,16,ride,> office: ... zase lížu míň asfaltu,0,2948,15129,19.28,47.16,157,189,spešl_29er,127
+2013,10,18,ride,Už ani ránu bez návleků!,0,12344,65942,19.41,54.72,790,203,spešl_29er,593
+2013,10,19,ride,Afternoon mapping ,0,3110,12305,16.67,46.44,153,174,spešl_29er,111
+2013,10,24,ride,Standartka ,0,13721,69401,19.66,50.4,655,194,spešl_29er,589
+2013,10,26,ride,S Viktorem pod Smrkem 1/2,0,14563,30731,14.75,38.88,754,189,spešl_29er,339
+2013,10,29,ride,Pokličková ,0,6468,18335,12.32,32.4,378,137,spešl_29er,176
+2013,10,30,ride,Šárka ,0,8393,41431,19.06,43.92,557,208,spešl_29er,389
+2013,11,9,ride,Mokré listí & kšl,0,8811,37287,16.48,59.76,554,170,spešl_29er,332
+2013,11,15,ride,Šárka - Horoměřice - Úholičky - Řež,0,9250,44256,18.2,67.32,515,182,spešl_29er,382
+2013,11,16,ride,Březiněves & 11:30 deadline,0,6486,36300,20.44,55.8,328,205,spešl_29er,314
+2013,11,24,ride,"Okoř proti větrůůů, 70k, rychlodraha za USK avg 33km/h",0,14017,51792,13.93,59.76,390,121,spešl_29er,389
+2014,4,26,ride,Okoř I.,0,12033,61740,18.92,65.88,737,190,spešl_29er,535
+2014,5,2,ride,OK - Kralupy (25k) + Kralupy - Okoř - OK = 68k ,0,10223,43139,17.19,60.84,562,174,spešl_29er,376
+2014,5,31,ride,OK - Kralupy - Okoř - Šárka ,0,16263,79810,18.85,46.08,804,186,spešl_29er,677
+2014,6,7,ride,Skupice - Nasavrky - Seč ,0,11271,47713,16.95,49.32,1025,201,spešl_29er,488
+2014,6,10,ride,OK - HP,0,3083,14985,18.53,40.32,157,181,spešl_29er,125
+2014,6,15,ride,Mapování Milíčák - OK,0,5904,31810,19.52,39.6,250,179,spešl_29er,251
+2014,6,27,ride,"06/27/2014 Prague, Hlavní město Praha, Czech Republic",0,8638,41927,18.96,36.36,338,181,spešl_29er,344
+2014,7,1,ride,"07/01/2014 Prague, Hlavní město Praha, Czech Republic",0,4879,29915,22.68,41.4,201,222,spešl_29er,252
+2014,7,5,ride,"07/05/2014 Víchová Nad Jizerou, Liberec Region, Czech Republic",0,17991,59708,14.39,63.36,1544,178,spešl_29er,637
+2014,7,8,ride,"07/08/2014 Prague, Hlavní město Praha, Czech Republic",1,3171,9145,17.95,41.4,145,188,spešl_29er,82
+2014,7,12,ride,"07/12/2014 Víchová Nad Jizerou, Liberec Region, Czech Republic",0,8788,26956,13.74,57.24,900,207,spešl_29er,350
+2014,7,13,ride,Okoř,0,13592,62954,18.78,43.2,639,175,spešl_29er,505
+2014,7,18,ride,OK - Bulovka - HP,0,2530,15295,22.37,39.6,122,116,spešl_29er,68
+2014,7,21,ride,OK - HP (daily commute),1,2477,14387,21.19,37.08,142,213,spešl_29er,124
+2014,7,25,ride,Lipno Modřín - bike park BLUE and RED - Frymburk,0,7559,26641,15.48,42.84,423,173,spešl_29er,256
+2014,7,25,ride,Lipno Modřín - zelená Frymburk - stojka na Alpskou vyhlídku - bike park RED,0,5416,17463,13.17,45.36,515,172,spešl_29er,197
+2014,7,26,ride,Lipno Modřín - bike park RED - Přední Výtoň - ...,0,3439,11805,14.37,41.76,271,175,spešl_29er,123
+2014,7,26,ride,Lipno Modřín - Přední Výtoň - most a zpět,0,80231,48241,20.28,55.8,556,200,spešl_29er,409
+2014,7,30,ride,OK - Hrdlorezak crossroad detour - HP,1,3134,16673,20.11,42.84,155,195,spešl_29er,139
+2014,8,1,ride,OK - HP - OK - Hl.n.,0,29736,43670,20.93,51.48,378,212,spešl_29er,380
+2014,8,1,ride,OK - deroute - HP,0,2650,15947,21.82,39.6,144,131,spešl_29er,82
+2014,8,1,ride,Pardubice hl.n. - Skupice,0,6103,18799,23.96,33.12,111,259,spešl_29er,175
+2014,8,3,ride,Skupice - singltrek Podhůra - Nasavrky - Boika,0,12367,52392,16.22,64.8,801,178,spešl_29er,495
+2014,8,5,ride,HP - Drahan - OK,0,5556,33361,21.69,38.52,225,218,spešl_29er,288
+2014,8,8,ride,OK - Skupice I.,0,22672,133705,23.14,36,448,216,spešl_29er,1077
+2014,8,9,hike,Pochod Krajem maliru vysociny: Pohadkovy les,0,8824,4398,3.78,9.72,85,0,,0
+2014,8,12,ride,Kolem modelarskeho letiste an malinovku,0,8195,37092,18.07,44.64,364,173,spešl_29er,307
+2014,8,14,ride,OK - Drahan - HP (commute?),0,5472,31262,21.56,43.56,270,228,spešl_29er,284
+2014,8,15,ride,Hide & seek Neratovice green,0,8762,42801,18.66,42.84,353,176,spešl_29er,348
+2014,8,17,ride,Vichova - Medvedin,0,15111,54185,15.29,57.24,1435,207,spešl_29er,633
+2014,8,23,ride,Saratice - Lednice - Valtice,0,15723,73327,19.12,48.24,409,183,spešl_29er,604
+2014,9,6,ride,Pod Smrkem,0,40249,61654,14.13,40.32,1211,170,spešl_29er,640
+2014,9,20,ride,OK - Skupice II.,0,21592,132932,24.49,39.24,443,236,spešl_29er,1102
+2014,10,6,ride,OK - greenfields - HP,0,2951,15357,19.31,37.44,151,198,spešl_29er,135
+2015,2,15,run,LSD 93kg (+14),0,6475,17822,10.05,20.52,269,0,,0
+2015,3,18,ride,OK - HP (bez Prumyslové),1,3415,18421,19.58,39.6,134,186,spešl_29er,151
+2015,4,1,run,"HP > OK (sníh, +9kg)",0,4659,13425,10.42,21.96,111,0,nike_vomero_2+,0
+2015,4,4,run,"Kočičák a Monako (+9kg, vzduch :)",0,4136,12197,10.62,19.08,141,0,nike_vomero_2+,0
+2015,4,5,run,Bára > Kočičák (+9kg),0,4038,11189,10.11,19.08,111,0,nike_vomero_2+,0
+2015,4,14,run,OK > HP: nejkratší a nejhnusnejší,0,2799,7729,10.38,27,103,0,nike_vomero_2+,0
+2015,4,16,run,Na Světlušku,0,2399,7098,11.05,33.48,47,0,nike_vomero_2+,0
+2015,4,23,ride,HP - pred Klecany UP  - OK,1,5965,36446,22.63,41.76,207,249,spešl_29er,345
+2015,4,24,run,Výklus po vcerejsim kole (+8kg),0,2351,7268,11.43,23.76,98,0,asics_ds_trainer_20,0
+2015,4,30,run,Čtvrteční (+7kg),0,4834,15115,11.41,30.96,189,0,nike_vomero_2+,0
+2015,5,2,run,Snídaňovej,0,2716,8425,11.36,23.76,126,0,asics_ds_trainer_20,0
+2015,5,4,run,HP > OK (+7kg),0,4224,13575,11.75,38.52,116,0,nike_vomero_2+,0
+2015,5,7,run,"HP > OK (LSD style,+6kg)",0,5786,18833,11.98,39.24,153,0,asics_ds_trainer_20,0
+2015,5,8,ride,Okoř I. v překrásném počasí,0,12177,65218,20.2,45.36,704,211,spešl_29er,586
+2015,5,10,run,LSD (+5kg),0,8198,24914,11.02,27.36,268,0,nike_vomero_2+,0
+2015,5,15,run,Palisáda Friday Standard (fartlek w/ 5kg fatbag),0,5132,16550,11.75,35.64,287,0,mizuno_wave_rider_18_black/green,0
+2015,5,17,run,Easy run after hard C2 session (+4kg),0,7584,23152,11.03,30.24,176,0,mizuno_wave_rider_18_black/green,0
+2015,5,24,run,Kolem Stromovky se zrychlením pro radost (+5kg),0,7603,23393,11.17,41.4,229,0,asics_ds_trainer_20,0
+2015,5,31,run,"LSD: OK - Řež - Libeňský zámek 3:04:11 34k (Strava crash, +5kg)",0,11941,16961,5.16,35.28,70,0,nike_vomero_2+,0
+2015,6,3,run,OK > HP (detox),0,2368,7057,11.36,27,97,0,asics_ds_trainer_20,0
+2015,6,7,ride,OK - Říp - OK,0,27225,110070,19.16,42.12,1049,186,spešl_29er,920
+2015,6,12,run,"Palisáda Friday Standard (5kg, Zzz--)",0,5451,16959,11.62,25.92,262,0,asics_ds_trainer_20,0
+2015,6,19,run,"Easy Ď+Č (tired, +5kg)",0,3374,10995,11.92,20.88,140,0,mizuno_wave_rider_18_black/green,0
+2015,6,23,ride,OK - Národní - Vyskočilka,1,3786,20837,20.69,42.12,118,192,spešl_29er,166
+2015,6,23,ride,"06/23/2015 Prague, Hlavní město Praha, Czech Republic",0,3882,21552,20.51,38.52,143,199,spešl_29er,180
+2015,6,25,ride,"OK - Národní - Baranďák - Delta, Kudos to LukášB for tip",0,3752,23053,23.16,41.04,122,228,spešl_29er,195
+2015,6,25,ride,Delta - Baranďák - Národní - OK,0,3851,23325,22.54,37.08,147,229,spešl_29er,204
+2015,6,27,run,OK - Šárka - Herzovka (+3kg),0,9310,26555,10.85,15.84,247,0,asics_ds_trainer_20,0
+2015,6,29,ride,Po výměně destiček šlapu i s kopce...,1,3851,23105,22.18,43.92,165,208,spešl_29er,186
+2015,6,30,ride,OK - Karané - Neratovice - Mělník - Kralupy - Řež,0,24247,122878,20.04,42.84,644,176,spešl_29er,931
+2015,7,1,ride,"07/01/2015 Prague, Hlavní město Praha, Czech Republic",0,3614,21505,22.5,41.4,149,126,,103
+2015,7,1,ride,"07/01/2015 Prague, Hlavní město Praha, Czech Republic",0,4177,23060,20.78,37.8,186,118,,112
+2015,7,2,run,HP Delta - Libeňský zámeček,0,5742,17423,11.6,15.48,76,0,asics_ds_trainer_20,0
+2015,7,5,run,Warmup + ABC + 3x500m@4:25 hills,0,1421,4032,10.22,17.64,164,0,asics_ds_trainer_20,0
+2015,7,5,run,DH tempo (jen rozhýbávání nohou),0,679,3013,15.98,19.8,0,0,asics_ds_trainer_20,0
+2015,7,9,run,U Skálů 12% (flu warmup),0,2905,7536,10.15,37.44,253,0,asics_ds_trainer_20,0
+2015,7,20,ride,Díky Edo! (82km),0,9278,44424,17.98,47.88,413,172,spešl_29er,365
+2015,7,21,ride,"07/21/2015 Prague, Hlavní město Praha, Czech Republic",0,4410,23858,22.53,59.4,186,130,,118
+2015,7,21,ride,Delta - Krčák - Milíčák - Počernice - OK,0,9193,44020,19.17,44.64,349,169,spešl_29er,333
+2015,7,22,ride,"07/22/2015 Prague, Hlavní město Praha, Czech Republic",1,3561,23040,23.84,48.96,159,230,spešl_29er,192
+2015,7,22,ride,Delta - Vinohradska - OK (1000x lepsi nez naplavka odpo :),0,4512,24499,20.21,35.64,175,188,spešl_29er,197
+2015,7,26,ride,"07/26/2015 Prague, Hlavní město Praha, Czech Republic",0,1833,12587,25.6,47.16,74,133,,56
+2015,7,27,ride,"07/27/2015 Prague, Hlavní město Praha, Czech Republic",0,4101,23741,22.15,40.68,158,217,spešl_29er,200
+2015,7,27,ride,"... dnes na řízek, sportovní výkony příště :)",0,11485,48253,19.49,40.68,368,186,spešl_29er,396
+2015,7,28,ride,Z práce s Miranem,0,19273,77069,17.9,42.48,772,170,spešl_29er,629
+2015,7,29,ride,Delta - OK krátká varianta,1,3400,17884,19.71,37.08,204,198,spešl_29er,154
+2015,7,30,ride,S lopatou v batohu :),0,4044,24761,22.33,40.32,172,220,spešl_29er,210
+2015,8,1,ride,OK - Skupice s Viktorem,0,30472,134167,19.18,34.2,455,149,spešl_29er,901
+2015,8,2,run,Okolo Ď (easy),0,2363,7596,11.57,18.72,100,0,mizuno_wave_rider_18_black/green,0
+2015,8,3,ride,OK > HP,1,3658,22925,23.19,44.28,160,131,,111
+2015,8,3,ride,"08/03/2015 Prague, Hlavní město Praha, Czech Republic",0,3941,23907,22.35,42.48,176,220,spešl_29er,203
+2015,8,4,run,"08/04/2015 Prague, Hlavní město Praha, Czech Republic",0,4784,15949,12.23,32.04,139,0,asics_ds_trainer_20,0
+2015,8,5,run,Delta - OK (HOT),0,5418,16125,10.89,37.08,204,0,asics_ds_trainer_20,0
+2015,8,6,ride,Delta - Helča,0,2015,10167,18.74,37.44,113,191,spešl_29er,89
+2015,8,7,run,"Okolo Ď (HOT, easy, wsAf+m)",0,2616,7979,11.06,17.64,111,0,mizuno_wave_rider_18_black/green,0
+2015,8,8,run,"Skupice - Pohled (HOT, wsAf+hills 2x500m@4:25)",0,4192,11095,11.08,16.92,192,0,mizuno_wave_rider_18_black/green,0
+2015,8,9,run,Na horách je krásně! Jen mi došla šťáva... v hodinkách :-B 27k/700m/2:30+,0,7732,20094,9.76,14.4,643,0,mizuno_wave_rider_18_black/green,0
+2015,8,11,run,OK - Z - Delta (wsAf+3x1k@3:57/3:59/3:56),0,5946,17201,11.43,27,154,0,asics_ds_trainer_20,0
+2015,8,12,run,Delta - OK (HOT+WND),0,5367,16104,11.02,28.44,202,0,mizuno_wave_rider_18_black/green,0
+2015,8,13,ride,"08/13/2015 Prague, Hlavní město Praha, Czech Republic",0,3731,22933,23.9,55.8,158,235,spešl_29er,194
+2015,8,13,ride,"08/13/2015 Prague, Hlavní město Praha, Czech Republic",0,4192,24381,21.46,43.2,178,207,spešl_29er,202
+2015,8,14,run,"Okolo Ď (HOT, wsAf + 300m@4:17 hill)",0,2918,7085,11.25,15.48,123,0,mizuno_wave_rider_18_black/green,0
+2015,8,16,run,HC TT Rezek (+Dvoračky easy),0,11737,31669,10.21,18,859,0,mizuno_wave_rider_18_black/green,0
+2015,8,19,run,Tempooo (wsAf + segment 2.3k@3:55 RAINY),0,6304,20356,12.98,44.64,167,0,mizuno_wave_rider_18_black/green,0
+2015,8,21,run,Time to Suffer (wsAf + 5x500m hills),0,4389,10321,10.38,19.8,262,0,asics_ds_trainer_20,0
+2015,8,22,run,Easy Palisáda w/ Stairway to Heaven,0,6357,18777,11.1,16.92,284,0,mizuno_wave_rider_18_black/green,0
+2015,8,22,ride,OK - Helča vyhlídkově,0,3841,22462,21.33,41.76,200,211,spešl_29er,191
+2015,8,23,run,Long downhill :),0,10545,34062,11.89,20.16,144,0,mizuno_wave_rider_18_black/green,0
+2015,8,24,ride,OK - Delta,0,3706,22941,23.73,41.76,149,236,spešl_29er,196
+2015,8,25,run,"OK - Delta (SPEED, wsAf + 1/.6/1/.8k @3:39/3:37/3:51/3:44)",0,6827,20295,11.77,30.24,169,0,mizuno_wave_rider_18_black/green,0
+2015,8,25,ride,Delta - OK (divadlo),0,3438,21296,22.94,41.4,166,231,spešl_29er,185
+2015,8,26,ride,OK - brownfields - Delta,0,4588,26936,21.66,40.32,172,195,spešl_29er,209
+2015,8,26,ride,Evening Ride,0,7920,43831,20.38,45,377,187,spešl_29er,347
+2015,8,27,run,"Delta - cyklostezka - bobovka - OK (TIRED, -20kg since 1.1.'15)",0,6450,20703,11.62,28.08,181,0,mizuno_wave_rider_18_black/green,0
+2015,8,29,run,Víchová - Vrbatka (HILLS :),0,9673,25408,9.74,16.2,1266,0,mizuno_wave_rider_18_black/green,0
+2015,8,29,walk,Výlet na Sněžné jámy s klukama,0,16235,10810,3.58,5.76,326,0,asics_ds_trainer_20,0
+2015,8,31,ride,Morning Ride,0,3946,22847,24.32,40.68,160,249,spešl_29er,201
+2015,8,31,ride,Afternoon Ride,0,3841,22926,22.16,44.28,183,224,spešl_29er,200
+2015,9,1,run,"Okolo Ď (EASY, wsAf+extra flats)",0,2587,6175,11.43,19.44,103,0,mizuno_wave_rider_18_black/green,0
+2015,9,2,run,Delta - cyklostezka (WARMUP wsAf),0,633,1811,11.13,20.88,0,0,mizuno_wave_rider_18_black/green,0
+2015,9,2,run,Delta - Most inteligence (TEMPO 5k@4:10),0,2900,10312,13.35,20.52,56,0,mizuno_wave_rider_18_black/green,0
+2015,9,2,run,Cyklostezka - Delta (COOLDOWN),0,501,1339,11.31,21.96,49,0,mizuno_wave_rider_18_black/green,0
+2015,9,5,run,Jizerská 50,0,14534,47423,11.75,16.92,800,0,mizuno_wave_rider_18_black/green,0
+2015,9,8,ride,Morning Ride,1,3814,23076,22.76,43.56,159,226,spešl_29er,197
+2015,9,8,ride,Afternoon Ride,1,4143,22899,21.3,42.12,182,206,spešl_29er,190
+2015,9,9,ride,Morning Ride,1,4391,24358,20.12,36.36,197,187,spešl_29er,195
+2015,9,9,ride,Evening Ride,0,3902,23178,22.32,44.28,173,216,spešl_29er,193
+2015,9,11,run,Okolo D (EASY),0,2342,7628,11.73,16.92,100,0,nike_vomero_2+,0
+2015,9,14,ride,"... jet na kole, kteremu brzdi vic nez jedna brzda - k nezaplaceni :)",0,3455,23068,24.74,43.92,161,253,spešl_29er,203
+2015,9,14,ride,Evening Ride,0,3788,23126,22.77,41.04,175,226,spešl_29er,197
+2015,9,15,ride,Trick: Front Wheel Wet Rail Slide ~1m Where: Národní divadlo Xing When: 8:30am,0,2203,12788,22.39,39.6,69,215,spešl_29er,105
+2015,9,15,ride,Morning Ride,0,1535,9574,24.69,41.4,107,286,spešl_29er,95
+2015,9,15,ride,Afternoon Ride,0,4343,24025,21.41,50.04,192,212,spešl_29er,204
+2015,9,16,ride,OK > Delta w/ MartinP & Luky,0,4236,24106,21.68,42.48,191,221,spešl_29er,212
+2015,9,16,ride,Delta > OK w/ MartinP,0,6222,32469,19.63,50.4,325,187,spešl_29er,266
+2015,9,18,ride,Hledání zlatého hrnce,0,6872,37455,21.17,51.84,384,199,spešl_29er,304
+2015,9,18,ride,Kkk... Káraný - Kostelec - Klecany ,0,85125,73288,23.08,51.84,451,215,spešl_29er,587
+2015,9,20,ride,Drahelčice - Dobrovíz - OK,0,10391,58356,20.87,43.2,618,231,spešl_29er,556
+2015,9,21,ride,Morning Ride,0,3802,23042,22.83,42.48,160,224,spešl_29er,194
+2015,9,21,ride,Evening Ride,0,3872,20718,19.9,38.16,227,118,,106
+2015,9,22,ride,Morning Ride,0,3570,23106,23.5,48.6,166,233,spešl_29er,197
+2015,9,22,ride,Evening Ride,0,3910,22991,22.05,45,175,216,spešl_29er,193
+2015,9,24,ride,OK + Sportovní den w/ Chuma & Vorvaň ,0,37550,139032,18.08,74.52,2041,194,spešl_29er,1285
+2015,9,26,ride,Bike tuning w/ boys be4 Rokos Gang ride (17km),0,2381,3678,8.26,18.36,44,72,spešl_29er,27
+2015,9,27,hike,Výlet s klukama na Ještěd,0,15591,9219,3.37,9.72,480,0,asics_ds_trainer_20,0
+2015,9,27,ride,Singltrek pod Smrkem w/ MichalR,0,6964,21650,13.5,50.4,524,161,spešl_29er,222
+2015,9,28,ride,Single Morning @ Smrk,0,16118,41257,14.79,32.4,945,177,spešl_29er,427
+2015,9,29,ride,Morning Ride,0,3865,22913,22.55,42.48,159,216,spešl_29er,189
+2015,9,29,ride,Afternoon Ride,0,4272,23272,20.32,41.04,173,191,spešl_29er,188
+2015,9,30,ride,Drapáky nejedou :),0,4672,27329,21.69,45,199,205,spešl_29er,223
+2015,9,30,ride,Test laser blikny,0,4047,22862,21.21,39.6,174,202,spešl_29er,187
+2015,10,3,ride,Vertikálněhorizontální vlásenka,0,7062,38254,19.98,43.92,615,208,spešl_29er,343
+2015,10,4,ride,Polabská s klukama,0,6319,14487,11.43,25.56,37,72,spešl_29er,78
+2015,10,5,ride,Morning Ride,1,3800,22917,22.71,41.04,160,219,spešl_29er,190
+2015,10,5,ride,Evening Ride,1,3805,22890,22.5,40.68,174,220,spešl_29er,193
+2015,10,7,ride,Morning Ride,1,4064,22476,21.46,43.56,153,201,spešl_29er,181
+2015,10,10,ride,Po mokrém listí jako po sněhu :) ... 36k,0,3518,20279,20.75,34.56,183,185,spešl_29er,156
+2015,10,13,ride,Morning Ride,1,3943,22961,23.12,39.6,154,223,spešl_29er,190
+2015,10,13,ride,Evening Ride,1,4215,22764,20.38,40.32,169,193,spešl_29er,185
+2015,10,20,ride,Flat tire: připínak v cyklopruhu na náplavce :-Z,1,2050,10399,24.23,43.92,24,101,,37
+2015,10,20,ride,Morning Ride,0,2958,12593,21.25,46.44,136,145,,74
+2015,10,20,ride,Evening Ride,1,4126,23184,20.97,45.72,186,199,spešl_29er,190
+2015,11,8,ride,"Karany-Kostelec-Klecany (po 14ti dnech na kole - chřipkoangína od ""kamarádky"" :)",0,13110,75092,22.2,49.32,430,204,spešl_29er,594
+2015,11,16,ride,Slavonice - terénní s hasičárnama CZE/AUS,0,10496,42485,16.43,53.64,689,174,spešl_29er,387
+2015,11,17,ride,Technickokořenovocyklokrosová: Slavonice - Grázl - bizoni - úzkokolejka - Vajgar,0,12782,47453,14.32,39.96,694,145,spešl_29er,414
+2015,11,21,ride,Boženka po 2 měsících v lázních: ),0,2958,17072,21.35,46.8,137,211,spešl_29er,145
+2015,11,28,ride,OK - Rez - Unetice - Stromovka - lodenice,0,8153,48570,22.02,47.16,402,217,spešl_29er,412
+2015,11,28,ride,Sunny & Icy,0,601516,53090,20.53,43.2,515,199,spešl_29er,444
+2015,12,2,run,Running Wednesday w/ Mašina,0,3596,10584,10.59,18.72,149,0,asics_ds_trainer_20,0
+2015,12,6,run,Výklus s čtvrtkou vánočky + Mikukros pirát  ,0,2058,6777,11.85,20.16,104,0,nike_vomero_2+,0
+2015,12,7,ride,Morning Ride,0,5086,26036,19.27,35.64,195,100,,117
+2015,12,7,ride,Evening Ride,0,3856,21602,21.09,36,165,119,,105
+2015,12,9,run,Running Wednesday w/ Mašina,0,3354,10594,11.37,18.36,149,0,asics_ds_trainer_20,0
+2015,12,12,run,Easy Detox,0,3103,9846,11.42,15.48,140,0,nike_vomero_2+,0
+2015,12,13,ride,Vyvětrat a dom...,0,5358,31647,21.33,51.12,278,208,spešl_29er,266
+2015,12,17,run,"Running Wednesday @ Thursday (87.5kg, TEMPO)",0,3367,11447,12.4,19.8,152,0,asics_ds_trainer_20,0
+2015,12,20,ride,OK - Uholicky - Libcice - Klecany,0,9159,52753,21.18,45,474,203,spešl_29er,435
+2015,12,21,run,Okolo Ď a Č ,0,3237,10115,11.31,18.72,135,0,nike_vomero_2+,0
+2015,12,22,ride,Boženka má natočeno 10k (10.000km/21d5h26'/85.921m),0,14230,72271,19.68,43.2,416,167,spešl_29er,530
+2015,12,25,run,Pro osvěžení ,0,2049,6350,11.16,14.76,64,0,nike_vomero_2+,0
+2015,12,28,ride,Okolo 1/2 Prahy podle Radek Brunner,0,10989,55682,19.23,42.84,629,196,spešl_29er,490
+2015,12,29,run,Cukroví + vánočky = +5kg !@#$&*,0,3229,10219,11.39,17.64,138,0,nike_vomero_2+,0
+2016,1,4,run,... po sněhu s vločkou na nose (90kg),0,3637,11302,11.42,16.2,152,0,mizuno_wave_rider_18_black/green,0
+2016,1,6,run,Running Wednesday w/ Mašina,0,3571,10646,10.73,16.92,149,0,asics_ds_trainer_20,0
+2016,1,13,run,Running Wednesday w/ Mašina,0,3148,9872,11.32,19.8,148,0,asics_ds_trainer_20,0
+2016,1,15,run,Mind relaxation,0,3120,10126,11.69,17.28,148,0,nike_vomero_2+,0
+2016,1,16,run,Drahaň - útulek - LDN ,0,5168,16146,11.26,18,216,0,nike_vomero_2+,0
+2016,1,19,run,Okolo K - sníh a led a azuro :),0,3752,11445,11.21,16.92,151,0,asics_ds_trainer_20,0
+2016,1,21,run,Running Wednesday @ Thursday w/ Masina,0,3666,10655,10.49,18.36,149,0,asics_ds_trainer_20,0
+2016,1,26,run,Čištění hlavy... in the dark :),0,5508,16063,10.76,25.2,193,0,asics_ds_trainer_20,0
+2016,2,3,run,Running Wednesday w/ Masina,0,3418,10483,11.04,18.36,148,0,asics_ds_trainer_20,0
+2016,2,8,run,Running Monday w/ Stefan,0,3734,10604,10.22,16.2,150,0,mizuno_wave_rider_18_black/green,0
+2016,2,10,run,Running w/ Masina&Stefan,0,3465,10578,10.99,19.08,151,0,mizuno_wave_rider_15_blue/gray,0
+2016,2,22,run,Running Monday w/ Stefan,0,3550,10584,10.74,17.64,149,0,mizuno_wave_rider_18_black/green,0
+2016,3,9,alpineski,Morning Activity,0,514,3459,27.25,64.08,97,0,,0
+2016,3,26,ride,Pre-season bike check ,0,5254,27188,19.79,40.68,191,176,spešl_29er,208
+2016,3,28,ride,Propustka s jarní sprchou :),0,4268,23151,21.53,46.8,228,215,spešl_29er,199
+2016,3,29,ride,Morning Ride,1,4108,22964,21.93,41.76,141,204,spešl_29er,184
+2016,3,29,ride,Evening Ride,1,4352,23728,19.98,40.68,166,186,spešl_29er,190
+2016,4,2,ride,Brunnerovo 1/2 okolo Prahy v mrazivém slunečném ránu,0,14046,68705,18.28,41.76,730,173,spešl_29er,560
+2016,4,4,ride,Morning Ride,0,3665,23546,23.97,43.92,149,134,,113
+2016,4,4,ride,Afternoon Ride,0,4032,23236,21.31,44.28,166,114,,107
+2016,4,5,ride,Morning Ride,0,3948,23600,23.16,42.84,149,127,,111
+2016,4,7,run,Running Thursday w/ Masina,0,3578,10610,10.67,23.4,150,0,mizuno_wave_rider_18_black/green,0
+2016,4,7,ride,Evening Ride,0,3962,20024,18.77,41.4,216,110,,101
+2016,4,12,ride,OK > Helča > Delta,1,5589,30245,19.9,40.68,233,180,spešl_29er,236
+2016,4,23,ride,OK - Klec - Libcice - Unetice - Suchdol - Sarka - kanal,0,9424,53011,20.72,50.04,513,204,spešl_29er,449
+2016,5,1,ride,Kbely - Myškovice - Ctěnice (vyjetí),0,6763,35929,20.75,35.28,138,170,spešl_29er,253
+2016,5,6,ride,"Summer config: pláště, destičky, řetěz > Alza test",0,3540,22900,23.29,0,0,0,spešl_29er,0
+2016,5,7,ride,Krátká propustka,0,6889,41504,22.71,56.88,335,220,spešl_29er,346
+2016,5,10,ride,... a včera tak pěkně foukalo :),1,3710,23628,25.36,48.96,148,264,spešl_29er,211
+2016,5,17,run,Eeeasy jog,0,2774,8341,10.84,15.84,75,0,nike_vomero_2+,0
+2016,5,18,run,San Antonio farewell ,0,1391,4260,11.03,14.04,48,0,nike_vomero_9+_texas,0
+2016,5,19,run,Austin bat sightseeing run,0,3215,10391,11.73,21.96,0,0,nike_vomero_9+_texas,0
+2016,5,20,run,Austin W Colorado farewell ,0,2693,8107,11.4,46.8,0,0,nike_vomero_9+_texas,0
+2016,6,4,ride,Větrné rozjíždějí ,0,6541,41504,23.32,58.68,346,237,spešl_29er,363
+2016,6,5,run,Morning Run,0,3294,9988,10.94,15.48,162,0,nike_vomero_2+,0
+2016,6,7,ride,Morning Ride,1,3700,22323,23.94,47.88,139,254,spešl_29er,204
+2016,6,7,ride,Evening Ride,1,3863,23253,22.77,43.56,163,231,spešl_29er,203
+2016,6,11,ride,Miskovice,0,5520,35781,23.61,37.44,141,213,spešl_29er,278
+2016,6,11,ride,Morning Ride,1,947022,22788,26.14,37.08,174,233,spešl_29er,175
+2016,6,12,run,TV 10k REW,0,3282,10268,11.26,19.8,161,0,nike_vomero_2+,0
+2016,6,14,ride,"Ráno mi to jelo skvěle... jen jsem si nezapnul hodinky, tak aspoň cesta zpět...",1,3598,23270,23.7,45,162,245,spešl_29er,207
+2016,6,15,ride,Bohdalecky chodnik roundtrip,1,3545,20200,22.06,38.88,129,214,spešl_29er,168
+2016,6,16,ride,Evening Ride,1,4358,25952,22.06,42.84,182,216,spešl_29er,218
+2016,6,23,ride,Afternoon Ride,1,4062,26115,23.62,43.56,179,241,spešl_29er,229
+2016,6,28,ride,Morning Ride,0,3418,19501,22.13,40.32,193,140,,106
+2016,6,28,ride,Evening Ride,0,3833,24108,23.27,45,163,133,,118
+2016,6,29,ride,Morning Ride,0,3735,22853,22.69,41.76,148,126,,109
+2016,6,29,ride,Afternoon Ride,0,4090,24535,22.02,44.64,164,122,,117
+2016,7,2,ride,Na pohodu do myčky ,0,3570,15824,22.4,94.32,158,212,spešl_29er,129
+2016,7,3,ride,"Letos tady na to nemám, no :-B",0,3743,22962,22.76,58.32,522,282,spešl_29er,244
+2016,7,4,ride,Jen pro KPZ na přechod Kerkonoš,0,6521,29793,20.08,52.2,708,266,spešl_29er,339
+2016,7,5,hike,Přechod Kerkonoš s Mikym a Kubou: Malá Úpa (Spálený mlýn) - Sněžka - Luční 1/3,0,24826,16076,3.62,5.76,994,0,asics_ds_trainer_20,0
+2016,7,6,hike,Přechod Kerkonoš s Mikym a Kubou: Luční - Martinovka 2/3,0,26247,14314,3.82,34.56,295,0,asics_ds_trainer_20,0
+2016,7,7,hike,Přechod Kerkonoš s Mikym a Kubou: Martinovka - Medvědí koleno - Špindl 3/3,0,10382,5247,4.34,9,0,0,asics_ds_trainer_20,0
+2016,7,8,ride,Benecko - Mísečky - Vrbatka,0,11947,55608,20.56,59.4,1440,273,spešl_29er,637
+2016,7,17,ride,Západní vítr je krutý... když se vracím zrovna z prázdnin @-Z,0,24913,137592,22.49,44.64,428,199,spešl_29er,1050
+2016,7,19,ride,Morning Ride,1,3478,19213,22.23,38.88,193,248,spešl_29er,184
+2016,7,19,ride,Delta - Helca - TV,1,6082,33585,20.24,37.8,271,203,spešl_29er,290
+2016,7,20,ride,Defekt - chce to dvě duše a lepení...,1,4554,19308,20.99,43.2,174,227,spešl_29er,179
+2016,7,20,ride,Zbraslav řízek,1,9925,48590,20.79,50.76,326,209,spešl_29er,420
+2016,7,23,ride,TV - Skupice V. ,0,21942,136526,24.4,41.4,432,230,spešl_29er,1108
+2016,7,25,ride,TV - Helca - Delta,1,6396,35404,21.37,38.88,248,207,spešl_29er,295
+2016,7,25,ride,Evening Ride,1,4307,24277,21.2,42.12,176,215,spešl_29er,212
+2016,7,26,ride,Lukášovo standardka - dobrý :),1,5419,33111,22.85,42.48,186,111,,139
+2016,7,27,ride,Morning Ride,1,3977,24186,22.26,39.24,124,217,spešl_29er,203
+2016,7,28,ride,Výletní propojování Lukáš + Helča,1,6465,35938,20.49,38.16,247,196,spešl_29er,296
+2016,7,31,ride,Skupice - TV VI. ... pískobahnopromoklá ,0,22743,137493,24.03,54.36,400,223,spešl_29er,1100
+2016,8,2,ride,Morning Ride,0,3716,19355,21.02,38.88,194,139,,110
+2016,8,2,ride,Evening Ride + panelka i.,1,4733,26660,20.35,36.72,186,197,spešl_29er,222
+2016,8,3,ride,Morning Ride,1,4083,19239,19.78,51.84,193,204,spešl_29er,171
+2016,8,4,ride,Evening Ride L+H,1,6265,36042,20.94,42.48,257,203,spešl_29er,300
+2016,8,22,ride,Morning Ride,0,4374,28683,25.64,47.16,154,273,spešl_29er,262
+2016,8,22,ride,Evening Ride,0,4051,22065,20.73,43.2,192,215,spešl_29er,197
+2016,8,23,ride,Morning Ride,0,3653,19283,21.65,44.28,194,235,spešl_29er,180
+2016,8,23,ride,Evening Ride,0,4495,26174,21.75,43.2,181,224,spešl_29er,232
+2016,8,25,ride,Morning Ride,0,3585,19827,22.41,44.64,196,247,spešl_29er,188
+2016,8,25,ride,Evening Ride L+H,1,6094,36248,21.63,43.92,271,213,spešl_29er,307
+2016,8,26,run,Lunch Run,0,2339,6581,10.21,16.92,99,0,asics_ds_trainer_20,0
+2016,8,30,ride,Morning Ride,0,3776,20063,21.47,43.56,216,237,spešl_29er,191
+2016,9,1,ride,Evening Ride,1,4456,24457,21.23,41.4,164,213,spešl_29er,211
+2016,9,3,ride,Míša 1 rok >,0,4323,25012,21.45,35.28,225,218,spešl_29er,219
+2016,9,3,ride,Míša 1 rok <,0,7656,25589,21.62,39.6,199,207,spešl_29er,211
+2016,9,4,run,Morning Run,0,3527,10171,10.54,18.72,170,0,nike_vomero_2+,0
+2016,9,7,run,Running Wednesday w/ Stefan&Masina,0,3740,9728,9.52,16.2,150,0,nike_vomero_9+_texas,0
+2016,9,9,ride,Drazkovice >,0,1172,7352,22.88,43.92,47,232,spešl_29er,64
+2016,9,9,ride,< Drazkovice,0,27758,7914,24.97,37.44,28,227,spešl_29er,62
+2016,9,11,ride,Výlet,0,6689,38025,20.82,50.76,454,231,spešl_29er,363
+2016,9,18,ride,Smrkový singltrek s Alexem,0,16204,47147,13.02,36,949,164,spešl_29er,512
+2016,9,22,ride,Sportovní den Brdy na 2.1,0,40527,135825,18.77,48.6,1348,191,spešl_29er,1192
+2016,9,25,ride,Výlet  (41k - neodPAUSEováno),0,7997,37321,21.32,102.6,484,204,spešl_29er,308
+2016,10,1,ride,Kralupy vrchem,0,10676,58956,20.39,46.8,597,208,spešl_29er,519
+2016,10,2,ride,Klíčanský singltrek,0,6914,33520,18.86,50.4,383,182,spešl_29er,279
+2016,10,10,ride,Plavec bez neoprenu u Vysehradu :),0,3964,20306,20.54,43.92,195,212,spešl_29er,180
+2016,10,14,ride,S větrem v zádech @ 2.1,0,3864,22711,22.1,40.32,171,238,spešl_29er,210
+2016,10,16,ride,OK check,0,3718,19368,20,41.04,183,217,spešl_29er,181
+2016,10,22,ride,Mokré Kárané - Kostelec - Klecany,0,13365,74888,21.36,38.52,393,194,spešl_29er,588
+2016,10,26,ride,Morning Ride,1,4375,24577,21.96,42.48,196,231,spešl_29er,223
+2016,10,27,ride,Lunch Ride,1,6387,26782,21.61,46.44,198,213,spešl_29er,228
+2016,10,31,ride,Morning Ride,0,3747,19221,19.88,38.16,193,210,spešl_29er,175
+2016,10,31,ride,Evening Ride,0,4786,24773,19.89,38.16,174,195,spešl_29er,209
+2016,11,5,ride,Kralupy vrchem,0,8277,46018,20.76,43.2,384,211,spešl_29er,402
+2016,11,6,run,Morning Run,0,3426,10199,10.73,15.84,191,0,asics_ds_trainer_20,0
+2016,11,13,run,Morning Run,0,2909,9119,11.29,15.12,129,0,asics_ds_trainer_20,0
+2017,1,9,run,Running Monday w/ Stefan ,0,3519,10064,10.3,18.72,137,0,nike_vomero_9+_texas,0
+2017,1,11,run,Running Wednesday w/ Stefan,0,3616,9950,10.33,21.96,134,0,nike_vomero_9+_texas,0
+2017,2,3,run,Friday w/ Stefan,0,3694,10456,10.3,24.84,211,0,nike_vomero_9+_texas,0
+2017,2,5,alpineski,Kněžičák s Kubou,0,6472,20454,14.64,68.76,1432,0,,0
+2017,2,6,alpineski,Kněžičák s Kubíkem a Mikym,0,10935,30399,14.18,49.32,2148,0,,0
+2017,2,7,alpineski,Černohora s Kubou a Mikym,0,15926,41752,16.02,57.96,4271,0,,0
+2017,2,8,ride,"Kněžičák s dědou a MK (~25k, S3 died)",0,2157,11968,21.17,59.4,760,432,spešl_29er,210
+2017,2,9,alpineski,Medvědín s Emmou a MK,0,17132,30210,16.46,54,3028,0,,0
+2017,2,10,ride,Afternoon Ride,0,971,4581,18.32,49.68,541,570,spešl_29er,122
+2017,2,10,alpineski,Rokytnice s MK (7x Lysá - S3 died :-Z),0,1963,5815,14.32,43.2,581,0,,0
+2017,2,11,alpineski,"Kněžičák s MK (~27k, S3 died - je to s***)",0,7240,17978,14.14,55.8,1244,0,,0
+2017,2,14,run,Delta > TV,1,4934,13422,9.89,31.32,215,0,nike_vomero_9+_texas,0
+2017,2,16,run,Delta > TV (<aut~km),1,5205,13240,9.53,21.96,214,0,nike_vomero_9+_texas,0
+2017,2,18,ride,TV - Kralupy (41k),0,8479,37555,33.32,140.76,252,207,spešl_29er,201
+2017,2,19,run,Okolo Ď - krásné počasí ,0,3431,10024,10.54,20.52,177,0,nike_vomero_9+_texas,0
+2017,2,21,run,Škola > Delta (15.3k),1,4764,13081,10.52,23.04,186,0,nike_vomero_9+_texas,0
+2017,2,25,alpineski,Černohora s MK,0,14667,39188,17.12,61.56,3980,0,,0
+2017,2,26,run,TV > Drahaň > Vinice UP,0,4560,13859,10.95,41.4,166,0,nike_vomero_9+_texas,0
+2017,2,28,run,Škola - Delta,1,5416,14977,10.41,19.08,182,0,nike_vomero_9+_texas,0
+2017,3,2,run,Delta > TV,1,4769,13200,9.96,0,0,0,nike_vomero_9+_texas,0
+2017,3,3,run,Krátký TV > útulek >botanická UP,0,2532,6934,9.86,15.84,112,0,nike_vomero_9+_texas,0
+2017,3,4,alpineski,Černohora w/ MK & Tom/Niky,0,15707,38178,15.27,55.8,3650,0,,0
+2017,3,5,run,LSD HM slimming: skládka > vinice UP,0,6948,21409,11.09,16.2,267,0,nike_vomero_9+_texas,0
+2017,3,8,run,TV > Delta,1,4690,13097,10.61,24.84,184,0,nike_vomero_9+_texas,0
+2017,3,9,run,Delta > TV,1,4944,13009,10.12,19.08,221,0,nike_vomero_9+_texas,0
+2017,3,10,run,TV > palisáda > útulek > botanická UP,0,3424,10396,10.93,16.56,239,0,nike_vomero_9+_texas,0
+2017,3,11,nordicski,Kluci poprvé na běžkách ,0,6444,5497,4.5,23.76,78,0,,0
+2017,3,12,alpineski,Černohora s Marí,0,8316,24370,15.31,62.64,2329,0,,0
+2017,3,18,nordicski,Miky vrací běžky,0,3851,3561,4.01,16.92,52,0,,0
+2017,3,19,run,Vyklusání služebky,0,3436,11224,11.76,15.84,25,0,nike_vomero_9+_texas,0
+2017,3,21,run,Škola - Delta w/ návštěva Johnnyho,1,5717,15003,10.8,35.28,187,0,nike_vomero_9+_texas,0
+2017,3,23,run,Delta > TV,0,4560,12933,10.7,21.6,222,0,nike_vomero_9+_texas,0
+2017,3,25,run,LSD HM skládka > přívoz > vinice,0,7485,22291,11.5,16.2,264,0,nike_vomero_9+_texas,0
+2017,3,26,ride,Brdy s Alexem,0,23955,89076,17.78,44.64,794,177,spešl_29er,764
+2017,3,28,run,Škola > Delta,1,5225,15098,10.81,25.92,186,0,nike_vomero_9+_texas,0
+2017,3,31,run,Stále LSD: Drahaň  > vinice UP,0,4526,14192,11.34,16.2,171,0,nike_vomero_9+_texas,0
+2017,4,2,ride,Skládka - Kralupy - Libčice }},0,8274,50323,21.95,48.24,437,223,spešl_29er,440
+2017,4,14,run,Po nemoci po větru,0,3999,13055,11.78,17.64,113,0,nike_vomero_9+_texas,0
+2017,4,15,run,"Obrátková hráz Svídnice (rovinka, +9kg)",0,5724,18925,12.13,17.28,126,0,nike_vomero_9+_texas,0
+2017,4,16,run,Slunečná a větrná Bára na pohodu,0,3546,10708,11,18,113,0,nike_vomero_9+_texas,0
+2017,4,18,run,Škola > Delta,1,4975,15050,11.33,23.4,187,0,nike_vomero_9+_texas,0
+2017,4,19,run,Running Wednesday w/ Stefan,0,3296,10011,11.03,17.64,136,0,nike_vomero_9+_texas,0
+2017,4,20,run,Delta > TV,0,4594,12955,10.77,28.08,207,0,nike_vomero_9+_texas,0
+2017,4,23,run,HM FTLK: lávka - útulek (proťák) - Klecánky UP - Zdiby - skládka (+8kg sádla),0,7221,22462,11.37,19.44,243,0,nike_vomero_9+_texas,0
+2017,4,25,run,TV > Delta,1,4598,12972,10.73,23.76,176,0,nike_vomero_9+_texas,0
+2017,4,30,ride,Jen servis...,0,1874,8900,17.36,46.08,157,186,spešl_29er,82
+2017,5,1,run,Detox,0,3029,9518,11.4,18.36,147,0,nike_vomero_9+_texas,0
+2017,5,6,run,Vinice DOWN - Drahaň UP (+9kg),0,4352,14410,12,22.68,183,0,nike_vomero_9+_texas,0
+2017,5,7,ride,Kuba testuje nové kolo,0,3600,17000,17,0,50,0,spešl_29er,0
+2017,5,8,run,LSD: Březiněves - Klíčany - Klecánky - lávka (+9kg ... a stejně furt žeru :-(,0,10481,32929,11.41,16.2,272,0,nike_vomero_9+_texas,0
+2017,5,12,run,Stonehenge > Jouders > utulek > botanicka UP,0,3215,10489,11.75,18,239,0,nike_vomero_9+_texas,0
+2017,5,13,ride,Lávka > malé letiště > Kbelský park > velké letiště s Kubou,0,3600,17000,17,0,0,0,spešl_29er,0
+2017,5,20,ride,Po nemoci a po letním servisu s vypnutou GPS (30k),0,5354,16620,26.24,201.6,252,214,spešl_29er,116
+2017,5,21,run,Na pohodu v rámci rekonvalescence :-),0,3186,10180,11.72,16.2,149,0,nike_vomero_9+_texas,0
+2017,5,21,ride,S klukama na kole ,0,3600,12400,12.4,0,0,0,spešl_29er,0
+2017,5,22,ride,TV - Delta,1,3372,19383,22.28,41.76,234,255,spešl_29er,191
+2017,5,22,ride,Delta > TV,1,4211,24579,21.52,40.68,182,232,spešl_29er,228
+2017,5,23,ride,Škola - Delta,1,4299,24369,23.15,45.36,162,243,spešl_29er,220
+2017,5,23,ride,Delta - TV,1,4669,26151,20.84,44.28,197,223,spešl_29er,240
+2017,5,26,run,Slunečný výlet po dlouhém coding flow,0,3418,10621,11.19,17.28,281,0,nike_vomero_9+_texas,0
+2017,5,27,run,"TEMPO 20k (+7kg, setrim lachyl > bez final stojky)",0,5803,20225,12.56,18.36,192,0,nike_vomero_9+_texas,0
+2017,5,28,ride,Easy KKK - na kole nic nebolí (45psi),0,12335,73343,22.38,57.6,616,213,spešl_29er,600
+2017,5,31,ride,TV > Delta,1,3600,20000,20,0,150,0,spešl_29er,0
+2017,6,1,ride,Delta > Helca > Podvinni > TV,1,6360,37000,20.94,0,0,0,spešl_29er,0
+2017,6,2,run,Okolo Ď a Č,0,3141,10112,11.63,16.56,155,0,nike_vomero_9+_texas,0
+2017,6,3,ride,Klíčanský & Pakoměřický singltrek REV (krátká propustka),0,5832,33540,21.82,53.64,418,217,spešl_29er,287
+2017,6,3,hike,Milešovka s klukama,0,7222,4473,3.35,11.88,383,0,asics_ds_trainer_20,0
+2017,6,5,ride,TV > Slavie > Delta,1,5387,27217,20.19,42.84,328,212,spešl_29er,246
+2017,6,5,ride,Delta - TV,1,4406,26121,21.51,43.92,286,230,spešl_29er,240
+2017,6,6,workout,Malej updownriver C2 a SkiErg w/ Štefan,0,2400,9000,13.5,0,0,0,,0
+2017,6,7,ride,TV > Delta,1,4505,22171,21.35,37.44,332,235,spešl_29er,210
+2017,6,7,ride,TV > Delta,1,4193,24614,21.82,42.12,273,236,spešl_29er,229
+2017,6,9,run,Ď a Č s pádem @#$! SUNNY :-),0,3243,10132,11.48,15.48,156,0,nike_vomero_9+_texas,0
+2017,6,10,run,EASY slunečné probuzení ,0,4641,14271,11.22,37.08,210,0,nike_vomero_9+_texas,0
+2017,6,11,ride,TV - Okoř -xc- Kralupy - Řež,0,11779,60917,20.01,48.6,755,199,spešl_29er,522
+2017,6,13,run,Škola - TV,1,4932,14937,11.43,23.76,243,0,nike_vomero_9+_texas,0
+2017,6,14,ride,TV > Delta,1,3600,20000,20,0,120,0,spešl_29er,0
+2017,6,14,ride,Delta - Tom Dumoulin ~ TV :-),1,4752,25699,20.65,41.04,290,218,spešl_29er,233
+2017,6,15,run,Delta - Jarov - Palmovka - Stromovka (piknik),1,6340,18642,11.13,23.4,202,0,nike_vomero_9+_texas,0
+2017,6,18,ride,Skupice > TV VII.,0,22878,136850,23.71,51.84,770,0,spešl_29er,0
+2017,6,20,ride,Škola - Delta,1,4227,24436,22.78,43.56,290,238,spešl_29er,220
+2017,6,20,ride,Delta - TV,1,4231,24553,21.36,51.12,277,235,spešl_29er,233
+2017,6,23,run,Okolo Č a Ď (88kg/+8),0,2827,10102,12.86,19.44,156,0,nike_vomero_9+_texas,0
+2017,6,24,ride,TV - Šárka - (Eva ~~) - Ouholičky - Libčice - Řež,0,9177,51785,20.48,50.4,677,206,spešl_29er,448
+2017,6,24,hike,Výlet Mmk Komáří vížka,0,11296,9814,3.79,7.2,112,0,asics_ds_trainer_20,0
+2017,6,25,run,Kubík běží r+ABC,0,2104,2894,8.75,28.8,101,0,nike_vomero_9+_texas,0
+2017,6,26,run,Running Monday w/ Stefan,0,3538,10003,10.18,21.96,170,0,mizuno_wave_rider_18_black/green,0
+2017,6,27,ride,Morning Ride,0,3698,20026,21.57,43.56,307,249,spešl_29er,199
+2017,6,28,ride,Rychle domů,1,3580,19153,19.68,37.8,289,224,spešl_29er,187
+2017,6,30,ride,Krátká opalovačka před dofčou & detox,0,2047,10518,18.83,60.12,170,199,spešl_29er,95
+2017,7,2,hike,České Švýcarsko s klukama,0,23849,18318,3.87,12.6,725,0,nike_vomero_9+_texas,0
+2017,7,3,hike,Saské Švýcarsko s klukama,0,14296,9889,3.67,9,528,0,nike_vomero_9+_texas,0
+2017,7,5,ride,At the backyard b4 karboše od maminky :-),0,3846,22878,22.24,60.84,476,285,spešl_29er,252
+2017,7,7,ride,Když tě Krakonoš nepustí na Zlaťák... a eště ti dá přes držku :-),0,9796,42144,17.47,63,1227,241,spešl_29er,502
+2017,7,10,ride,Rezek - Vidlice - Vítkovice,0,5436,31519,21.56,52.92,716,272,spešl_29er,342
+2017,7,11,hike,Přechod Krkonoš 1/3 s MK: Harrachov - Martinovka,0,19640,14479,3.66,11.52,753,0,nike_vomero_9+_texas,0
+2017,7,12,hike,Přechod Krkonoš 2/3 s MK: Martinovka - Luční,0,16488,13088,3.59,6.84,524,0,nike_vomero_9+_texas,0
+2017,7,13,hike,Přechod Krkonoš 3/3 s MK: Luční - Sněžka - Pec,0,11534,9647,3.48,10.08,266,0,nike_vomero_9+_texas,0
+2017,7,16,ride,Skupice > TV VIII. z prázdnin,0,24936,137444,23.16,48.6,781,0,spešl_29er,0
+2017,7,19,run,Krčák detox,0,3274,10000,10.99,0,171,0,mizuno_wave_rider_18_black/green,0
+2017,7,20,ride,Delta - TV,1,3729,20393,21.06,40.68,326,235,spešl_29er,196
+2017,7,21,ride,Delta - Helca - TV,1,6213,34360,20.49,55.08,436,211,spešl_29er,305
+2017,7,23,run,Skupice - Pohled,0,3309,10403,11.32,15.12,213,0,nike_vomero_9+_texas,0
+2017,7,25,ride,Morning Ride,0,4706,28315,22.88,43.92,358,239,spešl_29er,255
+2017,7,25,run,Running Tuesday w/ Stefan,0,3201,10036,11.29,19.08,165,0,nike_vomero_9+_texas,0
+2017,7,25,ride,Evening Ride,0,6124,34390,21.01,50.04,431,215,spešl_29er,303
+2017,7,27,run,Teeth extraction Thursday w/ Zubař :) 88kg,0,2971,10020,12.14,18.36,165,0,nike_vomero_9+_texas,0
+2017,7,28,ride,OK check,0,3400,11626,18.55,53.64,192,203,spešl_29er,109
+2017,7,28,ride,[rbx] První rande s Rubéčkem... z kopce zatím krokem :-),0,2439,14773,23.61,41.4,187,146,rubéčko,78
+2017,7,29,run,Skupice > Heřmaňák ... paráda :-),0,5833,17122,11.26,17.28,428,0,nike_vomero_9+_texas,0
+2017,7,30,ride,Skupice > TV IX. HOT,0,25259,137260,23.08,49.68,776,0,spešl_29er,0
+2017,8,4,run,Knee check :),0,1032,3220,11.3,15.84,103,0,nike_vomero_9+_texas,0
+2017,8,5,run,1/3: Harrachov - Vosecká - Sněžné jámy - Špindlerovka - Luční w/ Štefan (88kg/4kg batoh),0,19265,26487,6.69,16.56,1236,0,nike_vomero_9+_texas,0
+2017,8,6,run,2/3: Luční - Sněžka - Pec - Černá h. - Liška - Výrovka w/ Štefan (88kg/4kg batoh),0,19772,27930,7.17,14.4,1179,0,nike_vomero_9+_texas,0
+2017,8,6,run,3/3: Výrovka - Špindl - Mísečky - Dvoračky - Čertova h. - Harrachov w/ Štefan (88kg/4kg batoh),0,81947,25721,7.93,17.28,864,0,nike_vomero_9+_texas,0
+2017,8,8,ride,[rbx] Silnička & protažení nohou,0,3153,19717,22.51,43.92,324,154,rubéčko,116
+2017,8,9,run,Running Wednesday w/ Štefan,0,3280,10010,10.99,18.36,162,0,nike_vomero_9+_texas,0
+2017,8,9,ride,"Check po DIY výměně středu, destiček, řetězu a košíku",0,3564,15940,17.23,43.2,258,178,spešl_29er,142
+2017,8,10,ride,Morning Ride,0,3832,20274,20.57,41.4,325,238,spešl_29er,202
+2017,8,10,ride,Evening Ride,0,5556,27285,19.84,40.32,337,204,spešl_29er,241
+2017,8,12,run,Červenohorské sedlo - Praděd - Dlouhé stráně - Červ. sedlo (87kg),0,16811,38118,8.6,18,1497,0,nike_vomero_9+_texas,0
+2017,8,14,ride,Morning Ride,0,4094,20357,19.77,41.04,329,225,spešl_29er,199
+2017,8,14,ride,Evening Ride,0,5091,27531,19.97,41.4,318,202,spešl_29er,239
+2017,8,15,ride,TV > Delta w/ JirkaK,1,5002,29548,21.82,41.4,394,237,spešl_29er,276
+2017,8,15,ride,"1/2 s JirkouK - makal tak, že přetrhl řetěz :-)",1,1139,5835,19.53,36.36,92,218,spešl_29er,56
+2017,8,15,ride,2/2 s JirkouK po opravě,1,4835,28604,21.8,44.28,340,228,spešl_29er,258
+2017,8,16,run,Regen @ heavy rain,0,3479,10443,11.25,19.8,188,0,nike_vomero_9+_texas,0
+2017,8,17,run,Running Thursday REW w/ Stefan,0,3703,10048,11.29,20.52,170,0,mizuno_wave_rider_18_black/green,0
+2017,8,18,ride,[rbx] Poprvé trochu jistější,0,2756,17152,24.5,46.08,231,166,rubéčko,100
+2017,8,19,ride,[rbx],0,1167,6042,18.64,46.08,193,275,spešl_29er,76
+2017,8,20,run,Do zatáčky nad pilou,0,3761,8867,9.76,12.96,297,0,nike_vomero_9+_texas,0
+2017,8,22,ride,Morning Ride,0,3793,20206,20.15,38.16,324,228,spešl_29er,197
+2017,8,22,ride,Parádní baboletní commute :),1,5099,29625,21.11,41.4,329,215,spešl_29er,259
+2017,8,31,run,Running Thursday w/ Stefan,0,3654,10051,11.46,16.56,165,0,nike_vomero_9+_texas,0
+2017,9,2,ride,[rbx] slunečné ráno po dešti... jede to :-D,0,4678,31846,24.92,57.24,443,166,rubéčko,183
+2017,9,3,ride,[rbx] po mokrym se dolu bojim...,0,7227,52605,27.12,46.44,470,170,rubéčko,283
+2017,9,4,ride,Morning Ride,0,3976,19260,21.08,41.04,302,235,spešl_29er,185
+2017,9,5,ride,Cassette spacer out + domluvení servisu,0,1523,4444,16.68,36.72,50,165,spešl_29er,37
+2017,9,5,ride,Dead freeHub :-(,1,4530,26114,20.83,44.28,289,216,spešl_29er,233
+2017,9,6,run,"Delta > TV (real avg ~5:17, Stromovka v rekonstrukci)",1,4719,13292,11.94,36,260,0,asics_ds_trainer_20,0
+2017,9,7,run,Running Thursday w/ Stefan,0,3703,11020,10.71,20.16,187,0,asics_ds_trainer_20,0
+2017,9,8,ride,[rbx] 8-) prototyp & stěna vinice vyjetá,0,4090,27840,25.87,50.4,372,169,rubéčko,157
+2017,9,8,run,Kuba 2 Joudrs <>,0,513,1699,11.93,16.92,30,0,nike_vomero_9+_texas,0
+2017,9,9,ride,[rbx] Tour de Madame Gasket I.,0,7850,53833,24.82,70.56,637,158,rubéčko,295
+2017,9,10,run,Helča - lávka (HM for Strava),0,6287,21508,12.39,16.2,130,0,nike_vomero_9+_texas,0
+2017,9,11,ride,TV > Delta,1,4336,21888,21.63,39.24,325,233,spešl_29er,203
+2017,9,11,ride,Delta > TV,1,4497,24579,21.45,43.92,265,225,spešl_29er,222
+2017,9,12,ride,Škola - Delta... dobrý nohy :-),0,3888,24483,23.75,45.72,290,250,spešl_29er,222
+2017,9,12,ride,Delta - TV (zapomenutá GPS korekce),1,2700,18200,24.27,0,600,0,spešl_29er,0
+2017,9,12,ride,Delta > TV (zapomenutá GPS),1,2793,16893,22.17,40.68,264,254,spešl_29er,166
+2017,9,14,run,Running Thursday w/ Stefan,0,4031,10052,10.35,15.12,172,0,nike_vomero_9+_texas,0
+2017,9,15,ride,Utazás a kerékpár: Nezider tó,0,15936,38601,15.57,30.6,71,114,spešl_29er,244
+2017,9,16,ride,Utazás a kerékpár: Gyógyfürdő Bük,0,12875,57004,19.3,38.52,325,170,spešl_29er,432
+2017,9,19,run,TV > Delta w/ Štefan,1,4750,13969,10.92,30.24,233,0,nike_vomero_9+_texas,0
+2017,9,20,ride,TV > Delta,1,4057,19259,20.53,39.24,303,225,spešl_29er,181
+2017,9,20,ride,Delta > TV,1,4000,24584,22.41,41.76,264,240,spešl_29er,227
+2017,9,21,run,Delta > TV,0,4284,13252,11.74,18,256,0,nike_vomero_9+_texas,0
+2017,9,22,ride,Morning Ride,0,3848,19977,21.5,45.36,316,238,spešl_29er,190
+2017,9,22,ride,Delta - TV príma baboletní commute,1,4390,25578,22.04,43.56,323,232,spešl_29er,231
+2017,9,23,ride,[rbx] Tour de Madame Gasket II.,0,9536,61158,24.06,52.2,719,144,rubéčko,315
+2017,9,24,ride,[rbx] Silnička je jak návštěva cukrárny :-),0,5014,33617,24.35,44.28,403,150,rubéčko,178
+2017,9,26,run,TV > Delta,1,4775,13607,11.39,35.28,226,0,nike_vomero_9+_texas,0
+2017,9,27,ride,TV > Delta w/ Rýmička,1,3676,19905,20.78,41.76,315,229,spešl_29er,189
+2017,9,27,ride,Delta > TV,0,4497,25575,21.17,43.2,302,222,spešl_29er,230
+2017,9,28,ride,[rbx] Nakrátko před cestou na víkend,0,5031,34518,25.53,50.76,417,150,rubéčko,174
+2017,10,4,ride,TV > Delta ... test road treter po nemoci,1,3730,20297,20.31,43.92,323,230,spešl_29er,197
+2017,10,4,ride,Afternoon Ride,0,4511,27323,22.74,40.32,299,234,spešl_29er,242
+2017,10,5,run,Rozběhnutí po nemoci v krásném podzimním počasí w/ -split :),0,3764,11528,11.55,21.96,144,0,mizuno_wave_rider_18_black/green,0
+2017,10,6,ride,[rbx] Aspoň trochu vyčistit hlavu po práci :-),0,2849,20859,26.74,47.88,224,168,rubéčko,112
+2017,10,7,ride,[rbx] 50k podle Kat 🐢 Secteur (vítr a déšť),0,8389,54686,24.14,45,410,128,rubéčko,250
+2017,10,8,ride,[rbx] Bloudění s rychlou zpátečkou (deadline) vítr,0,10557,68124,24.76,49.32,508,133,rubéčko,316
+2017,10,9,ride,TV > Delta,1,3420,20300,21.37,0,200,0,spešl_29er,0
+2017,10,9,ride,Delta > TV,1,4680,27500,21.15,0,0,0,spešl_29er,0
+2017,10,11,ride,Časovka s wheelsuckerem na zadním kole... a já si nezapnu hodinky :-B,1,2700,15000,20,0,120,0,spešl_29er,0
+2017,10,11,ride,... zbytek a setkání s Edou,1,1573,5184,18.59,32.04,87,215,spešl_29er,51
+2017,10,11,ride,Delta > TV,1,4973,28966,22.44,44.28,319,226,spešl_29er,251
+2017,10,13,ride,Servis před/po víkendu s ježkem... slunce a teplo,0,6214,38964,23.14,48.6,353,129,rubéčko,187
+2017,10,14,ride,Singltrek Smrk w/ Alex & Miran,0,10867,54033,17.9,0,0,0,spešl_29er,0
+2017,10,15,ride,Baboletní podŘíp s Michalem,0,27646,126358,25.52,71.64,1051,142,rubéčko,604
+2017,10,18,ride,Morning Ride,1,3474,19791,21.36,41.04,291,228,spešl_29er,182
+2017,10,19,ride,Přesun kola z práce s reakcí na tetanovku :-/,1,4251,25635,22.31,42.48,312,229,spešl_29er,226
+2017,10,20,ride,Friday's Kralupy dry,0,6172,44176,26.34,54,717,183,rubéčko,264
+2017,10,21,ride,[rbx] Tour de Madame Gasket III.,0,9438,63901,25.11,55.08,728,149,rubéčko,328
+2017,10,22,ride,[rbx] Vždycky to má smysl - i kdyby jen na chvíli :-),0,4053,28540,26.1,51.12,412,175,rubéčko,164
+2017,10,24,ride,TV > kanál Troja > Delta,1,3900,25200,23.26,0,0,0,spešl_29er,0
+2017,10,24,ride,Delta > kanál > Troja,1,3905,25400,23.41,0,0,0,spešl_29er,0
+2017,10,25,ride,TV > Delta,0,4028,23908,22.82,44.64,281,232,spešl_29er,209
+2017,10,25,ride,Delta > TV,1,4136,25566,23.62,41.04,315,251,spešl_29er,233
+2017,10,27,ride,Moc práce & Knob Blinder MOB test,0,1850,10810,21.42,39.24,201,155,rubéčko,67
+2017,10,29,rowing,Nejlepší čas oprášit C2 :-),0,1800,7200,14.4,0,0,0,,0
+2017,10,31,run,Běh není kolo - zatvrdlej jak !@#$ ... strečinku je třeba,0,4389,12957,11.38,28.44,222,0,nike_vomero_9+_texas,0
+2017,11,2,run,Delta > TV,0,4644,12823,10.75,19.44,245,0,nike_vomero_9+_texas,0
+2017,11,3,ride,Friday's Kralupy dry + zimní dres,0,7301,52272,26.51,51.48,750,173,rubéčko,294
+2017,11,4,ride,"1/2 Mělník: defekt > trudomyslnost > klika > paráda, nakonec 108km/4h22'",0,8874,55488,26.91,47.88,277,131,rubéčko,232
+2017,11,4,ride,2/2 Mělník: zpět s poloprázdým předním kolem (začátek s vypnutým loggerem),0,9672,49676,19.69,33.48,340,92,rubéčko,199
+2017,11,5,ride,Tour de Madame Gasket IV.,0,8501,56421,24.48,51.48,801,155,rubéčko,307
+2017,11,11,ride,"Kralupy REV (mokro, vítr, sluníčko) 4^C a jen dres (sucho a teplíčko)",0,8353,53691,24.09,46.44,767,156,rubéčko,299
+2017,11,12,ride,Krátký detox po tahu,0,3942,26325,24.04,51.48,356,148,rubéčko,139
+2017,11,14,run,Running Tuesday w/ Stefan,0,3368,10014,10.71,19.08,166,0,nike_vomero_9+_texas,0
+2017,11,15,run,Running Wednesday w/ Štefan/Chuma/Vorvaň!,0,3116,10145,11.76,24.48,168,0,mizuno_wave_rider_15_blue/gray,0
+2017,11,17,ride,Před cestou na víkend,0,5071,33918,24.8,49.68,401,145,rubéčko,170
+2017,11,18,hike,Procházka s Mmk,0,7596,6115,3.48,6.84,198,0,nike_vomero_9+_texas,0
+2017,11,19,run,Útulek down > vinice up,0,3187,10232,11.56,15.12,252,0,nike_vomero_9+_texas,0
+2017,11,21,run,Delta > most Inteligence > loď a zpět (1kkm),0,5216,16260,11.42,17.64,157,0,mizuno_wave_rider_18_black/green,0
+2017,11,22,ride,[rbx] kanál Račice :),0,19859,125677,25.62,47.16,672,122,rubéčko,517
+2017,11,24,ride,[rbx] rybárna >Klíčany a přetrženej řetěz,0,5702,37794,25.14,50.4,494,159,rubéčko,206
+2017,11,25,run,... proč když běžím točím nohama jak na kole? :-),0,3589,11314,11.36,17.28,149,0,nike_vomero_9+_texas,0
+2017,11,28,run,TV > Delta w/ Stefan,0,4865,13491,11.32,26.64,239,0,nike_vomero_9+_texas,0
+2017,12,2,run,Pořád totálně rozsekanej ze (středečního!) squashe,0,4438,13782,11.25,43.2,158,0,nike_vomero_9+_texas,0
+2017,12,3,ride,Mráz a trocha ledu (dres&svítivá OK),0,3791,19341,18.37,46.08,285,186,spešl_29er,169
+2017,12,4,run,Sněží!  :-) w/ Štefan & Harrmen,0,8767,26352,11.37,15.48,410,0,nike_vomero_9+_texas,0
+2017,12,10,ride,"Slunce, mráz a vítr (dres+svítivá)",0,7042,43364,23.18,44.28,434,125,rubéčko,201
+2017,12,11,run,Lom Klecany w/ Štefan,0,8387,24202,10.92,15.12,319,0,nike_vomero_9+_texas,0
+2017,12,13,nordicski,Mísečky w/ Štefan,0,8913,21039,11.48,58.32,535,0,,0
+2017,12,16,run,"This is the end, hold your breath and count to 2019...",0,3738,11009,11.07,29.16,157,0,nike_vomero_9+_texas,0
+2017,12,17,ride,OK check,0,4242,20559,19.04,46.8,287,198,spešl_29er,183
+2017,12,18,run,Gardening w/ Štefan,0,9810,26398,10.42,28.08,494,0,nike_vomero_9+_texas,0
+2017,12,20,nordicski,Jizerky w/ Štefan,0,15707,40452,11.73,63,788,0,,0
+2017,12,24,ride,Kubově Karkulce pro myš,0,2878,12096,18.33,46.8,177,193,spešl_29er,109
+2017,12,25,ride,Na cukroví a kapří tuky :),0,5265,30298,21.37,51.12,292,217,spešl_29er,265
+2017,12,27,run,CR > Kočičák > Monako,0,3839,11865,11.37,23.04,166,0,nike_vomero_9+_texas,0
+2017,12,28,nordicski,Jizerka s bráchou a Niky,0,10642,25568,11.92,56.16,410,0,,0
+2017,12,29,nordicski,Na běžkách s klukama,0,3116,2849,5.36,22.32,48,0,,0
+2017,12,31,nordicski,Jizerka s Martinem,0,9070,21379,9.58,50.4,327,0,,0
+2018,1,3,run,2018 openning w/ Štefan,0,6599,18713,10.5,25.92,349,0,nike_vomero_9+_texas,0
+2018,1,4,run,"Osportované tělo kontroluje rajón, musím ty sporty střídat",0,3839,10225,10.49,24.48,242,0,nike_vomero_9+_texas,0
+2018,1,6,ride,Tracing cestu pro silnicku pres Trojsky most + HC Uholicky - Rez kolem vody :-/,0,7227,40405,20.34,67.32,506,208,spešl_29er,356
+2018,1,9,ride,Úplně jsem zapomněl jak důležitý je mít čistý kolo...,0,4620,31600,24.62,0,0,0,spešl_29er,0
+2018,1,10,run,Gardening Šárka w/ Štefan,0,5764,16300,10.77,20.52,380,0,nike_vomero_9+_texas,0
+2018,1,14,run,Havranka > Trojsky most > Stromovka,0,3069,10181,11.94,23.4,75,0,nike_vomero_9+_texas,0
+2018,1,15,run,Stromovka > Šárka > Hvězda w/ Štefan,0,11363,30549,10.39,17.64,549,0,nike_vomero_9+_texas,0
+2018,1,17,nordicski,Jizerská 40 II. w/ Štefan,0,17314,40463,9.99,46.44,788,0,,0
+2018,1,20,nordicski,Běžkařské tratě Benecko s Kubíkem,0,9404,9340,4.64,32.04,266,0,,0
+2018,1,21,run,10k TV refresher via Fata Morgana,0,2972,9280,11.34,29.52,160,0,mizuno_wave_rider_18_black/green,0
+2018,1,22,run,Bez parťáka mě to tak neba...,0,5903,20216,12.33,22.68,107,0,mizuno_wave_rider_18_black/green,0
+2018,1,29,run,Stromovka > Letna > Petrin > Hvezda > Sarka w/ Stefan,0,8898,25428,10.86,23.04,484,0,mizuno_wave_rider_18_black/green,0
+2018,1,31,nordicski,Jizerská 40 III.,0,17040,47537,12.2,58.32,868,0,,0
+2018,2,5,run,Zahřát & protáhnout,0,2482,7323,10.62,17.64,49,0,nike_vomero_9+_texas,0
+2018,2,6,ride,Lunch Ride,0,2402,11604,18.8,41.4,171,201,spešl_29er,107
+2018,2,11,nordicski,Jestřábí w/ Kuba & Miky,0,7770,8199,5.09,42.84,203,0,,0
+2018,2,12,nordicski,"Kuba na to už, myslím, přichází :-D",0,8725,11119,6.65,42.84,332,0,,0
+2018,2,13,nordicski,Benecko > Mísečky w/ Kuba&Miky :),0,14065,18145,7,58.32,479,0,,0
+2018,2,14,alpineski,Medvědín s klukama a Emčou,0,18000,19000,3.8,0,0,0,,0
+2018,2,15,nordicski,"Kluci mají volný den, táta má pré :-B",0,13853,42844,12.21,60.12,1366,0,,0
+2018,2,16,nordicski,Kuba a Miky na Benecku a U Pitáta,0,9471,12211,6.39,43.56,351,0,,0
+2018,2,22,nordicski,Jizerská 40 IV. w/ Alex,0,16985,45629,12.84,65.88,761,0,,0
+2018,2,25,ride,Freezing OK check -9^C,0,4520,23226,19.56,50.4,293,201,spešl_29er,206
+2018,2,27,nordicski,Jizerky w/ Slávek/Dubák/Pavel (Nová louka ráno -24°C),0,19728,30994,11.48,64.44,678,0,,0
+2018,3,4,ride,Lunch Ride,0,3988,21085,21.01,56.88,263,217,spešl_29er,188
+2018,3,5,nordicski,Kluci sáňkují a já hlídám :),0,4123,9148,9.99,56.52,240,0,,0
+2018,3,6,nordicski,Benecko s tátou a klukama,0,9201,12004,6.31,61.92,297,0,,0
+2018,3,7,nordicski,Benecko - Mísečky levem - zpět pravem,0,10800,18000,6,0,0,0,,0
+2018,3,8,nordicski,Cestou pro Marí Ben>Mís klasikou,0,5931,17140,10.85,56.16,429,0,,0
+2018,3,15,ride,Otevírám RBX sezónu,0,5010,31852,23.09,65.52,390,255,spešl_29er,303
+2018,4,1,run,Afternoon Run,0,1958,5833,10.75,17.28,65,0,nike_vomero_9+_texas,0
+2018,4,3,ride,[rbx] Klíčany - kamenolom Čenkov,0,7985,51643,24.32,66.24,548,145,rubéčko,266
+2018,4,4,ride,Hořín,0,14654,84814,23.61,78.12,640,128,rubéčko,397
+2018,4,5,run,Miky na kroužku,0,2274,6464,10.23,28.8,114,0,nike_vomero_9+_texas,0
+2018,4,7,hike,Milešovka s klukama,0,10810,9012,3.82,17.28,614,0,nike_vomero_9+_texas,0
+2018,4,10,ride,[rbx] WINDY Zálezlice,0,11077,74461,25.25,79.56,605,142,rubéčko,362
+2018,4,11,ride,[rbx] Počaply,0,17089,107227,24.9,80.28,688,131,rubéčko,487
+2018,4,12,run,Miky na kroužku,0,2985,6383,10.27,23.76,116,0,nike_vomero_9+_texas,0
+2018,4,14,ride,[rbx] Madame Gasket REV,0,8479,56597,24.46,76.32,707,159,rubéčko,317
+2018,4,17,run,Stromovka comeback w/ Štefan,0,7308,12814,10.73,27.36,187,0,nike_vomero_9+_texas,0
+2018,4,18,ride,Roudnice w/ Michal (142km),0,25536,134832,27.24,69.48,758,123,rubéčko,526
+2018,4,20,ride,Vyvětrat hlavu,0,3159,20124,23.22,77.4,318,261,spešl_29er,195
+2018,4,21,ride,Madame Gasket REV + Klíčany,0,8880,60500,24.53,0,0,0,rubéčko,0
+2018,4,23,ride,Kostelec > Zeleneč w/ Michal,0,13657,78737,24.02,53.28,491,118,rubéčko,334
+2018,4,24,run,Drahaň w/ Štefan,0,4632,14006,11.01,23.4,145,0,nike_vomero_9+_texas,0
+2018,4,26,run,Miky na kroužku,0,2501,7346,10.59,27,114,0,nike_vomero_9+_texas,0
+2018,4,27,ride,Užít si hezký den,0,17814,117674,25.6,75.96,814,133,rubéčko,529
+2018,4,28,ride,Madame Gasket > Kuba turnaj Joudrs,0,9407,61552,25.05,70.2,699,154,rubéčko,327
+2018,4,28,ride,Afternoon Ride,0,347,1931,20.04,36.72,30,229,spešl_29er,19
+2018,5,1,hike,Na Lovoš s Mmk,0,3177,2723,3.54,16.2,246,0,nike_vomero_9+_texas,0
+2018,5,1,hike,Z Lovoše s Mmk,0,2326,2763,4.41,11.88,30,0,nike_vomero_9+_texas,0
+2018,5,2,ride,GF 100 mil,0,26206,169476,25.33,52.2,769,116,rubéčko,668
+2018,5,4,ride,AAA - Klíčany - Kralupy - rybí lavička - Klecany,0,7658,50400,25.06,70.56,566,154,rubéčko,266
+2018,5,6,ride,Jilemnická (mezi celodenním kopáním krumpáčem),0,6973,41720,23.63,63.36,781,187,rubéčko,285
+2018,5,9,ride,100ndartka,0,16230,105707,25.41,72,660,136,rubéčko,487
+2018,5,10,run,Přepnutí z cyklisty na bežce,0,3605,10483,10.47,34.56,175,0,nike_vomero_9+_texas,0
+2018,5,13,hike,MK: Mísečky > Vrbatka > Dvoračky > Kotel jámy,0,10800,13000,4.33,0,0,0,nike_vomero_9+_texas,0
+2018,5,14,run,Drahaň w/ Štefan,0,5368,16168,10.84,32.76,243,0,nike_vomero_9+_texas,0
+2018,5,15,ride,Zálezlice,0,10622,75084,26.91,72.36,612,151,rubéčko,362
+2018,5,17,run,Miky na kroužku,0,4801,14620,10.96,25.92,212,0,nike_vomero_9+_texas,0
+2018,5,18,ride,Řež odpočinek,0,4812,32040,24.38,52.2,429,159,rubéčko,180
+2018,5,19,ride,TV - Skupice I.rbx,0,19127,134368,26.98,42.48,527,125,rubéčko,539
+2018,5,19,ride,Skupice - Seč - Horní Bradlo - Krásné,0,79509,58693,22.9,57.96,912,152,rubéčko,335
+2018,5,21,run,Morning Run,0,5321,16210,11.06,37.44,165,0,nike_vomero_9+_texas,0
+2018,5,22,ride,TV - letiště (Hostivice),0,8230,49207,22.55,51.48,579,136,rubéčko,257
+2018,5,23,run,Morning Run,0,5251,16116,11.39,29.16,121,0,nike_vomero_9+_texas,0
+2018,5,25,ride,Zálezlice,0,10677,75344,27.23,73.8,615,155,rubéčko,369
+2018,5,26,ride,Okoř - Hostivice - Šárka,0,14836,91897,24.42,51.12,875,139,rubéčko,450
+2018,5,27,ride,Křivoklátské okruhy T8,0,15905,100472,23.95,60.84,1322,146,rubéčko,527
+2018,5,28,ride,Zálezlice s Michalem,0,13907,75706,24.27,69.84,640,137,rubéčko,368
+2018,5,28,ride,Kostelec > Zeleneč w/ Protivítr,0,945717,78312,25.4,51.12,468,130,rubéčko,345
+2018,5,29,run,Drahaň w/ Štefan,0,5469,16065,10.92,32.4,210,0,nike_vomero_9+_texas,0
+2018,6,1,ride,Zálezlice - relaxace po releasu 1.42.0,0,9796,75400,27.71,0,0,0,rubéčko,0
+2018,6,3,ride,Po 1/2 roce na biku (seřizování),0,2700,14000,18.67,0,150,0,spešl_29er,0
+2018,6,3,ride,Madame Gasket,0,8245,54503,24.59,70.2,689,157,rubéčko,299
+2018,6,5,ride,100ndartka VĚTŘÍČEK,0,15649,106713,26.41,73.08,686,141,rubéčko,493
+2018,6,6,ride,Singltrek w/ Alex,0,17277,34289,12.74,46.8,748,146,spešl_29er,339
+2018,6,11,ride,Zálezlice > díra v plášti > výměna duše... a v klidu domů :),0,12247,73278,25.78,68.04,600,147,rubéčko,361
+2018,6,14,run,Miky na kroužku,0,3504,10329,10.81,29.52,159,0,nike_vomero_9+_texas,0
+2018,6,15,ride,Odpočinek na biku,0,4479,26809,21.93,67.32,365,243,spešl_29er,255
+2018,6,16,ride,Zálezlice,0,10560,75107,26.92,78.12,611,150,rubéčko,361
+2018,6,18,ride,Račice,0,17942,122564,26.31,77.4,544,128,rubéčko,516
+2018,6,20,ride,23mm -> 25mm,0,9348,59653,24.43,72.72,609,145,rubéčko,304
+2018,6,20,run,S Tomášem na Únětice :-P,0,2270,6839,10.88,38.52,75,0,nike_vomero_9+_texas,0
+2018,6,23,ride,TV - Sedlčany: Peklo Jihu :-B,0,13750,82046,22.33,108.72,1136,142,rubéčko,451
+2018,6,24,ride,Sedlčany - TV: paráda :-D,0,13619,84434,23.52,50.76,1062,142,rubéčko,438
+2018,6,26,ride,Větrušice na skok mezi povinnostmi,0,3746,24717,24.53,73.8,341,158,rubéčko,137
+2018,6,27,ride,S Alexem a jeho novou Giant žiletkou :),0,9826,55578,24.65,52.92,581,141,rubéčko,273
+2018,6,27,run,Na Únětice s Tomem,0,2970,8674,10.54,16.56,129,0,nike_vomero_9+_texas,0
+2018,6,29,ride,Větrušice ... vysvědčení!,0,3838,26076,24.85,78.84,343,164,rubéčko,148
+2018,6,30,run,Skupice - Čejkovice - Pohled,0,3629,10871,10.79,17.64,206,0,nike_vomero_9+_texas,0
+2018,7,1,ride,Madame Gasket,0,8396,56858,25.61,74.52,727,164,rubéčko,314
+2018,7,2,ride,Zálezlice,0,10363,72957,27.1,77.76,597,150,rubéčko,348
+2018,7,3,ride,Afternoon Ride,0,893,2158,11.88,35.64,42,142,spešl_29er,22
+2018,7,3,ride,Afternoon Ride,0,380,2007,19.02,36,37,212,spešl_29er,19
+2018,7,4,run,Psí útulek s finálním sprintem na Dejva :-B,0,2616,7012,9.95,24.12,119,0,nike_vomero_9+_texas,0
+2018,7,5,ride,Parááádní Zálezlice REV,0,10183,75000,26.51,0,0,0,rubéčko,0
+2018,7,8,ride,Račice,0,17542,123808,27.5,63.36,543,137,rubéčko,533
+2018,7,11,run,Drahaň w/ Štefan,0,5994,16030,10.41,19.44,149,0,nike_vomero_9+_texas,0
+2018,7,12,ride,Město policajtů a zpět,0,4041,29199,26.15,73.44,326,163,rubéčko,156
+2018,7,13,ride,Roudnice s Michalem,0,26055,143942,26.12,69.84,649,132,rubéčko,627
+2018,7,16,ride,Zálezlice,0,9600,73000,27.37,0,0,0,rubéčko,0
+2018,7,17,ride,Horňátky: žádný asfalt je lepší než špatný asfalt,0,7939,54237,25.53,75.96,559,150,rubéčko,275
+2018,7,18,ride,Křivoklátská K8 s Alexem,0,18729,91205,23.54,62.64,1266,152,rubéčko,509
+2018,7,23,hike,M&K: Mísečky - Sněžné jámy,0,19514,19041,4.04,12.6,826,0,nike_vomero_9+_texas,0
+2018,7,26,hike,M&K: Červenohorské sedlo - Švýcárna - Praděd,0,24512,20038,3.83,36,682,0,nike_vomero_9+_texas,0
+2018,7,27,hike,M&K: Dolní Morava - rozhledna Klepáč,0,12881,8998,3.5,11.88,401,0,nike_vomero_9+_texas,0
+2018,7,28,hike,M&K: Kouty - Medvědí hora - Dlouhé stráně,0,14652,12334,3.93,47.16,1151,0,nike_vomero_9+_texas,0
+2018,7,30,ride,V - Rezek - sedlo pod Dvoračkami - Rezek - Praha - Rovinka - stojka na běž. tratě - Benecko - kruháč,0,9995,32977,14.95,69.84,1186,230,spešl_29er,437
+2018,7,30,ride,Korekce PAUSEnute hodinky,0,1800,10000,20,0,0,0,spešl_29er,0
+2018,7,31,hike,M&K: Velká Úpa - Portášky - Pecka,0,10783,8140,4.03,31.68,453,0,nike_vomero_9+_texas,0
+2018,8,1,hike,MK: Rezek - Dvoračky - Huťský potok,0,14863,12675,3.87,16.2,528,0,nike_vomero_9+_texas,0
+2018,8,2,hike,M&K: Dolní Dvůr - Tetřevky - Dvorská,0,15488,13922,3.79,16.92,611,0,nike_vomero_9+_texas,0
+2018,8,4,hike,MMK: Žalý - Rovinka - Herlíkovice,0,14022,9892,3.6,6.84,167,0,nike_vomero_9+_texas,0
+2018,8,5,hike,MKTN: Jilemnice - Valteřice zmrzka,0,10089,9096,3.97,9,223,0,nike_vomero_9+_texas,0
+2018,8,6,hike,M&K: LANOVKA - Čerťák - Ručičky - Krakonošova snídaně - Harrachov,0,17738,15512,4.27,16.2,707,0,nike_vomero_9+_texas,0
+2018,8,7,hike,M&K: Jizerka - Pytlácké kameny - rašeliniště,0,11125,10592,4.02,14.04,243,0,nike_vomero_9+_texas,0
+2018,8,10,run,Spine & achyl check (thick socks),0,2464,7226,11.42,41.04,122,0,nike_vomero_9+_texas,0
+2018,8,11,ride,I'm back,0,8224,51603,24.8,66.96,621,157,rubéčko,282
+2018,8,12,run,Čimičák - Ďábličák - Ládví - Drahaň - útulek - LDN,0,4745,14408,11.15,15.12,234,0,nike_vomero_9+_texas,0
+2018,8,14,ride,Račice ... v Zálezlicích se asfaltuje :),0,20923,123754,25.35,66.6,745,133,rubéčko,560
+2018,8,15,run,Na pivo se Štefanem,0,2617,8017,11.03,21.6,42,0,nike_vomero_9+_texas,0
+2018,8,17,ride,Zálezlice,0,12639,73835,25.17,69.12,601,141,rubéčko,358
+2018,8,18,run, Sopečný běh: Milešov - Černčice - Milešovka - Lovoš - Ostrý hrad w/ Štefan,0,14985,27267,7.93,25.56,1167,0,nike_vomero_9+_texas,0
+2018,8,23,hike,MMK Schmilka - kovové schody,0,13887,8924,3.38,7.2,498,0,nike_vomero_9+_texas,0
+2018,8,25,hike,MMK Jetřichovice - Maríina vyhlídka,0,11583,7266,3.21,7.56,427,0,nike_vomero_9+_texas,0
+2018,9,5,ride,K vodě po 3 týdnech na kole,0,6576,36674,24.17,66.96,496,163,rubéčko,213
+2018,9,9,ride,Zálezlice,0,9840,74000,27.07,0,600,0,rubéčko,0
+2018,9,10,ride,Klíčany,0,5892,31889,24.3,76.32,390,156,rubéčko,177
+2018,9,17,ride,Warm up,0,5788,39303,25.65,66.24,482,164,rubéčko,217
+2018,9,18,ride,Zálezlice U-turn,0,10094,70985,26.4,69.48,560,145,rubéčko,336
+2018,9,19,ride,Klecany - Kostelec - Káraný REV w/ Michal,0,14129,77529,23.91,65.52,632,135,rubéčko,379
+2018,9,21,run,Na pivo s TomášemS,0,3256,7424,10.3,16.2,106,0,nike_vomero_9+_texas,0
+2018,9,25,ride,Zálezlice U turn w/ větříček,0,10524,67347,25.49,79.2,547,141,rubéčko,321
+2018,10,14,run,Výběh ze sportovního záhrobí,0,2907,7799,10.54,20.52,91,0,nike_vomero_9+_texas,0
+2018,10,20,ride,Afternoon Ride,0,5271,35011,24.13,69.12,349,142,rubéčko,177
+2018,11,10,ride,Mělník,0,14858,90589,25.21,47.52,591,125,rubéčko,386
+2018,11,17,run,Morning Run,0,3015,8802,10.51,17.64,123,0,nike_vomero_9+_texas,0
+2018,12,10,run,Jetlag 8-P,0,3459,8937,9.73,16.2,86,0,nike_vomero_9+_texas,0
+2018,12,27,run,95kg (+10),0,2812,6069,9.63,17.64,75,0,nike_vomero_9+_texas,0
+2018,12,28,nordicski,Benecko - Mísečky w/ Štefan,0,8800,18015,10.48,58.68,345,0,,0
+2018,12,29,run,Morning Run,0,2646,6907,9.81,23.04,55,0,nike_vomero_9+_texas,0
+2018,12,31,nordicski,Mmk Benecko - Rovinka,0,10010,10249,5.75,20.16,145,0,,0
+2019,1,2,nordicski,Benecko MK & máma :),0,6376,7232,5.42,25.56,153,0,,0
+2019,1,3,nordicski,Benecko Mmk,0,6994,6540,6.17,30.6,145,0,,0
+2019,1,4,nordicski,Kuba bruslí :),0,6050,5108,4.17,20.52,57,0,,0
+2019,1,5,rowing,"C2 7,014m row",0,1827,7014,13.82,0,0,0,,0
+2019,1,6,rowing,"C2 7,019m row",0,1776,7000,14.19,0,0,0,,0
+2019,1,13,standuppaddling,"C2 7,017m row",0,1833,7017,13.78,0,0,0,,0
+2019,1,19,run,⛸ Bruslení,0,3967,11207,10.24,32.04,136,0,nike_vomero_9+_texas,0
+2019,1,27,run,Afternoon Run,0,1157,3279,10.42,16.92,40,0,nike_vomero_9+_texas,0
+2019,3,12,run,H2O > TV,1,2330,6726,10.52,20.88,48,0,nike_vomero_9+_texas,0
+2019,3,13,ride,TV > H2O,1,2193,10761,20.77,48.24,38,181,spešl_29er,80
+2019,3,13,ride,H2O > TV,1,2389,11386,17.16,32.76,131,194,spešl_29er,110
+2019,3,17,ride,TV - Kralupy,0,8925,45960,21.38,63.36,340,238,spešl_29er,440
+2019,3,19,run,H2O > TV,0,2290,6781,10.67,24.48,49,0,nike_vomero_9+_texas,0
+2019,3,20,ride,TV > H2O,0,1891,9943,19.38,48.6,33,112,rubéčko,49
+2019,3,20,ride,H2O > TV,1,2343,11642,18.22,35.64,137,208,spešl_29er,114
+2019,3,21,rowing,"C2 5,000m row",0,1341,5000,13.42,0,0,0,,0
+2019,3,22,ride,TV - H2O,1,1722,9022,21.58,47.16,26,200,spešl_29er,71
+2019,3,22,ride,H2O > TV,1,2315,11722,18.49,45.36,142,215,spešl_29er,117
+2019,3,23,hike,Pokličky MMK,0,7305,5726,3.8,11.16,146,0,nike_vomero_2+,0
+2019,3,24,ride,Kralupy,0,12070,66947,21.99,77.76,644,220,spešl_29er,577
+2019,3,25,ride,TV > H2O,0,2179,13841,23.66,54.36,31,225,spešl_29er,113
+2019,3,25,ride,H2O > TV (déšť),1,2220,11600,18.81,0,0,0,spešl_29er,0
+2019,3,26,ride,TV - H2O,1,2235,9041,14.92,41.76,26,203,spešl_29er,105
+2019,3,26,ride,H2O > TV,1,2578,11603,16.62,30.96,134,188,spešl_29er,113
+2019,3,29,ride,TV - H2O,1,2004,10547,20.2,45,39,197,spešl_29er,88
+2019,3,29,ride,H2O > TV,0,2369,11114,19.23,41.04,137,244,spešl_29er,121
+2019,3,30,ride,TV - Okoř - Kralupy,0,13211,63774,18.25,56.88,701,198,spešl_29er,595
+2019,4,1,ride,TV > H2O,1,2387,9079,14.22,44.28,26,202,spešl_29er,111
+2019,4,1,ride,H2O > TV,1,1800,12000,24,0,130,0,spešl_29er,0
+2019,4,2,ride,TV > H2O,1,2014,9261,21.91,48.6,23,200,spešl_29er,72
+2019,4,2,ride,H2O > TV,1,2211,11771,19.43,40.68,143,248,spešl_29er,129
+2019,4,3,ride,TV > OK > H2O,1,3227,14633,17.37,51.12,82,197,spešl_29er,142
+2019,4,3,ride,H2O > TV,1,2164,11848,20.14,44.64,147,261,spešl_29er,132
+2019,4,8,run,H2O running Monday w/ Ondra & Franta,0,2293,5689,9.21,21.96,22,0,nike_vomero_9+_texas,0
+2019,4,9,ride,TV - H2O,1,1433,9065,23.48,48.24,29,228,spešl_29er,76
+2019,4,9,ride,H2O > TV,1,2191,11726,19.58,41.4,138,254,spešl_29er,130
+2019,4,10,ride,TV - H2O,1,1370,9112,24.11,51.12,29,234,spešl_29er,76
+2019,4,10,ride,H2O > TV,1,2100,11700,20.06,0,0,0,spešl_29er,0
+2019,4,11,ride,H2O - TV,1,1860,10000,19.35,0,0,0,spešl_29er,0
+2019,4,11,ride,H2O > TV,1,2086,11625,20.19,46.44,153,264,spešl_29er,131
+2019,4,12,ride,TV - H2O,1,1694,9034,19.61,46.8,29,210,spešl_29er,83
+2019,4,12,ride,H2O - TV,1,2284,11861,19.26,42.12,141,237,spešl_29er,125
+2019,4,14,rowing,"1,271m row",0,343,1271,13.34,0,0,0,,0
+2019,4,14,rowing,"7,000m row",0,1790,7000,14.08,0,0,0,,0
+2019,4,15,ride,TV > OK > H2O,1,2391,12007,20.19,53.28,84,185,spešl_29er,94
+2019,4,15,ride,H2O > posta,0,1786,8219,18.4,40.32,130,245,spešl_29er,94
+2019,4,15,ride,Posta > TV,1,825,4570,20.31,43.2,55,213,spešl_29er,41
+2019,4,16,ride,TV - H2O,1,2504,13274,19.9,48.96,79,186,spešl_29er,107
+2019,4,16,ride,H2O > TV,1,2318,11624,19.13,51.12,140,245,spešl_29er,128
+2019,4,17,ride,TV > H2O,1,3681,20833,21.2,38.88,171,190,spešl_29er,161
+2019,4,17,ride,H2O > TV,1,2400,14192,21.69,39.6,141,269,spešl_29er,151
+2019,4,18,ride,TV > H2O,0,1526,9072,21.84,47.88,30,202,spešl_29er,72
+2019,4,18,ride,H2O > TV,1,1673,8809,19.27,38.52,131,259,spešl_29er,101
+2019,4,21,run,Chrudim - Slatiňany,0,4215,11467,10.16,16.56,73,0,nike_vomero_9+_texas,0
+2019,4,23,ride,TV > H2O,0,2079,9154,19.7,39.96,29,194,spešl_29er,77
+2019,4,23,ride,H2O > $ staronova helma,1,1720,6989,16.47,40.68,117,217,spešl_29er,79
+2019,4,23,ride,$ staronova helma > TV,1,785,4114,19.07,42.84,58,210,spešl_29er,39
+2019,4,24,ride,TV > H2O,0,5461,13910,22.66,54,81,220,spešl_29er,116
+2019,4,24,ride,H2O - TV,1,2429,11610,19.98,43.2,146,256,spešl_29er,128
+2019,4,25,ride,TV > H2O,1,2100,13240,22.7,0,100,0,spešl_29er,0
+2019,4,25,ride,H2O - bobovka - TV,1,2700,14000,18.67,0,0,0,spešl_29er,0
+2019,4,26,ride,Morning Ride,1,1526,9093,22.78,38.16,30,208,spešl_29er,71
+2019,4,26,ride,Afternoon Ride,1,2040,11523,20.47,37.8,143,252,spešl_29er,122
+2019,4,30,ride,TV - H2O,1,1783,9123,22.82,48.6,25,217,spešl_29er,74
+2019,4,30,ride,H2O - TV,1,2069,11225,19.98,40.68,141,254,spešl_29er,122
+2019,5,2,ride,TV <> H2O,1,4200,20000,17.14,0,200,0,spešl_29er,0
+2019,5,7,hike,Kolem Světa s Kubou,0,15378,14210,4.33,29.16,96,0,nike_vomero_9+_texas,0
+2019,6,2,run,Sunnyvale 7k,0,2659,7011,9.86,16.92,23,0,nike_vomero_9+_texas,0
+2019,6,3,run,☀vale morning,0,1998,5715,10.65,18.72,11,0,nike_vomero_9+_texas,0
+2019,6,4,run,☀ vale 5k,0,1785,5280,11.01,15.84,13,0,nike_vomero_9+_texas,0
+2019,6,5,run,Nežrat 😉,0,1758,5407,11.3,16.92,13,0,nike_vomero_9+_texas,0
+2019,6,8,run,☀vale hike/jog w/ Laco - Mašina trail :-),0,5205,10280,8.63,16.2,11,0,nike_vomero_9+_texas,0
+2019,6,9,run,NASA Ames II.,0,4215,12290,11.11,16.56,8,0,nike_vomero_9+_texas,0
+2019,6,11,run,☀ vale 8 track,0,1718,5179,11.38,21.24,13,0,nike_vomero_9+_texas,0
+2019,6,12,run,The day after the IPA day 😉,0,1900,5666,10.95,28.44,17,0,nike_vomero_9+_texas,0
+2019,6,14,run,Back to Brooks 👟,0,2251,5883,10.76,15.12,14,0,brooks_glycerin_17_navy/gold,0
+2019,6,15,run,NASA Ames III.,0,3658,10412,10.95,14.04,8,0,brooks_glycerin_17_navy/gold,0
+2019,7,9,ride,TV > H2O,1,1367,9000,23.7,0,150,0,spešl_29er,0
+2019,7,9,ride,H2O > TV,1,2220,14000,22.7,0,200,0,spešl_29er,0
+2019,7,10,ride,TV > H2O,1,1302,9000,24.88,0,150,0,spešl_29er,0
+2019,7,10,ride,H2O > TV,1,2307,13781,22.52,46.8,136,279,spešl_29er,146
+2019,7,11,ride,Rainmaker @ Doubravicka,0,13344,59473,20.22,37.08,433,195,spešl_29er,494
+2019,7,15,ride,TV > H2O,1,1323,9000,24.49,0,0,0,spešl_29er,0
+2019,7,15,ride,H2O > TV,1,4911,27121,20.04,37.44,269,216,spešl_29er,251
+2019,7,16,ride,TV > H2O,1,3615,13871,22.4,47.16,34,233,spešl_29er,124
+2019,7,17,ride,H2O > TV,1,2700,11500,15.33,0,100,0,spešl_29er,0
+2019,7,18,run,TV > H2O,1,2434,6992,10.88,24.48,31,0,brooks_glycerin_17_navy/gold,0
+2019,7,18,run,H2O > TV,0,2104,6185,11.08,15.84,12,0,brooks_glycerin_17_navy/gold,0
+2019,7,24,run,7k wake-up run,0,2215,6044,10.4,18,99,0,brooks_glycerin_17_navy/gold,0
+2019,7,26,ride,TV > H2O,1,1320,9300,25.36,0,0,0,spešl_29er,0
+2019,7,26,ride,H2O > TV,1,1920,11600,21.75,0,0,0,spešl_29er,0
+2019,7,29,ride,TV > H2O,1,1750,13551,28.15,48.6,34,288,spešl_29er,119
+2019,7,29,run,Vítkov - Krejcárek w/ Štefan,0,2811,7482,9.58,32.04,99,0,brooks_glycerin_17_navy/gold,0
+2019,7,29,ride,H2O > TV,1,5109,27476,19.36,40.32,268,232,spešl_29er,283
+2019,7,31,ride,TV - H2O,1,1848,11271,21.96,40.32,37,245,spešl_29er,108
+2019,7,31,ride,H2O > TV,1,2868,11435,14.35,39.96,137,214,spešl_29er,146
+2019,8,2,ride,TV > H2O,1,1645,10796,24.27,38.88,31,217,spešl_29er,83
+2019,8,2,ride,H2O > TV,1,1669,8519,18.53,36.72,131,239,spešl_29er,94
+2019,8,3,ride,Okolo Prahy,0,16581,77181,18.5,48.24,790,191,spešl_29er,687
+2019,8,4,ride,Račice na pohodu... s defektem,0,24926,131784,23.28,48.6,734,132,rubéčko,643
+2019,8,5,ride,TV - H2O,1,1525,9192,23.88,46.08,27,217,spešl_29er,71
+2019,8,5,run,H2O run,0,1951,5366,10.1,22.68,20,0,brooks_glycerin_17_navy/gold,0
+2019,8,7,run,TV > H2O,1,3615,10288,10.66,31.32,72,0,brooks_glycerin_17_navy/gold,0
+2019,8,8,ride,H2O > TV,1,2423,13648,20.45,38.16,137,237,spešl_29er,136
+2019,8,9,run,H2O > TV,1,2851,8501,10.99,33.84,40,0,brooks_glycerin_17_navy/gold,0
+2019,8,9,run,H2O - TV,1,2016,6058,11.37,17.28,11,0,brooks_glycerin_17_navy/gold,0
+2019,8,10,ride,Klínovec Azur trail I.,0,3600,10000,10,0,0,0,spešl_29er,0
+2019,8,10,ride,Klínovec Azur trail II.,0,1840,10366,24.57,38.88,25,100,spešl_29er,36
+2019,8,10,ride,Klínovec Rubin trail III.,0,1554,7676,22.99,36,0,32,spešl_29er,9
+2019,8,10,ride,Klínovec Azur trail IV.,0,1808,10218,25.21,38.52,19,90,spešl_29er,31
+2019,8,10,ride,Klínovec Azur trail V.,0,2050,10385,22.74,40.68,21,90,spešl_29er,35
+2019,8,10,ride,Klínovec Rubin trail VI.,0,1565,7712,23.57,37.44,0,35,spešl_29er,9
+2019,8,10,ride,Klínovec Azur trail VII.,0,2142,10265,24.95,36.72,19,88,spešl_29er,31
+2019,8,12,run,H2O.ai run,0,2633,7547,10.86,16.92,98,0,brooks_glycerin_17_navy/gold,0
+2019,8,13,run,TV > H2O.ai,1,3596,10920,11.2,20.52,68,0,brooks_glycerin_17_navy/gold,0
+2019,8,14,ride,TV > H2O,1,2324,13704,21.87,43.2,85,196,spešl_29er,105
+2019,8,14,ride,H2O - TV,1,2341,13883,21.73,42.12,136,263,spešl_29er,145
+2019,8,15,ride,O Klíčany,0,4517,31294,25.32,54.72,319,169,rubéčko,179
+2019,8,18,ride,Skupice > TV... vedro a vítr jako 🐮 > 🍻 2 🍻,0,28355,143298,21.74,57.24,635,216,spešl_29er,1229
+2019,8,19,run,H2O.ai run,0,1879,5414,10.74,41.4,18,0,brooks_glycerin_17_navy/gold,0
+2019,8,22,ride,O Klíčany,0,4809,32170,24.53,48.24,311,158,rubéčko,178
+2019,8,24,ride,Zálezlice,0,11465,77104,26.55,58.32,548,159,rubéčko,397
+2019,8,26,ride,TV > H2O,1,1320,9000,24.54,0,50,0,spešl_29er,0
+2019,8,26,run,H2O.ai run w/ Štefan,0,4846,13398,10.29,21.96,182,0,brooks_glycerin_17_navy/gold,0
+2019,8,26,ride,H2O - TV,1,2043,11323,20.25,38.88,132,244,spešl_29er,117
+2019,8,27,ride,TV > H2O,1,1841,9251,18.43,48.96,45,217,spešl_29er,93
+2019,8,28,run,TV > H2Oai,1,2776,8311,11.04,24.12,40,0,brooks_glycerin_17_navy/gold,0
+2019,8,30,ride,H2O - TV,1,2409,14289,21.83,48.6,132,247,spešl_29er,139
+2019,9,2,run,H2O.ai run,0,4980,13570,10.33,48.96,182,0,brooks_glycerin_17_navy/gold,0
+2019,9,3,ride,Afternoon Ride,1,1500,11000,26.4,0,0,0,spešl_29er,0
+2019,9,4,run,TV > H2O,1,3599,10978,11.24,20.52,136,0,brooks_glycerin_17_navy/gold,0
+2019,9,5,ride,TV > H2O,1,1320,9000,24.54,0,50,0,spešl_29er,0
+2019,9,5,ride,H2O > TV,1,2400,11000,16.5,0,150,0,spešl_29er,0
+2019,9,6,ride,TV > H2O,0,1500,11500,27.6,0,50,0,spešl_29er,0
+2019,9,6,ride,H2O - TV,1,2116,11544,20.25,36.72,143,241,spešl_29er,118
+2019,9,7,ride,Jen symbolicky (deadline),0,2807,19228,25.09,43.56,222,170,rubéčko,112
+2019,9,8,ride,"... sám si za to můžeš, když jseš línej vstávat :-P",0,3956,21406,19.68,46.08,286,222,spešl_29er,208
+2019,9,10,ride,TV > H2O,0,1500,11500,27.6,0,50,0,spešl_29er,0
+2019,9,10,ride,H2O > TV,0,1500,11500,27.6,0,150,0,spešl_29er,0
+2019,9,11,ride,TV > H2O,1,2533,13729,22.02,45.72,84,212,spešl_29er,114
+2019,9,11,ride,Evening Ride,0,1800,11500,23,0,0,0,spešl_29er,0
+2019,9,12,ride,Útulek down - Drahaň up - Ládví 🗼 - Čimičák,0,2880,15600,19.5,0,0,0,spešl_29er,0
+2019,9,13,ride,TV > H2O,0,1803,8924,22.87,47.52,39,208,spešl_29er,69
+2019,9,13,ride,H2O - TV,1,1942,11563,21.58,38.88,144,260,spešl_29er,120
+2019,9,14,run,Skupice - Pohled... udělat si žízeň 🍻,0,3376,9802,11.19,21.96,160,0,brooks_glycerin_17_navy/gold,0
+2019,9,15,run,Skupice - 🏰 Rabštejn - 🍴 Monako - 🏰 Kočičák - 🗼 Bára - Pohled,0,7779,21970,10.57,42.48,386,0,brooks_glycerin_17_navy/gold,0
+2019,9,18,ride,TV > H2O,1,1622,9050,22.9,37.44,45,212,spešl_29er,72
+2019,9,19,ride,H2O - TV,1,2090,11612,20.19,39.6,142,239,spešl_29er,118
+2019,9,20,run,H2O.ai - TV,1,2680,8427,11.86,23.04,40,0,brooks_glycerin_17_navy/gold,0
+2019,9,21,ride,S klukama,0,9791,23187,11.02,36.36,285,109,spešl_29er,197
+2019,9,22,ride,Drahelčice - Prokopák - Helča,0,6205,33135,19.48,43.56,333,192,spešl_29er,281
+2019,9,22,ride,Helča - TV,0,4472,26333,21.48,42.48,261,231,spešl_29er,244
+2019,9,23,ride,H2O.ai - TV,1,1725,9013,19.71,40.32,42,208,spešl_29er,82
+2019,9,23,run,H2O.ai w/ Štefan,0,2184,6589,11.43,21.24,87,0,brooks_glycerin_17_navy/gold,0
+2019,9,24,run,TV - H2O,0,2541,8445,12.16,28.08,44,0,brooks_glycerin_17_navy/gold,0
+2019,9,24,ride,H2O - TV,1,2119,11612,19.95,40.32,143,238,spešl_29er,119
+2019,9,26,run,Okolo Č,0,2680,7920,10.99,25.56,111,0,brooks_glycerin_17_navy/gold,0
+2019,9,27,ride,TV - H2O,1,1995,10977,22.9,40.68,37,202,spešl_29er,83
+2019,9,27,ride,H2O - TV,1,2190,11643,19.34,37.08,144,223,spešl_29er,116
+2019,9,28,ride,☀ na pohodu,0,8650,56713,24.68,48.6,480,150,rubéčko,297
+2019,9,29,ride,Zálezlice - když mi foukne do zad jedu jak Mašina 😂,0,10954,73743,26.14,49.32,522,152,rubéčko,368
+2019,9,30,run,H2O run w/Štefan&OndraS,0,2173,6575,11.14,18.72,86,0,brooks_glycerin_17_navy/gold,0
+2019,10,1,ride,H2O - TV,1,3011,13903,16.62,37.08,57,200,spešl_29er,144
+2019,10,1,ride,H2O - TV,1,2298,13874,21.87,40.68,141,258,spešl_29er,141
+2019,10,2,ride,TV - H2O,1,2292,11111,22.42,36.36,40,196,spešl_29er,83
+2019,10,2,ride,H2O - TV,1,2334,11554,18.84,34.56,142,224,spešl_29er,118
+2019,10,4,ride,TV > H2O,1,1674,9065,22.24,44.64,31,194,spešl_29er,68
+2019,10,4,ride,H2O > TV,1,2931,11795,19.13,34.92,142,235,spešl_29er,124
+2019,10,6,hike,Komáří vížka s Mmk,0,10517,9987,4.01,11.52,74,0,brooks_glycerin_17_navy/gold,0
+2019,10,7,ride,TV > H2O,1,2811,8995,21.52,45.36,41,199,spešl_29er,71
+2019,10,7,ride,H2O - TV,1,2178,12007,20.35,42.48,142,255,spešl_29er,129
+2019,10,8,ride,TV - H2O,1,2596,12274,19.73,51.84,83,190,spešl_29er,102
+2019,10,9,ride,H2O - TV,1,2918,12396,17.62,37.8,142,208,spešl_29er,126
+2019,10,11,ride,TV - H2O,1,1619,8923,20.66,42.84,42,204,spešl_29er,76
+2019,10,11,ride,H2O - TV,1,2108,11620,20.32,40.32,143,252,spešl_29er,124
+2019,10,14,ride,TV - H2O,1,1739,9038,19.66,50.76,42,191,spešl_29er,75
+2019,10,14,run,H2O run w/ Ondra & Franta,0,2421,6524,10.01,38.88,85,0,brooks_glycerin_17_navy/gold,0
+2019,10,15,run,H2O run w/ Veronika,0,2328,5901,9.27,19.08,51,0,brooks_glycerin_17_navy/gold,0
+2019,10,15,ride,H2O - TV,1,2096,11676,20.23,43.56,143,243,spešl_29er,121
+2019,10,16,ride,TV > H2O,1,2059,11683,22.47,41.04,44,205,spešl_29er,92
+2019,10,16,ride,H2O > TV,0,2398,11797,18.18,33.12,143,217,spešl_29er,121
+2019,10,30,ride,TV > H2O,1,1320,9000,24.54,0,100,0,spešl_29er,0
+2019,11,1,ride,H2O > TV,1,2400,11000,16.5,0,150,0,spešl_29er,0
+2019,11,2,run,Back to normal,0,2103,6233,10.84,32.4,45,0,brooks_glycerin_17_navy/gold,0
+2019,11,4,run,H2O run with Franta,0,2462,6752,10.38,46.8,82,0,brooks_glycerin_17_navy/gold,0
+2019,11,5,ride,TV - H2O,1,1845,11374,22.32,38.88,35,200,spešl_29er,87
+2019,11,5,ride,H2O > TV,1,2187,11617,19.32,42.12,140,226,spešl_29er,117
+2019,11,8,ride,TV - H2O,1,1688,9259,20.95,43.56,27,200,spešl_29er,76
+2019,11,8,ride,H2O - TV,1,2213,11858,19.36,46.44,147,217,spešl_29er,114
+2019,11,9,ride,Na poštu pro scam 😠,0,3067,10566,18,42.12,112,183,spešl_29er,92
+2019,11,10,run,Dvacítečka napsaná w/ Štefan 💪,0,7696,21830,10.63,32.76,132,0,brooks_glycerin_17_navy/gold,0
+2019,11,11,run,H2O.ai run,0,4695,12268,10.03,39.6,129,0,brooks_glycerin_17_navy/gold,0
+2019,11,15,run,TV > H2O (92kg +12),1,2552,8181,11.62,31.68,38,0,brooks_glycerin_17_navy/gold,0
+2019,11,16,run,Drahaň down - vinice up,0,4557,14259,11.53,32.04,163,0,brooks_glycerin_17_navy/gold,0
+2019,11,17,run,Baby Šárka w/ Štefan,0,7121,20346,10.68,27.72,244,0,brooks_glycerin_17_navy/gold,0
+2019,11,17,hike,Říp,0,7429,6381,3.78,30.24,241,0,brooks_glycerin_17_navy/gold,0
+2019,11,21,run,H2O > TV,1,2759,8061,10.73,29.16,128,0,brooks_glycerin_17_navy/gold,0
+2019,11,22,run,TV > H2O w/ Stefan,1,2766,8396,11.6,28.44,40,0,brooks_glycerin_17_navy/gold,0
+2019,11,23,run,Drahaň w/ Štefan,0,6080,16532,10.22,27.36,216,0,brooks_glycerin_17_navy/gold,0
+2019,11,24,run,Baby Šárka w/ Štefan,1,6780,19217,10.48,30.24,230,0,brooks_glycerin_17_navy/gold,0
+2019,11,25,run,H2O run (w/ Kvetinarska uphill hard),0,5178,13880,10.15,46.08,183,0,brooks_glycerin_17_navy/gold,0
+2019,11,30,run,Ď a Č,0,3604,10910,11.04,30.6,146,0,brooks_glycerin_17_navy/gold,0
+2019,12,1,run,Útulek - stojka 👴 finále,0,3250,10154,11.51,29.52,151,0,brooks_glycerin_17_navy/gold,0
+2019,12,1,run,2 Joudrs w/ Miky 🛴,0,515,1509,10.55,22.68,10,0,brooks_glycerin_17_navy/gold,0
+2019,12,2,run,H2O run,0,5700,15508,10.16,40.32,223,0,brooks_glycerin_17_navy/gold,0
+2019,12,3,run,H2O > TV,1,2819,8052,10.35,28.8,125,0,brooks_glycerin_17_navy/gold,0
+2019,12,4,run,TV > H2O,1,2740,8559,11.67,28.08,44,0,brooks_glycerin_17_navy/gold,0
+2019,12,8,run,Easy Ď & Č w/ random runner,0,3626,11659,11.66,39.96,167,0,brooks_glycerin_17_navy/gold,0
+2019,12,9,run,H2O run w/ Franta  & Ondra,0,3098,8176,9.81,21.24,119,0,brooks_glycerin_17_navy/gold,0
+2019,12,15,run,Vyčistit hlavu @ Drahaň,0,4396,13356,10.95,30.6,125,0,brooks_glycerin_17_navy/gold,0
+2019,12,15,run,Štefan 💪,0,1073,3469,11.67,33.12,10,0,brooks_glycerin_17_navy/gold,0
+2019,12,16,run,H2O run,0,3320,8237,9.63,21.96,125,0,brooks_glycerin_17_navy/gold,0
+2019,12,23,run,Detox Vídeň,0,2932,7245,11.62,23.4,110,0,brooks_glycerin_17_navy/gold,0
+2019,12,24,run,První štědrodenní dar: jezevec v Zámcích 🦝,0,2387,6921,10.96,20.88,91,0,brooks_glycerin_17_navy/gold,0
+2019,12,29,run,93kg 💩,0,6986,22365,11.53,52.2,288,0,brooks_glycerin_17_navy/gold,0
+2020,1,1,alpineski,Kuba reboot @ Kněžičák,0,10800,0,,,0,0,,0
+2020,1,2,alpineski,Mmk Kněžičák,0,10800,0,,,0,0,,0
+2020,1,3,alpineski,Kuba @ Černý důl,0,10800,0,,,0,0,,0
+2020,1,5,run,2020 opening 🎉,0,2605,7954,11.06,41.76,106,0,brooks_glycerin_17_navy/gold,0
+2020,1,6,run,H2O run,0,3109,8030,9.8,27.72,118,0,brooks_glycerin_17_navy/gold,0
+2020,1,7,run,TV > H2O w/ Štefan,1,2826,8790,11.34,32.04,43,0,brooks_glycerin_17_navy/gold,0
+2020,1,7,run,H2O > TV,1,2754,7847,10.42,28.44,129,0,brooks_glycerin_17_navy/gold,0
+2020,1,12,run,LSD w/ Stefan,0,13178,22209,11.45,26.64,299,0,brooks_glycerin_17_navy/gold,0
+2020,1,22,run,TV - H2O,1,2890,8659,11.09,37.08,52,0,brooks_glycerin_17_navy/gold,0
+2020,1,22,run,H2O - TV,1,2941,8222,10.27,33.84,111,0,brooks_glycerin_17_navy/gold,0
+2020,1,25,run,Palisada > jezevec > vinice stojka ^,0,3358,9984,10.77,25.56,145,0,brooks_glycerin_17_navy/gold,0
+2020,1,26,run,Easy fartlek > tempíčko (92kg),0,4388,14422,11.89,36.36,93,0,brooks_glycerin_17_navy/gold,0
+2020,1,28,run,TV > H2O,1,2646,8219,11.57,35.64,46,0,brooks_glycerin_17_navy/gold,0
+2020,1,29,run,H2O.ai - TV,0,2906,8202,10.32,28.08,113,0,brooks_glycerin_17_navy/gold,0
+2020,1,31,nordicski,Ručičky - Čerťák - Rokytnice w/ Miky,0,10985,13564,5.91,47.16,226,0,,0
+2020,2,1,alpineski,Černá hora w/ Kuba,0,11792,33811,13.99,52.92,3494,0,,0
+2020,2,3,run,H2O.ai run w/ Zuzka,0,3256,8824,10.16,27.72,184,0,brooks_glycerin_17_navy/gold,0
+2020,2,9,run,Vyvětrat hlavu,0,2498,7307,11.55,18.72,43,0,brooks_glycerin_17_navy/gold,0
+2020,2,15,run,Je to boj 🥵,0,3232,9598,10.72,26.64,132,0,brooks_glycerin_17_navy/gold,0
+2020,2,22,run,Jezevec 10k route,0,3395,10197,10.83,29.16,171,0,brooks_glycerin_17_navy/gold,0
+2020,2,24,nordicski,Černá hora - Pardubické a Krausovy boudy - Jánky,0,9658,13381,6.39,56.52,193,0,,0
+2020,2,26,alpineski,Rokytnice w/ Kuba & Miky,0,7344,21392,13.14,51.84,2172,0,,0
+2020,2,27,nordicski,Mísečky - Medvědín - 7k okruhy w/ Miky & Kuba,0,11292,17178,7.39,107.28,386,0,,0
+2020,2,28,nordicski,Benecko - Mísečky a zpět w/ Miky & Kuba,0,16209,19818,6.86,65.88,556,0,,0
+2020,2,29,nordicski,Čerťák - Ručičky - černá - Zadní plech - Krakonošova snídaně - Harrachov w/ Kuba a Miky,0,15181,18004,5.86,64.44,332,0,,0
+2020,3,1,run,Útulek - kanál - Kocáb - velká louka,0,4038,11608,10.54,25.92,80,0,brooks_glycerin_17_navy/gold,0
+2020,3,4,rowing,5:08 row,0,309,1249,14.55,18.72,0,0,,0
+2020,3,4,rowing,5:05 row,0,306,1135,13.35,15.84,0,0,,0
+2020,3,4,rowing,5k w/ warm/cool,0,1247,5000,14.44,0,0,0,,0
+2020,3,15,ride,1st 2020,0,8671,40961,18.14,50.04,477,195,spešl_29er,380
+2020,3,27,run,C.1,0,2384,6841,10.42,20.52,92,0,brooks_glycerin_17_navy/gold,0
+2020,3,30,rowing,Easy,0,2184,8200,13.52,0,0,0,,0
+2020,3,31,rowing,C2: 10' + 8x 1'/1' + 10',0,2100,8000,13.72,0,0,0,,0
+2020,4,6,rowing,5k 3x250m,0,1269,5000,14.18,0,0,0,,0
+2020,4,7,workout,Soft K+M,0,2700,3300,4.4,0,0,0,,0
+2020,4,7,rowing,10' + 5k + 5',0,1194,5000,15.08,0,0,0,,0
+2020,4,10,ride,TV - Skupice (138km/6:19),0,24381,145286,22.89,134.64,481,213,spešl_29er,1163
+2020,4,11,ride,Skupice - Pohled - Kočičák 🏰 - Bára 🗼,0,4474,24082,19.62,48.96,337,207,spešl_29er,218
+2020,4,14,rowing,3x3'/2'r,0,2160,8500,14.17,0,0,0,,0
+2020,4,15,rowing,10x :30/:30r,0,1800,7000,14,0,0,0,,0
+2020,4,17,ride,Rubéčko je ready 💪,0,2565,17109,24.13,49.32,160,151,rubéčko,92
+2020,4,18,ride,Zálezlice,0,10550,76009,26.69,52.92,492,145,rubéčko,357
+2020,4,19,rowing,500/r500 - 400/r400 - 300/r300 - 200/r200 - 100/r100 - 100/r100 - ... - 500/r500,0,2880,11000,13.75,0,0,0,,0
+2020,4,20,ride,Řež přes 2 1/2 kopce,0,4357,28743,23.79,53.64,333,152,rubéčko,158
+2020,4,21,rowing,.5w + 5k + 1c,0,1680,6500,13.93,0,0,0,,0
+2020,4,22,rowing,.5w 30'@24 .5c,0,2160,8200,13.67,0,0,0,,0
+2020,4,23,walk,S klukama na jednu branku,0,1800,0,,,0,0,brooks_glycerin_17_navy/gold,0
+2020,4,24,ride,Snídaně,0,2910,19974,24.84,55.44,224,153,rubéčko,105
+2020,4,25,ride,Zálezlice 🍃 🍃 🍃,0,11332,77581,25.39,52.2,497,133,rubéčko,349
+2020,4,26,run,Drahaň ↓ - útulek ↑,0,3945,11911,10.97,23.4,138,0,brooks_glycerin_17_navy/gold,0
+2020,4,28,rowing,10k easy,0,2537,10100,14.33,0,0,0,,0
+2020,4,29,ride,Klíčany 🌧️,0,6961,36567,19.17,51.84,373,204,spešl_29er,334
+2020,5,1,ride,TV - Skupice @ zgravelovanej bajk & vichr v zádech,0,20572,136031,25.35,44.28,435,268,spešl_29er,1240
+2020,5,3,ride,Pohled - 🌲 Podol - Bára - singltrek Podhůra - Chrudim,0,8423,43070,19.4,47.16,548,211,spešl_29er,404
+2020,5,5,ride,Meet Kató @ Ď a Č,0,1389,5881,16.16,43.56,51,162,kató,50
+2020,5,5,ride,Ď correction,0,1800,10000,20,0,0,0,kató,0
+2020,5,6,ride,Ď & Č,0,3408,13414,14.72,54,177,189,kató,148
+2020,5,6,rowing,C2 7.5k eeeasy,0,2083,7500,12.96,0,0,0,,0
+2020,5,8,ride,Zálezlice REV,0,10685,75410,26.88,51.12,494,139,rubéčko,336
+2020,5,9,ride,Ď a Č w/ Kuba a Miky,0,3600,13000,13,0,0,0,spešl_29er,0
